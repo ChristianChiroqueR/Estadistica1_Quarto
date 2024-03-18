@@ -3,8 +3,8 @@ project:
   output-dir: docs
   
 book:
-  title: "Estadistica1_Q"
-  author: "Norah Jones"
+  title: "Estadística para el análisis político 1"
+  author: "Christian Chiroque"
   date: "17/3/2024"
   chapters:
     - index.qmd
