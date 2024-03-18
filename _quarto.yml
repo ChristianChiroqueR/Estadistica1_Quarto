@@ -3,22 +3,28 @@ project:
   output-dir: docs
   
 book:
-  title: "Estadística para el análisis político 1"
+  title: "Estadística para el Análisis Político 1"
   author: "Christian Chiroque"
-  date: "17/3/2024"
+  favicon: pucp.jpg
+  date: "3/17/2024"
   chapters:
     - index.qmd
-    - intro.qmd
+    - s1_intro.qmd
+    - s2_descriptivo.qmd
+    - s3_visualizacion.qmd
     - summary.qmd
     - references.qmd
-
+  
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      dark: darkly
+      light: flatly
   pdf:
     documentclass: scrreprt
+lang: es
 
 editor: visual
 

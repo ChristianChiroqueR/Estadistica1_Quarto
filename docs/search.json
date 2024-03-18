@@ -2,11 +2,11 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Estadística para el análisis político 1",
+    "title": "Estadística para el Análisis Político 1",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Sobre el curso",
     "crumbs": [
-      "Preface"
+      "Sobre el curso"
     ]
   },
   {
@@ -14,7 +14,7 @@
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n\n\nKnuth, Donald E. 1984. «Literate Programming». Comput. J. 27 (2): 97-111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -37,6 +37,86 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "index.html#bienvenido",
+    "href": "index.html#bienvenido",
+    "title": "Estadística para el Análisis Político 1",
+    "section": "Bienvenido",
+    "text": "Bienvenido",
+    "crumbs": [
+      "Sobre el curso"
+    ]
+  },
+  {
+    "objectID": "index.html#sílabo",
+    "href": "index.html#sílabo",
+    "title": "Estadística para el Análisis Político 1",
+    "section": "Sílabo",
+    "text": "Sílabo",
+    "crumbs": [
+      "Sobre el curso"
+    ]
+  },
+  {
+    "objectID": "s1_intro.html",
+    "href": "s1_intro.html",
+    "title": "1  Introducción",
+    "section": "",
+    "text": "1.1 Presentación",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "s2_descriptivo.html",
+    "href": "s2_descriptivo.html",
+    "title": "2  Estadística Descriptiva",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "s3_visualizacion.html",
+    "href": "s3_visualizacion.html",
+    "title": "3  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "s1_intro.html#estadística-los-fundamentos",
+    "href": "s1_intro.html#estadística-los-fundamentos",
+    "title": "1  Introducción",
+    "section": "1.2 Estadística: los fundamentos",
+    "text": "1.2 Estadística: los fundamentos",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#bienvenida",
+    "href": "index.html#bienvenida",
+    "title": "Estadística para el Análisis Político 1",
+    "section": "Bienvenida",
+    "text": "Bienvenida\nHola! Bienvenid@ al curso de Estadística para el Análisis Político 1 de la especialidad de Ciencia Política y Gobierno de la Pontificia Universidad Católica del Perú.\nEn esta página podrás encontrar toda la información referida al curso tal como: presentaciones (ppt), código, texto explicativo y material audiovisual adicional.",
+    "crumbs": [
+      "Sobre el curso"
+    ]
+  },
+  {
+    "objectID": "index.html#ia-generativa",
+    "href": "index.html#ia-generativa",
+    "title": "Estadística para el Análisis Político 1",
+    "section": "IA generativa",
+    "text": "IA generativa\nPermitimos y promovemos activamente el uso de inteligencia artificial generativa, como ChatGPT, Gemini, y otras plataformas similares, como soporte para la creación y sofisticación del código en R.\nCreemos firmemente que estas herramientas pueden ser aliados significativos para profundizar en la comprensión de conceptos complejos, mejorar las habilidades de programación y fomentar la innovación y creatividad en nuestros proyectos y tareas.\nLa integración de la inteligencia artificial en nuestro proceso de aprendizaje ofrece una oportunidad única para experimentar con nuevas formas de resolver problemas, optimizar procesos y generar ideas que puedan llevar nuestra capacidad analítica y técnica a nuevos niveles.\nSin embargo, es importante destacar que, mientras fomentamos el uso de estas herramientas tecnológicas avanzadas para la exploración y el aprendizaje durante el curso, no se permitirá su uso en las evaluaciones.",
+    "crumbs": [
+      "Sobre el curso"
     ]
   }
 ]

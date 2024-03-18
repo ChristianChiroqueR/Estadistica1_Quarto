@@ -1,9 +1,25 @@
-# Preface {.unnumbered}
+# Sobre el curso {.unnumbered}
 
-This is a Quarto book.
+## Bienvenida
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Hola! Bienvenid@ al curso de **Estadística para el Análisis Político 1** de la especialidad de Ciencia Política y Gobierno de la Pontificia Universidad Católica del Perú.
 
-```{r}
-1 + 1
+En esta página podrás encontrar toda la información referida al curso tal como: presentaciones (ppt), código, texto explicativo y material audiovisual adicional.
+
+
+## Sílabo
+
+```{=html}
+<iframe src="ppt/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
 ```
+
+
+## IA generativa
+
+Permitimos y promovemos activamente el uso de inteligencia artificial generativa, como ChatGPT, Gemini, y otras plataformas similares, como soporte para la creación y sofisticación del código en R.
+
+Creemos firmemente que estas herramientas pueden ser aliados significativos para profundizar en la comprensión de conceptos complejos, mejorar las habilidades de programación y fomentar la innovación y creatividad en nuestros proyectos y tareas.
+
+La integración de la inteligencia artificial en nuestro proceso de aprendizaje ofrece una oportunidad única para experimentar con nuevas formas de resolver problemas, optimizar procesos y generar ideas que puedan llevar nuestra capacidad analítica y técnica a nuevos niveles.
+
+Sin embargo, es importante destacar que, mientras fomentamos el uso de estas herramientas tecnológicas avanzadas para la exploración y el aprendizaje durante el curso, no se permitirá su uso en las evaluaciones.
