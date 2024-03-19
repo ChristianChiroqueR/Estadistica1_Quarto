@@ -193,6 +193,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#apertura-de-paquetes" id="toc-apertura-de-paquetes" class="nav-link" data-scroll-target="#apertura-de-paquetes"><span class="header-section-number">1.5.1</span> Apertura de paquetes</a></li>
   <li><a href="#apertura-de-archivos" id="toc-apertura-de-archivos" class="nav-link" data-scroll-target="#apertura-de-archivos"><span class="header-section-number">1.5.2</span> Apertura de archivos</a></li>
+  <li><a href="#identificación-del-tipo-de-variable" id="toc-identificación-del-tipo-de-variable" class="nav-link" data-scroll-target="#identificación-del-tipo-de-variable"><span class="header-section-number">1.5.3</span> Identificación del tipo de variable</a></li>
+  <li><a href="#configuración-de-las-variable" id="toc-configuración-de-las-variable" class="nav-link" data-scroll-target="#configuración-de-las-variable"><span class="header-section-number">1.5.4</span> Configuración de las variable</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -222,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="objetivos-de-la-sesión" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="objetivos-de-la-sesión"><span class="header-section-number">1.1</span> Objetivos de la sesión</h2>
 <ul>
-<li>Introducción al R y fundamentos de programación</li>
+<li>Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.</li>
 </ul>
 </section>
 <section id="presentación" class="level2" data-number="1.2">
@@ -234,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="consideraciones-básicas" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="consideraciones-básicas"><span class="header-section-number">1.3.1</span> Consideraciones básicas</h3>
 <p>R es un lenguaje de programación y un entorno de software libre orientado principalmente al análisis estadístico y la representación gráfica de datos.</p>
-<p>R es un lenguaje de programación que adopta el paradigma de la “programación orientada a objetos”. Esto significa que, en R, todo se considera un “objeto”, ya sea un conjunto de datos, una función o un modelo.</p>
+<p>R es un lenguaje de programación que adopta el paradigma de la “programación orientada a objetos”. Esto significa que, en R, todo se considera un “objeto”, ya sea un número, una base de datos o un modelo estadístico.</p>
 <p>Cada objeto tiene atributos y comportamientos asociados que determinan cómo se puede interactuar con él.</p>
 <p>Imagina que cada objeto en R es como un coche. Los “atributos” de ese coche pueden incluir su color, marca, modelo, y año de fabricación. Estos atributos describen las características específicas del coche. Ahora, piensa en los “comportamientos asociados” como las acciones que puedes realizar con ese coche: encenderlo, acelerar, frenar o encender las luces. Del mismo modo, en R, un objeto, como un conjunto de datos, podría tener atributos que describan su tamaño, tipo y estructura. Y los comportamientos asociados de ese conjunto de datos podrían incluir operaciones como filtrar, ordenar o aplicar una función estadística.</p>
 </section>
@@ -247,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Como comentario: Cuando nosotros colocamos el símbolo # al iniciar una oración, el Script lo va a identificar como un comentario del programador, como un texto que no va a ser ejecutado como código. Esto es importante porque nos permite ir comentando, por ejemplo, lo que estamos redactando en el documento. Ej: “Este código sirve para abrir un archivo”, “Aquí estoy haciendo un análisis de regresión”, entre otros.</p></li>
 <li><p>Como código: Cuando escribimos directamente en el documento el programa lo va a entender como código o funciones. Esto es importante tenerlo en cuenta para evitar notificaciones de Error.</p></li>
 </ul>
-<p>Te recomiendo ver el siguiente video para que puedas aprender más sobre el Script, pero también sobre las otras opciones que el R te puede ofrecer.</p>
+<p>Te recomiendo ver el siguiente video para que puedas aprender más sobre el Script, pero también sobre las otras opciones que el R te puede ofrecer y que usaremos más adelante.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/y7JPGlw6dJg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 </section>
@@ -285,17 +287,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "Perú"</code></pre>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>Uno puede asignar un nombre a un objeto en el R con la flecha de asignación (&lt;-)</p>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Importante
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Uno puede asignar un nombre a un objeto en el R con la flecha de asignación (&lt;-)</p>
+<p>En la próxima clase, exploraremos otro tipo de objetos conocidos como factores.</p>
 </div>
 </div>
 </section>
@@ -338,7 +341,7 @@ Tip
 <pre><code>[1] 15</code></pre>
 </div>
 </div>
-<p>También podemos utilizar la función <code>class()</code> para corroborar que cada vector tiene la misma clase de los elementos que contiene.</p>
+<p>También podemos utilizar la función <code>class()</code> para corroborar que la clase del vector que tenemos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vector_numerico)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -359,7 +362,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Te vas a dar cuenta que estás frente a una función porque usualmente está seguida de paréntesis en el cual se colocan los argumentos.</p>
+<p>Siempre te vas a dar cuenta que estás frente a una función porque usualmente está seguida de paréntesis en el cual se colocan los argumentos.</p>
 </div>
 </div>
 </section>
@@ -398,6 +401,19 @@ Tip
 <pre><code>[1] "departamentos" "pobreza"      </code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un error frecuente es no identificar correctamente las unidades de análisis con las que estamos trabajando. Al abrir un conjunto de datos, lo primero que debes preguntarte es: ¿A qué se refiere esta información? ¿A personas, países, instituciones?</p>
+</div>
+</div>
 </section>
 <section id="índices" class="level3" data-number="1.4.5">
 <h3 data-number="1.4.5" class="anchored" data-anchor-id="índices"><span class="header-section-number">1.4.5</span> Índices</h3>
@@ -416,18 +432,25 @@ Tip
 <pre><code>[1] 47.7 46.4 44.8</code></pre>
 </div>
 </div>
-<p>Para seleccionar una columna, también podemos usar el símbolo de <code>$</code>. Es bastante usado en varias funciones.</p>
+<p>Para seleccionar una columna, también podemos usar el símbolo de <code>$</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mi_df<span class="sc">$</span>pobreza</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 47.7 46.4 44.8</code></pre>
 </div>
 </div>
+<p>Normalmente lo usamos cuando queremos aplicar una función a sólo una columna. Como por ejemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mi_df<span class="sc">$</span>pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 46.3</code></pre>
+</div>
+</div>
 <ul>
 <li>Seleccionar sólo el caso (fila) 2:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  departamentos pobreza
 2      Ayacucho    46.4</code></pre>
@@ -437,9 +460,22 @@ Tip
 <li>Seleccionar el elemento que se encuentra en la fila 2 y la columna 2:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,<span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,<span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 46.4</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recuerda que en los [,] primero se mencionan las filas y luego las columnas.</p>
 </div>
 </div>
 </section>
@@ -455,7 +491,7 @@ Tip
 <p>Hagamos la prueba con el paquete <code>rio</code>, el cual es un paquete creado para importar/exportar archivos de diversos tipos.</p>
 <p>Primero lo vamos a instalar. No te olvides que cuando instalas un paquete el nombre del mismo va entre comillas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("rio")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("rio")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -470,9 +506,9 @@ Tip
 <p>Recuerda que la instalación de paquetes se realiza sólo una vez. Esto quiere decir que si instalas hoy el paquete “rio” ya no será necesario que realices esta operación nuevamente.</p>
 </div>
 </div>
-<p>Luego de instalarlo lo debemos abrir para utilizar las funciones que están en él.</p>
+<p>Luego de instalarlo lo debemos abrir para utilizar las funciones que están dentro de él.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apertura-de-archivos" class="level3" data-number="1.5.2">
@@ -480,57 +516,192 @@ Tip
 <p>Lo más común es que se te va a entregar un archivo para que lo puedas abrir en el R.</p>
 <p>Para ello, una primera forma sencilla de abrir un archivo es haciendo uso de la función <code>import</code> del paquete <code>rio</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">"data/regiones.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">"data/regiones.xlsx"</span>) </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Dentro del () colocas la ubicación del archivo.</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez que abrimos una data y corroboramos que está en nuestro Environment podemos explorarla.</p>
 <p>Viendo un encabezado de las primeras filas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     region poblacion pobreza  agua desague electrificacion acceso_internet
-1  Amazonas    379384    47.3 51.84   36.69           73.67            4.45
-2    Ancash   1083519    23.5 71.56   56.38           85.20           18.33
-3  Apurímac    405759    42.8 56.33   36.12           80.43            8.93
-4  Arequipa   1382730     9.1 72.47   65.85           89.98           32.88
-5  Ayacucho    616176    51.9 66.99   45.35           80.94           10.42
-6 Cajamarca   1341012    52.9 52.89   32.48           80.68            9.29
-  telefonia_movil pc_tablet hospitales macroregion
-1           69.39     11.02          8     Oriente
-2           79.60     25.00         23       Norte
-3           71.21     14.74          8         Sur
-4           91.28     40.52         24         Sur
-5           77.65     17.84         11         Sur
-6           74.66     14.10         25       Norte</code></pre>
+<pre><code>     region macroregion poblacion pobreza nivel_pobreza  agua desague
+1  Amazonas     Oriente    379384    47.3             3 51.84   36.69
+2    Ancash       Norte   1083519    23.5             2 71.56   56.38
+3  Apurímac         Sur    405759    42.8             3 56.33   36.12
+4  Arequipa         Sur   1382730     9.1             1 72.47   65.85
+5  Ayacucho         Sur    616176    51.9             3 66.99   45.35
+6 Cajamarca       Norte   1341012    52.9             3 52.89   32.48
+  electrificacion acceso_internet telefonia_movil pc_tablet hospitales
+1           73.67            4.45           69.39     11.02          8
+2           85.20           18.33           79.60     25.00         23
+3           80.43            8.93           71.21     14.74          8
+4           89.98           32.88           91.28     40.52         24
+5           80.94           10.42           77.65     17.84         11
+6           80.68            9.29           74.66     14.10         25</code></pre>
 </div>
 </div>
 <p>Analizando su estructura:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   24 obs. of  11 variables:
+<pre><code>'data.frame':   24 obs. of  12 variables:
  $ region         : chr  "Amazonas" "Ancash" "Apurímac" "Arequipa" ...
+ $ macroregion    : chr  "Oriente" "Norte" "Sur" "Sur" ...
  $ poblacion      : num  379384 1083519 405759 1382730 616176 ...
  $ pobreza        : num  47.3 23.5 42.8 9.1 51.9 52.9 18.8 46.6 40.1 4.7 ...
+ $ nivel_pobreza  : num  3 2 3 1 3 3 2 3 3 1 ...
  $ agua           : num  51.8 71.6 56.3 72.5 67 ...
  $ desague        : num  36.7 56.4 36.1 65.8 45.4 ...
  $ electrificacion: num  73.7 85.2 80.4 90 80.9 ...
  $ acceso_internet: num  4.45 18.33 8.93 32.88 10.42 ...
  $ telefonia_movil: num  69.4 79.6 71.2 91.3 77.7 ...
  $ pc_tablet      : num  11 25 14.7 40.5 17.8 ...
- $ hospitales     : num  8 23 8 24 11 25 20 5 9 25 ...
- $ macroregion    : chr  "Oriente" "Norte" "Sur" "Sur" ...</code></pre>
+ $ hospitales     : num  8 23 8 24 11 25 20 5 9 25 ...</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "region"          "poblacion"       "pobreza"         "agua"           
- [5] "desague"         "electrificacion" "acceso_internet" "telefonia_movil"
- [9] "pc_tablet"       "hospitales"      "macroregion"    </code></pre>
+<pre><code> [1] "region"          "macroregion"     "poblacion"       "pobreza"        
+ [5] "nivel_pobreza"   "agua"            "desague"         "electrificacion"
+ [9] "acceso_internet" "telefonia_movil" "pc_tablet"       "hospitales"     </code></pre>
+</div>
+</div>
+</section>
+<section id="identificación-del-tipo-de-variable" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="identificación-del-tipo-de-variable"><span class="header-section-number">1.5.3</span> Identificación del tipo de variable</h3>
+<p>Antes de seguir en el análisis debemos corroborar los tipos de variables con los que estamos trabajando a nivel teórico.</p>
+<p>En una data real, esto normalmente lo encontramos en el Cuestionario o Diccionario de Variables. Según la teoría estadistica podemos tener dos grandes opciones.</p>
+<section id="numéricas" class="level4" data-number="1.5.3.1">
+<h4 data-number="1.5.3.1" class="anchored" data-anchor-id="numéricas"><span class="header-section-number">1.5.3.1</span> Numéricas</h4>
+<p>Las variables numéricas son aquellas que representan cantidades medidas o contadas, y pueden ser de tipo entero o decimal. Permiten realizar operaciones matemáticas y son fundamentales en el análisis estadístico y cuantitativo.</p>
+<p>Se clasifican en continuas y discretas, basándose en los valores que pueden tomar.</p>
+<p>Las variables discretas representan información que se puede contar en unidades enteras, como el número de <strong>hospitales</strong> en nuestra base de datos.</p>
+<p>Por otro lado, las variables continuas pueden tomar cualquier valor dentro de un rango, incluyendo decimales. En nuestra base de datos contamos con variables como * como la altura o el peso <strong>pobreza</strong>, <strong>agua</strong>, entre otros. Esto significa que pueden medir con precisión infinita dentro de su escala, adaptándose a una variedad más amplia de datos y mediciones.</p>
+</section>
+<section id="categóricas" class="level4" data-number="1.5.3.2">
+<h4 data-number="1.5.3.2" class="anchored" data-anchor-id="categóricas"><span class="header-section-number">1.5.3.2</span> Categóricas</h4>
+<p>Una variable categórica clasifica las observaciones en grupos o categorías que no tienen un orden matemático inherente. Se dividen en nominales y ordinales.</p>
+<p>Las variables nominales representan categorías sin un orden específico entre ellas, como colores, nombres de países o géneros. En nuestra data una variable nominal sería <strong>macroregion</strong>.</p>
+<p>En cambio, las variables ordinales sí poseen un orden o jerarquía entre las categorías, aunque la distancia entre estas no es necesariamente uniforme; por ejemplo, niveles de educación o calificaciones de satisfacción. Continuando con el ejemplo, la variable ordinal <strong>nivel_pobreza</strong> clasifica en categorías donde el 1 corresponde a “Bajo”, el 2 a “Medio” y el 3 a “Alto”.</p>
+</section>
+</section>
+<section id="configuración-de-las-variable" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="configuración-de-las-variable"><span class="header-section-number">1.5.4</span> Configuración de las variable</h3>
+<p>Ahora veamos qué tenemos en nuestra data.</p>
+<p>Veamos las siguientes tres variables: poblacion (numérica), macroregión (nominal) y nivel de pobreza (ordinal).</p>
+<p>Dichas variables qué tipo de objeto son actualmente en el R?</p>
+<section id="numéricas-1" class="level4" data-number="1.5.4.1">
+<h4 data-number="1.5.4.1" class="anchored" data-anchor-id="numéricas-1"><span class="header-section-number">1.5.4.1</span> Numéricas</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data<span class="sc">$</span>poblacion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>Para el caso de población cuenta con la configuración adecuada pues es <strong>numeric</strong>.</p>
+<p>Ten en cuenta que para el caso de una variable numérica discreta como <strong>hospitales</strong> la configuración adecuada también es numeric.</p>
+</section>
+<section id="factores" class="level4" data-number="1.5.4.2">
+<h4 data-number="1.5.4.2" class="anchored" data-anchor-id="factores"><span class="header-section-number">1.5.4.2</span> Factores</h4>
+<p>Para el caso de las variables categóricas, para poder trabajar con estas en el R debemos convertirlas a un tipo especial de objeto denominado <strong>factor</strong>.</p>
+<p>Básicamente, un factor es una variable que tiene grupos, los cuales pueden estar ordenados o no ordenados.</p>
+<p><strong>FACTORES NO ORDENADOS</strong></p>
+<p>Para el caso de la variable nominal macroregión que inicialmente está mal configurada (pues tiene el tipo character).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data<span class="sc">$</span>macroregion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>vamos a convertirla en un factor no ordenado.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>macroregion<span class="ot">&lt;-</span><span class="fu">factor</span>(data<span class="sc">$</span>macroregion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hemos empleado la función factor() y el operador de asignación porque estamos modificando una parte de nuestro conjunto de datos. En otras palabras, estamos <strong>actualizando</strong> la variable macroregión con su configuración correcta.</p>
+</div>
+</div>
+<p>Podemos corroborar el tipo final pidiendo otra vez la función <code>str()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data<span class="sc">$</span>macroregion)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Factor w/ 4 levels "Centro","Norte",..: 3 2 4 4 4 2 4 1 1 1 ...</code></pre>
+</div>
+</div>
+<p>En este caso nos menciona que ahora la variable macroregion es un factor con cuatro niveles (Centro, Norte, Sur, Oriente).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si bien aquí vemos la palabra “niveles” esto no quiere decir que para R esos niveles tengan un orden, sino más bien que son categorías diferentes.</p>
+</div>
+</div>
+<p><strong>FACTORES ORDENADOS</strong></p>
+<p>Ahora bien, el caso del nivel de pobreza es diferente, ya que, aunque también es un factor, sus niveles presentan un orden de magnitud específico.</p>
+<p>En este caso, además de convertirla en factor, es necesario especificar el orden de los niveles, indicando que efectivamente se trata de una secuencia ordenada.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>nivel_pobreza<span class="ot">&lt;-</span><span class="fu">factor</span>(data<span class="sc">$</span>nivel_pobreza,</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mediante la función str(), confirmamos que nuestra variable nivel_pobreza se ha convertido efectivamente en un factor ordenado con tres niveles, donde 1 es menor que 2 y, a su vez, 2 es menor que 3.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data<span class="sc">$</span>nivel_pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Ord.factor w/ 3 levels "1"&lt;"2"&lt;"3": 3 2 3 1 3 3 2 3 3 1 ...</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aunque para nosotros los niveles parecen ser números (1, 2 o 3), para R no lo son. Esto significa que no es posible realizar operaciones matemáticas con ellos.</p>
+</div>
+</div>
+<p>Ahora con esta configuración ya estamos listos para el siguiente paso: manipular tablas y calculas estadísticos descriptivos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   24 obs. of  12 variables:
+ $ region         : chr  "Amazonas" "Ancash" "Apurímac" "Arequipa" ...
+ $ macroregion    : Factor w/ 4 levels "Centro","Norte",..: 3 2 4 4 4 2 4 1 1 1 ...
+ $ poblacion      : num  379384 1083519 405759 1382730 616176 ...
+ $ pobreza        : num  47.3 23.5 42.8 9.1 51.9 52.9 18.8 46.6 40.1 4.7 ...
+ $ nivel_pobreza  : Ord.factor w/ 3 levels "1"&lt;"2"&lt;"3": 3 2 3 1 3 3 2 3 3 1 ...
+ $ agua           : num  51.8 71.6 56.3 72.5 67 ...
+ $ desague        : num  36.7 56.4 36.1 65.8 45.4 ...
+ $ electrificacion: num  73.7 85.2 80.4 90 80.9 ...
+ $ acceso_internet: num  4.45 18.33 8.93 32.88 10.42 ...
+ $ telefonia_movil: num  69.4 79.6 71.2 91.3 77.7 ...
+ $ pc_tablet      : num  11 25 14.7 40.5 17.8 ...
+ $ hospitales     : num  8 23 8 24 11 25 20 5 9 25 ...</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 </section>
 

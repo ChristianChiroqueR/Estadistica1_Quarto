@@ -2,7 +2,7 @@
 
 ## Objetivos de la sesión
 
--   Introducción al R y fundamentos de programación
+-   Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.
 
 ## Presentación
 
@@ -15,7 +15,7 @@
 
 R es un lenguaje de programación y un entorno de software libre orientado principalmente al análisis estadístico y la representación gráfica de datos.
 
-R es un lenguaje de programación que adopta el paradigma de la "programación orientada a objetos". Esto significa que, en R, todo se considera un "objeto", ya sea un conjunto de datos, una función o un modelo.
+R es un lenguaje de programación que adopta el paradigma de la "programación orientada a objetos". Esto significa que, en R, todo se considera un "objeto", ya sea un número, una base de datos o un modelo estadístico.
 
 Cada objeto tiene atributos y comportamientos asociados que determinan cómo se puede interactuar con él.
 
@@ -33,7 +33,7 @@ En suma, podemos redactar nuestros script, compartirlos con otros investigadores
 
 -   Como código: Cuando escribimos directamente en el documento el programa lo va a entender como código o funciones. Esto es importante tenerlo en cuenta para evitar notificaciones de Error.
 
-Te recomiendo ver el siguiente video para que puedas aprender más sobre el Script, pero también sobre las otras opciones que el R te puede ofrecer.
+Te recomiendo ver el siguiente video para que puedas aprender más sobre el Script, pero también sobre las otras opciones que el R te puede ofrecer y que usaremos más adelante.
 
 {{< video https://www.youtube.com/watch?v=y7JPGlw6dJg&t=132s >}}
 
@@ -67,8 +67,10 @@ country<-"Perú"
 country
 ```
 
-::: callout-tip
 Uno puede asignar un nombre a un objeto en el R con la flecha de asignación (\<-)
+
+::: callout-important
+En la próxima clase, exploraremos otro tipo de objetos conocidos como factores.
 :::
 
 ### Vectores
@@ -105,7 +107,7 @@ Pero también podemos aplicar una función sobre un vector. Por ejemplo, podemos
 sum(vector_numerico)
 ```
 
-También podemos utilizar la función `class()` para corroborar que cada vector tiene la misma clase de los elementos que contiene.
+También podemos utilizar la función `class()` para corroborar que la clase del vector que tenemos.
 
 ```{r}
 class(vector_numerico)
@@ -113,7 +115,7 @@ class(vector_caracter)
 ```
 
 ::: callout-tip
-Te vas a dar cuenta que estás frente a una función porque usualmente está seguida de paréntesis en el cual se colocan los argumentos.
+Siempre te vas a dar cuenta que estás frente a una función porque usualmente está seguida de paréntesis en el cual se colocan los argumentos.
 :::
 
 ### Dataframes
@@ -147,6 +149,10 @@ Otra función básica para explorar es `names()`, la cual te arroja exclusivamen
 names(mi_df)
 ```
 
+::: callout-important
+Un error frecuente es no identificar correctamente las unidades de análisis con las que estamos trabajando. Al abrir un conjunto de datos, lo primero que debes preguntarte es: ¿A qué se refiere esta información? ¿A personas, países, instituciones?
+:::
+
 ### Índices
 
 -   Usar índices para obtener subconjuntos es el procedimiento más universal en R, pues funciona para todas las estructuras de datos.
@@ -163,11 +169,18 @@ Ejemplos:
 mi_df [,2]
 ```
 
-Para seleccionar una columna, también podemos usar el símbolo de `$`. Es bastante usado en varias funciones.
+Para seleccionar una columna, también podemos usar el símbolo de `$`. 
 
 ```{r}
 mi_df$pobreza
 ```
+
+Normalmente lo usamos cuando queremos aplicar una función a sólo una columna. Como por ejemplo:
+
+```{r}
+mean(mi_df$pobreza)
+```
+
 
 -   Seleccionar sólo el caso (fila) 2:
 
@@ -180,6 +193,10 @@ mi_df [2,]
 ```{r}
 mi_df [2,2]
 ```
+
+::: callout-tip
+Recuerda que en los \[,\] primero se mencionan las filas y luego las columnas.
+:::
 
 ## Procedimientos básicos
 
@@ -205,7 +222,7 @@ Primero lo vamos a instalar. No te olvides que cuando instalas un paquete el nom
 Recuerda que la instalación de paquetes se realiza sólo una vez. Esto quiere decir que si instalas hoy el paquete "rio" ya no será necesario que realices esta operación nuevamente.
 :::
 
-Luego de instalarlo lo debemos abrir para utilizar las funciones que están en él.
+Luego de instalarlo lo debemos abrir para utilizar las funciones que están dentro de él.
 
 ```{r message=FALSE, warning=FALSE}
 library(rio)
@@ -213,12 +230,13 @@ library(rio)
 
 ### Apertura de archivos
 
-Lo más común es que se te va a entregar un archivo para que lo puedas abrir en el R. 
+Lo más común es que se te va a entregar un archivo para que lo puedas abrir en el R.
 
 Para ello, una primera forma sencilla de abrir un archivo es haciendo uso de la función `import` del paquete `rio`:
 
 ```{r}
-data<-import("data/regiones.xlsx")
+data<-import("data/regiones.xlsx") 
+#Dentro del () colocas la ubicación del archivo.
 ```
 
 Una vez que abrimos una data y corroboramos que está en nuestro Environment podemos explorarla.
@@ -237,5 +255,113 @@ str(data)
 
 ```{r}
 names(data)
+```
+
+### Identificación teórica de la variable
+
+![](images/variables.png)
+
+Antes de seguir en el análisis debemos corroborar los tipos de variables con los que estamos trabajando a nivel teórico. 
+
+En una data real, esto normalmente lo encontramos en el Cuestionario o Diccionario de Variables. Según la teoría estadistica podemos tener dos grandes opciones.
+
+#### Numéricas
+
+Las variables numéricas son aquellas que representan cantidades medidas o contadas, y pueden ser de tipo entero o decimal. Permiten realizar operaciones matemáticas y son fundamentales en el análisis estadístico y cuantitativo.
+
+Se clasifican en continuas y discretas, basándose en los valores que pueden tomar.
+
+Las variables discretas representan información que se puede contar en unidades enteras, como el número de **hospitales** en nuestra base de datos. 
+
+
+Por otro lado, las variables continuas pueden tomar cualquier valor dentro de un rango, incluyendo decimales. En nuestra base de datos contamos con variables como * como la altura o el peso **pobreza**, **agua**, entre otros. Esto significa que pueden medir con precisión infinita dentro de su escala, adaptándose a una variedad más amplia de datos y mediciones.
+
+
+#### Categóricas
+
+Una variable categórica clasifica las observaciones en grupos o categorías que no tienen un orden matemático inherente. Se dividen en nominales y ordinales. 
+
+Las variables nominales representan categorías sin un orden específico entre ellas, como colores, nombres de países o géneros. En nuestra data una variable nominal sería **macroregion**. 
+
+En cambio, las variables ordinales sí poseen un orden o jerarquía entre las categorías, aunque la distancia entre estas no es necesariamente uniforme; por ejemplo, niveles de educación o calificaciones de satisfacción. Continuando con el ejemplo, la variable ordinal **nivel_pobreza** clasifica en categorías donde el 1 corresponde a "Bajo", el 2 a "Medio" y el 3 a "Alto".
+
+
+### Configuración de las variable en R
+
+Ahora veamos qué tenemos en nuestra data. 
+
+Veamos las siguientes tres variables: poblacion (numérica), macroregión (nominal) y nivel de pobreza (ordinal).
+
+Dichas variables qué tipo de objeto son actualmente en el R?
+
+#### Numeric
+
+```{r}
+class(data$poblacion)
+```
+Para el caso de población cuenta con la configuración adecuada pues es **numeric**.
+
+Ten en cuenta que para el caso de una variable numérica discreta como **hospitales** la configuración adecuada también es numeric. 
+
+#### Factors
+
+Para el caso de las variables categóricas, para poder trabajar con estas en el R debemos convertirlas a un tipo especial de objeto denominado **factor**. 
+
+Básicamente, un factor es una variable que tiene grupos, los cuales pueden estar ordenados o no ordenados. 
+
+**FACTORES NO ORDENADOS**
+
+Para el caso de la variable nominal macroregión que inicialmente está mal configurada (pues tiene el tipo character). 
+
+```{r}
+class(data$macroregion)
+```
+vamos a convertirla en un factor no ordenado.
+
+```{r}
+data$macroregion<-factor(data$macroregion)
+```
+
+::: callout-tip
+Hemos empleado la función factor() y el operador de asignación porque estamos modificando una parte de nuestro conjunto de datos. En otras palabras, estamos **actualizando** la variable macroregión con su configuración correcta.
+:::
+
+Podemos corroborar el tipo final pidiendo otra vez la función `str()`:
+
+```{r}
+str(data$macroregion)
+```
+En este caso nos menciona que ahora la variable macroregion es un factor con cuatro niveles (Centro, Norte, Sur, Oriente).
+
+::: callout-important
+Si bien aquí vemos la palabra "niveles" esto no quiere decir que para R esos niveles tengan un orden, sino más bien que son categorías diferentes. 
+:::
+
+**FACTORES ORDENADOS**
+
+Ahora bien, el caso del nivel de pobreza es diferente, ya que, aunque también es un factor, sus niveles presentan un orden de magnitud específico.
+
+En este caso, además de convertirla en factor, es necesario especificar el orden de los niveles, indicando que efectivamente se trata de una secuencia ordenada.
+
+```{r}
+data$nivel_pobreza<-factor(data$nivel_pobreza,
+                          levels = c(1,2,3),
+                          ordered = TRUE)
+```
+
+Mediante la función str(), confirmamos que nuestra variable nivel_pobreza se ha convertido efectivamente en un factor ordenado con tres niveles, donde 1 es menor que 2 y, a su vez, 2 es menor que 3.
+
+```{r}
+str(data$nivel_pobreza)
+```
+::: callout-important
+Aunque para nosotros los niveles parecen ser números (1, 2 o 3), para R no lo son. Esto significa que no es posible realizar operaciones matemáticas con ellos.
+:::
+
+
+Ahora con esta configuración ya estamos listos para el siguiente paso: manipular tablas y calculas estadísticos descriptivos. 
+
+```{r}
+str(data)
 ```
 
