@@ -2,18 +2,15 @@
 
 ## Bienvenida
 
-Hola! Bienvenid@ al curso de **Estadística para el Análisis Político 1** de la especialidad de Ciencia Política y Gobierno de la Pontificia Universidad Católica del Perú.
+Hola! Bienvenid\@ al curso de **Estadística para el Análisis Político 1** de la especialidad de Ciencia Política y Gobierno de la Pontificia Universidad Católica del Perú.
 
 En esta página podrás encontrar toda la información referida al curso tal como: presentaciones (ppt), código, texto explicativo y material audiovisual adicional.
-
 
 ## Sílabo
 
 ```{=html}
 <iframe src="ppt/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
 ```
-
-
 ## Sobre IA generativa
 
 Permitimos y promovemos activamente el uso de inteligencia artificial generativa, como ChatGPT, Gemini, y otras plataformas similares, como soporte para la creación y sofisticación del código en R.
@@ -24,12 +21,9 @@ La integración de la inteligencia artificial en nuestro proceso de aprendizaje 
 
 Sin embargo, es importante destacar que, mientras fomentamos el uso de estas herramientas tecnológicas avanzadas para la exploración y el aprendizaje durante el curso, no se permitirá su uso en las evaluaciones.
 
-
 ## Software
 
-Tanto en las sesiones teóricas, como en las prácticas, se hará uso del software libre 
-R y de la interfase Rstudio. Se requiere descargar las últimas versiones de ambos 
-programas informáticos. 
+Tanto en las sesiones teóricas, como en las prácticas, se hará uso del software libre R y de la interfase Rstudio. Se requiere descargar las últimas versiones de ambos programas informáticos.
 
 La última versión de R (4.3.3) puede ser descargada gratuitamente para Windows o macOS.
 
@@ -40,4 +34,3 @@ La última versión de R (4.3.3) puede ser descargada gratuitamente para Windows
 La última versión de Rstudio Desktop (versión RStudio 2023.12.1+402) puede ser descargada aquí para Windows o macOS.
 
 <https://posit.co/download/rstudio-desktop/>
-

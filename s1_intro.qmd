@@ -169,7 +169,7 @@ Ejemplos:
 mi_df [,2]
 ```
 
-Para seleccionar una columna, también podemos usar el símbolo de `$`. 
+Para seleccionar una columna, también podemos usar el símbolo de `$`.
 
 ```{r}
 mi_df$pobreza
@@ -180,7 +180,6 @@ Normalmente lo usamos cuando queremos aplicar una función a sólo una columna. 
 ```{r}
 mean(mi_df$pobreza)
 ```
-
 
 -   Seleccionar sólo el caso (fila) 2:
 
@@ -261,7 +260,7 @@ names(data)
 
 ![](images/variables.png)
 
-Antes de seguir en el análisis debemos corroborar los tipos de variables con los que estamos trabajando a nivel teórico. 
+Antes de seguir en el análisis debemos corroborar los tipos de variables con los que estamos trabajando a nivel teórico.
 
 En una data real, esto normalmente lo encontramos en el Cuestionario o Diccionario de Variables. Según la teoría estadistica podemos tener dos grandes opciones.
 
@@ -271,24 +270,21 @@ Las variables numéricas son aquellas que representan cantidades medidas o conta
 
 Se clasifican en continuas y discretas, basándose en los valores que pueden tomar.
 
-Las variables discretas representan información que se puede contar en unidades enteras, como el número de **hospitales** en nuestra base de datos. 
+Las variables discretas representan información que se puede contar en unidades enteras, como el número de **hospitales** en nuestra base de datos.
 
-
-Por otro lado, las variables continuas pueden tomar cualquier valor dentro de un rango, incluyendo decimales. En nuestra base de datos contamos con variables como * como la altura o el peso **pobreza**, **agua**, entre otros. Esto significa que pueden medir con precisión infinita dentro de su escala, adaptándose a una variedad más amplia de datos y mediciones.
-
+Por otro lado, las variables continuas pueden tomar cualquier valor dentro de un rango, incluyendo decimales. En nuestra base de datos contamos con variables como \* como la altura o el peso **pobreza**, **agua**, entre otros. Esto significa que pueden medir con precisión infinita dentro de su escala, adaptándose a una variedad más amplia de datos y mediciones.
 
 #### Categóricas
 
-Una variable categórica clasifica las observaciones en grupos o categorías que no tienen un orden matemático inherente. Se dividen en nominales y ordinales. 
+Una variable categórica clasifica las observaciones en grupos o categorías que no tienen un orden matemático inherente. Se dividen en nominales y ordinales.
 
-Las variables nominales representan categorías sin un orden específico entre ellas, como colores, nombres de países o géneros. En nuestra data una variable nominal sería **macroregion**. 
+Las variables nominales representan categorías sin un orden específico entre ellas, como colores, nombres de países o géneros. En nuestra data una variable nominal sería **macroregion**.
 
 En cambio, las variables ordinales sí poseen un orden o jerarquía entre las categorías, aunque la distancia entre estas no es necesariamente uniforme; por ejemplo, niveles de educación o calificaciones de satisfacción. Continuando con el ejemplo, la variable ordinal **nivel_pobreza** clasifica en categorías donde el 1 corresponde a "Bajo", el 2 a "Medio" y el 3 a "Alto".
 
-
 ### Configuración de las variable en R
 
-Ahora veamos qué tenemos en nuestra data. 
+Ahora veamos qué tenemos en nuestra data.
 
 Veamos las siguientes tres variables: poblacion (numérica), macroregión (nominal) y nivel de pobreza (ordinal).
 
@@ -299,23 +295,25 @@ Dichas variables qué tipo de objeto son actualmente en el R?
 ```{r}
 class(data$poblacion)
 ```
+
 Para el caso de población cuenta con la configuración adecuada pues es **numeric**.
 
-Ten en cuenta que para el caso de una variable numérica discreta como **hospitales** la configuración adecuada también es numeric. 
+Ten en cuenta que para el caso de una variable numérica discreta como **hospitales** la configuración adecuada también es numeric.
 
 #### Factors
 
-Para el caso de las variables categóricas, para poder trabajar con estas en el R debemos convertirlas a un tipo especial de objeto denominado **factor**. 
+Para el caso de las variables categóricas, para poder trabajar con estas en el R debemos convertirlas a un tipo especial de objeto denominado **factor**.
 
-Básicamente, un factor es una variable que tiene grupos, los cuales pueden estar ordenados o no ordenados. 
+Básicamente, un factor es una variable que tiene grupos, los cuales pueden estar ordenados o no ordenados.
 
 **FACTORES NO ORDENADOS**
 
-Para el caso de la variable nominal macroregión que inicialmente está mal configurada (pues tiene el tipo character). 
+Para el caso de la variable nominal macroregión que inicialmente está mal configurada (pues tiene el tipo character).
 
 ```{r}
 class(data$macroregion)
 ```
+
 vamos a convertirla en un factor no ordenado.
 
 ```{r}
@@ -331,10 +329,11 @@ Podemos corroborar el tipo final pidiendo otra vez la función `str()`:
 ```{r}
 str(data$macroregion)
 ```
+
 En este caso nos menciona que ahora la variable macroregion es un factor con cuatro niveles (Centro, Norte, Sur, Oriente).
 
 ::: callout-important
-Si bien aquí vemos la palabra "niveles" esto no quiere decir que para R esos niveles tengan un orden, sino más bien que son categorías diferentes. 
+Si bien aquí vemos la palabra "niveles" esto no quiere decir que para R esos niveles tengan un orden, sino más bien que son categorías diferentes.
 :::
 
 **FACTORES ORDENADOS**
@@ -354,14 +353,13 @@ Mediante la función str(), confirmamos que nuestra variable nivel_pobreza se ha
 ```{r}
 str(data$nivel_pobreza)
 ```
+
 ::: callout-important
 Aunque para nosotros los niveles parecen ser números (1, 2 o 3), para R no lo son. Esto significa que no es posible realizar operaciones matemáticas con ellos.
 :::
 
-
-Ahora con esta configuración ya estamos listos para el siguiente paso: manipular tablas y calculas estadísticos descriptivos. 
+Ahora con esta configuración ya estamos listos para el siguiente paso: manipular tablas y calculas estadísticos descriptivos.
 
 ```{r}
 str(data)
 ```
-
