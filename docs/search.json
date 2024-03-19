@@ -248,5 +248,25 @@
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
     ]
+  },
+  {
+    "objectID": "index.html#sobre-ia-generativa",
+    "href": "index.html#sobre-ia-generativa",
+    "title": "Estadística para el Análisis Político 1",
+    "section": "Sobre IA generativa",
+    "text": "Sobre IA generativa\nPermitimos y promovemos activamente el uso de inteligencia artificial generativa, como ChatGPT, Gemini, y otras plataformas similares, como soporte para la creación y sofisticación del código en R.\nCreemos firmemente que estas herramientas pueden ser aliados significativos para profundizar en la comprensión de conceptos complejos, mejorar las habilidades de programación y fomentar la innovación y creatividad en nuestros proyectos y tareas.\nLa integración de la inteligencia artificial en nuestro proceso de aprendizaje ofrece una oportunidad única para experimentar con nuevas formas de resolver problemas, optimizar procesos y generar ideas que puedan llevar nuestra capacidad analítica y técnica a nuevos niveles.\nSin embargo, es importante destacar que, mientras fomentamos el uso de estas herramientas tecnológicas avanzadas para la exploración y el aprendizaje durante el curso, no se permitirá su uso en las evaluaciones.",
+    "crumbs": [
+      "Sobre el curso"
+    ]
+  },
+  {
+    "objectID": "index.html#software",
+    "href": "index.html#software",
+    "title": "Estadística para el Análisis Político 1",
+    "section": "Software",
+    "text": "Software\nTanto en las sesiones teóricas, como en las prácticas, se hará uso del software libre R y de la interfase Rstudio. Se requiere descargar las últimas versiones de ambos programas informáticos.\nLa última versión de R (4.3.3) puede ser descargada gratuitamente para Windows o macOS.\nhttps://cran.r-project.org/bin/windows/base/\nhttps://cran.r-project.org/bin/macosx/\nLa última versión de Rstudio Desktop (versión RStudio 2023.12.1+402) puede ser descargada aquí para Windows o macOS.\nhttps://posit.co/download/rstudio-desktop/",
+    "crumbs": [
+      "Sobre el curso"
+    ]
   }
 ]
