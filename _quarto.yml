@@ -10,9 +10,6 @@ book:
   chapters:
     - index.qmd
     - s1_intro.qmd
-    - s2_descriptivo.qmd
-    - s3_visualizacion.qmd
-    - summary.qmd
     - references.qmd
   
 bibliography: references.bib

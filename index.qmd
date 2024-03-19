@@ -14,7 +14,7 @@ En esta página podrás encontrar toda la información referida al curso tal com
 ```
 
 
-## IA generativa
+## Sobre IA generativa
 
 Permitimos y promovemos activamente el uso de inteligencia artificial generativa, como ChatGPT, Gemini, y otras plataformas similares, como soporte para la creación y sofisticación del código en R.
 
@@ -23,3 +23,21 @@ Creemos firmemente que estas herramientas pueden ser aliados significativos para
 La integración de la inteligencia artificial en nuestro proceso de aprendizaje ofrece una oportunidad única para experimentar con nuevas formas de resolver problemas, optimizar procesos y generar ideas que puedan llevar nuestra capacidad analítica y técnica a nuevos niveles.
 
 Sin embargo, es importante destacar que, mientras fomentamos el uso de estas herramientas tecnológicas avanzadas para la exploración y el aprendizaje durante el curso, no se permitirá su uso en las evaluaciones.
+
+
+## Software
+
+Tanto en las sesiones teóricas, como en las prácticas, se hará uso del software libre 
+R y de la interfase Rstudio. Se requiere descargar las últimas versiones de ambos 
+programas informáticos. 
+
+La última versión de R (4.3.3) puede ser descargada gratuitamente para Windows o macOS.
+
+<https://cran.r-project.org/bin/windows/base/>
+
+<https://cran.r-project.org/bin/macosx/>
+
+La última versión de Rstudio Desktop (versión RStudio 2023.12.1+402) puede ser descargada aquí para Windows o macOS.
+
+<https://posit.co/download/rstudio-desktop/>
+

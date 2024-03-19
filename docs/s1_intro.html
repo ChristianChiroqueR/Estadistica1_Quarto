@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./s2_descriptivo.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./index.html" rel="prev">
+<link href="./pucp.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,7 +135,6 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Estadística para el Análisis Político 1</a> 
         <div class="sidebar-tools-main">
-    <a href="./Estadística-para-el-Análisis-Político-1.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -126,24 +160,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./s2_descriptivo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estadística Descriptiva</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./s3_visualizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -158,8 +174,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#presentación" id="toc-presentación" class="nav-link active" data-scroll-target="#presentación"><span class="header-section-number">1.1</span> Presentación</a></li>
-  <li><a href="#estadística-los-fundamentos" id="toc-estadística-los-fundamentos" class="nav-link" data-scroll-target="#estadística-los-fundamentos"><span class="header-section-number">1.2</span> Estadística: los fundamentos</a></li>
+  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión"><span class="header-section-number">1.1</span> Objetivos de la sesión</a></li>
+  <li><a href="#presentación" id="toc-presentación" class="nav-link" data-scroll-target="#presentación"><span class="header-section-number">1.2</span> Presentación</a></li>
+  <li><a href="#sobre-r" id="toc-sobre-r" class="nav-link" data-scroll-target="#sobre-r"><span class="header-section-number">1.3</span> Sobre R</a>
+  <ul class="collapse">
+  <li><a href="#consideraciones-básicas" id="toc-consideraciones-básicas" class="nav-link" data-scroll-target="#consideraciones-básicas"><span class="header-section-number">1.3.1</span> Consideraciones básicas</a></li>
+  <li><a href="#cómo-programar-script" id="toc-cómo-programar-script" class="nav-link" data-scroll-target="#cómo-programar-script"><span class="header-section-number">1.3.2</span> Cómo programar: Script</a></li>
+  </ul></li>
+  <li><a href="#elementos-básicos" id="toc-elementos-básicos" class="nav-link" data-scroll-target="#elementos-básicos"><span class="header-section-number">1.4</span> Elementos básicos</a>
+  <ul class="collapse">
+  <li><a href="#objetos" id="toc-objetos" class="nav-link" data-scroll-target="#objetos"><span class="header-section-number">1.4.1</span> Objetos</a></li>
+  <li><a href="#vectores" id="toc-vectores" class="nav-link" data-scroll-target="#vectores"><span class="header-section-number">1.4.2</span> Vectores</a></li>
+  <li><a href="#funciones" id="toc-funciones" class="nav-link" data-scroll-target="#funciones"><span class="header-section-number">1.4.3</span> Funciones</a></li>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes"><span class="header-section-number">1.4.4</span> Dataframes</a></li>
+  <li><a href="#índices" id="toc-índices" class="nav-link" data-scroll-target="#índices"><span class="header-section-number">1.4.5</span> Índices</a></li>
+  </ul></li>
+  <li><a href="#procedimientos-básicos" id="toc-procedimientos-básicos" class="nav-link" data-scroll-target="#procedimientos-básicos"><span class="header-section-number">1.5</span> Procedimientos básicos</a>
+  <ul class="collapse">
+  <li><a href="#apertura-de-paquetes" id="toc-apertura-de-paquetes" class="nav-link" data-scroll-target="#apertura-de-paquetes"><span class="header-section-number">1.5.1</span> Apertura de paquetes</a></li>
+  <li><a href="#apertura-de-archivos" id="toc-apertura-de-archivos" class="nav-link" data-scroll-target="#apertura-de-archivos"><span class="header-section-number">1.5.2</span> Apertura de archivos</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -185,14 +219,319 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="presentación" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="presentación"><span class="header-section-number">1.1</span> Presentación</h2>
+<section id="objetivos-de-la-sesión" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="objetivos-de-la-sesión"><span class="header-section-number">1.1</span> Objetivos de la sesión</h2>
+<ul>
+<li>Introducción al R y fundamentos de programación</li>
+</ul>
+</section>
+<section id="presentación" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="presentación"><span class="header-section-number">1.2</span> Presentación</h2>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTv_Qyx_cMFYrUKhE49ygf01eUseWvWcr1UUWq3J1ZqgSF2f4ND9c0Q_GHLaATlZpCQLpXU_7psyzRe/embed?start=false&amp;loop=false&amp;delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </section>
-<section id="estadística-los-fundamentos" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="estadística-los-fundamentos"><span class="header-section-number">1.2</span> Estadística: los fundamentos</h2>
+<section id="sobre-r" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sobre-r"><span class="header-section-number">1.3</span> Sobre R</h2>
+<section id="consideraciones-básicas" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="consideraciones-básicas"><span class="header-section-number">1.3.1</span> Consideraciones básicas</h3>
+<p>R es un lenguaje de programación y un entorno de software libre orientado principalmente al análisis estadístico y la representación gráfica de datos.</p>
+<p>R es un lenguaje de programación que adopta el paradigma de la “programación orientada a objetos”. Esto significa que, en R, todo se considera un “objeto”, ya sea un conjunto de datos, una función o un modelo.</p>
+<p>Cada objeto tiene atributos y comportamientos asociados que determinan cómo se puede interactuar con él.</p>
+<p>Imagina que cada objeto en R es como un coche. Los “atributos” de ese coche pueden incluir su color, marca, modelo, y año de fabricación. Estos atributos describen las características específicas del coche. Ahora, piensa en los “comportamientos asociados” como las acciones que puedes realizar con ese coche: encenderlo, acelerar, frenar o encender las luces. Del mismo modo, en R, un objeto, como un conjunto de datos, podría tener atributos que describan su tamaño, tipo y estructura. Y los comportamientos asociados de ese conjunto de datos podrían incluir operaciones como filtrar, ordenar o aplicar una función estadística.</p>
+</section>
+<section id="cómo-programar-script" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="cómo-programar-script"><span class="header-section-number">1.3.2</span> Cómo programar: Script</h3>
+<p>Existen varias formas de escribir código en el R. Para ello tenemos algunas opciones simples, como el Script y otras un poco más elaboradas como el R Markdown.</p>
+<p>Para fines de esta primera clase vamos a utilizar el script, el cual es un documento de texto que tiene la peculiaridad que puede ser leídos por el programa como un manual de código. De esa forma, nosotros podemos colocar en el script los códigos de nuestro análisis, ordenarlos, comentarlos y reproducirlos en el R Studio automáticamente.</p>
+<p>En suma, podemos redactar nuestros script, compartirlos con otros investigadores y ejecutarlos.</p>
+<ul>
+<li><p>Como comentario: Cuando nosotros colocamos el símbolo # al iniciar una oración, el Script lo va a identificar como un comentario del programador, como un texto que no va a ser ejecutado como código. Esto es importante porque nos permite ir comentando, por ejemplo, lo que estamos redactando en el documento. Ej: “Este código sirve para abrir un archivo”, “Aquí estoy haciendo un análisis de regresión”, entre otros.</p></li>
+<li><p>Como código: Cuando escribimos directamente en el documento el programa lo va a entender como código o funciones. Esto es importante tenerlo en cuenta para evitar notificaciones de Error.</p></li>
+</ul>
+<p>Te recomiendo ver el siguiente video para que puedas aprender más sobre el Script, pero también sobre las otras opciones que el R te puede ofrecer.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/y7JPGlw6dJg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="elementos-básicos" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="elementos-básicos"><span class="header-section-number">1.4</span> Elementos básicos</h2>
+<section id="objetos" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="objetos"><span class="header-section-number">1.4.1</span> Objetos</h3>
+<p>Vamos a examinar la clase de algunos de los elementos más básicos en R.</p>
+<p>Un objeto puede ser un número. En este caso el objeto es de tipo <strong>numeric</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>O también podría ser un nombre de un país. En este caso el objeto es de tipo <strong>character</strong>. Vas a notar que se trata de un caractér porque vas a visualizar el resultado entre comillas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">"Perú"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Perú"</code></pre>
+</div>
+</div>
+<p>Los objetos también pueden almacenarse en la memoria del programa con ciertos “nombres”. Por ejemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>year<span class="ot">&lt;-</span><span class="dv">2024</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>year</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2024</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>country<span class="ot">&lt;-</span><span class="st">"Perú"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>country</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Perú"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uno puede asignar un nombre a un objeto en el R con la flecha de asignación (&lt;-)</p>
+</div>
+</div>
+</section>
+<section id="vectores" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="vectores"><span class="header-section-number">1.4.2</span> Vectores</h3>
+<ul>
+<li><p>Un vector es una colección de uno o más datos del mismo tipo.</p></li>
+<li><p>Tipo. Un vector tiene el mismo tipo que los datos que contiene. Si tenemos un vector que contiene datos de tipo numérico, el vector será también de tipo numérico.</p></li>
+</ul>
+<p>Ejemplo: Vamos a crear tres vectores: uno numérico, uno de caracter.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>vector_numerico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>vector_numerico</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 3 4 5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vector_caracter <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"arbol"</span>, <span class="st">"casa"</span>, <span class="st">"persona"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>vector_caracter</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "arbol"   "casa"    "persona"</code></pre>
+</div>
+</div>
+</section>
+<section id="funciones" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="funciones"><span class="header-section-number">1.4.3</span> Funciones</h3>
+<p>Una función es como una máquina a la que le das un insumo, o <strong>input</strong> para que realice un procedimiento específico. Luego de realizar el procedimiento, la máquina te da un resultado que le vamos a llamar <strong>output</strong>.</p>
+<p>Por ejemplo, podemos utilizar la función <code>sqrt()</code> para obtener la raíz cuadrada de un número. En este caso aplicamos una función sobre un sólo número.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">16</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>Pero también podemos aplicar una función sobre un vector. Por ejemplo, podemos solicitar la función <code>sum()</code> para obtener la suma de todos los elementos de un vector numérico:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vector_numerico)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15</code></pre>
+</div>
+</div>
+<p>También podemos utilizar la función <code>class()</code> para corroborar que cada vector tiene la misma clase de los elementos que contiene.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vector_numerico)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(vector_caracter)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Te vas a dar cuenta que estás frente a una función porque usualmente está seguida de paréntesis en el cual se colocan los argumentos.</p>
+</div>
+</div>
+</section>
+<section id="dataframes" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="dataframes"><span class="header-section-number">1.4.4</span> Dataframes</h3>
+<p>Los data frames son estructuras de datos de dos dimensiones (rectangulares) que pueden contener <strong>vectores</strong> de diferentes tipos.</p>
+<p>Es la estructura más usada para ciencia de datos y la que vamos a ver de forma más recurrente en el curso.</p>
+<p>Lo más importante que debes recordar es que las filas en un dataframe representan casos, individuos u observaciones, mientras que las columnas representan atributos, rasgos o variables.</p>
+<p>Por ejemplo, tenemos la siguiente información sobre ciertos departamentos del Perú y sus niveles de pobreza:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>departamentos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Huancavelica"</span>, <span class="st">"Ayacucho"</span>, <span class="st">"Pasco"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>pobreza<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">47.7</span>, <span class="fl">46.4</span>, <span class="fl">44.8</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>mi_df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(departamentos, pobreza)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>mi_df</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  departamentos pobreza
+1  Huancavelica    47.7
+2      Ayacucho    46.4
+3         Pasco    44.8</code></pre>
+</div>
+</div>
+<p>Una forma de examinar rápidamente un dataframe es utilizando la función <code>str()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mi_df)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   3 obs. of  2 variables:
+ $ departamentos: chr  "Huancavelica" "Ayacucho" "Pasco"
+ $ pobreza      : num  47.7 46.4 44.8</code></pre>
+</div>
+</div>
+<p>El output de esta función te indica las dimensiones del dataframe (número de observaciones y número de variables), así como los nombres de las variables, el tipo y algunos valores de muestra.</p>
+<p>Otra función básica para explorar es <code>names()</code>, la cual te arroja exclusivamente los nombres de las variables del dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mi_df)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "departamentos" "pobreza"      </code></pre>
+</div>
+</div>
+</section>
+<section id="índices" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="índices"><span class="header-section-number">1.4.5</span> Índices</h3>
+<ul>
+<li><p>Usar índices para obtener subconjuntos es el procedimiento más universal en R, pues funciona para todas las estructuras de datos.</p></li>
+<li><p>Un índice en R representa una posición.</p></li>
+<li><p>Cuando usamos índices le pedimos a R que extraiga de una estructura los datos que se encuentran en una o varias posiciones específicas dentro de ella.</p></li>
+</ul>
+<p>Ejemplos:</p>
+<ul>
+<li>Seleccionar la columna 2:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mi_df [,<span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47.7 46.4 44.8</code></pre>
+</div>
+</div>
+<p>Para seleccionar una columna, también podemos usar el símbolo de <code>$</code>. Es bastante usado en varias funciones.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mi_df<span class="sc">$</span>pobreza</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 47.7 46.4 44.8</code></pre>
+</div>
+</div>
+<ul>
+<li>Seleccionar sólo el caso (fila) 2:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  departamentos pobreza
+2      Ayacucho    46.4</code></pre>
+</div>
+</div>
+<ul>
+<li>Seleccionar el elemento que se encuentra en la fila 2 y la columna 2:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>mi_df [<span class="dv">2</span>,<span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 46.4</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="procedimientos-básicos" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="procedimientos-básicos"><span class="header-section-number">1.5</span> Procedimientos básicos</h2>
+<p>Hasta aquí hemos aprendido los elementos básicos del R, ahora procederemos a analizar los procedimientos más cotidianos que realizaremos en un proceso de análisis de datos estadísticos.</p>
+<section id="apertura-de-paquetes" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="apertura-de-paquetes"><span class="header-section-number">1.5.1</span> Apertura de paquetes</h3>
+<p>Líneas arriba te había comentado que existían funciones que podías aplicar sobre objetos en el R. Dabas un input y la función te arrojaba un determinado resultado.</p>
+<p>Ahora bien, lo más interesante del R es que existen diferentes “conjuntos de funciones” para tareas específicas y que uno puede <strong>instalar</strong> y <strong>utilizar</strong> en tu proceso de análisis.</p>
+<p>Para instalar un paquete necesitas escribir <code>install.packages("nombre_del_paquete")</code>. Luego de instalarlo, para comenzar a utilizarlo debes abrirlo con el siguiente comando <code>library(nombre_del_paquete)</code>.</p>
+<p>Hagamos la prueba con el paquete <code>rio</code>, el cual es un paquete creado para importar/exportar archivos de diversos tipos.</p>
+<p>Primero lo vamos a instalar. No te olvides que cuando instalas un paquete el nombre del mismo va entre comillas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("rio")</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recuerda que la instalación de paquetes se realiza sólo una vez. Esto quiere decir que si instalas hoy el paquete “rio” ya no será necesario que realices esta operación nuevamente.</p>
+</div>
+</div>
+<p>Luego de instalarlo lo debemos abrir para utilizar las funciones que están en él.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="apertura-de-archivos" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="apertura-de-archivos"><span class="header-section-number">1.5.2</span> Apertura de archivos</h3>
+<p>Lo más común es que se te va a entregar un archivo para que lo puedas abrir en el R.</p>
+<p>Para ello, una primera forma sencilla de abrir un archivo es haciendo uso de la función <code>import</code> del paquete <code>rio</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">"data/regiones.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Una vez que abrimos una data y corroboramos que está en nuestro Environment podemos explorarla.</p>
+<p>Viendo un encabezado de las primeras filas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     region poblacion pobreza  agua desague electrificacion acceso_internet
+1  Amazonas    379384    47.3 51.84   36.69           73.67            4.45
+2    Ancash   1083519    23.5 71.56   56.38           85.20           18.33
+3  Apurímac    405759    42.8 56.33   36.12           80.43            8.93
+4  Arequipa   1382730     9.1 72.47   65.85           89.98           32.88
+5  Ayacucho    616176    51.9 66.99   45.35           80.94           10.42
+6 Cajamarca   1341012    52.9 52.89   32.48           80.68            9.29
+  telefonia_movil pc_tablet hospitales macroregion
+1           69.39     11.02          8     Oriente
+2           79.60     25.00         23       Norte
+3           71.21     14.74          8         Sur
+4           91.28     40.52         24         Sur
+5           77.65     17.84         11         Sur
+6           74.66     14.10         25       Norte</code></pre>
+</div>
+</div>
+<p>Analizando su estructura:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   24 obs. of  11 variables:
+ $ region         : chr  "Amazonas" "Ancash" "Apurímac" "Arequipa" ...
+ $ poblacion      : num  379384 1083519 405759 1382730 616176 ...
+ $ pobreza        : num  47.3 23.5 42.8 9.1 51.9 52.9 18.8 46.6 40.1 4.7 ...
+ $ agua           : num  51.8 71.6 56.3 72.5 67 ...
+ $ desague        : num  36.7 56.4 36.1 65.8 45.4 ...
+ $ electrificacion: num  73.7 85.2 80.4 90 80.9 ...
+ $ acceso_internet: num  4.45 18.33 8.93 32.88 10.42 ...
+ $ telefonia_movil: num  69.4 79.6 71.2 91.3 77.7 ...
+ $ pc_tablet      : num  11 25 14.7 40.5 17.8 ...
+ $ hospitales     : num  8 23 8 24 11 25 20 5 9 25 ...
+ $ macroregion    : chr  "Oriente" "Norte" "Sur" "Sur" ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "region"          "poblacion"       "pobreza"         "agua"           
+ [5] "desague"         "electrificacion" "acceso_internet" "telefonia_movil"
+ [9] "pc_tablet"       "hospitales"      "macroregion"    </code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -729,8 +1068,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./s2_descriptivo.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Estadística Descriptiva</span>">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estadística Descriptiva</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
