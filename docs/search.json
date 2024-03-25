@@ -72,11 +72,11 @@
   {
     "objectID": "s2_descriptivo.html",
     "href": "s2_descriptivo.html",
-    "title": "2  Estadística Descriptiva",
+    "title": "2  Estadística Descriptiva I",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "text": "2.1 Objetivos de la sesión",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estadística Descriptiva I</span>"
     ]
   },
   {
@@ -277,6 +277,46 @@
     "text": "1.6 Resumen",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "s2_descriptivo.html#objetivos-de-la-sesión",
+    "href": "s2_descriptivo.html#objetivos-de-la-sesión",
+    "title": "2  Estadística Descriptiva I",
+    "section": "",
+    "text": "Al final de esta sesión, el estudiante será capaz de manipular un dataframe a fin de editarlo de acuerdo a su necesidad utilizando algunos verbos básicos del paquete dplyr. También podrá solicitar algunos de los principales estadísticos descriptivos de tendencia central.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estadística Descriptiva I</span>"
+    ]
+  },
+  {
+    "objectID": "s2_descriptivo.html#presentación",
+    "href": "s2_descriptivo.html#presentación",
+    "title": "2  Estadística Descriptiva I",
+    "section": "2.2 Presentación",
+    "text": "2.2 Presentación",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estadística Descriptiva I</span>"
+    ]
+  },
+  {
+    "objectID": "s2_descriptivo.html#manipulación-de-datos",
+    "href": "s2_descriptivo.html#manipulación-de-datos",
+    "title": "2  Estadística Descriptiva I",
+    "section": "2.3 Manipulación de datos",
+    "text": "2.3 Manipulación de datos\nIn summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estadística Descriptiva I</span>"
+    ]
+  },
+  {
+    "objectID": "s2_descriptivo.html#resumen",
+    "href": "s2_descriptivo.html#resumen",
+    "title": "2  Estadística Descriptiva I",
+    "section": "2.4 Resumen",
+    "text": "2.4 Resumen",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estadística Descriptiva I</span>"
     ]
   }
 ]

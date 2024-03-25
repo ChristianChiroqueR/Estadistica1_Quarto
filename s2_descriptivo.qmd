@@ -1,9 +1,8 @@
-# Análisis Exploratorio de Datos I
+# Estadística Descriptiva I
 
 ## Objetivos de la sesión
 
 -   Al final de esta sesión, el estudiante será capaz de manipular un dataframe a fin de editarlo de acuerdo a su necesidad utilizando algunos verbos básicos del paquete `dplyr`. También podrá solicitar algunos de los principales estadísticos descriptivos de tendencia central.
-
 
 ## Presentación
 
