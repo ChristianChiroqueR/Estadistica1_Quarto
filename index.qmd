@@ -9,7 +9,7 @@ En esta página podrás encontrar toda la información referida al curso tal com
 ## Sílabo
 
 ```{=html}
-<iframe src="ppt/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
+<iframe src="files/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
 ```
 ## Sobre IA generativa
 

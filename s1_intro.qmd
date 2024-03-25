@@ -4,6 +4,7 @@
 
 -   Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.
 
+
 ## Presentación
 
 ```{=html}
@@ -363,3 +364,14 @@ Ahora con esta configuración ya estamos listos para el siguiente paso: manipula
 ```{r}
 str(data)
 ```
+
+
+## Resumen 
+
+```{=html}
+<iframe src="files/1-programacion_basica.pdf" width="700" height="500" style="border: none;"></iframe>
+```
+
+
+
+
