@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Estadística para el Análisis Político 1 - 2&nbsp; Estadística Descriptiva I</title>
+<title>Estadística para el Análisis Político 1 - 2&nbsp; Manipulación de tablas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./s2_descriptivo.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estadística Descriptiva I</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./s2_descriptivo.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -154,13 +154,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./s1_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de programación con R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./s2_descriptivo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estadística Descriptiva I</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></span></a>
   </div>
 </li>
     </ul>
@@ -175,8 +175,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión"><span class="header-section-number">2.1</span> Objetivos de la sesión</a></li>
   <li><a href="#presentación" id="toc-presentación" class="nav-link" data-scroll-target="#presentación"><span class="header-section-number">2.2</span> Presentación</a></li>
-  <li><a href="#manipulación-de-datos" id="toc-manipulación-de-datos" class="nav-link" data-scroll-target="#manipulación-de-datos"><span class="header-section-number">2.3</span> Manipulación de datos</a></li>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">2.4</span> Resumen</a></li>
+  <li><a href="#introducción-al-tidyverse" id="toc-introducción-al-tidyverse" class="nav-link" data-scroll-target="#introducción-al-tidyverse"><span class="header-section-number">2.3</span> Introducción al Tidyverse</a></li>
+  <li><a href="#manipulación-de-datos-con-dplyr" id="toc-manipulación-de-datos-con-dplyr" class="nav-link" data-scroll-target="#manipulación-de-datos-con-dplyr"><span class="header-section-number">2.4</span> Manipulación de datos con dplyr</a>
+  <ul class="collapse">
+  <li><a href="#problema-de-investigación-y-data" id="toc-problema-de-investigación-y-data" class="nav-link" data-scroll-target="#problema-de-investigación-y-data"><span class="header-section-number">2.4.1</span> Problema de investigación y data</a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">2.4.2</span> Select()</a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">2.4.3</span> Filter()</a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="header-section-number">2.4.4</span> Arrange()</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">2.4.5</span> Mutate()</a></li>
+  <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise"><span class="header-section-number">2.4.6</span> Summarise()</a></li>
+  <li><a href="#utilizando-pipe" id="toc-utilizando-pipe" class="nav-link" data-scroll-target="#utilizando-pipe"><span class="header-section-number">2.4.7</span> Utilizando pipe: |&gt;</a></li>
+  </ul></li>
+  <li><a href="#funciones-complementarias" id="toc-funciones-complementarias" class="nav-link" data-scroll-target="#funciones-complementarias"><span class="header-section-number">2.5</span> Funciones complementarias</a>
+  <ul class="collapse">
+  <li><a href="#agrupando-con-group_by" id="toc-agrupando-con-group_by" class="nav-link" data-scroll-target="#agrupando-con-group_by"><span class="header-section-number">2.5.1</span> Agrupando con group_by()</a></li>
+  <li><a href="#contar-con-count" id="toc-contar-con-count" class="nav-link" data-scroll-target="#contar-con-count"><span class="header-section-number">2.5.2</span> Contar con count()</a></li>
+  <li><a href="#renombrar-con-rename" id="toc-renombrar-con-rename" class="nav-link" data-scroll-target="#renombrar-con-rename"><span class="header-section-number">2.5.3</span> Renombrar con rename()</a></li>
+  <li><a href="#recodificar-con-case_when" id="toc-recodificar-con-case_when" class="nav-link" data-scroll-target="#recodificar-con-case_when"><span class="header-section-number">2.5.4</span> Recodificar con case_when()</a></li>
+  </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">2.6</span> Resumen</a></li>
   </ul>
 </nav>
     </div>
@@ -185,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estadística Descriptiva I</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></h1>
 </div>
 
 
@@ -210,19 +227,483 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="presentación" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="presentación"><span class="header-section-number">2.2</span> Presentación</h2>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRFpbh5FbZePoJreBcYlukW4rOcjyTBEyKhvwSrSzFHTQb3zDLvW-0TX-Uuve3uK2giytGQHwDETltT/embed?start=false&amp;loop=false&amp;delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </section>
-<section id="manipulación-de-datos" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="manipulación-de-datos"><span class="header-section-number">2.3</span> Manipulación de datos</h2>
-<p>In summary, this book has no content whatsoever.</p>
+<section id="introducción-al-tidyverse" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="introducción-al-tidyverse"><span class="header-section-number">2.3</span> Introducción al Tidyverse</h2>
+<p>El tidyverse es una colección de paquetes de R diseñados para la ciencia de datos que comparten una filosofía subyacente y son interoperables, facilitando la importación, manipulación, exploración y visualización de datos.</p>
+<p>Te sugiero ver este video introductorio sobre el Tidyverse:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/6HYKusg31Yo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Abrimos la librería tidyverse:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="manipulación-de-datos-con-dplyr" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="manipulación-de-datos-con-dplyr"><span class="header-section-number">2.4</span> Manipulación de datos con dplyr</h2>
+<p><code>dplyr</code> es un paquete del Tidyverse que sirve para manipular tablas y transformarlas. Tiene una amplia gama de verbos con los cuales podemos realizar las tareas más recurrentes de la manipulación de datos.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/etxZRx3Jx8o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="problema-de-investigación-y-data" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="problema-de-investigación-y-data"><span class="header-section-number">2.4.1</span> Problema de investigación y data</h3>
+<p><img src="images/cpi.png" class="img-fluid"></p>
+<p>El Índice de Percepción de la Corrupción (CPI, por sus siglas en inglés) es una herramienta global que clasifica a los países según la percepción de corrupción en el sector público, basándose en evaluaciones de expertos y encuestas de negocios. La escala va de 0 (muy corrupto) a 100 (muy limpio), y sirve para comparar la situación de corrupción entre diferentes naciones. Es publicado anualmente por Transparency International, una organización no gubernamental dedicada a combatir la corrupción global.</p>
+<p>Examinemos la base original. Vamos a editar la tabla con diversos verbos de <code>dplyr</code>.</p>
+<p><strong>Abrir archivo</strong></p>
+<p>Abrimos el archivo con el paquete `rio``:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_con_rio<span class="ot">&lt;-</span><span class="fu">import</span>(<span class="st">"data/CPI.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ten en cuenta que en el R también existen otros paquetes como readr, haven o readxl que también te permiten abrir archivos de distintos formatos.</p>
+<p>Por ejemplo, podríamos abrir este archivo con la función <code>read_xlsx()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">"data/CPI.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Podemos ver las datas (y las diferencias que trae abrirlas con uno u otro paquete):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data_con_rio</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data_con_rio)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,086 × 5
+   country               year iso3  region cpi_score
+   &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;
+ 1 Afghanistan           2022 AFG   AP            24
+ 2 Albania               2022 ALB   ECA           36
+ 3 United Arab Emirates  2022 ARE   MENA          67
+ 4 Angola                2022 AGO   SSA           33
+ 5 Argentina             2022 ARG   AME           38
+ 6 Armenia               2022 ARM   ECA           46
+ 7 Australia             2022 AUS   AP            75
+ 8 Austria               2022 AUT   WE/EU         71
+ 9 Azerbaijan            2022 AZE   ECA           23
+10 Bahamas               2022 BHS   AME           64
+# ℹ 1,076 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un tibble es una versión moderna del dataframe en R, parte del tidyverse, diseñado para facilitar el trabajo con datos tabulares.</p>
+</div>
+</div>
+<p><strong>Exploración del dataset y configuración de variables</strong></p>
+<p>Vemos la estructura rápidamente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [1,086 × 5] (S3: tbl_df/tbl/data.frame)
+ $ country  : chr [1:1086] "Afghanistan" "Albania" "United Arab Emirates" "Angola" ...
+ $ year     : num [1:1086] 2022 2022 2022 2022 2022 ...
+ $ iso3     : chr [1:1086] "AFG" "ALB" "ARE" "AGO" ...
+ $ region   : chr [1:1086] "AP" "ECA" "MENA" "SSA" ...
+ $ cpi_score: num [1:1086] 24 36 67 33 38 46 75 71 23 64 ...</code></pre>
+</div>
+</div>
+<p>Al ejecutar names() sobre un conjunto de datos, se nos devuelve un vector con los nombres de todas las columnas en el orden en que aparecen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "country"   "year"      "iso3"      "region"    "cpi_score"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de proseguir con el análisis descriptivo, es fundamental que comprendas claramente qué representan las filas y las columnas en tus datos.</p>
+</div>
+</div>
+<p>Corroboramos que el score del CPI esté adecuadamente configurado.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(data<span class="sc">$</span>cpi_score)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<p>De acuerdo, podemos proseguir.</p>
+</section>
+<section id="select" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="select"><span class="header-section-number">2.4.2</span> Select()</h3>
+<p>La función select() es utilizada para seleccionar o excluir columnas de un data frame o tibble en R. Va más allá de simplemente escoger columnas por nombre, ya que permite una amplia gama de criterios y operaciones.</p>
+<p>Funcionamiento básico:</p>
+<ul>
+<li><p>Entrada: Un data frame o tibble y un conjunto de nombres de columnas o criterios para seleccionar columnas.</p></li>
+<li><p>Salida: Un objeto de la misma clase que el de entrada (data frame o tibble) que contiene solo las columnas seleccionadas.</p></li>
+</ul>
+<p>Vamos a seleccionar sólo ciertas columnas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>data1<span class="ot">&lt;-</span>data <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, region, cpi_score)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>data1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,086 × 4
+   country               year region cpi_score
+   &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
+ 1 Afghanistan           2022 AP            24
+ 2 Albania               2022 ECA           36
+ 3 United Arab Emirates  2022 MENA          67
+ 4 Angola                2022 SSA           33
+ 5 Argentina             2022 AME           38
+ 6 Armenia               2022 ECA           46
+ 7 Australia             2022 AP            75
+ 8 Austria               2022 WE/EU         71
+ 9 Azerbaijan            2022 ECA           23
+10 Bahamas               2022 AME           64
+# ℹ 1,076 more rows</code></pre>
+</div>
+</div>
+<p>Tener en cuenta que puedes:</p>
+<ul>
+<li><p>Seleccionar por nombre</p></li>
+<li><p>Seleccionar por el número de la columna</p></li>
+<li><p>(Des)seleccionar colocando un “-” antes del nombre/número de columna.</p></li>
+<li><p>Seleccionar un rango colocando por ejemplo 2:4 lo que significa “desde la columna 2 hasta la columna 4).</p></li>
+<li><p>Puedes combinar todas las anteriores y tener más de un criterio a la vez separándolo por coma.</p></li>
+</ul>
+</section>
+<section id="filter" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="filter"><span class="header-section-number">2.4.3</span> Filter()</h3>
+<p>La función filter() se utiliza para filtrar filas de un data frame o tibble en R en función de condiciones específicas, permitiendo crear un subconjunto de datos.</p>
+<p>Al crear subconjuntos nuestros datos de forma precisa, podemos focalizar nuestro análisis, mejorar la eficiencia computacional y obtener resultados más claros y relevantes.</p>
+<p>Características principales:</p>
+<ul>
+<li><p>Condiciones múltiples: Puedes usar múltiples condiciones para filtrar tus datos. Estas se combinan utilizando operadores lógicos como &amp; (y), | (o) y ! (no).</p></li>
+<li><p>Uso de operadores de comparación: Los operadores estándar como ==, &gt;, &lt;, &gt;=, &lt;=, y != se utilizan para establecer condiciones.</p></li>
+<li><p>Funciones auxiliares: dplyr proporciona funciones como between(), que pueden ser útiles para establecer condiciones. Por ejemplo, between(x, 1, 10) es equivalente a x &gt;= 1 &amp; x &lt;= 10.</p></li>
+</ul>
+<p>En este caso vamos a seleccionar aquellos países cuya medición es del año 2022.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data2<span class="ot">&lt;-</span>data1 <span class="sc">%&gt;%</span>                   </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2022</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>data2</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 181 × 4
+   country               year region cpi_score
+   &lt;chr&gt;                &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
+ 1 Afghanistan           2022 AP            24
+ 2 Albania               2022 ECA           36
+ 3 United Arab Emirates  2022 MENA          67
+ 4 Angola                2022 SSA           33
+ 5 Argentina             2022 AME           38
+ 6 Armenia               2022 ECA           46
+ 7 Australia             2022 AP            75
+ 8 Austria               2022 WE/EU         71
+ 9 Azerbaijan            2022 ECA           23
+10 Bahamas               2022 AME           64
+# ℹ 171 more rows</code></pre>
 </div>
 </div>
 </section>
-<section id="resumen" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.4</span> Resumen</h2>
+<section id="arrange" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="arrange"><span class="header-section-number">2.4.4</span> Arrange()</h3>
+<p>Se utiliza para ordenar (o reordenar) un data frame o tibble según una o más columnas.</p>
+<p>Funcionamiento básico:</p>
+<ul>
+<li><p>Ordenación simple: Si proporcionas una columna a arrange(), ordenará el data frame en función de esa columna en orden ascendente por defecto.</p></li>
+<li><p>Ordenación descendente: Si deseas ordenar en dirección descendente, puedes usar la función desc(). Por ejemplo: df |&gt; arrange(desc(edad)) ordenará el data frame por la columna “edad” en orden descendente.</p></li>
+<li><p>Ordenación múltiple: Puedes proporcionar múltiples columnas para ordenar, y arrange() las usará en el orden proporcionado para determinar el ordenamiento. Por ejemplo, si deseas ordenar primero por “grupo” y luego por “edad” dentro de cada grupo, usarías: df |&gt; arrange(grupo, edad).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>data3<span class="ot">&lt;-</span>data2 <span class="sc">|&gt;</span>    </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(cpi_score))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>data3</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 181 × 4
+   country      year region cpi_score
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;
+ 1 Denmark      2022 WE/EU         90
+ 2 Finland      2022 WE/EU         87
+ 3 New Zealand  2022 AP            87
+ 4 Norway       2022 WE/EU         84
+ 5 Singapore    2022 AP            83
+ 6 Sweden       2022 WE/EU         83
+ 7 Switzerland  2022 WE/EU         82
+ 8 Netherlands  2022 WE/EU         80
+ 9 Germany      2022 WE/EU         79
+10 Ireland      2022 WE/EU         77
+# ℹ 171 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="mutate" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="mutate"><span class="header-section-number">2.4.5</span> Mutate()</h3>
+<p>La función mutate() está diseñada para crear o modificar columnas dentro de un data frame o tibble en R. Mientras que el data frame original se mantiene inalterado, mutate() devuelve una copia con las columnas especificadas añadidas o alteradas.</p>
+<p>En este caso vamos a crear una variable cambiando la escala del score del CPI.</p>
+<p>En la medida original 0 representaba alta corrupción y 100 escasa corrupción. Ahora, si realizamos la operación “100 - cpi_score”, los valores cercanos a 0 tendrán poca corrupción y los cercanos a 100 alta corrupción, siendo más intuitivo.</p>
+<p>Esta transformación puede ser útil para ajustar la interpretación de los datos a contextos donde es más intuitivo trabajar con escalas donde un número mayor indica mayor intensidad de un fenómeno (Corrupción, en este caso), dependiendo del análisis que se desea realizar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data4<span class="ot">&lt;-</span>data3 <span class="sc">|&gt;</span>   </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cpi_score2=</span><span class="dv">100</span><span class="sc">-</span>cpi_score) </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>data4</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 181 × 5
+   country      year region cpi_score cpi_score2
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+ 1 Denmark      2022 WE/EU         90         10
+ 2 Finland      2022 WE/EU         87         13
+ 3 New Zealand  2022 AP            87         13
+ 4 Norway       2022 WE/EU         84         16
+ 5 Singapore    2022 AP            83         17
+ 6 Sweden       2022 WE/EU         83         17
+ 7 Switzerland  2022 WE/EU         82         18
+ 8 Netherlands  2022 WE/EU         80         20
+ 9 Germany      2022 WE/EU         79         21
+10 Ireland      2022 WE/EU         77         23
+# ℹ 171 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="summarise" class="level3" data-number="2.4.6">
+<h3 data-number="2.4.6" class="anchored" data-anchor-id="summarise"><span class="header-section-number">2.4.6</span> Summarise()</h3>
+<p>Se utiliza para crear resúmenes estadísticos de un data frame o tibble.</p>
+<p>Dentro de los resúmenes puedes disponer de por ejemplo:</p>
+<p><strong>Medidas de tendencia central: Estas funciones describen un valor central o típico dentro de un conjunto de datos.</strong></p>
+<ul>
+<li>Media: mean(x)</li>
+<li>Mediana: median(x)</li>
+</ul>
+<p>Cómo calcularíamos la media de forma directa (tradicional)?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data4<span class="sc">$</span>cpi_score2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  10.00   45.00   60.50   57.02   70.25   88.00       1 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>¿Qué significa NA´s? ¿Por qué se produce esto en una data como la de Corruption Perception Index?</p>
+</div>
+</div>
+<p>Cómo lo calculamos con tidyverse?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data4 <span class="sc">|&gt;</span>   </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(cpi_score2, <span class="at">na.rm =</span> T))    </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(cpi_score2, na.rm = T)`
+                          &lt;dbl&gt;
+1                          57.0</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando aplicamos un summarise lo que nos devuelve es un valor o conjunto de valores. Por otro lado, el argumento na.rm = TRUE se utiliza para especificar que los valores perdidos (NA) deben ser ignorados en el cálculo. De esta forma, le indicamos a la función que proceda con la operación excluyendo dichos valores ausentes.</p>
+</div>
+</div>
+</section>
+<section id="utilizando-pipe" class="level3" data-number="2.4.7">
+<h3 data-number="2.4.7" class="anchored" data-anchor-id="utilizando-pipe"><span class="header-section-number">2.4.7</span> Utilizando pipe: |&gt;</h3>
+<p>Probablemente hayas observado que hemos creado un conjunto de datos para cada verbo utilizado, lo cual en situaciones reales resultaría excesivamente repetitivo. Haciendo una analogía con la escritura de un libro, sería como si estuviéramos limitados a usar únicamente oraciones, lo cual haría el proceso tedioso.</p>
+<p>El operador |&gt; (pipe) en R, introducido en la versión 4.1, permite realizar operaciones en cadena, facilitando la secuencia de funciones y transformaciones en un flujo más legible y ordenado.</p>
+<p>Es evidente que, mediante el uso del operador pipe, podemos encadenar verbos de manera fluida y evitar la creación innecesaria de objetos, ya que este operador permite que el resultado a la izquierda se convierta automáticamente en el argumento de la función a la derecha.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, region, cpi_score) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2022</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(cpi_score)) <span class="sc">|&gt;</span> </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cpi_score2=</span><span class="dv">100</span><span class="sc">-</span>cpi_score) <span class="sc">|&gt;</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(cpi_score2, <span class="at">na.rm=</span>T))  </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(cpi_score2, na.rm = T)`
+                          &lt;dbl&gt;
+1                          57.0</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>¿Qué sucede si a esta cadena de pipes le doy un nombre? ¿Cuál sería el objeto creado?</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data_final<span class="ot">&lt;-</span>data <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, region, cpi_score) <span class="sc">|&gt;</span> </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">==</span><span class="dv">2022</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(cpi_score)) <span class="sc">|&gt;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cpi_score2=</span><span class="dv">100</span><span class="sc">-</span>cpi_score) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="funciones-complementarias" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="funciones-complementarias"><span class="header-section-number">2.5</span> Funciones complementarias</h2>
+<section id="agrupando-con-group_by" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="agrupando-con-group_by"><span class="header-section-number">2.5.1</span> Agrupando con group_by()</h3>
+<p>Se utiliza para dividir un conjunto de datos en grupos según valores de una o más variables (normalmente de tipo categórica). Una vez que los datos están agrupados, es posible realizar operaciones específicas dentro de cada grupo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>   </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media=</span><span class="fu">mean</span>(cpi_score, <span class="at">na.rm =</span> T)) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+   year Media
+  &lt;dbl&gt; &lt;dbl&gt;
+1  2017  43.1
+2  2018  43.1
+3  2019  43.2
+4  2020  43.3
+5  2021  43.3
+6  2022  43.0</code></pre>
+</div>
+</div>
+</section>
+<section id="contar-con-count" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="contar-con-count"><span class="header-section-number">2.5.2</span> Contar con count()</h3>
+<p>Facilita el conteo de observaciones dentro de categorías específicas de una o más variables en un dataframe. Esta función agrupa el conjunto de datos por las variables especificadas y luego calcula el número de observaciones dentro de cada categoría, retornando un nuevo dataframe con las categorías y sus respectivos conteos. Es una herramienta esencial para obtener resúmenes rápidos y frecuencias de variables categóricas en datos estructurados.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data_final <span class="sc">|&gt;</span>   </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(region) <span class="sc">|&gt;</span>  </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))  </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  region     n
+  &lt;chr&gt;  &lt;int&gt;
+1 SSA       49
+2 AME       32
+3 AP        32
+4 WE/EU     31
+5 ECA       19
+6 MENA      18</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En la última línea de código, indicamos a R que ordene los datos de acuerdo a la variable ‘n’, la cual fue definida en la línea de código precedente. Es importante recordar que la ejecución de acciones o funciones en R se realiza de manera secuencial y acumulativa.</p>
+</div>
+</div>
+</section>
+<section id="renombrar-con-rename" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="renombrar-con-rename"><span class="header-section-number">2.5.3</span> Renombrar con rename()</h3>
+<p>Permite cambiar los nombres de las columnas de un dataframe. Para ello, se especifica el nuevo nombre deseado y el nombre actual de la columna. Esta función es útil cuando se necesita ajustar o estandarizar los nombres de las columnas en un conjunto de datos, facilitando así análisis posteriores y asegurando la claridad y consistencia en la manipulación de los datos.</p>
+<p>Primero debes escribir el nuevo nombre y luego el nombre original de la variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>data_final <span class="sc">|&gt;</span>   </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">zona=</span>region)   <span class="co"># Renombro la columna "region" (nombre original) como "zona" (nombre nuevo)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 181 × 5
+   country      year zona  cpi_score cpi_score2
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+ 1 Denmark      2022 WE/EU        90         10
+ 2 Finland      2022 WE/EU        87         13
+ 3 New Zealand  2022 AP           87         13
+ 4 Norway       2022 WE/EU        84         16
+ 5 Singapore    2022 AP           83         17
+ 6 Sweden       2022 WE/EU        83         17
+ 7 Switzerland  2022 WE/EU        82         18
+ 8 Netherlands  2022 WE/EU        80         20
+ 9 Germany      2022 WE/EU        79         21
+10 Ireland      2022 WE/EU        77         23
+# ℹ 171 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="recodificar-con-case_when" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="recodificar-con-case_when"><span class="header-section-number">2.5.4</span> Recodificar con case_when()</h3>
+<p>La función case_when() del paquete tidyverse en R sirve para recodificar datos y crear nuevas variables o modificar variables existentes basándose en múltiples condiciones.</p>
+<p>Permite evaluar varias condiciones utilizando una sintaxis similar a una instrucción “if-else”. Esta función es particularmente útil cuando necesitamos recodificar una variable en varias categorías o cuando tenemos múltiples condiciones a evaluar.</p>
+<p>Se coloca primero la condición (fórmula) seguido del símbolo ~ (alt+126) y la etiqueta.</p>
+<p>Al final se coloca TRUE, lo que indica todos aquellos casos que no cumplen con las condiciones anteriores.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/zzehac81W2k" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_final<span class="sc">$</span>cpi_score2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  10.00   45.00   60.50   57.02   70.25   88.00       1 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>data_final<span class="ot">&lt;-</span>data_final <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(cpi_score2)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_final<span class="sc">$</span>cpi_score2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.00   45.00   60.50   57.02   70.25   88.00 </code></pre>
+</div>
+</div>
+<p>Podemos realizar:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>data_final  <span class="sc">|&gt;</span>   </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">corrupcion=</span><span class="fu">case_when</span>(cpi_score2<span class="sc">&lt;</span><span class="dv">30</span><span class="sc">~</span><span class="st">"Bajo"</span>, </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>                              cpi_score2<span class="sc">&lt;</span><span class="dv">60</span><span class="sc">~</span><span class="st">"Medio"</span>, </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>                              cpi_score2<span class="sc">&lt;=</span><span class="dv">100</span><span class="sc">~</span><span class="st">"Alto"</span>)) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 180 × 6
+   country      year region cpi_score cpi_score2 corrupcion
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     
+ 1 Denmark      2022 WE/EU         90         10 Bajo      
+ 2 Finland      2022 WE/EU         87         13 Bajo      
+ 3 New Zealand  2022 AP            87         13 Bajo      
+ 4 Norway       2022 WE/EU         84         16 Bajo      
+ 5 Singapore    2022 AP            83         17 Bajo      
+ 6 Sweden       2022 WE/EU         83         17 Bajo      
+ 7 Switzerland  2022 WE/EU         82         18 Bajo      
+ 8 Netherlands  2022 WE/EU         80         20 Bajo      
+ 9 Germany      2022 WE/EU         79         21 Bajo      
+10 Ireland      2022 WE/EU         77         23 Bajo      
+# ℹ 170 more rows</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="resumen" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.6</span> Resumen</h2>
+<iframe src="files/2_MANIPULACIÓN.pdf" width="700" height="500" style="border: none;"></iframe>
 
 
 </section>
@@ -756,8 +1237,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./s1_intro.html" class="pagination-link  aria-label=" &lt;span="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span>
+      <a href="./s1_intro.html" class="pagination-link  aria-label=" &lt;span="" de="" programación="" con="" r&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de programación con R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

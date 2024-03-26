@@ -1,15 +1,15 @@
-# Introducción
+# Fundamentos de programación con R
 
 ## Objetivos de la sesión
 
 -   Al final de esta sesión, el estudiante será capaz de reconocer las características principales del programa R, incluyendo sus elementos básicos y los fundamentos para el análisis estadístico. Además, sabrá implementar los procedimientos básicos necesarios para iniciar cualquier análisis estadístico en R.
-
 
 ## Presentación
 
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTv_Qyx_cMFYrUKhE49ygf01eUseWvWcr1UUWq3J1ZqgSF2f4ND9c0Q_GHLaATlZpCQLpXU_7psyzRe/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
+
 ## Sobre R
 
 ### Consideraciones básicas
@@ -365,13 +365,8 @@ Ahora con esta configuración ya estamos listos para el siguiente paso: manipula
 str(data)
 ```
 
-
-## Resumen 
+## Resumen
 
 ```{=html}
 <iframe src="files/1-programacion_basica.pdf" width="700" height="500" style="border: none;"></iframe>
 ```
-
-
-
-
