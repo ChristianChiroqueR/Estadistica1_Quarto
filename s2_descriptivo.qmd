@@ -325,7 +325,7 @@ data_final  |>
 ```
 
 
-## Resumen
+## Ficha resumen (Cheat Sheet)
 
 ```{=html}
 <iframe src="files/2_MANIPULACIÓN.pdf" width="700" height="500" style="border: none;"></iframe>
