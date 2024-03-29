@@ -358,5 +358,25 @@
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Manipulación de tablas</span>"
     ]
+  },
+  {
+    "objectID": "s1_intro.html#ficha-resumen-cheat-sheet",
+    "href": "s1_intro.html#ficha-resumen-cheat-sheet",
+    "title": "1  Fundamentos de programación con R",
+    "section": "1.6 Ficha resumen (Cheat Sheet)",
+    "text": "1.6 Ficha resumen (Cheat Sheet)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Fundamentos de programación con R</span>"
+    ]
+  },
+  {
+    "objectID": "s2_descriptivo.html#ficha-resumen-cheat-sheet",
+    "href": "s2_descriptivo.html#ficha-resumen-cheat-sheet",
+    "title": "2  Manipulación de tablas",
+    "section": "2.6 Ficha resumen (Cheat Sheet)",
+    "text": "2.6 Ficha resumen (Cheat Sheet)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Manipulación de tablas</span>"
+    ]
   }
 ]
