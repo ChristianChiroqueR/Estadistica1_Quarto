@@ -256,25 +256,20 @@ window.Quarto = {
 </section>
 <section id="presentación" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="presentación"><span class="header-section-number">3.2</span> Presentación</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSyJaY5Pz18SxB9guE3BkmhCm988vGen3fdF0WbEasdMsrPFUgz83tNPN79c9KT8xZYoR6HnE4-ySZv/embed?start=false&amp;loop=false&amp;delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </section>
 <section id="problema-de-investigación-y-data" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="problema-de-investigación-y-data"><span class="header-section-number">3.3</span> Problema de investigación y data</h2>
 <p>Disponemos de una base de datos que incluye una variedad de indicadores e índices para 95 países alrededor del mundo. Los datos abarcan:</p>
-<p>País Continente Región Índice AML Matrícula PBI per cápita Pobreza Urbano Gasto en educación Índice de Percepción de la Corrupción Estado de derecho Índice de Democracia Categoría del Índice de Democracia Índice de Crimen Organizado</p>
+<p>-País -Continente -Región -Índice -Índice de Lavado de Activos -Matrícula -PBI per cápita -Pobreza Urbano -Gasto en educación -Índice de Percepción de la Corrupción -Estado de derecho -Índice de Democracia -Categoría del Índice de Democracia -Índice de Crimen Organizado</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">"data/AML.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">"data/AML.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Veamos la data rápidamente:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 14
   Pais       Continent Region AML_Index Matricula  PBIPC Pobreza URBANO gastoedu
@@ -300,29 +295,29 @@ window.Quarto = {
 </ul>
 <section id="cuál-sería-el-mejor-representante-de-estos-datos" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="cuál-sería-el-mejor-representante-de-estos-datos"><span class="header-section-number">3.4.1</span> ¿Cuál sería el mejor representante de estos datos?</h3>
-<p>El “mejor representante” de un conjunto de datos se refiere a la medida de tendencia central que mejor resume la información de dicho conjunto. Las opciones principales incluyen la media, la mediana y la moda:</p>
+<p>El “mejor representante” de un conjunto de datos se refiere a la <strong>medida de tendencia central</strong> que mejor resume la información de dicho conjunto. Las opciones principales incluyen la media, la mediana y la moda:</p>
 <section id="la-media" class="level4" data-number="3.4.1.1">
 <h4 data-number="3.4.1.1" class="anchored" data-anchor-id="la-media"><span class="header-section-number">3.4.1.1</span> La media</h4>
 <p>La media es el promedio aritmético y proporciona un centro de gravedad de los datos. Es útil cuando los datos son simétricos y sin valores atípicos significativos. Recordemos que la función a utilizar es <code>mean()</code>.</p>
 <p>Por ejemplo, si deseamos la media de PBI per cápita, Pobreza y el Gasto de Educación:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11823.83</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 27.92947</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.427158</code></pre>
 </div>
 </div>
-<p>Si lo queremos ver de forma comparativa podemos utilizar tidyverse:</p>
+<p>Si lo queremos ver de forma comparativa y en una sola línea de código podemos utilizar tidyverse:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(PBIPC), <span class="fu">mean</span>(Pobreza), <span class="fu">mean</span>(gastoedu))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(PBIPC), <span class="fu">mean</span>(Pobreza), <span class="fu">mean</span>(gastoedu))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   `mean(PBIPC)` `mean(Pobreza)` `mean(gastoedu)`
@@ -336,23 +331,23 @@ window.Quarto = {
 <p>La mediana es el valor que se encuentra en el punto medio de un conjunto de datos ordenado. Resulta especialmente informativa en distribuciones sesgadas, ya que no es tan susceptible a los valores extremos como la media. Usamos la función <code>median()</code>.</p>
 <p>Sigamos con las variables PBI per cápita, Pobreza y el Gasto de Educación:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4900.76</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 23.4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.56</code></pre>
 </div>
 </div>
 <p>Si lo queremos ver de forma comparativa podemos utilizar tidyverse:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(PBIPC), <span class="fu">median</span>(Pobreza), <span class="fu">median</span>(gastoedu))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(PBIPC), <span class="fu">median</span>(Pobreza), <span class="fu">median</span>(gastoedu))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   `median(PBIPC)` `median(Pobreza)` `median(gastoedu)`
@@ -365,7 +360,7 @@ window.Quarto = {
 <h4 data-number="3.4.1.3" class="anchored" data-anchor-id="la-moda"><span class="header-section-number">3.4.1.3</span> La moda</h4>
 <p>La moda es el valor o valores que aparecen con mayor frecuencia. Es la única medida de tendencia central aplicable a datos nominales. Para este caso en específico, podemos utilizar la función <code>table()</code> o también la función <code>count()</code> dentro de un fraseo de tidyverse:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>Continent)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>Continent)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   Africa Americas     Asia   Europe  Oceania 
@@ -374,8 +369,8 @@ window.Quarto = {
 </div>
 <p>O también:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Continent)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Continent)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Continent     n
@@ -389,9 +384,9 @@ window.Quarto = {
 </div>
 <p>Podemos añadir también una columna de porcentaje usando la función <code>mutate()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Continent) <span class="sc">|&gt;</span> </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje=</span>n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Continent) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje=</span>n<span class="sc">/</span><span class="fu">sum</span>(n)<span class="sc">*</span><span class="dv">100</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
   Continent     n Porcentaje
@@ -407,36 +402,37 @@ window.Quarto = {
 </section>
 <section id="cuánto-varían-estos-datos" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="cuánto-varían-estos-datos"><span class="header-section-number">3.4.2</span> ¿Cuánto varían estos datos?</h3>
-<p>La variación de los datos se refiere al grado en que los valores del conjunto de datos difieren entre sí y de la medida de tendencia central. Las medidas de variabilidad incluyen el rango, la varianza, la desviación estándar, el rango intercuartil y el coeficiente de variación:</p>
+<p>La variación de los datos se refiere al grado en que los valores del conjunto de datos difieren de una medida de tendencia central. Las medidas de variabilidad incluyen el rango, la varianza, la desviación estándar y el coeficiente de variación:</p>
 <section id="el-rango" class="level4" data-number="3.4.2.1">
 <h4 data-number="3.4.2.1" class="anchored" data-anchor-id="el-rango"><span class="header-section-number">3.4.2.1</span> El rango</h4>
 <p>El rango ofrece una visión general muy básica de la variabilidad, indicando la diferencia entre los valores más alto y más bajo.</p>
 <p>Es una medida muy sencilla de calcular y proporciona una idea general de la variabilidad de los datos. Sin embargo, no toma en cuenta la distribución de los datos en el conjunto, lo que puede hacer que la medida sea menos informativa en ciertos casos.</p>
 <p>Para ver el valor mínimo y máximo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]   293.96 82708.51</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2.6 72.3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.11 7.67</code></pre>
 </div>
 </div>
+<p>Para ver el rango:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>PBIPC)<span class="sc">-</span><span class="fu">min</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>PBIPC)<span class="sc">-</span><span class="fu">min</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 82414.55</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>Pobreza)<span class="sc">-</span><span class="fu">min</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>Pobreza)<span class="sc">-</span><span class="fu">min</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 69.7</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>gastoedu)<span class="sc">-</span><span class="fu">min</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>gastoedu)<span class="sc">-</span><span class="fu">min</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.56</code></pre>
 </div>
@@ -445,39 +441,44 @@ window.Quarto = {
 <section id="la-varianza-y-la-desviación-estándar" class="level4" data-number="3.4.2.2">
 <h4 data-number="3.4.2.2" class="anchored" data-anchor-id="la-varianza-y-la-desviación-estándar"><span class="header-section-number">3.4.2.2</span> La varianza y la desviación estándar</h4>
 <p>La varianza es una medida de dispersión que indica qué tan dispersos están los datos con respecto a su media.</p>
-<p>Matemáticamente, la varianza se define como la media aritmética de los cuadrados de las diferencias entre cada valor de la variable y la media.</p>
-<p><span class="math display">\[\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}\]</span></p>
+<p>Se calcula como el promedio de los cuadrados de las diferencias entre cada valor y la media del conjunto. En otras palabras, indica cuán alejados están los valores individuales de la media. La varianza proporciona una idea de la variabilidad o volatilidad de los datos, siendo un indicador clave de cuánto tienden a variar los valores respecto a la media.</p>
+<p><span class="math display">\[s^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2\]</span></p>
 <p>La varianza proporciona una idea de la dispersión general de los datos, pero debido a que las diferencias se elevan al cuadrado, la varianza no está en las mismas unidades que los datos originales, lo que puede dificultar su interpretación directa.</p>
 <p>Usamos la función <code>var()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 276058288</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 283.7038</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.859397</code></pre>
 </div>
 </div>
-<p>La desviación estándar, al tomar la raíz cuadrada de la varianza, la desviación estándar vuelve a las unidades originales de los datos, lo que facilita su comprensión e interpretación. La desviación estándar indica cuánto, en promedio, se desvían los valores de la media del conjunto de datos. Un valor bajo de desviación estándar indica que los datos están agrupados cerca de la media, mientras que un valor alto señala que los datos están más dispersos.</p>
+<p>Por otro lado, la desviación estándar, al tomar la raíz cuadrada de la varianza vuelve a las unidades originales de los datos, lo que facilita su comprensión e interpretación. La desviación estándar indica cuánto, en promedio, se desvían los valores de la media del conjunto de datos. Lo calculamos con la función <code>sd()</code>.</p>
+<p>Un valor bajo de desviación estándar indica que los datos están agrupados cerca de la media, mientras que un valor alto señala que los datos están más dispersos.</p>
+<p>Sirve mucho cuando comparamos dos variables que están en <strong>las mismas unidades</strong>, como por ejemplo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>PBIPC)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> <span class="fu">filter</span>(Continent<span class="sc">==</span><span class="st">"Africa"</span>) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">sd</span>(PBIPC))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 16615</code></pre>
+<pre><code># A tibble: 1 × 1
+  `sd(PBIPC)`
+        &lt;dbl&gt;
+1       3509.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> <span class="fu">filter</span>(Continent<span class="sc">==</span><span class="st">"Europe"</span>) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="fu">sd</span>(PBIPC))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 16.84351</code></pre>
+<pre><code># A tibble: 1 × 1
+  `sd(PBIPC)`
+        &lt;dbl&gt;
+1      20462.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>gastoedu)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.363597</code></pre>
 </div>
-</div>
+<p>En este caso podemos evidenciar que en el caso de los países de África existe más dispersión (3508.5 <strong>dólares</strong> de distancia de la media en promedio) que en Europa (20461.5 <strong>dólares</strong> de distancia de la media en promedio).</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -488,31 +489,38 @@ Advertencia
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A pesar que en la descripción de una variable se suele preferir utilizar la desviación estándar por las características mencionadas, la varianza tiene propiedades matemáticas importantes que la hacen el centro de diversas técnicas inferenciales.</p>
+<p>A pesar que en la descripción de una variable se suele preferir utilizar la desviación estándar por las características mencionadas, la varianza tiene propiedades matemáticas importantes que la hacen el centro de diversas técnicas inferenciales que veremos más adelante.</p>
 </div>
 </div>
 </section>
 <section id="el-coeficiente-de-variación" class="level4" data-number="3.4.2.3">
 <h4 data-number="3.4.2.3" class="anchored" data-anchor-id="el-coeficiente-de-variación"><span class="header-section-number">3.4.2.3</span> El coeficiente de variación</h4>
 <p>El coeficiente de variación (CV) es una medida estadística que describe la relación entre la desviación estándar (σ) y la media (μ) de un conjunto de datos, expresada como un porcentaje.</p>
-<p><span class="math display">\[CV = \left( \frac{\sigma}{\mu} \right) \times 100\%\]</span></p>
-<p>El coeficiente de variación es particularmente útil porque proporciona una medida de variabilidad relativa independiente de la escala de los datos, lo cual permite comparar la dispersión de dos o más conjuntos de datos que podrían tener diferentes unidades de medida o medias muy distintas.</p>
-<p>En nuestro caso, ¿cuál variable es más dispersa? ¿PBI per cápita, Pobreza y el Gasto de Educación?</p>
+<p>De forma sencilla, <strong>el coeficiente de variación indica cuán grande es la variabilidad de los datos en comparación con la media del conjunto</strong>.</p>
+<p><span class="math display">\[CV = \left( \frac{s^2}{\mu} \right) \times 100\%\]</span></p>
+<p>El coeficiente de variación es particularmente útil porque proporciona una <strong>medida de variabilidad relativa independiente de la escala de los datos</strong>, lo cual permite comparar la dispersión de dos o más conjuntos de datos que podrían tener diferentes unidades de medida o medias muy distintas (lo que podría distorsionar el análisis).</p>
+<p>Si bien NO HAY UN CONSENSO en los umbrales para la interpretación, para este curso, utilizaremos los siguientes criterios:</p>
+<ul>
+<li></li>
+<li><p>]10%-20%]: Variabilidad media</p></li>
+<li><p>Mayor a 20%: Variabilidad alta</p></li>
+</ul>
+<p>Por ejemplo, en nuestro caso, ¿qué tanta variabilidad posee PBI per cápita, Pobreza y el Gasto de Educación? ¿Cuál presenta la mayor variabilidad?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>cv_PBIPC <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>PBIPC) <span class="sc">/</span> <span class="fu">mean</span>(data<span class="sc">$</span>PBIPC) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>cv_Pobreza <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>Pobreza) <span class="sc">/</span> <span class="fu">mean</span>(data<span class="sc">$</span>Pobreza) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>cv_gastoedu <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>gastoedu) <span class="sc">/</span> <span class="fu">mean</span>(data<span class="sc">$</span>gastoedu) <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>cv_PBIPC <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>PBIPC) <span class="sc">/</span> <span class="fu">mean</span>(data<span class="sc">$</span>PBIPC) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>cv_Pobreza <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>Pobreza) <span class="sc">/</span> <span class="fu">mean</span>(data<span class="sc">$</span>Pobreza) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>cv_gastoedu <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>gastoedu) <span class="sc">/</span> <span class="fu">mean</span>(data<span class="sc">$</span>gastoedu) <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>cv_PBIPC</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>cv_PBIPC</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 140.5214</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>cv_Pobreza</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>cv_Pobreza</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 60.30729</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>cv_gastoedu</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>cv_gastoedu</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30.80073</code></pre>
 </div>
@@ -524,11 +532,11 @@ Advertencia
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="comparación-en-grupos"><span class="header-section-number">3.4.3</span> Comparación en grupos</h3>
 <p>Es común querer explorar cómo los descriptivos estadísticos varían entre diferentes grupos o categorías dentro de un conjunto de datos. Para facilitar este tipo de análisis, el paquete dplyr de R ofrece la función group_by(), que permite agrupar los datos por una o más variables categóricas y luego calcular estadísticas descriptivas para cada grupo. Esta práctica es especialmente útil para entender las diferencias y similitudes entre grupos, ayudando en la toma de decisiones basada en datos y en la formulación de hipótesis para análisis más detallados.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Continent) <span class="sc">|&gt;</span> </span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cv_PBIPC=</span><span class="fu">sd</span>(PBIPC) <span class="sc">/</span> <span class="fu">mean</span>(PBIPC) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">cv_Pobreza =</span> <span class="fu">sd</span>(Pobreza) <span class="sc">/</span> <span class="fu">mean</span>(Pobreza) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">cv_gastoedu =</span> <span class="fu">sd</span>(gastoedu) <span class="sc">/</span> <span class="fu">mean</span>(gastoedu) <span class="sc">*</span> <span class="dv">100</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Continent) <span class="sc">|&gt;</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">cv_PBIPC=</span><span class="fu">sd</span>(PBIPC) <span class="sc">/</span> <span class="fu">mean</span>(PBIPC) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">cv_Pobreza =</span> <span class="fu">sd</span>(Pobreza) <span class="sc">/</span> <span class="fu">mean</span>(Pobreza) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">cv_gastoedu =</span> <span class="fu">sd</span>(gastoedu) <span class="sc">/</span> <span class="fu">mean</span>(gastoedu) <span class="sc">*</span> <span class="dv">100</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 4
   Continent cv_PBIPC cv_Pobreza cv_gastoedu
@@ -547,18 +555,296 @@ Advertencia
 <p>Dependiendo del tipo de variables que se analizan, las técnicas y herramientas de visualización varían. A continuación, se describen las aproximaciones recomendadas para visualizar datos, diferenciando entre variables categóricas y numéricas.</p>
 <section id="cómo-funciona-ggplot2" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="cómo-funciona-ggplot2"><span class="header-section-number">3.5.1</span> Cómo funciona ggplot2</h3>
+<p><img src="images/capas.png" class="img-fluid"></p>
+<p><code>ggplot2</code> es un popular paquete de visualización de datos para el lenguaje de programación R, basado en los principios de la “Gramática de Gráficos”. Esta filosofía de diseño permite a los usuarios construir gráficos complejos y estéticamente agradables a partir de componentes básicos de forma intuitiva y flexible. El núcleo de ggplot2 radica en su sistema de capas, donde cada gráfico se construye agregando capas que pueden incluir, entre otros, los datos, las estéticas (como color, forma y tamaño), los objetos geométricos (como puntos, líneas y barras), las escalas, y las anotaciones. Este enfoque modular no solo facilita la personalización y optimización de los gráficos sino que también promueve una estructura de código clara y comprensible.</p>
+<p>Vamos a hacer un ejemplo paso a paso:</p>
+<ol type="1">
+<li><strong>Datos: Conjunto de datos a visualizar</strong></li>
+</ol>
+<p>Nuestra primera capa siempre va a ser la data. Sobre esta iniciamos la función ggplot y corroboramos que tenemos un lienzo en blanco.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Estéticas: Diseño básico del gráfico (Aesthetics)</strong></li>
+</ol>
+<p>Mapeo de variables a propiedades visuales como color, forma o tamaño, definidas con aes().</p>
+<p>A diferencia del lienzo en blanco, ya contamos con un diseño. En este caso, hemos indicado al R que el eje X será la variable Pobreza.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Pobreza)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En ggplot2, las capas de un gráfico se van adicionando secuencialmente utilizando el operador +.</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li><strong>Geometrías (Geoms)</strong> Representaciones gráficas de los datos, como puntos, líneas o barras (geom_point(), geom_line(), geom_bar(), etc.).</li>
+</ol>
+<p>En nuestro ejemplo, podemos agregar la geometría de histograma:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>Pobreza)<span class="sc">+</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el paquete {ggplot2} existen 30 geometrías disponibles. Puedes ver el detalle de estos en la <a href="https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf">documentación del paquete</a>.</p>
+</div>
+</div>
+<p>Esta estructura de capas hace que ggplot2 sea extremadamente poderoso para explorar y presentar datos de manera efectiva, permitiendo a los usuarios desde principiantes hasta expertos crear visualizaciones de datos complejas y personalizadas con relativa facilidad.</p>
+<ol start="4" type="1">
+<li><strong>Facetas, Estadísticas, Coordenadas y Temas</strong></li>
+</ol>
+<p>Las demás capas del ggplot lo vamos a ir viendo a medida que vayamos avanzando en el curso. No obstante, te sugiero ver el siguiente ppt que profundiza y ejemplifica cada una de las capas restantes.</p>
+<iframe src="https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57" width="672" height="400px" data-external="1">
 </section>
 <section id="para-variables-categóricas" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="para-variables-categóricas"><span class="header-section-number">3.5.2</span> Para variables categóricas</h3>
+<h3 data-number="3.5.2"><span class="header-section-number">3.5.2</span> Para variables categóricas</h3>
+<section id="gráfico-de-barras" class="level4" data-number="3.5.2.1">
+<h4 data-number="3.5.2.1"><span class="header-section-number">3.5.2.1</span> Gráfico de barras</h4>
+<p>En un gráfico de barras vertical,las categorías se representan en el eje horizontal y la frecuencia o cantidad en el eje vertical.</p>
+<p>El gráfico de barras es una herramienta útil para comparar la frecuencia o cantidad de diferentes categorías o variables en un conjunto de datos.</p>
+<p>Utilizamos la función geom_bar(). El resultado es que la función ha <strong>CONTADO</strong> la frecuencia de cada categoría de DemocracyIndexCat</p>
+<div class="cell">
+<div class="sourceCode" id="cb61"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>                <span class="co"># Data</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>           <span class="co"># Iniciamos la construcción del gráfico con ggplot </span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> Democracy_Index_cat) <span class="sc">+</span> <span class="co"># Establecemos la variable como el eje x</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()           <span class="co"># Creamos un gráfico de barras basado en el conteo de &#39;continent&#39;</span></span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672" /></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En algunas ocasiones ya contamos con el conteo realizado y sólo deseamos el gráfico. Para ello utilizamos el ARGUMENTO stat=“identity”.</p>
+<p>Un caso como el siguiente:</p>
+<div class="cell">
+<div class="sourceCode" id="cb62"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Democracy_Index_cat)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  Democracy_Index_cat     n
+  &lt;chr&gt;               &lt;int&gt;
+1 Authoritarian          24
+2 Flawed democracy       32
+3 Full democracy         11
+4 Hybrid regime          23
+5 &lt;NA&gt;                    5</code></pre>
+</div>
+</div>
+<p>En estos casos utilizamos la función:</p>
+<div class="cell">
+<div class="sourceCode" id="cb64"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Democracy_Index_cat) <span class="sc">|&gt;</span> </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>           </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> n, <span class="at">x=</span>Democracy_Index_cat) <span class="sc">+</span> <span class="co">#En este caso le he tenido que especificar tanto x como y!</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)          </span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672" /></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Agregando etiquetas de los datos y nombres de los ejes:</p>
+<div class="cell">
+<div class="sourceCode" id="cb65"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Democracy_Index_cat) <span class="sc">|&gt;</span> </span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>           </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> n, <span class="at">x=</span>Democracy_Index_cat) <span class="sc">+</span> <span class="co">#En este caso le he tenido que especificar tanto x como y!</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>n, <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">3</span>))<span class="sc">+</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Tipo de régimen&quot;</span>, <span class="at">y=</span><span class="st">&quot;Frecuencia&quot;</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672" /></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aunque los gráficos de pie son ampliamente reconocidos y frecuentemente utilizados para mostrar proporciones de un todo, en la práctica suelen ser menos efectivos que los gráficos de barras. Esto se debe a que los gráficos de barras ofrecen una comparación más clara y precisa entre categorías, facilitando la interpretación de las diferencias en magnitud.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="para-variables-numéricas" class="level3" data-number="3.5.3">
-<h3 data-number="3.5.3" class="anchored" data-anchor-id="para-variables-numéricas"><span class="header-section-number">3.5.3</span> Para variables numéricas</h3>
+<h3 data-number="3.5.3"><span class="header-section-number">3.5.3</span> Para variables numéricas</h3>
+<section id="boxplot" class="level4" data-number="3.5.3.1">
+<h4 data-number="3.5.3.1"><span class="header-section-number">3.5.3.1</span> Boxplot</h4>
+<p><img src="images/boxplot.png" class="img-fluid" /></p>
+<p>Es utilizado para representar la distribución de un conjunto de datos numéricos a través de sus cuartiles.</p>
+<p>El gráfico consiste en una caja que representa el rango intercuartil (IQR),es decir, la diferencia entre el tercer cuartil (Q3) y el primer cuartil(Q1).</p>
+<p>Dentro de la caja,se dibuja una línea que representa la mediana.</p>
+<p>Los bigotes,que se extienden desde la caja, indican el rango de los datos que se encuentran dentro de un cierto múltiplo del IQR, generalmente 1.5 veces el IQR.</p>
+<div class="cell">
+<div class="sourceCode" id="cb66"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> PBIPC) <span class="sc">+</span> <span class="co"># Establecemos &#39;lifeExp&#39; en el eje x</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672" /></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Los valores que están por encima o por debajo de los bigotes se representan como puntos o asteriscos, que se conocen como valores atípicos.</p>
+<p>El boxplot es útil para identificar <strong>valores atípicos</strong> y para comparar la distribución de varios conjuntos de datos en un solo gráfico. También permite visualizar la simetría o asimetría de la distribución y la presencia de sesgo.</p>
+<p>Puedes probar este video sugerido:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/fHLhBnmwUM0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></section></section></main></div>
+<p>También puedes solicitar boxplot por grupos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> PBIPC, <span class="at">colour=</span>Continent) <span class="sc">+</span> <span class="co"># Establecemos 'lifeExp' en el eje x</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>¿qué nos dice este gráfico?</p>
+
+<section id="histograma" class="level4" data-number="3.5.3.2">
+<h4 data-number="3.5.3.2" data-anchor-id="histograma"><span class="header-section-number">3.5.3.2</span> Histograma</h4>
+<p>Un histograma es un tipo de gráfico utilizado en estadísticas para representar la distribución de un conjunto de datos numéricos mediante barras. Cada barra en un histograma representa la frecuencia (número de veces que ocurren) de datos dentro de un intervalo o “bin” específico.</p>
+<p>Los bins dividen el espectro completo de los datos en series de intervalos consecutivos, y son todos de igual tamaño. La altura de cada barra muestra cuántos datos caen dentro de cada intervalo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>PBIPC) <span class="sc">+</span> </span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Los histogramas permiten observar cómo se distribuyen los datos, revelando si están equilibradamente repartidos o inclinados hacia un extremo. Una distribución es simétrica cuando las mitades a ambos lados de la media son imágenes espejo.</p>
+<p>Si está sesgada hacia la derecha, significa que hay una acumulación de datos hacia el lado izquierdo del gráfico, con una cola que se extiende hacia la derecha. Como en el caso del gráfico de líneas arriba.</p>
+<p>Por otro lado, un sesgo hacia la izquierda indica una concentración de datos hacia la derecha, con una cola que se alarga hacia la izquierda. Los histogramas también muestran si los datos se agrupan en torno a varios valores centrales, evidenciado por la presencia de varios picos o “modas”.</p>
+<p>Así como nuestros gráficos anteriores, podemos personalizar mucho más nuestro gráfico:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>PBIPC) <span class="sc">+</span> </span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()<span class="sc">+</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(data<span class="sc">$</span>PBIPC), <span class="at">color =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(data<span class="sc">$</span>PBIPC), <span class="at">color =</span> <span class="st">"green"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfico-de-línea" class="level4" data-number="3.5.3.3">
+<h4 data-number="3.5.3.3" data-anchor-id="gráfico-de-línea"><span class="header-section-number">3.5.3.3</span> Gráfico de línea</h4>
+<p>El gráfico de líneas es una herramienta de visualización de datos que conecta puntos de datos individuales con líneas, mostrando tendencias o cambios en una variable numérica a lo largo del tiempo o de otra variable numérica. Sirve principalmente para visualizar la evolución de una o varias cantidades, permitiendo identificar patrones, tendencias, picos, y caídas en los datos a lo largo de un período o rango específico.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>CPI<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">"data/CPI.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Cómo evolucionó Perú en el CPI score desde el 2017?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>CPI <span class="sc">|&gt;</span> </span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country<span class="sc">==</span><span class="st">"Peru"</span><span class="sc">|</span>country<span class="sc">==</span><span class="st">"Bolivia"</span> <span class="sc">|</span>country<span class="sc">==</span><span class="st">"Italy"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>cpi_score, <span class="at">color=</span>country)<span class="sc">+</span></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">80</span>)<span class="sc">+</span></span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">round</span>(cpi_score, <span class="dv">1</span>)), </span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>,                   </span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust=</span><span class="fl">1.2</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+
+
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1094,7 +1380,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-next">
   </div>
 </nav>
-</div> <!-- /content -->
+ <!-- /content -->
 
 
 

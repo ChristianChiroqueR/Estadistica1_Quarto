@@ -6,15 +6,15 @@
 
 ## Presentación
 
-```{r}
-1 + 1
+```{=html}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSyJaY5Pz18SxB9guE3BkmhCm988vGen3fdF0WbEasdMsrPFUgz83tNPN79c9KT8xZYoR6HnE4-ySZv/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
 
 ## Problema de investigación y data
 
 Disponemos de una base de datos que incluye una variedad de indicadores e índices para 95 países alrededor del mundo. Los datos abarcan:
 
-País Continente Región Índice AML Matrícula PBI per cápita Pobreza Urbano Gasto en educación Índice de Percepción de la Corrupción Estado de derecho Índice de Democracia Categoría del Índice de Democracia Índice de Crimen Organizado
+-País -Continente -Región -Índice -Índice de Lavado de Activos -Matrícula -PBI per cápita -Pobreza Urbano -Gasto en educación -Índice de Percepción de la Corrupción -Estado de derecho -Índice de Democracia -Categoría del Índice de Democracia -Índice de Crimen Organizado
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -36,10 +36,9 @@ Además de memorizar las fórmulas, que sin duda son esenciales, te invito a que
 
 -   ¿Cuánto varían estos datos?
 
-
 ### ¿Cuál sería el mejor representante de estos datos?
 
-El "mejor representante" de un conjunto de datos se refiere a la medida de tendencia central que mejor resume la información de dicho conjunto. Las opciones principales incluyen la media, la mediana y la moda:
+El "mejor representante" de un conjunto de datos se refiere a la **medida de tendencia central** que mejor resume la información de dicho conjunto. Las opciones principales incluyen la media, la mediana y la moda:
 
 #### La media
 
@@ -53,7 +52,7 @@ mean(data$Pobreza)
 mean(data$gastoedu)
 ```
 
-Si lo queremos ver de forma comparativa podemos utilizar tidyverse:
+Si lo queremos ver de forma comparativa y en una sola línea de código podemos utilizar tidyverse:
 
 ```{r}
 data |> 
@@ -104,7 +103,7 @@ data |>
 
 ### ¿Cuánto varían estos datos?
 
-La variación de los datos se refiere al grado en que los valores del conjunto de datos difieren entre sí y de la medida de tendencia central. Las medidas de variabilidad incluyen el rango, la varianza, la desviación estándar, el rango intercuartil y el coeficiente de variación:
+La variación de los datos se refiere al grado en que los valores del conjunto de datos difieren de una medida de tendencia central. Las medidas de variabilidad incluyen el rango, la varianza, la desviación estándar y el coeficiente de variación:
 
 #### El rango
 
@@ -120,6 +119,8 @@ range(data$Pobreza)
 range(data$gastoedu)
 ```
 
+Para ver el rango:
+
 ```{r}
 max(data$PBIPC)-min(data$PBIPC)
 max(data$Pobreza)-min(data$Pobreza)
@@ -130,9 +131,9 @@ max(data$gastoedu)-min(data$gastoedu)
 
 La varianza es una medida de dispersión que indica qué tan dispersos están los datos con respecto a su media.
 
-Matemáticamente, la varianza se define como la media aritmética de los cuadrados de las diferencias entre cada valor de la variable y la media.
+Se calcula como el promedio de los cuadrados de las diferencias entre cada valor y la media del conjunto. En otras palabras, indica cuán alejados están los valores individuales de la media. La varianza proporciona una idea de la variabilidad o volatilidad de los datos, siendo un indicador clave de cuánto tienden a variar los valores respecto a la media.
 
-$$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
+$$s^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2$$
 
 La varianza proporciona una idea de la dispersión general de los datos, pero debido a que las diferencias se elevan al cuadrado, la varianza no está en las mismas unidades que los datos originales, lo que puede dificultar su interpretación directa.
 
@@ -144,34 +145,49 @@ var(data$Pobreza)
 var(data$gastoedu)
 ```
 
-La desviación estándar, al tomar la raíz cuadrada de la varianza, la desviación estándar vuelve a las unidades originales de los datos, lo que facilita su comprensión e interpretación. La desviación estándar indica cuánto, en promedio, se desvían los valores de la media del conjunto de datos. Un valor bajo de desviación estándar indica que los datos están agrupados cerca de la media, mientras que un valor alto señala que los datos están más dispersos.
+Por otro lado, la desviación estándar, al tomar la raíz cuadrada de la varianza vuelve a las unidades originales de los datos, lo que facilita su comprensión e interpretación. La desviación estándar indica cuánto, en promedio, se desvían los valores de la media del conjunto de datos. Lo calculamos con la función `sd()`.
+
+Un valor bajo de desviación estándar indica que los datos están agrupados cerca de la media, mientras que un valor alto señala que los datos están más dispersos.
+
+Sirve mucho cuando comparamos dos variables que están en **las mismas unidades**, como por ejemplo:
 
 ```{r}
-sd(data$PBIPC)
-sd(data$Pobreza)
-sd(data$gastoedu)
+data |> filter(Continent=="Africa") |> summarise(sd(PBIPC))
+
+data |> filter(Continent=="Europe") |> summarise(sd(PBIPC))
 ```
 
+En este caso podemos evidenciar que en el caso de los países de África existe más dispersión (3508.5 **dólares** de distancia de la media en promedio) que en Europa (20461.5 **dólares** de distancia de la media en promedio).
+
 ::: callout-warning
-A pesar que en la descripción de una variable se suele preferir utilizar la desviación estándar por las características mencionadas, la varianza tiene propiedades matemáticas importantes que la hacen el centro de diversas técnicas inferenciales.
+A pesar que en la descripción de una variable se suele preferir utilizar la desviación estándar por las características mencionadas, la varianza tiene propiedades matemáticas importantes que la hacen el centro de diversas técnicas inferenciales que veremos más adelante.
 :::
 
 #### El coeficiente de variación
 
 El coeficiente de variación (CV) es una medida estadística que describe la relación entre la desviación estándar (σ) y la media (μ) de un conjunto de datos, expresada como un porcentaje.
 
-$$CV = \left( \frac{\sigma}{\mu} \right) \times 100\%$$
+De forma sencilla, **el coeficiente de variación indica cuán grande es la variabilidad de los datos en comparación con la media del conjunto**.
 
-El coeficiente de variación es particularmente útil porque proporciona una medida de variabilidad relativa independiente de la escala de los datos, lo cual permite comparar la dispersión de dos o más conjuntos de datos que podrían tener diferentes unidades de medida o medias muy distintas.
+$$CV = \left( \frac{s^2}{\mu} \right) \times 100\%$$
 
-En nuestro caso, ¿cuál variable es más dispersa? ¿PBI per cápita, Pobreza y el Gasto de Educación?
+El coeficiente de variación es particularmente útil porque proporciona una **medida de variabilidad relativa independiente de la escala de los datos**, lo cual permite comparar la dispersión de dos o más conjuntos de datos que podrían tener diferentes unidades de medida o medias muy distintas (lo que podría distorsionar el análisis).
+
+Si bien NO HAY UN CONSENSO en los umbrales para la interpretación, para este curso, utilizaremos los siguientes criterios:
+
+-   
+
+-   \]10%-20%\]: Variabilidad media
+
+-   Mayor a 20%: Variabilidad alta
+
+Por ejemplo, en nuestro caso, ¿qué tanta variabilidad posee PBI per cápita, Pobreza y el Gasto de Educación? ¿Cuál presenta la mayor variabilidad?
 
 ```{r}
 cv_PBIPC <- sd(data$PBIPC) / mean(data$PBIPC) * 100
 cv_Pobreza <- sd(data$Pobreza) / mean(data$Pobreza) * 100
 cv_gastoedu <- sd(data$gastoedu) / mean(data$gastoedu) * 100
 ```
-
 
 ```{r}
 cv_PBIPC
@@ -180,7 +196,6 @@ cv_gastoedu
 ```
 
 Con esta medida estandarizada es mucho mejor realizar la comparación y responder a la pregunta planteada.
-
 
 ### Comparación en grupos
 
@@ -198,9 +213,215 @@ data |>
 
 Dependiendo del tipo de variables que se analizan, las técnicas y herramientas de visualización varían. A continuación, se describen las aproximaciones recomendadas para visualizar datos, diferenciando entre variables categóricas y numéricas.
 
-
 ### Cómo funciona ggplot2
+
+![](images/capas.png)
+
+`ggplot2` es un popular paquete de visualización de datos para el lenguaje de programación R, basado en los principios de la "Gramática de Gráficos". Esta filosofía de diseño permite a los usuarios construir gráficos complejos y estéticamente agradables a partir de componentes básicos de forma intuitiva y flexible. El núcleo de ggplot2 radica en su sistema de capas, donde cada gráfico se construye agregando capas que pueden incluir, entre otros, los datos, las estéticas (como color, forma y tamaño), los objetos geométricos (como puntos, líneas y barras), las escalas, y las anotaciones. Este enfoque modular no solo facilita la personalización y optimización de los gráficos sino que también promueve una estructura de código clara y comprensible.
+
+Vamos a hacer un ejemplo paso a paso:
+
+1. **Datos: Conjunto de datos a visualizar**
+
+Nuestra primera capa siempre va a ser la data. Sobre esta iniciamos la función ggplot y corroboramos que tenemos un lienzo en blanco.
+
+```{r}
+data |> 
+  ggplot()
+```
+
+2. **Estéticas: Diseño básico del gráfico (Aesthetics)**
+
+Mapeo de variables a propiedades visuales como color, forma o tamaño, definidas con aes().
+
+A diferencia del lienzo en blanco, ya contamos con un diseño. En este caso, hemos indicado al R que el eje X será la variable Pobreza. 
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=Pobreza)
+```
+
+::: callout-warning
+En ggplot2, las capas de un gráfico se van adicionando secuencialmente utilizando el operador +.
+:::
+
+3. **Geometrías (Geoms)**
+Representaciones gráficas de los datos, como puntos, líneas o barras (geom_point(), geom_line(), geom_bar(), etc.).
+
+En nuestro ejemplo, podemos agregar la geometría de histograma:
+
+```{r}
+data |> 
+  ggplot()+
+  aes(x=Pobreza)+
+  geom_histogram()
+```
+
+::: callout-note
+En el paquete {ggplot2} existen 30 geometrías disponibles. Puedes ver el detalle de estos en la  [documentación del paquete](https://cran.r-project.org/web/packages/ggplot2/ggplot2.pdf).
+:::
+
+Esta estructura de capas hace que ggplot2 sea extremadamente poderoso para explorar y presentar datos de manera efectiva, permitiendo a los usuarios desde principiantes hasta expertos crear visualizaciones de datos complejas y personalizadas con relativa facilidad.
+
+
+4. **Facetas, Estadísticas, Coordenadas y Temas**
+
+Las demás capas del ggplot lo vamos a ir viendo a medida que vayamos avanzando en el curso. No obstante, te sugiero ver el siguiente ppt que profundiza y ejemplifica cada una de las capas restantes. 
+
+<iframe src="https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57" width="672" height="400px" data-external="1">
 
 ### Para variables categóricas
 
+#### Gráfico de barras
+
+En un gráfico de barras vertical,las categorías se representan en el eje horizontal y la frecuencia o cantidad en el eje vertical.
+
+El gráfico de barras es una herramienta útil para comparar la frecuencia o cantidad de diferentes categorías o variables en un conjunto de datos.
+
+Utilizamos la función geom_bar(). El resultado es que la función ha **CONTADO** la frecuencia de cada categoría de DemocracyIndexCat
+
+```{r}
+data |>                # Data
+  ggplot() +           # Iniciamos la construcción del gráfico con ggplot 
+  aes(x = Democracy_Index_cat) + # Establecemos la variable como el eje x
+  geom_bar()           # Creamos un gráfico de barras basado en el conteo de 'continent'
+```
+
+En algunas ocasiones ya contamos con el conteo realizado y sólo deseamos el gráfico. Para ello utilizamos el ARGUMENTO stat=“identity”.
+
+Un caso como el siguiente:
+
+```{r}
+data |>  
+  count(Democracy_Index_cat)
+```
+
+En estos casos utilizamos la función:
+
+```{r}
+data |>  
+  count(Democracy_Index_cat) |> 
+  ggplot() +           
+  aes(y = n, x=Democracy_Index_cat) + #En este caso le he tenido que especificar tanto x como y!
+  geom_bar(stat="identity")          
+```
+
+Agregando etiquetas de los datos y nombres de los ejes:
+
+```{r}
+data |>  
+  count(Democracy_Index_cat) |> 
+  ggplot() +           
+  aes(y = n, x=Democracy_Index_cat) + #En este caso le he tenido que especificar tanto x como y!
+  geom_bar(stat="identity")+
+  geom_text(aes(label=n, vjust=-1, size=3))+
+  labs(x="Tipo de régimen", y="Frecuencia")
+```
+
+::: callout-note
+Aunque los gráficos de pie son ampliamente reconocidos y frecuentemente utilizados para mostrar proporciones de un todo, en la práctica suelen ser menos efectivos que los gráficos de barras. Esto se debe a que los gráficos de barras ofrecen una comparación más clara y precisa entre categorías, facilitando la interpretación de las diferencias en magnitud. 
+:::
+
+
 ### Para variables numéricas
+
+#### Boxplot
+
+![](images/boxplot.png)
+
+Es utilizado para representar la distribución de un conjunto de datos numéricos a través de sus cuartiles.
+
+El gráfico consiste en una caja que representa el rango intercuartil (IQR),es decir, la diferencia entre el tercer cuartil (Q3) y el primer cuartil(Q1).
+
+Dentro de la caja,se dibuja una línea que representa la mediana.
+
+Los bigotes,que se extienden desde la caja, indican el rango de los datos que se encuentran dentro de un cierto múltiplo del IQR, generalmente 1.5 veces el IQR.
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(y = PBIPC) + # Establecemos 'lifeExp' en el eje x
+  geom_boxplot()
+```
+
+Los valores que están por encima o por debajo de los bigotes se representan como puntos o asteriscos, que se conocen como valores atípicos.
+
+El boxplot es útil para identificar **valores atípicos** y para comparar la distribución de varios conjuntos de datos en un solo gráfico. También permite visualizar la simetría o asimetría de la distribución y la presencia de sesgo.
+
+Puedes probar este video sugerido:
+
+{{< video https://www.youtube.com/watch?v=fHLhBnmwUM0 >}}
+
+También puedes solicitar boxplot por grupos:
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(y = PBIPC, colour=Continent) + # Establecemos 'lifeExp' en el eje x
+  geom_boxplot()
+```
+
+¿qué nos dice este gráfico?
+
+
+#### Histograma
+
+Un histograma es un tipo de gráfico utilizado en estadísticas para representar la distribución de un conjunto de datos numéricos mediante barras. Cada barra en un histograma representa la frecuencia (número de veces que ocurren) de datos dentro de un intervalo o "bin" específico. 
+
+Los bins dividen el espectro completo de los datos en series de intervalos consecutivos, y son todos de igual tamaño. La altura de cada barra muestra cuántos datos caen dentro de cada intervalo.
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(x=PBIPC) + 
+  geom_histogram()
+```
+
+
+Los histogramas permiten observar cómo se distribuyen los datos, revelando si están equilibradamente repartidos o inclinados hacia un extremo. Una distribución es simétrica cuando las mitades a ambos lados de la media son imágenes espejo. 
+
+Si está sesgada hacia la derecha, significa que hay una acumulación de datos hacia el lado izquierdo del gráfico, con una cola que se extiende hacia la derecha. Como en el caso del gráfico de líneas arriba. 
+
+Por otro lado, un sesgo hacia la izquierda indica una concentración de datos hacia la derecha, con una cola que se alarga hacia la izquierda. Los histogramas también muestran si los datos se agrupan en torno a varios valores centrales, evidenciado por la presencia de varios picos o "modas".
+
+Así como nuestros gráficos anteriores, podemos personalizar mucho más nuestro gráfico:
+
+```{r}
+data |> 
+  ggplot() + 
+  aes(x=PBIPC) + 
+  geom_histogram()+
+  geom_vline(xintercept = mean(data$PBIPC), color = "red")+
+  geom_vline(xintercept = median(data$PBIPC), color = "green")
+```
+
+
+
+#### Gráfico de línea
+
+El gráfico de líneas es una herramienta de visualización de datos que conecta puntos de datos individuales con líneas, mostrando tendencias o cambios en una variable numérica a lo largo del tiempo o de otra variable numérica. Sirve principalmente para visualizar la evolución de una o varias cantidades, permitiendo identificar patrones, tendencias, picos, y caídas en los datos a lo largo de un período o rango específico.
+
+```{r message=FALSE, warning=FALSE}
+library(readxl)
+CPI<-read_xlsx("data/CPI.xlsx")
+```
+
+Cómo evolucionó Perú en el CPI score desde el 2017?
+
+```{r}
+CPI |> 
+  filter(country=="Peru"|country=="Bolivia" |country=="Italy") |> 
+  ggplot() +
+  aes(x=year, y=cpi_score, color=country)+
+  geom_line()+
+  geom_point()+
+  ylim(0, 80)+
+  geom_text(aes(label=round(cpi_score, 1)), 
+            vjust=-0.5,                   
+            hjust=1.2) 
+```
+
+
+
+
