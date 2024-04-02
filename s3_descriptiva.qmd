@@ -271,6 +271,7 @@ Las demás capas del ggplot lo vamos a ir viendo a medida que vayamos avanzando 
 
 <iframe src="https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57" width="672" height="400px" data-external="1">
 
+
 ### Para variables categóricas
 
 #### Gráfico de barras
@@ -351,7 +352,7 @@ El boxplot es útil para identificar **valores atípicos** y para comparar la di
 
 Puedes probar este video sugerido:
 
-{{< video https://www.youtube.com/watch?v=fHLhBnmwUM0 >}}
+https://www.youtube.com/watch?v=fHLhBnmwUM0
 
 También puedes solicitar boxplot por grupos:
 
