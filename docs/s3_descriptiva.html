@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Estadística para el Análisis Político 1 – 3&nbsp; Estadística descriptiva</title>
+<title>Estadística para el Análisis Político 1 - 3&nbsp; Estadística descriptiva</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,9 +161,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">
-      Estadística para el Análisis Político 1
-      </a> 
+      <a href="./">Estadística para el Análisis Político 1</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
@@ -643,24 +641,24 @@ Nota
 <li><strong>Facetas, Estadísticas, Coordenadas y Temas</strong></li>
 </ol>
 <p>Las demás capas del ggplot lo vamos a ir viendo a medida que vayamos avanzando en el curso. No obstante, te sugiero ver el siguiente ppt que profundiza y ejemplifica cada una de las capas restantes.</p>
-<iframe src="https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57" width="672" height="400px" data-external="1">
+<p>https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57</p>
 </section>
 <section id="para-variables-categóricas" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2"><span class="header-section-number">3.5.2</span> Para variables categóricas</h3>
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="para-variables-categóricas"><span class="header-section-number">3.5.2</span> Para variables categóricas</h3>
 <section id="gráfico-de-barras" class="level4" data-number="3.5.2.1">
-<h4 data-number="3.5.2.1"><span class="header-section-number">3.5.2.1</span> Gráfico de barras</h4>
+<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="gráfico-de-barras"><span class="header-section-number">3.5.2.1</span> Gráfico de barras</h4>
 <p>En un gráfico de barras vertical,las categorías se representan en el eje horizontal y la frecuencia o cantidad en el eje vertical.</p>
 <p>El gráfico de barras es una herramienta útil para comparar la frecuencia o cantidad de diferentes categorías o variables en un conjunto de datos.</p>
 <p>Utilizamos la función geom_bar(). El resultado es que la función ha <strong>CONTADO</strong> la frecuencia de cada categoría de DemocracyIndexCat</p>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>                <span class="co"># Data</span></span>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>                <span class="co"># Data</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>           <span class="co"># Iniciamos la construcción del gráfico con ggplot </span></span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> Democracy_Index_cat) <span class="sc">+</span> <span class="co"># Establecemos la variable como el eje x</span></span>
-<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()           <span class="co"># Creamos un gráfico de barras basado en el conteo de &#39;continent&#39;</span></span></code></pre></div>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()           <span class="co"># Creamos un gráfico de barras basado en el conteo de 'continent'</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -668,8 +666,8 @@ Nota
 <p>En algunas ocasiones ya contamos con el conteo realizado y sólo deseamos el gráfico. Para ello utilizamos el ARGUMENTO stat=“identity”.</p>
 <p>Un caso como el siguiente:</p>
 <div class="cell">
-<div class="sourceCode" id="cb62"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Democracy_Index_cat)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Democracy_Index_cat)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Democracy_Index_cat     n
@@ -683,32 +681,32 @@ Nota
 </div>
 <p>En estos casos utilizamos la función:</p>
 <div class="cell">
-<div class="sourceCode" id="cb64"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Democracy_Index_cat) <span class="sc">|&gt;</span> </span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>           </span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> n, <span class="at">x=</span>Democracy_Index_cat) <span class="sc">+</span> <span class="co">#En este caso le he tenido que especificar tanto x como y!</span></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)          </span></code></pre></div>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)          </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Agregando etiquetas de los datos y nombres de los ejes:</p>
 <div class="cell">
-<div class="sourceCode" id="cb65"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span>  </span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Democracy_Index_cat) <span class="sc">|&gt;</span> </span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>           </span>
 <span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> n, <span class="at">x=</span>Democracy_Index_cat) <span class="sc">+</span> <span class="co">#En este caso le he tenido que especificar tanto x como y!</span></span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="sc">+</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>)<span class="sc">+</span></span>
 <span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>n, <span class="at">vjust=</span><span class="sc">-</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">3</span>))<span class="sc">+</span></span>
-<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Tipo de régimen&quot;</span>, <span class="at">y=</span><span class="st">&quot;Frecuencia&quot;</span>)</span></code></pre></div>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Tipo de régimen"</span>, <span class="at">y=</span><span class="st">"Frecuencia"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -716,7 +714,7 @@ Nota
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Nota
@@ -729,23 +727,23 @@ Nota
 </section>
 </section>
 <section id="para-variables-numéricas" class="level3" data-number="3.5.3">
-<h3 data-number="3.5.3"><span class="header-section-number">3.5.3</span> Para variables numéricas</h3>
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="para-variables-numéricas"><span class="header-section-number">3.5.3</span> Para variables numéricas</h3>
 <section id="boxplot" class="level4" data-number="3.5.3.1">
-<h4 data-number="3.5.3.1"><span class="header-section-number">3.5.3.1</span> Boxplot</h4>
-<p><img src="images/boxplot.png" class="img-fluid" /></p>
+<h4 data-number="3.5.3.1" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">3.5.3.1</span> Boxplot</h4>
+<p><img src="images/boxplot.png" class="img-fluid"></p>
 <p>Es utilizado para representar la distribución de un conjunto de datos numéricos a través de sus cuartiles.</p>
 <p>El gráfico consiste en una caja que representa el rango intercuartil (IQR),es decir, la diferencia entre el tercer cuartil (Q3) y el primer cuartil(Q1).</p>
 <p>Dentro de la caja,se dibuja una línea que representa la mediana.</p>
 <p>Los bigotes,que se extienden desde la caja, indican el rango de los datos que se encuentran dentro de un cierto múltiplo del IQR, generalmente 1.5 veces el IQR.</p>
 <div class="cell">
-<div class="sourceCode" id="cb66"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> PBIPC) <span class="sc">+</span> <span class="co"># Establecemos &#39;lifeExp&#39; en el eje x</span></span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> PBIPC) <span class="sc">+</span> <span class="co"># Establecemos 'lifeExp' en el eje x</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -756,14 +754,14 @@ Nota
 <p>https://www.youtube.com/watch?v=fHLhBnmwUM0</p>
 <p>También puedes solicitar boxplot por grupos:</p>
 <div class="cell">
-<div class="sourceCode" id="cb67"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> PBIPC, <span class="at">colour=</span>Continent) <span class="sc">+</span> <span class="co"># Establecemos &#39;lifeExp&#39; en el eje x</span></span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y =</span> PBIPC, <span class="at">colour=</span>Continent) <span class="sc">+</span> <span class="co"># Establecemos 'lifeExp' en el eje x</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -771,21 +769,21 @@ Nota
 <p>¿qué nos dice este gráfico?</p>
 </section>
 <section id="histograma" class="level4" data-number="3.5.3.2">
-<h4 data-number="3.5.3.2"><span class="header-section-number">3.5.3.2</span> Histograma</h4>
+<h4 data-number="3.5.3.2" class="anchored" data-anchor-id="histograma"><span class="header-section-number">3.5.3.2</span> Histograma</h4>
 <p>Un histograma es un tipo de gráfico utilizado en estadísticas para representar la distribución de un conjunto de datos numéricos mediante barras. Cada barra en un histograma representa la frecuencia (número de veces que ocurren) de datos dentro de un intervalo o “bin” específico.</p>
 <p>Los bins dividen el espectro completo de los datos en series de intervalos consecutivos, y son todos de igual tamaño. La altura de cada barra muestra cuántos datos caen dentro de cada intervalo.</p>
 <div class="cell">
-<div class="sourceCode" id="cb68"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>PBIPC) <span class="sc">+</span> </span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -795,35 +793,35 @@ Nota
 <p>Por otro lado, un sesgo hacia la izquierda indica una concentración de datos hacia la derecha, con una cola que se alarga hacia la izquierda. Los histogramas también muestran si los datos se agrupan en torno a varios valores centrales, evidenciado por la presencia de varios picos o “modas”.</p>
 <p>Así como nuestros gráficos anteriores, podemos personalizar mucho más nuestro gráfico:</p>
 <div class="cell">
-<div class="sourceCode" id="cb70"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>PBIPC) <span class="sc">+</span> </span>
 <span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()<span class="sc">+</span></span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(data<span class="sc">$</span>PBIPC), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(data<span class="sc">$</span>PBIPC), <span class="at">color =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(data<span class="sc">$</span>PBIPC), <span class="at">color =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(data<span class="sc">$</span>PBIPC), <span class="at">color =</span> <span class="st">"green"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 <section id="gráfico-de-línea" class="level4" data-number="3.5.3.3">
-<h4 data-number="3.5.3.3"><span class="header-section-number">3.5.3.3</span> Gráfico de línea</h4>
+<h4 data-number="3.5.3.3" class="anchored" data-anchor-id="gráfico-de-línea"><span class="header-section-number">3.5.3.3</span> Gráfico de línea</h4>
 <p>El gráfico de líneas es una herramienta de visualización de datos que conecta puntos de datos individuales con líneas, mostrando tendencias o cambios en una variable numérica a lo largo del tiempo o de otra variable numérica. Sirve principalmente para visualizar la evolución de una o varias cantidades, permitiendo identificar patrones, tendencias, picos, y caídas en los datos a lo largo de un período o rango específico.</p>
 <div class="cell">
-<div class="sourceCode" id="cb72"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>CPI<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">&quot;data/CPI.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>CPI<span class="ot">&lt;-</span><span class="fu">read_xlsx</span>(<span class="st">"data/CPI.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Cómo evolucionó Perú en el CPI score desde el 2017?</p>
 <div class="cell">
-<div class="sourceCode" id="cb73"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>CPI <span class="sc">|&gt;</span> </span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country<span class="sc">==</span><span class="st">&quot;Peru&quot;</span><span class="sc">|</span>country<span class="sc">==</span><span class="st">&quot;Bolivia&quot;</span> <span class="sc">|</span>country<span class="sc">==</span><span class="st">&quot;Italy&quot;</span>) <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>CPI <span class="sc">|&gt;</span> </span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country<span class="sc">==</span><span class="st">"Peru"</span><span class="sc">|</span>country<span class="sc">==</span><span class="st">"Bolivia"</span> <span class="sc">|</span>country<span class="sc">==</span><span class="st">"Italy"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>cpi_score, <span class="at">color=</span>country)<span class="sc">+</span></span>
 <span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
@@ -831,27 +829,23 @@ Nota
 <span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">80</span>)<span class="sc">+</span></span>
 <span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">round</span>(cpi_score, <span class="dv">1</span>)), </span>
 <span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>,                   </span>
-<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust=</span><span class="fl">1.2</span>) </span></code></pre></div>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust=</span><span class="fl">1.2</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672" /></p>
+<figure class="figure">
+<p><img src="s3_descriptiva_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">Estadística para el Análisis Político 1</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Estadística para el Análisis Político 1</span> <span class="hidden" data-render-id="quarto-int-prev"><span class="chapter-number">2</span>  <span class="chapter-title">Manipulación de tablas</span></span> <span class="hidden" data-render-id="quarto-int-sidebar:/index.htmlSobre-el-curso">Sobre el curso</span> <span class="hidden" data-render-id="quarto-int-sidebar:/s1_intro.html&lt;span-class=&#39;chapter-number&#39;&gt;1&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Fundamentos-de-programación-con-R&lt;/span&gt;"><span class="chapter-number">1</span>  <span class="chapter-title">Fundamentos de programación con R</span></span> <span class="hidden" data-render-id="quarto-int-sidebar:/s2_manipulacion.html&lt;span-class=&#39;chapter-number&#39;&gt;2&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Manipulación-de-tablas&lt;/span&gt;"><span class="chapter-number">2</span>  <span class="chapter-title">Manipulación de tablas</span></span> <span class="hidden" data-render-id="quarto-int-sidebar:/s3_descriptiva.html&lt;span-class=&#39;chapter-number&#39;&gt;3&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Estadística-descriptiva&lt;/span&gt;"><span class="chapter-number">3</span>  <span class="chapter-title">Estadística descriptiva</span></span> <span class="hidden" data-render-id="quarto-breadcrumbs-&lt;span-class=&#39;chapter-number&#39;&gt;3&lt;/span&gt;--&lt;span-class=&#39;chapter-title&#39;&gt;Estadística-descriptiva&lt;/span&gt;"><span class="chapter-number">3</span>  <span class="chapter-title">Estadística descriptiva</span></span></p>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden" data-render-id="quarto-metatitle">Estadística para el Análisis Político 1 - <span class="chapter-number">3</span>  <span class="chapter-title">Estadística descriptiva</span></span> <span class="hidden" data-render-id="quarto-twittercardtitle">Estadística para el Análisis Político 1 - <span class="chapter-number">3</span>  <span class="chapter-title">Estadística descriptiva</span></span> <span class="hidden" data-render-id="quarto-ogcardtitle">Estadística para el Análisis Político 1 - <span class="chapter-number">3</span>  <span class="chapter-title">Estadística descriptiva</span></span> <span class="hidden" data-render-id="quarto-metasitename">Estadística para el Análisis Político 1</span> <span class="hidden" data-render-id="quarto-twittercarddesc"></span> <span class="hidden" data-render-id="quarto-ogcardddesc"></span></p>
-</div>
+
+
 </section>
 </section>
 </section>
 
 </main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1379,8 +1373,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a  href="/s2_manipulacion.html" class="pagination-link  aria-label="&lt;span class=&#39;chapter-number&#39;&gt;2&lt;/span&gt;  &lt;span class=&#39;chapter-title&#39;&gt;Manipulación de tablas&lt;/span&gt;">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class='chapter-number'>2</span>  <span class='chapter-title'>Manipulación de tablas</span></span>
+      <a href="./s2_manipulacion.html" class="pagination-link  aria-label=" &lt;span="" de="" tablas&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1388,7 +1382,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav>
 </div> <!-- /content -->
 
-</body>
 
-</html>
-</iframe></section></section></main></div></body></html>
+
+
+</body></html>

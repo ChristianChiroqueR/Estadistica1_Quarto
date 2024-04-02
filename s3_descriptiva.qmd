@@ -269,7 +269,7 @@ Esta estructura de capas hace que ggplot2 sea extremadamente poderoso para explo
 
 Las demás capas del ggplot lo vamos a ir viendo a medida que vayamos avanzando en el curso. No obstante, te sugiero ver el siguiente ppt que profundiza y ejemplifica cada una de las capas restantes. 
 
-<iframe src="https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57" width="672" height="400px" data-external="1">
+https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57
 
 
 ### Para variables categóricas
