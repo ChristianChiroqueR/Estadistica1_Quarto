@@ -10,7 +10,8 @@ book:
   chapters:
     - index.qmd
     - s1_intro.qmd
-    - s2_descriptivo.qmd
+    - s2_manipulacion.qmd
+    - s3_descriptiva.qmd
 
 bibliography: references.bib
 

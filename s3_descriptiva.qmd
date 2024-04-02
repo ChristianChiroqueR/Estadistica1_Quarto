@@ -1,0 +1,206 @@
+# Estadística descriptiva
+
+## Objetivos de la sesión
+
+-   Tras familiarizarnos con los principios básicos de la programación en R y la manipulación de sus elementos clave, nos centraremos en examinar a fondo una base de datos. Al concluir esta sesión, el estudiante dominará las técnicas y métodos estadísticos esenciales para sintetizar y destacar las características principales de un conjunto de datos.
+
+## Presentación
+
+```{r}
+1 + 1
+```
+
+## Problema de investigación y data
+
+Disponemos de una base de datos que incluye una variedad de indicadores e índices para 95 países alrededor del mundo. Los datos abarcan:
+
+País Continente Región Índice AML Matrícula PBI per cápita Pobreza Urbano Gasto en educación Índice de Percepción de la Corrupción Estado de derecho Índice de Democracia Categoría del Índice de Democracia Índice de Crimen Organizado
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readxl)
+data<-read_xlsx("data/AML.xlsx")
+```
+
+Veamos la data rápidamente:
+
+```{r}
+head(data)
+```
+
+## Estadísticos descriptivos
+
+Además de memorizar las fórmulas, que sin duda son esenciales, te invito a que, al abordar una base de datos, consideres las siguientes preguntas esenciales al momento de describir una variable:
+
+-   ¿Cuál sería el mejor representante de estos datos?
+
+-   ¿Cuánto varían estos datos?
+
+
+### ¿Cuál sería el mejor representante de estos datos?
+
+El "mejor representante" de un conjunto de datos se refiere a la medida de tendencia central que mejor resume la información de dicho conjunto. Las opciones principales incluyen la media, la mediana y la moda:
+
+#### La media
+
+La media es el promedio aritmético y proporciona un centro de gravedad de los datos. Es útil cuando los datos son simétricos y sin valores atípicos significativos. Recordemos que la función a utilizar es `mean()`.
+
+Por ejemplo, si deseamos la media de PBI per cápita, Pobreza y el Gasto de Educación:
+
+```{r}
+mean(data$PBIPC)
+mean(data$Pobreza)
+mean(data$gastoedu)
+```
+
+Si lo queremos ver de forma comparativa podemos utilizar tidyverse:
+
+```{r}
+data |> 
+  summarise(mean(PBIPC), mean(Pobreza), mean(gastoedu))
+```
+
+#### La mediana
+
+La mediana es el valor que se encuentra en el punto medio de un conjunto de datos ordenado. Resulta especialmente informativa en distribuciones sesgadas, ya que no es tan susceptible a los valores extremos como la media. Usamos la función `median()`.
+
+Sigamos con las variables PBI per cápita, Pobreza y el Gasto de Educación:
+
+```{r}
+median(data$PBIPC)
+median(data$Pobreza)
+median(data$gastoedu)
+```
+
+Si lo queremos ver de forma comparativa podemos utilizar tidyverse:
+
+```{r}
+data |> 
+  summarise(median(PBIPC), median(Pobreza), median(gastoedu))
+```
+
+#### La moda
+
+La moda es el valor o valores que aparecen con mayor frecuencia. Es la única medida de tendencia central aplicable a datos nominales. Para este caso en específico, podemos utilizar la función `table()` o también la función `count()` dentro de un fraseo de tidyverse:
+
+```{r}
+table(data$Continent)
+```
+
+O también:
+
+```{r}
+data |> 
+  count(Continent)
+```
+
+Podemos añadir también una columna de porcentaje usando la función `mutate()`:
+
+```{r}
+data |> 
+  count(Continent) |> 
+  mutate(Porcentaje=n/sum(n)*100)
+```
+
+### ¿Cuánto varían estos datos?
+
+La variación de los datos se refiere al grado en que los valores del conjunto de datos difieren entre sí y de la medida de tendencia central. Las medidas de variabilidad incluyen el rango, la varianza, la desviación estándar, el rango intercuartil y el coeficiente de variación:
+
+#### El rango
+
+El rango ofrece una visión general muy básica de la variabilidad, indicando la diferencia entre los valores más alto y más bajo.
+
+Es una medida muy sencilla de calcular y proporciona una idea general de la variabilidad de los datos. Sin embargo, no toma en cuenta la distribución de los datos en el conjunto, lo que puede hacer que la medida sea menos informativa en ciertos casos.
+
+Para ver el valor mínimo y máximo:
+
+```{r}
+range(data$PBIPC)
+range(data$Pobreza)
+range(data$gastoedu)
+```
+
+```{r}
+max(data$PBIPC)-min(data$PBIPC)
+max(data$Pobreza)-min(data$Pobreza)
+max(data$gastoedu)-min(data$gastoedu)
+```
+
+#### La varianza y la desviación estándar
+
+La varianza es una medida de dispersión que indica qué tan dispersos están los datos con respecto a su media.
+
+Matemáticamente, la varianza se define como la media aritmética de los cuadrados de las diferencias entre cada valor de la variable y la media.
+
+$$\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
+
+La varianza proporciona una idea de la dispersión general de los datos, pero debido a que las diferencias se elevan al cuadrado, la varianza no está en las mismas unidades que los datos originales, lo que puede dificultar su interpretación directa.
+
+Usamos la función `var()`:
+
+```{r}
+var(data$PBIPC)
+var(data$Pobreza)
+var(data$gastoedu)
+```
+
+La desviación estándar, al tomar la raíz cuadrada de la varianza, la desviación estándar vuelve a las unidades originales de los datos, lo que facilita su comprensión e interpretación. La desviación estándar indica cuánto, en promedio, se desvían los valores de la media del conjunto de datos. Un valor bajo de desviación estándar indica que los datos están agrupados cerca de la media, mientras que un valor alto señala que los datos están más dispersos.
+
+```{r}
+sd(data$PBIPC)
+sd(data$Pobreza)
+sd(data$gastoedu)
+```
+
+::: callout-warning
+A pesar que en la descripción de una variable se suele preferir utilizar la desviación estándar por las características mencionadas, la varianza tiene propiedades matemáticas importantes que la hacen el centro de diversas técnicas inferenciales.
+:::
+
+#### El coeficiente de variación
+
+El coeficiente de variación (CV) es una medida estadística que describe la relación entre la desviación estándar (σ) y la media (μ) de un conjunto de datos, expresada como un porcentaje.
+
+$$CV = \left( \frac{\sigma}{\mu} \right) \times 100\%$$
+
+El coeficiente de variación es particularmente útil porque proporciona una medida de variabilidad relativa independiente de la escala de los datos, lo cual permite comparar la dispersión de dos o más conjuntos de datos que podrían tener diferentes unidades de medida o medias muy distintas.
+
+En nuestro caso, ¿cuál variable es más dispersa? ¿PBI per cápita, Pobreza y el Gasto de Educación?
+
+```{r}
+cv_PBIPC <- sd(data$PBIPC) / mean(data$PBIPC) * 100
+cv_Pobreza <- sd(data$Pobreza) / mean(data$Pobreza) * 100
+cv_gastoedu <- sd(data$gastoedu) / mean(data$gastoedu) * 100
+```
+
+
+```{r}
+cv_PBIPC
+cv_Pobreza
+cv_gastoedu
+```
+
+Con esta medida estandarizada es mucho mejor realizar la comparación y responder a la pregunta planteada.
+
+
+### Comparación en grupos
+
+Es común querer explorar cómo los descriptivos estadísticos varían entre diferentes grupos o categorías dentro de un conjunto de datos. Para facilitar este tipo de análisis, el paquete dplyr de R ofrece la función group_by(), que permite agrupar los datos por una o más variables categóricas y luego calcular estadísticas descriptivas para cada grupo. Esta práctica es especialmente útil para entender las diferencias y similitudes entre grupos, ayudando en la toma de decisiones basada en datos y en la formulación de hipótesis para análisis más detallados.
+
+```{r}
+data |> 
+  group_by(Continent) |> 
+  summarise(cv_PBIPC=sd(PBIPC) / mean(PBIPC) * 100,
+            cv_Pobreza = sd(Pobreza) / mean(Pobreza) * 100,
+            cv_gastoedu = sd(gastoedu) / mean(gastoedu) * 100)
+```
+
+## Visualización de datos
+
+Dependiendo del tipo de variables que se analizan, las técnicas y herramientas de visualización varían. A continuación, se describen las aproximaciones recomendadas para visualizar datos, diferenciando entre variables categóricas y numéricas.
+
+
+### Cómo funciona ggplot2
+
+### Para variables categóricas
+
+### Para variables numéricas

@@ -9,7 +9,6 @@
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRFpbh5FbZePoJreBcYlukW4rOcjyTBEyKhvwSrSzFHTQb3zDLvW-0TX-Uuve3uK2giytGQHwDETltT/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-
 ## Introducción al Tidyverse
 
 El tidyverse es una colección de paquetes de R diseñados para la ciencia de datos que comparten una filosofía subyacente y son interoperables, facilitando la importación, manipulación, exploración y visualización de datos.
@@ -22,6 +21,7 @@ Abrimos la librería tidyverse:
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
+library(rio)
 ```
 
 ## Manipulación de datos con dplyr
@@ -37,7 +37,6 @@ library(tidyverse)
 El Índice de Percepción de la Corrupción (CPI, por sus siglas en inglés) es una herramienta global que clasifica a los países según la percepción de corrupción en el sector público, basándose en evaluaciones de expertos y encuestas de negocios. La escala va de 0 (muy corrupto) a 100 (muy limpio), y sirve para comparar la situación de corrupción entre diferentes naciones. Es publicado anualmente por Transparency International, una organización no gubernamental dedicada a combatir la corrupción global.
 
 Examinemos la base original. Vamos a editar la tabla con diversos verbos de `dplyr`.
-
 
 **Abrir archivo**
 
@@ -99,9 +98,7 @@ class(data$cpi_score)
 
 De acuerdo, podemos proseguir.
 
-
 ### Select()
-
 
 La función select() es utilizada para seleccionar o excluir columnas de un data frame o tibble en R. Va más allá de simplemente escoger columnas por nombre, ya que permite una amplia gama de criterios y operaciones.
 
@@ -130,7 +127,6 @@ Tener en cuenta que puedes:
 -   Seleccionar un rango colocando por ejemplo 2:4 lo que significa “desde la columna 2 hasta la columna 4).
 
 -   Puedes combinar todas las anteriores y tener más de un criterio a la vez separándolo por coma.
-
 
 ### Filter()
 
@@ -166,7 +162,6 @@ Funcionamiento básico:
 
 -   Ordenación múltiple: Puedes proporcionar múltiples columnas para ordenar, y arrange() las usará en el orden proporcionado para determinar el ordenamiento. Por ejemplo, si deseas ordenar primero por "grupo" y luego por "edad" dentro de cada grupo, usarías: df \|\> arrange(grupo, edad).
 
-
 ```{r}
 data3<-data2 |>    
   arrange(desc(cpi_score))
@@ -177,9 +172,9 @@ data3
 
 La función mutate() está diseñada para crear o modificar columnas dentro de un data frame o tibble en R. Mientras que el data frame original se mantiene inalterado, mutate() devuelve una copia con las columnas especificadas añadidas o alteradas.
 
-En este caso vamos a crear una variable cambiando la escala del score del CPI. 
+En este caso vamos a crear una variable cambiando la escala del score del CPI.
 
-En la medida original 0 representaba alta corrupción y 100 escasa corrupción. Ahora, si realizamos la operación "100 - cpi_score", los valores cercanos a 0 tendrán poca corrupción y los cercanos a 100 alta corrupción, siendo más intuitivo. 
+En la medida original 0 representaba alta corrupción y 100 escasa corrupción. Ahora, si realizamos la operación "100 - cpi_score", los valores cercanos a 0 tendrán poca corrupción y los cercanos a 100 alta corrupción, siendo más intuitivo.
 
 Esta transformación puede ser útil para ajustar la interpretación de los datos a contextos donde es más intuitivo trabajar con escalas donde un número mayor indica mayor intensidad de un fenómeno (Corrupción, en este caso), dependiendo del análisis que se desea realizar.
 
@@ -188,7 +183,6 @@ data4<-data3 |>
   mutate(cpi_score2=100-cpi_score) 
 data4
 ```
-
 
 ### Summarise()
 
@@ -222,11 +216,11 @@ data4 |>
 Cuando aplicamos un summarise lo que nos devuelve es un valor o conjunto de valores. Por otro lado, el argumento na.rm = TRUE se utiliza para especificar que los valores perdidos (NA) deben ser ignorados en el cálculo. De esta forma, le indicamos a la función que proceda con la operación excluyendo dichos valores ausentes.
 :::
 
-### Utilizando pipe: |>
+### Utilizando pipe: \|\>
 
 Probablemente hayas observado que hemos creado un conjunto de datos para cada verbo utilizado, lo cual en situaciones reales resultaría excesivamente repetitivo. Haciendo una analogía con la escritura de un libro, sería como si estuviéramos limitados a usar únicamente oraciones, lo cual haría el proceso tedioso.
 
-El operador |> (pipe) en R, introducido en la versión 4.1, permite realizar operaciones en cadena, facilitando la secuencia de funciones y transformaciones en un flujo más legible y ordenado.
+El operador \|\> (pipe) en R, introducido en la versión 4.1, permite realizar operaciones en cadena, facilitando la secuencia de funciones y transformaciones en un flujo más legible y ordenado.
 
 Es evidente que, mediante el uso del operador pipe, podemos encadenar verbos de manera fluida y evitar la creación innecesaria de objetos, ya que este operador permite que el resultado a la izquierda se convierta automáticamente en el argumento de la función a la derecha.
 
@@ -251,8 +245,6 @@ data_final<-data |>
   mutate(cpi_score2=100-cpi_score) 
 ```
 
-
-
 ## Funciones complementarias
 
 ### Agrupando con group_by()
@@ -264,7 +256,6 @@ data |>
   group_by(year) |> 
   summarise(Media=mean(cpi_score, na.rm = T)) 
 ```
-
 
 ### Contar con count()
 
@@ -279,7 +270,6 @@ data_final |>
 ::: callout-note
 En la última línea de código, indicamos a R que ordene los datos de acuerdo a la variable 'n', la cual fue definida en la línea de código precedente. Es importante recordar que la ejecución de acciones o funciones en R se realiza de manera secuencial y acumulativa.
 :::
-
 
 ### Renombrar con rename()
 
@@ -308,22 +298,34 @@ Al final se coloca TRUE, lo que indica todos aquellos casos que no cumplen con l
 summary(data_final$cpi_score2)
 ```
 
-
 ```{r}
 data_final<-data_final |> 
-  drop_na(cpi_score2)
-summary(data_final$cpi_score2)
+            drop_na(cpi_score2)
+            summary(data_final$cpi_score2)
 ```
 
 Podemos realizar:
 
 ```{r}
-data_final  |>   
+data_final<-data_final  |>   
   mutate(corrupcion=case_when(cpi_score2<30~"Bajo", 
                               cpi_score2<60~"Medio", 
                               cpi_score2<=100~"Alto")) 
 ```
 
+Le asignamos la configuración adecuada:
+
+```{r}
+data_final$corrupcion<-factor(data_final$corrupcion,
+                          levels = c("Bajo", "Medio", "Alto"),
+                          ordered = TRUE)
+```
+
+Finalmente, ya contamos una nueva nueva variable ordinal creada a partir de una variable numérica:
+
+```{r}
+str(data_final$corrupcion)
+```
 
 ## Ficha resumen (Cheat Sheet)
 

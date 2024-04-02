@@ -9,7 +9,6 @@
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTv_Qyx_cMFYrUKhE49ygf01eUseWvWcr1UUWq3J1ZqgSF2f4ND9c0Q_GHLaATlZpCQLpXU_7psyzRe/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-
 ## Sobre R
 
 ### Consideraciones básicas
@@ -364,7 +363,6 @@ Ahora con esta configuración ya estamos listos para el siguiente paso: manipula
 ```{r}
 str(data)
 ```
-
 
 ## Ficha resumen (Cheat Sheet)
 
