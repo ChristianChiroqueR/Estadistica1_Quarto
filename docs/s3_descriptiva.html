@@ -261,7 +261,20 @@ window.Quarto = {
 <section id="problema-de-investigación-y-data" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="problema-de-investigación-y-data"><span class="header-section-number">3.3</span> Problema de investigación y data</h2>
 <p>Disponemos de una base de datos que incluye una variedad de indicadores e índices para 95 países alrededor del mundo. Los datos abarcan:</p>
-<p>-País -Continente -Región -Índice -Índice de Lavado de Activos -Matrícula -PBI per cápita -Pobreza Urbano -Gasto en educación -Índice de Percepción de la Corrupción -Estado de derecho -Índice de Democracia -Categoría del Índice de Democracia -Índice de Crimen Organizado</p>
+<p>-País</p>
+<p>-Continente</p>
+<p>-Región</p>
+<p>-Índice</p>
+<p>-Índice de Lavado de Activos</p>
+<p>-Matrícula</p>
+<p>-PBI per cápita</p>
+<p>-Pobreza Urbano</p>
+<p>-Gasto en educación</p>
+<p>-Índice de Percepción de la Corrupción</p>
+<p>-Estado de derecho</p>
+<p>-Índice de Democracia</p>
+<p>-Categoría del Índice de Democracia</p>
+<p>-Índice de Crimen Organizado</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
@@ -442,7 +455,20 @@ window.Quarto = {
 <h4 data-number="3.4.2.2" class="anchored" data-anchor-id="la-varianza-y-la-desviación-estándar"><span class="header-section-number">3.4.2.2</span> La varianza y la desviación estándar</h4>
 <p>La varianza es una medida de dispersión que indica qué tan dispersos están los datos con respecto a su media.</p>
 <p>Se calcula como el promedio de los cuadrados de las diferencias entre cada valor y la media del conjunto. En otras palabras, indica cuán alejados están los valores individuales de la media. La varianza proporciona una idea de la variabilidad o volatilidad de los datos, siendo un indicador clave de cuánto tienden a variar los valores respecto a la media.</p>
-<p><span class="math display">\[s^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2\]</span></p>
+<p><span class="math display">\[s^2 = \frac{1}{N-1}\sum_{i=1}^{N}(x_i - \mu)^2\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se utiliza n−1 para calcular la varianza en una muestra como un ajuste para corregir el sesgo en la estimación de la varianza poblacional, garantizando una estimación más precisa. Esto lo entenderemos mejor cuando veamos inferencia.</p>
+</div>
+</div>
 <p>La varianza proporciona una idea de la dispersión general de los datos, pero debido a que las diferencias se elevan al cuadrado, la varianza no está en las mismas unidades que los datos originales, lo que puede dificultar su interpretación directa.</p>
 <p>Usamos la función <code>var()</code>:</p>
 <div class="cell">
@@ -497,11 +523,11 @@ Advertencia
 <h4 data-number="3.4.2.3" class="anchored" data-anchor-id="el-coeficiente-de-variación"><span class="header-section-number">3.4.2.3</span> El coeficiente de variación</h4>
 <p>El coeficiente de variación (CV) es una medida estadística que describe la relación entre la desviación estándar (σ) y la media (μ) de un conjunto de datos, expresada como un porcentaje.</p>
 <p>De forma sencilla, <strong>el coeficiente de variación indica cuán grande es la variabilidad de los datos en comparación con la media del conjunto</strong>.</p>
-<p><span class="math display">\[CV = \left( \frac{s^2}{\mu} \right) \times 100\%\]</span></p>
+<p><span class="math display">\[CV = \left( \frac{s}{\mu} \right) \times 100\%\]</span></p>
 <p>El coeficiente de variación es particularmente útil porque proporciona una <strong>medida de variabilidad relativa independiente de la escala de los datos</strong>, lo cual permite comparar la dispersión de dos o más conjuntos de datos que podrían tener diferentes unidades de medida o medias muy distintas (lo que podría distorsionar el análisis).</p>
 <p>Si bien NO HAY UN CONSENSO en los umbrales para la interpretación, para este curso, utilizaremos los siguientes criterios:</p>
 <ul>
-<li></li>
+<li><p>]0%-10%]: Variabilidad baja</p></li>
 <li><p>]10%-20%]: Variabilidad media</p></li>
 <li><p>Mayor a 20%: Variabilidad alta</p></li>
 </ul>
@@ -641,7 +667,9 @@ Nota
 <li><strong>Facetas, Estadísticas, Coordenadas y Temas</strong></li>
 </ol>
 <p>Las demás capas del ggplot lo vamos a ir viendo a medida que vayamos avanzando en el curso. No obstante, te sugiero ver el siguiente ppt que profundiza y ejemplifica cada una de las capas restantes.</p>
-<p>https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57</p>
+<p>Si deseas adelantar un poco, puedes mirar esta <a href="https://christianchiroquer.github.io/DataPolitica_ggplot2/Flip1.html#57">presentación</a>, donde exploro el detalle de las capas restantes.</p>
+<p>También te sugiero ver este video de soporte</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/HPJn1CMvtmI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="para-variables-categóricas" class="level3" data-number="3.5.2">
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="para-variables-categóricas"><span class="header-section-number">3.5.2</span> Para variables categóricas</h3>
@@ -751,7 +779,7 @@ Nota
 <p>Los valores que están por encima o por debajo de los bigotes se representan como puntos o asteriscos, que se conocen como valores atípicos.</p>
 <p>El boxplot es útil para identificar <strong>valores atípicos</strong> y para comparar la distribución de varios conjuntos de datos en un solo gráfico. También permite visualizar la simetría o asimetría de la distribución y la presencia de sesgo.</p>
 <p>Puedes probar este video sugerido:</p>
-<p>https://www.youtube.com/watch?v=fHLhBnmwUM0</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/fHLhBnmwUM0" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>También puedes solicitar boxplot por grupos:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span> </span>
