@@ -12,6 +12,7 @@ book:
     - s1_intro.qmd
     - s2_manipulacion.qmd
     - s3_descriptiva.qmd
+    - s4_introInferencia.qmd
 
 bibliography: references.bib
 
