@@ -554,7 +554,7 @@
     "href": "s4_introInferencia.html#objetivos-de-la-sesión",
     "title": "4  Introducción a la Inferencia",
     "section": "",
-    "text": "Tras familiarizarnos con los principios básicos de la programación en R y la manipulación de sus elementos clave, nos centraremos en examinar a fondo una base de datos. Al concluir esta sesión, el estudiante dominará las técnicas y métodos estadísticos esenciales para sintetizar y destacar las características principales de un conjunto de datos.",
+    "text": "Para el final de la sesión, el alumno comprenderá los fundamentos de la estadística inferencial. Asimismo, podrá calcular los intervalos de confianza de una media poblacional a partir del análisis de una muestra.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Introducción a la Inferencia</span>"
     ]
