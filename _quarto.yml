@@ -5,7 +5,7 @@ project:
 book:
   title: "Estadística para el Análisis Político 1"
   author: "Christian Chiroque"
-  cover-image: portada2.png
+  cover-image: portada.png
   favicon: quipu.png
   date: "4/4/2024"
   sidebar: 
