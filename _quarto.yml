@@ -5,8 +5,12 @@ project:
 book:
   title: "Estadística para el Análisis Político 1"
   author: "Christian Chiroque"
+  cover-image: portada2.png
   favicon: quipu.png
   date: "4/4/2024"
+  sidebar: 
+    logo: quipu2.png
+    search: true
   chapters:
     - index.qmd
     - s1_intro.qmd
