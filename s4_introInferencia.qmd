@@ -53,8 +53,46 @@ A partir de los datos recopilados, hemos calculado que la media de ingresos de n
 Cuando utilizamos la media de una muestra como aproximación de la media poblacional, a este proceso se le denomina **estimación puntual**.
 :::
 
+### Un patrón interesante
 
-### Y si lo repetimos?
+Imagina que el ejercicio de extraer varias muestras y calcular sus medias se repitiera numerosas veces. 
+
+Después, en cada repetición, almacenáramos las medias obtenidas en una tabla.
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+generar_medias_muestrales <- function(data, n_muestras, tamaño_muestra) {
+  # Crear un vector para almacenar las medias de cada muestra
+  medias <- vector("numeric", n_muestras)
+  
+  set.seed(123)  # Para reproducibilidad
+  
+  for (i in 1:n_muestras) {
+    # Tomar una muestra aleatoria de tamaño 'tamaño_muestra' y calcular la media
+    muestra <- data %>%
+      slice_sample(n = tamaño_muestra) %>%
+      summarise(media_ingresos = mean(ingresos, na.rm = TRUE))
+    # Almacenar la media en el vector 'medias'
+    medias[i] <- muestra$media_ingresos
+  }
+  
+  # Crear un dataframe con las medias
+  df_medias <- tibble(Muestras = 1:n_muestras, Media_Ingresos = medias)
+  
+  return(df_medias)
+}
+```
+
+```{r}
+resultados <- generar_medias_muestrales(poblacion, 2000, 20)
+
+dim(resultados)
+
+head(resultados,10)
+```
+
+
+
+### Varias muestras, varias medias?
 
 ¿Qué ocurriría si replicáramos este proceso en un universo paralelo? Procedamos a simular de nuevo la extracción de una muestra y el cálculo de la media muestral. 
 
@@ -67,7 +105,7 @@ muestra1<-poblacion |> slice_sample(n=20)
 mean(muestra1$ingresos)
 ```
 ::: callout-important
-Cuando utilizamos la media de una muestra como aproximación de la media poblacional, a este proceso se le denomina **estimación puntual**.
+En este punto damos cuenta que si repetimos el proceso tendremos distintas **medias muestrales**. Por lo que contar con estimadores puntuales puede resultar poco consistente. 
 :::
 
 
