@@ -47,13 +47,34 @@ Ojo, utilizaremos datos de la muestra de 20 casos, centrados exclusivamente en l
 ```{r}
 mean(muestra1$ingresos)
 ```
-A partir de los datos recopilados, hemos calculado que la media de ingresos de nuestra muestra es de 1495. Esto nos permite inferir que la media de ingresos de la población total podría aproximarse a este valor.
+A partir de los datos recopilados, hemos calculado que la media de ingresos de nuestra muestra. Esto nos permite inferir que la media de ingresos de la población total podría aproximarse a este valor.
 
 ::: callout-important
 Cuando utilizamos la media de una muestra como aproximación de la media poblacional, a este proceso se le denomina **estimación puntual**.
 :::
 
-### Un patrón interesante
+### Varias muestras, varias medias?
+
+Ahora bien,¿qué ocurriría si replicáramos este proceso en un universo paralelo? Procedamos a simular de nuevo la extracción de una muestra y el cálculo de la media muestral. 
+
+¿Qué conclusiones podemos extraer de esta nueva repetición? 
+
+Utilizaremos el código para replicar dos veces la extracción de una muestra de 20 personas y calcular la media de ingresos. 
+
+```{r}
+muestra2<-poblacion |> slice_sample(n=20)
+mean(muestra2$ingresos)
+```
+
+```{r}
+muestra2<-poblacion |> slice_sample(n=20)
+mean(muestra2$ingresos)
+```
+::: callout-important
+En este punto damos cuenta que si repetimos el proceso tendremos distintas **medias muestrales**. Por lo que contar con estimadores puntuales puede resultar poco consistente. 
+:::
+
+### Un patrón interesante: Teorema del límite central
 
 Imagina que el ejercicio de extraer varias muestras y calcular sus medias se repitiera numerosas veces. 
 
@@ -90,131 +111,103 @@ dim(resultados)
 head(resultados,10)
 ```
 
+¿Y si graficamos las 2000 medias muestrales en un histograma qué figura vemos? 
 
-
-### Varias muestras, varias medias?
-
-¿Qué ocurriría si replicáramos este proceso en un universo paralelo? Procedamos a simular de nuevo la extracción de una muestra y el cálculo de la media muestral. 
-
-¿Qué conclusiones podemos extraer de esta nueva repetición? 
-
-Utiliza el siguiente código para replicar varias veces la extracción de una muestra de 20 personas y calcular la media de ingresos. 
-
-```{webr-r}
-muestra1<-poblacion |> slice_sample(n=20)
-mean(muestra1$ingresos)
+```{r}
+resultados |> 
+  ggplot()+
+  aes(x=Media_Ingresos)+
+  geom_histogram()
 ```
+
+Este patrón denominado **distribución normal** tiene ciertas particularidades que valen la pena explorar. 
+
+![](images/teorema_limite_central.png)
+
 ::: callout-important
-En este punto damos cuenta que si repetimos el proceso tendremos distintas **medias muestrales**. Por lo que contar con estimadores puntuales puede resultar poco consistente. 
+El **teorema del límite central** dice que si tomamos suficientes muestras aleatorias grandes de una población, la distribución de las medias de esas muestras será una distribución normal, sin importar cómo se vea la distribución original de la población. Esta es la base de una rama importante de la estadística denominada **estadística paramétrica**.
 :::
-
-
-## Fundamentos
-
-### Términos básicos
-
-![](images/inferencia.jpg)
-
-La estadística inferencial utiliza la muestra de datos para hacer estimaciones y tomar decisiones acerca de las características de una población. Esto implica la utilización de técnicas y métodos para inferir información sobre la población a partir de la información recopilada en la muestra.
-
-Algunas definiciones básicas:
-
-| Definición  | Descripción                                                                                                                                                                                                                                                          |
-|------------------------------------|------------------------------------|
-| Población   | Se refiere al conjunto total de individuos, objetos, eventos, medidas o cualquier otra cosa que se quiera estudiar. En estadística inferencial, la población se utiliza como el objeto de estudio, y se busca inferir información sobre ella a partir de la muestra. |
-| Muestra     | Es un subconjunto de la población que se utiliza para hacer inferencias sobre la población en su conjunto. La selección de la muestra debe hacerse de tal forma que represente de manera adecuada las características de la población.                               |
-| Estadístico | Es una medida numérica que se utiliza para resumir o describir alguna característica de la muestra. Los estadísticos se calculan a partir de los datos de la muestra y se utilizan para hacer inferencias sobre los parámetros de la población.                      |
-| Parámetro   | Es una medida numérica que describe alguna característica de la población. En estadística inferencial, el objetivo es hacer inferencias sobre los parámetros de la población a partir de los datos de la muestra.                                                    |
-
-### Distribución normal
-
-![](images/normal.png)
-
-Anteriormente te comenté que la curva normal (forma de campana) ejercía un rol fundamental en el contexto de la estadística inferencial. Esto es gracias a una propiedades muy interesantes.
-
-La principal: la totalidad de observaciones están distribuidas +- 3 desviaciones estándar (puntuaciones Z) respecto de su media.
-
-Como se ve en la figura, son 4 los principios: 1) 50% de las puntuaciones caen encima de la media y 50% debajo; 2) Prácticamente todas las puntuaciones caen dentro de 3 SD a partir de la media en ambas direcciones (en realidad el 99.7%); 3) Cerca del 95% de las puntuaciones de una variable normalmente distribuida caen dentro de una distancia de +- 2 SD respecto de la media; y 4) Alrededor del 68% de las puntuaciones caen dentro de una distancia de +-1 SD respecto de la media.
-
-### Teorema del límite central
-
-El teorema del límite central (TLC) es uno de los conceptos más importantes de la estadística y es fundamental en el muestreo y la inferencia estadística.
-
-En términos simples, el teorema del límite central dice que si tomamos suficientes muestras aleatorias grandes de una población, la distribución de las medias de esas muestras será una distribución normal, sin importar cómo se vea la distribución original de la población.
-
-Esto es importante en el muestreo porque nos permite hacer inferencias precisas sobre una población, incluso si no conocemos su distribución. **Si podemos asumir que la distribución de la población es aproximadamente normal**, entonces podemos usar la distribución normal de las medias de las muestras para hacer predicciones y estimaciones precisas sobre la población.
-
-Además, el TLC nos permite calcular intervalos de confianza y realizar pruebas de hipótesis (siguiente secciòn) con mayor precisión, lo que nos permite tomar decisiones más informadas basadas en los datos muestrales. En resumen, el teorema del límite central es una herramienta clave en la inferencia estadística y nos permite hacer generalizaciones precisas sobre una población a partir de datos muestrales.
-
-**Máquina de Galton**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EvHiee7gs9Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
-El Tablero de Galton ilustra cómo la distribución de frecuencias de los resultados de muchos eventos aleatorios independientes se acerca a una distribución normal, independientemente de la forma de la distribución original, siempre que el número de eventos sea lo suficientemente grande.
 
-### Ley de los grandes números
+### Distribución normal
 
-La ley de los grandes números es un teorema en estadística que establece que, a medida que el tamaño de una muestra aumenta, la media muestral se acerca a la media poblacional. En otras palabras, cuando se toman muestras cada vez más grandes de una población, se espera que la media de esas muestras se acerque cada vez más a la media real de la población.
+Que una variable posea distribución normal nos permite predecir las proporciones de casos que se encuentran en ciertos rangos, partiendo de la media. 
 
-Esta ley es importante porque permite a los investigadores obtener estimaciones precisas de los parámetros de una población a partir de una muestra relativamente pequeña. Además, esta ley también es fundamental para la teoría de la probabilidad y es utilizada en muchas áreas de la estadística y de la ciencia en general.
+![](images/normal.png)
 
-### Varias muestras
+La principal: cerca de la totalidad de observaciones están distribuidas +- 3 desviaciones estándar (puntuaciones Z) respecto de su media.
 
-Cuando extraemos varias muestras de una población y calculamos la media para cada una de esas muestras, obtenemos una variedad de medias muestrales. Aunque cada muestra es única y puede tener su propia media, si repitiéramos este proceso de muestreo muchas veces, observaríamos que la distribución de estas medias muestrales tiende a adoptar una forma específica. Esta forma es lo que conocemos como la "distribución de muestreo de la media".
+Como se ve en la figura, son 4 los principios: 
 
-El Teorema del Límite Central, uno de los pilares fundamentales de la estadística inferencial, nos dice que, independientemente de la forma de la distribución original de la población, la distribución de las medias muestrales se aproximará a una distribución normal (o gaussiana) a medida que el tamaño de la muestra aumenta. Esta distribución normal centrada en la media verdadera de la población y con una desviación estándar llamada "error estándar" nos permite hacer inferencias sobre la media poblacional a partir de las medias de nuestras muestras, especialmente cuando el tamaño de la muestra es grande.
+1) 50% de las puntuaciones caen encima de la media y 50% debajo; 
 
-### Error estándar
+2) Prácticamente todas las puntuaciones caen dentro de 3 SD a partir de la media en ambas direcciones (en realidad el 99.7%); 
 
-El error estándar es una medida que nos indica cuánto esperamos que varíe una estadística (como la media o la proporción) de una muestra a otra, si tomáramos múltiples muestras de la misma población. En otras palabras, es una forma de medir la variabilidad que se espera en nuestras estimaciones debido al hecho de que estamos trabajando con muestras y no con la totalidad de la población.
+3) Cerca del 95% de las puntuaciones de una variable normalmente distribuida caen dentro de una distancia de +- 2 SD respecto de la media; y 
 
-Podríamos pensar en el error estándar como una herramienta que nos ayuda a entender cuán "confiables" o "precisas" son nuestras estimaciones basadas en muestras. Un error estándar pequeño sugiere que nuestras estimaciones son relativamente estables y consistentes de una muestra a otra, mientras que un error estándar grande indica que esas estimaciones podrían variar considerablemente entre diferentes muestras.
+4) Alrededor del 68% de las puntuaciones caen dentro de una distancia de +-1 SD respecto de la media.
 
-Es importante destacar que el error estándar está relacionado con la desviación estándar de la población. Mientras que la desviación estándar nos dice cuánto varían los valores individuales alrededor de la media en una población o muestra, el error estándar nos dice cuánto esperamos que varíen nuestras estadísticas de muestra (como la media muestral) alrededor de la verdadera estadística poblacional.
+![](images/distribucion_normal_medias.png)
 
--   Recuerdas que habíamos dicho que en la curva normal se podría evidenciar que la totalidad de las observaciones se encontraban entre -3 y +3 desviaciones estándar respecto de la media? En el caso de las distribuciones muestrales, esa desviación estándar es conocida como **error estándar**.
+Ahora bien, si aplicamos este principio a la distribución de medias muestrales, esto varía ligeramente. 
 
--   El error estándar mide la dispersión del error de muestreo que ocurre cuando se muestrea repetidamente una población (como lo hicimos líneas arriba).
+Aquí afirmamos que el 95% de esas medias muestrales que hemos obtenido se ubicarían en el rango que consta de media - 1.96 errores estándar y media + 1.96 errores estándar. Asimismo, podemos calcular el rango en el que se encontraría el 99% (2.58) y el 90% (1.65). 
 
+**Estos números, que se utilizan para multiplicar el error estándar, son conocidos como valores críticos. **
+
+::: callout-important
+Como podrás ver, cuando hablamos de distribución de medias muestrales usamos el término error estándar, en lugar de desviación estándar. Básicamente es una medida particular para ver dispersión de esas medias. 
 $$s_{\hat{x}} = \frac{s}{\sqrt{n}}$$
+:::
 
-Entonces los puntos más importantes del EE son:
 
--   El error estándar es una medida de cuánto se espera que varíen las medias de las muestras tomadas de una población determinada. A medida que el tamaño de la muestra aumenta, el error estándar tiende a disminuir.
-
--   El error estándar es importante en el cálculo de los intervalos de confianza. Cuanto menor sea el error estándar, menor será la variabilidad de las medias muestrales y más preciso será el intervalo de confianza.
-
--   El error estándar se calcula dividiendo la desviación estándar de la población entre la raíz cuadrada del tamaño de la muestra. En la mayoría de los casos, la desviación estándar de la población no se conoce y se utiliza **la desviación estándar de la muestra para estimar el error estándar**.
-
-## Métodos de estimación
-
-### Estimación puntual
-
-En estadística inferencial, la estimación puntual se refiere a la técnica de utilizar los datos de una muestra para calcular un único valor, conocido como punto estimado, que es la mejor suposición o predicción del valor de un parámetro desconocido de la población.
-
-Por ejemplo, si queremos conocer el salario promedio de todos los trabajadores de una empresa, podríamos tomar una muestra aleatoria de trabajadores, calcular el salario promedio de esa muestra y usar ese valor como nuestra estimación puntual del salario promedio real de toda la empresa.
-
-Esencialmente, este valor es nuestra "mejor suposición" basada en la información que hemos recolectado. Sin embargo, aunque la estimación puntual es directa y fácil de entender, no refleja la incertidumbre o variabilidad que podría haber en esa estimación.
-
-Es por esta razón que, en muchas situaciones, se complementa con técnicas como la estimación por intervalo para obtener una visión más completa y matizada del parámetro que estamos tratando de estimar.
-
-### Intervalo de confianza de una media
-
-![](images/intervalos.png)
-
--   El intervalo de confianza es un rango de valores posibles de un parámetro expresado con un grado específico de confianza.
-
--   Si tenemos un nivel de confianza de 95% quiere decir que si realizamos 100 veces el mismo procedimiento de muestreo y calculamos los estadísticos de interés, 95 veces nos van a salir resultados en los intervalos calculados. Si lo realizamos con un 99% de confianza, de igual manera, si realizamos 100 veces el procedimiento, 99 veces nos va a salir resultados en el intervalo resultante. Esto lo tenemos claro gracias a la explicación del rol que cumple la curva normal y sus propiedades.
-
-> A MAYOR CONFIANZA MENOR ES LA PRECISIÓN (LOS INTERVALOS SON MÁS AMPLIOS)
-
--   Para el cálculo de un intervalo de confianza utilizamos la siguiente fórmula. Recuerda
+### Un intervalo que contiene la media poblacional
 
 ![](images/IC_MEDIAS.jpg)
 
--   Ese valor que se suma y se resta a la media muestral es el **término de error**, sin embargo, es más conocido como margen de error.
+Siguiendo este principio (TLC) sumado a lo predecible que es la distribución de una variable que sigue una distribución normal, podemos aplicar lo visto en nuestra primera muestra. 
+
+Primero recordamos cual era nuestra media:
+
+```{r}
+media<-mean(muestra1$ingresos)
+media
+```
+
+Luego, calculamos el error estándar que es igual a la desviación estándar de la muestra sobre la raiz cuadrada del tamaño de la muestra (en nuestro caso 20). 
+
+
+```{r}
+error_estandar <- sd(muestra1$ingresos)/sqrt(20)
+error_estandar
+```
+Entonces calculamos el intervalo utilizando la media, el valor crítico elegido (en este caso a 95%) y el error estándar. 
+
+```{r}
+limite_inferior<- media-(1.96*error_estandar)
+limite_superior<- media+(1.96*error_estandar)
+limite_inferior
+limite_superior
+```
+
+Un intervalo de confianza del 95% de 1461.839 a 1652.366 para la media deingresos indica que, si repetimos el experimento muchas veces, en el 95% de los casos, la media real de la población estará dentro de este rango. 
+
+En términos simples, estamos bastante seguros (con un 95% de confianza) de que la media verdadera de la población se encuentra entre 1461.839 y 1652.366.
+
+
+
+### Un trade-off clave: precisión vs confianza
+
+![](images/trade_off.jpg)
+
+En la inferencia estadística, el trade-off entre precisión y confianza en los intervalos de confianza refleja un equilibrio esencial: mientras mayor es el nivel de confianza deseado (por ejemplo, 95% vs 99%), más amplio será el intervalo de confianza. Esto se debe a que un intervalo más amplio cubre una mayor proporción de los posibles valores verdaderos de la población, aumentando así nuestra confianza en que el intervalo incluye la media real. 
+
+Sin embargo, este aumento en la confianza viene a costa de la precisión, ya que un intervalo más amplio ofrece menos precisión sobre dónde se ubica exactamente esa media. Por el contrario, un intervalo más estrecho proporciona una estimación más precisa de la media, pero reduce la confianza de que el intervalo efectivamente contenga la media poblacional. Por lo tanto, la elección del nivel de confianza y del tamaño del intervalo debe considerar cuidadosamente el contexto y las necesidades específicas del análisis.
+
 
 ## Ejercicio 1: ENADES 2022
 
@@ -239,7 +232,11 @@ enades<-read_spss("data/ENADES_2022.sav") # Con esta función abrimos archivos d
 names(enades)
 ```
 
-> Recuerda que si en un primer momento te pierdes un poco entre los nombres de las variables, eso quiere decir que tienes que leer el cuestionario y el diccionario de variables!
+
+::: callout-note
+Recuerda que si en un primer momento te pierdes un poco entre los nombres de las variables, eso quiere decir que tienes que leer el cuestionario y el diccionario de variables!
+:::
+
 
 ### Identificar una variable numérica
 
