@@ -58,8 +58,11 @@ Cuando utilizamos la media de una muestra como aproximación de la media poblaci
 
 ¿Qué ocurriría si replicáramos este proceso en un universo paralelo? Procedamos a simular de nuevo la extracción de una muestra y el cálculo de la media muestral. 
 
-¿Qué conclusiones podemos extraer de esta nueva repetición? Utiliza el siguiente código para replicar la extracción de una muestra de 20 personas y calcular la media de ingresos. 
-```{r}
+¿Qué conclusiones podemos extraer de esta nueva repetición? 
+
+Utiliza el siguiente código para replicar varias veces la extracción de una muestra de 20 personas y calcular la media de ingresos. 
+
+```{webr-r}
 muestra1<-poblacion |> slice_sample(n=20)
 mean(muestra1$ingresos)
 ```
@@ -67,10 +70,6 @@ mean(muestra1$ingresos)
 Cuando utilizamos la media de una muestra como aproximación de la media poblacional, a este proceso se le denomina **estimación puntual**.
 :::
 
-
-```{webr-r}
-1+1
-```
 
 ## Fundamentos
 
