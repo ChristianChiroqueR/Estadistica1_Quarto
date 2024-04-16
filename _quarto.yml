@@ -31,3 +31,5 @@ lang: es
 
 editor: visual
 
+filters: 
+  - webr
