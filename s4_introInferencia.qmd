@@ -42,11 +42,12 @@ Tenemos la población y tenemos la muestra. ¿Qué sigue?
 
 Una vez obtenida una muestra representativa, y con el objetivo de estimar la media de ingresos de la población total, procederemos a calcular la media de esta muestra. Este cálculo nos proporcionará una estimación aproximada de la media poblacional.
 
-Ojo, utilizaremos datos de la muestra de 20 casos, centrados exclusivamente en la característica de ingresos. 
+Ojo, utilizaremos datos de la muestra de 20 casos, centrados exclusivamente en la característica de ingresos.
 
 ```{r}
 mean(muestra1$ingresos)
 ```
+
 A partir de los datos recopilados, hemos calculado que la media de ingresos de nuestra muestra. Esto nos permite inferir que la media de ingresos de la población total podría aproximarse a este valor.
 
 ::: callout-important
@@ -55,28 +56,29 @@ Cuando utilizamos la media de una muestra como aproximación de la media poblaci
 
 ### Varias muestras, varias medias?
 
-Ahora bien,¿qué ocurriría si replicáramos este proceso en un universo paralelo? Procedamos a simular de nuevo la extracción de una muestra y el cálculo de la media muestral. 
+Ahora bien,¿qué ocurriría si replicáramos este proceso en un universo paralelo? Procedamos a simular de nuevo la extracción de una muestra y el cálculo de la media muestral.
 
-¿Qué conclusiones podemos extraer de esta nueva repetición? 
+¿Qué conclusiones podemos extraer de esta nueva repetición?
 
-Utilizaremos el código para replicar dos veces la extracción de una muestra de 20 personas y calcular la media de ingresos. 
+Utilizaremos el código para replicar dos veces la extracción de una muestra de 20 personas y calcular la media de ingresos.
+
+```{r}
+muestra2<-poblacion |> slice_sample(n=20)
+mean(muestra2$ingresos)
+```
 
 ```{r}
 muestra2<-poblacion |> slice_sample(n=20)
 mean(muestra2$ingresos)
 ```
 
-```{r}
-muestra2<-poblacion |> slice_sample(n=20)
-mean(muestra2$ingresos)
-```
 ::: callout-important
-En este punto damos cuenta que si repetimos el proceso tendremos distintas **medias muestrales**. Por lo que contar con estimadores puntuales puede resultar poco consistente. 
+En este punto damos cuenta que si repetimos el proceso tendremos distintas **medias muestrales**. Por lo que contar con estimadores puntuales puede resultar poco consistente.
 :::
 
 ### Un patrón interesante: Teorema del límite central
 
-Imagina que el ejercicio de extraer varias muestras y calcular sus medias se repitiera numerosas veces. 
+Imagina que el ejercicio de extraer varias muestras y calcular sus medias se repitiera numerosas veces.
 
 Después, en cada repetición, almacenáramos las medias obtenidas en una tabla.
 
@@ -111,7 +113,7 @@ dim(resultados)
 head(resultados,10)
 ```
 
-¿Y si graficamos las 2000 medias muestrales en un histograma qué figura vemos? 
+¿Y si graficamos las 2000 medias muestrales en un histograma qué figura vemos?
 
 ```{r}
 resultados |> 
@@ -120,7 +122,7 @@ resultados |>
   geom_histogram()
 ```
 
-Este patrón denominado **distribución normal** tiene ciertas particularidades que valen la pena explorar. 
+Este patrón denominado **distribución normal** tiene ciertas particularidades que valen la pena explorar.
 
 ![](images/teorema_limite_central.png)
 
@@ -132,44 +134,41 @@ El **teorema del límite central** dice que si tomamos suficientes muestras alea
 
 </iframe>
 
-
 ### Distribución normal
 
-Que una variable posea distribución normal nos permite predecir las proporciones de casos que se encuentran en ciertos rangos, partiendo de la media. 
+Que una variable posea distribución normal nos permite predecir las proporciones de casos que se encuentran en ciertos rangos, partiendo de la media.
 
 ![](images/normal.png)
 
 La principal: cerca de la totalidad de observaciones están distribuidas +- 3 desviaciones estándar (puntuaciones Z) respecto de su media.
 
-Como se ve en la figura, son 4 los principios: 
+Como se ve en la figura, son 4 los principios:
 
-1) 50% de las puntuaciones caen encima de la media y 50% debajo; 
+1)  50% de las puntuaciones caen encima de la media y 50% debajo;
 
-2) Prácticamente todas las puntuaciones caen dentro de 3 SD a partir de la media en ambas direcciones (en realidad el 99.7%); 
+2)  Prácticamente todas las puntuaciones caen dentro de 3 SD a partir de la media en ambas direcciones (en realidad el 99.7%);
 
-3) Cerca del 95% de las puntuaciones de una variable normalmente distribuida caen dentro de una distancia de +- 2 SD respecto de la media; y 
+3)  Cerca del 95% de las puntuaciones de una variable normalmente distribuida caen dentro de una distancia de +- 2 SD respecto de la media; y
 
-4) Alrededor del 68% de las puntuaciones caen dentro de una distancia de +-1 SD respecto de la media.
+4)  Alrededor del 68% de las puntuaciones caen dentro de una distancia de +-1 SD respecto de la media.
 
 ![](images/distribucion_normal_medias.png)
 
-Ahora bien, si aplicamos este principio a la distribución de medias muestrales, esto varía ligeramente. 
+Ahora bien, si aplicamos este principio a la distribución de medias muestrales, esto varía ligeramente.
 
-Aquí afirmamos que el 95% de esas medias muestrales que hemos obtenido se ubicarían en el rango que consta de media - 1.96 errores estándar y media + 1.96 errores estándar. Asimismo, podemos calcular el rango en el que se encontraría el 99% (2.58) y el 90% (1.65). 
+Aquí afirmamos que el 95% de esas medias muestrales que hemos obtenido se ubicarían en el rango que consta de media - 1.96 errores estándar y media + 1.96 errores estándar. Asimismo, podemos calcular el rango en el que se encontraría el 99% (2.58) y el 90% (1.65).
 
-**Estos números, que se utilizan para multiplicar el error estándar, son conocidos como valores críticos. **
+**Estos números, que se utilizan para multiplicar el error estándar, son conocidos como valores críticos.**
 
 ::: callout-important
-Como podrás ver, cuando hablamos de distribución de medias muestrales usamos el término error estándar, en lugar de desviación estándar. Básicamente es una medida particular para ver dispersión de esas medias. 
-$$s_{\hat{x}} = \frac{s}{\sqrt{n}}$$
+Como podrás ver, cuando hablamos de distribución de medias muestrales usamos el término error estándar, en lugar de desviación estándar. Básicamente es una medida particular para ver dispersión de esas medias. $$s_{\hat{x}} = \frac{s}{\sqrt{n}}$$
 :::
-
 
 ### Un intervalo que contiene la media poblacional
 
 ![](images/IC_MEDIAS.jpg)
 
-Siguiendo este principio (TLC) sumado a lo predecible que es la distribución de una variable que sigue una distribución normal, podemos aplicar lo visto en nuestra primera muestra. 
+Siguiendo este principio (TLC) sumado a lo predecible que es la distribución de una variable que sigue una distribución normal, podemos aplicar lo visto en nuestra primera muestra.
 
 Primero recordamos cual era nuestra media:
 
@@ -178,14 +177,14 @@ media<-mean(muestra1$ingresos)
 media
 ```
 
-Luego, calculamos el error estándar que es igual a la desviación estándar de la muestra sobre la raiz cuadrada del tamaño de la muestra (en nuestro caso 20). 
-
+Luego, calculamos el error estándar que es igual a la desviación estándar de la muestra sobre la raiz cuadrada del tamaño de la muestra (en nuestro caso 20).
 
 ```{r}
 error_estandar <- sd(muestra1$ingresos)/sqrt(20)
 error_estandar
 ```
-Entonces calculamos el intervalo utilizando la media, el valor crítico elegido (en este caso a 95%) y el error estándar. 
+
+Entonces calculamos el intervalo utilizando la media, el valor crítico elegido (en este caso a 95%) y el error estándar.
 
 ```{r}
 limite_inferior<- media-(1.96*error_estandar)
@@ -194,20 +193,17 @@ limite_inferior
 limite_superior
 ```
 
-Un intervalo de confianza del 95% de 1461.839 a 1652.366 para la media deingresos indica que, si repetimos el experimento muchas veces, en el 95% de los casos, la media real de la población estará dentro de este rango. 
+Un intervalo de confianza del 95% de 1461.839 a 1652.366 para la media deingresos indica que, si repetimos el experimento muchas veces, en el 95% de los casos, la media real de la población estará dentro de este rango.
 
 En términos simples, estamos bastante seguros (con un 95% de confianza) de que la media verdadera de la población se encuentra entre 1461.839 y 1652.366.
-
-
 
 ### Un trade-off clave: precisión vs confianza
 
 ![](images/trade_off.jpg)
 
-En la inferencia estadística, el trade-off entre precisión y confianza en los intervalos de confianza refleja un equilibrio esencial: mientras mayor es el nivel de confianza deseado (por ejemplo, 95% vs 99%), más amplio será el intervalo de confianza. Esto se debe a que un intervalo más amplio cubre una mayor proporción de los posibles valores verdaderos de la población, aumentando así nuestra confianza en que el intervalo incluye la media real. 
+En la inferencia estadística, el trade-off entre precisión y confianza en los intervalos de confianza refleja un equilibrio esencial: mientras mayor es el nivel de confianza deseado (por ejemplo, 95% vs 99%), más amplio será el intervalo de confianza. Esto se debe a que un intervalo más amplio cubre una mayor proporción de los posibles valores verdaderos de la población, aumentando así nuestra confianza en que el intervalo incluye la media real.
 
 Sin embargo, este aumento en la confianza viene a costa de la precisión, ya que un intervalo más amplio ofrece menos precisión sobre dónde se ubica exactamente esa media. Por el contrario, un intervalo más estrecho proporciona una estimación más precisa de la media, pero reduce la confianza de que el intervalo efectivamente contenga la media poblacional. Por lo tanto, la elección del nivel de confianza y del tamaño del intervalo debe considerar cuidadosamente el contexto y las necesidades específicas del análisis.
-
 
 ## Ejercicio 1: ENADES 2022
 
@@ -232,11 +228,9 @@ enades<-read_spss("data/ENADES_2022.sav") # Con esta función abrimos archivos d
 names(enades)
 ```
 
-
 ::: callout-note
 Recuerda que si en un primer momento te pierdes un poco entre los nombres de las variables, eso quiere decir que tienes que leer el cuestionario y el diccionario de variables!
 :::
-
 
 ### Identificar una variable numérica
 

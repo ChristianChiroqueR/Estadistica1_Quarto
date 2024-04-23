@@ -1,0 +1,10 @@
+# Introducción a la Inferencia
+
+## Objetivos de la sesión
+
+-   Para el final de la sesión, el alumno comprenderá los fundamentos de la estadística inferencial. Asimismo, podrá calcular los intervalos de confianza de una media poblacional a partir del análisis de una muestra.
+
+```{r}
+1+1
+```
+
