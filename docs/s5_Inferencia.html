@@ -1,0 +1,3053 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.542">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Estadística para el Análisis Político 1 - 5&nbsp; Profundizando en la Estadística Inferencial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./s4_introInferencia.html" rel="prev">
+<link href="./quipu.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+<style type="text/css">
+.monaco-editor pre {
+  background-color: unset !important;
+}
+
+.qwebr-editor-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.qwebr-editor-toolbar-left-buttons, .qwebr-editor-toolbar-right-buttons {
+  display: flex;
+}
+
+.qwebr-non-interactive-loading-container.qwebr-cell-needs-evaluation, .qwebr-non-interactive-loading-container.qwebr-cell-evaluated {
+  justify-content: center;
+  display: flex;
+  background-color: rgba(250, 250, 250, 0.65);
+  border: 1px solid rgba(233, 236, 239, 0.65);
+  border-radius: 0.5rem;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.qwebr-r-project-logo {
+  color: #2767B0; /* R Project's blue color */
+}
+
+.qwebr-icon-status-spinner {
+  color: #7894c4;
+}
+
+.qwebr-icon-run-code {
+  color: #0d9c29
+}
+
+body.quarto-light .qwebr-output-code-stdout {
+  color: #111;
+}
+
+body.quarto-dark .qwebr-output-code-stdout {
+  color: #EEE;
+}
+
+.qwebr-output-code-stderr {
+  color: #db4133;
+}
+
+body.quarto-light .qwebr-editor {
+  border: 1px solid #EEEEEE;
+}
+
+body.quarto-light .qwebr-editor-toolbar {
+  background-color: #EEEEEE;
+  padding: 0.2rem 0.5rem;
+}
+
+body.quarto-dark .qwebr-editor {
+  border: 1px solid #111;
+}
+
+body.quarto-dark .qwebr-editor-toolbar {
+  background-color: #111;
+  padding: 0.2rem 0.5rem;
+}
+
+.qwebr-button {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.375rem 0.75rem;
+  font-size: .9rem;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+body.quarto-light .qwebr-button {
+  background-color: #EEEEEE;
+  color: #000;
+  border-color: #dee2e6;
+  border: 1px solid rgba(0,0,0,0);
+}
+
+body.quarto-dark .qwebr-button {
+  background-color: #111;
+  color: #EEE;
+  border-color: #dee2e6;
+  border: 1px solid rgba(0,0,0,0);
+}
+
+body.quarto-light .qwebr-button:hover {
+  color: #000;
+  background-color: #d9dce0;
+  border-color: #c8ccd0;
+}
+
+body.quarto-dark .qwebr-button:hover {
+  color: #d9dce0;
+  background-color: #323232;
+  border-color: #d9dce0;
+}
+
+.qwebr-button:disabled,.qwebr-button.disabled,fieldset:disabled .qwebr-button {
+  pointer-events: none;
+  opacity: .65
+}
+
+.qwebr-button-reset {
+  color: #696969; /*#4682b4;*/
+}
+
+.qwebr-button-copy {
+  color: #696969;
+}
+
+
+/* Custom styling for RevealJS Presentations*/
+
+/* Reset the style of the interactive area */
+.reveal div.qwebr-interactive-area {
+  display: block;
+  box-shadow: none;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+} 
+
+/* Provide space to entries */
+.reveal div.qwebr-output-code-area pre div {
+  margin: 1px 2px 1px 10px;
+}
+
+/* Collapse the inside code tags to avoid extra space between line outputs */
+.reveal pre div code.qwebr-output-code-stdout, .reveal pre div code.qwebr-output-code-stderr {
+  padding: 0;
+  display: contents;
+}
+
+body.reveal.quarto-light pre div code.qwebr-output-code-stdout {
+  color: #111;
+}
+
+body.reveal.quarto-dark pre div code.qwebr-output-code-stdout {
+  color: #EEEEEE;
+}
+
+.reveal pre div code.qwebr-output-code-stderr {
+  color: #db4133;
+}
+
+
+/* Create a border around console and output (does not effect graphs) */
+body.reveal.quarto-light div.qwebr-console-area {
+  border: 1px solid #EEEEEE;
+  box-shadow: 2px 2px 10px #EEEEEE;
+}
+
+body.reveal.quarto-dark div.qwebr-console-area {
+  border: 1px solid #111;
+  box-shadow: 2px 2px 10px #111;
+}
+
+
+/* Cap output height and allow text to scroll */
+/* TODO: Is there a better way to fit contents/max it parallel to the monaco editor size? */
+.reveal div.qwebr-output-code-area pre {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+</style>
+<script type="module">
+// Document level settings ----
+
+// Determine if we need to install R packages
+globalThis.qwebrInstallRPackagesList = [''];
+
+// Specify possible locations to search for the repository
+globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
+
+// Check to see if we have an empty array, if we do set to skip the installation.
+globalThis.qwebrSetupRPackages = !(qwebrInstallRPackagesList.indexOf("") !== -1);
+globalThis.qwebrAutoloadRPackages = true;
+
+// Display a startup message?
+globalThis.qwebrShowStartupMessage = true;
+globalThis.qwebrShowHeaderMessage = false;
+
+// Describe the webR settings that should be used
+globalThis.qwebrCustomizedWebROptions = {
+  "baseURL": "https://webr.r-wasm.org/v0.3.2/",
+  "serviceWorkerUrl": "",
+  "homedir": "/home/web_user", 
+  "channelType": "ChannelType.Automatic"
+};
+
+// Store cell data
+globalThis.qwebrCellDetails = [{"id":1,"code":"netflix<-c(1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5)\nmuestra <- sample(netflix, 5)\nmedia_muestra <- mean(muestra)\nprint(paste(\"Media de la muestra:\", media_muestra))","options":{"output":"true","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"fig-height":5,"fig-width":7,"comment":"","results":"markup","autorun":"false","warning":"true","label":"unnamed-chunk-1","out-height":"","classes":"","out-width":"700px","context":"interactive","editor-font-scale":1,"read-only":"false","fig-cap":"","message":"true"}},{"id":2,"code":"netflix<-c(1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5)\nunica_muestra <- sample(netflix, 5)\nnivel<-\"95%\"\nz<-1.96\nmedia<-mean(unica_muestra)\ndesviacion<-sd(unica_muestra)\n\nerror_estandar<-1.96*(desviacion/sqrt(5))\n\nlim_inf<-media-error_estandar\nlim_sup<-media+error_estandar\n\nprint(paste(\"A un\",nivel,\"de confianza, la media poblacional se encontrará entre\", lim_inf, \" y \", lim_sup))","options":{"output":"true","editor-max-height":"","editor-quick-suggestions":"false","dpi":72,"fig-height":5,"fig-width":7,"comment":"","results":"markup","autorun":"false","warning":"true","label":"unnamed-chunk-2","out-height":"","classes":"","out-width":"700px","context":"interactive","editor-font-scale":1,"read-only":"false","fig-cap":"","message":"true"}}];
+
+</script>
+<script type="module">
+// Declare startupMessageQWebR globally
+globalThis.qwebrStartupMessage = document.createElement("p");
+
+// Verify if OffScreenCanvas is supported
+globalThis.qwebrOffScreenCanvasSupport = function() {
+  return typeof OffscreenCanvas !== 'undefined'
+}
+
+// Function to set the button text
+globalThis.qwebrSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
+  document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+    btn.innerHTML = buttonText;
+    btn.disabled = !enableCodeButton;
+  });
+}
+
+// Function to update the status message in non-interactive cells
+globalThis.qwebrUpdateStatusMessage = function(message) {
+  document.querySelectorAll(".qwebr-status-text.qwebr-cell-needs-evaluation").forEach((elem) => {
+    elem.innerText = message;
+  });
+}
+
+// Function to update the status message
+globalThis.qwebrUpdateStatusHeader = function(message) {
+  qwebrStartupMessage.innerHTML = `
+    <i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i>
+    <span>${message}</span>`;
+}
+
+function qwebrPlaceMessageContents(content, html_location = "title-block-header", revealjs_location = "title-slide") {
+
+  // Get references to header elements
+  const headerHTML = document.getElementById(html_location);
+  const headerRevealJS = document.getElementById(revealjs_location);
+
+  // Determine where to insert the quartoTitleMeta element
+  if (headerHTML || headerRevealJS) {
+    // Append to the existing "title-block-header" element or "title-slide" div
+    (headerHTML || headerRevealJS).appendChild(content);
+  } else {
+    // If neither headerHTML nor headerRevealJS is found, insert after "webr-monaco-editor-init" script
+    const monacoScript = document.getElementById("qwebr-monaco-editor-init");
+    const header = document.createElement("header");
+    header.setAttribute("id", "title-block-header");
+    header.appendChild(content);
+    monacoScript.after(header);
+  }
+}
+
+
+function qwebrOffScreenCanvasSupportWarningMessage() {
+  
+  // Verify canvas is supported.
+  if(qwebrOffScreenCanvasSupport()) return;
+
+  // Create the main container div
+  var calloutContainer = document.createElement('div');
+  calloutContainer.classList.add('callout', 'callout-style-default', 'callout-warning', 'callout-titled');
+
+  // Create the header div
+  var headerDiv = document.createElement('div');
+  headerDiv.classList.add('callout-header', 'd-flex', 'align-content-center');
+
+  // Create the icon container div
+  var iconContainer = document.createElement('div');
+  iconContainer.classList.add('callout-icon-container');
+
+  // Create the icon element
+  var iconElement = document.createElement('i');
+  iconElement.classList.add('callout-icon');
+
+  // Append the icon element to the icon container
+  iconContainer.appendChild(iconElement);
+
+  // Create the title container div
+  var titleContainer = document.createElement('div');
+  titleContainer.classList.add('callout-title-container', 'flex-fill');
+  titleContainer.innerText = 'Warning: Web Browser Does Not Support Graphing!';
+
+  // Append the icon container and title container to the header div
+  headerDiv.appendChild(iconContainer);
+  headerDiv.appendChild(titleContainer);
+
+  // Create the body container div
+  var bodyContainer = document.createElement('div');
+  bodyContainer.classList.add('callout-body-container', 'callout-body');
+
+  // Create the paragraph element for the body content
+  var paragraphElement = document.createElement('p');
+  paragraphElement.innerHTML = 'This web browser does not have support for displaying graphs through the <code>quarto-webr</code> extension since it lacks an <code>OffScreenCanvas</code>. Please upgrade your web browser to one that supports <code>OffScreenCanvas</code>.';
+
+  // Append the paragraph element to the body container
+  bodyContainer.appendChild(paragraphElement);
+
+  // Append the header div and body container to the main container div
+  calloutContainer.appendChild(headerDiv);
+  calloutContainer.appendChild(bodyContainer);
+
+  // Append the main container div to the document depending on format
+  qwebrPlaceMessageContents(calloutContainer, "title-block-header"); 
+
+}
+
+
+// Function that attaches the document status message and diagnostics
+function displayStartupMessage(showStartupMessage, showHeaderMessage) {
+  if (!showStartupMessage) {
+    return;
+  }
+
+  // Create the outermost div element for metadata
+  const quartoTitleMeta = document.createElement("div");
+  quartoTitleMeta.classList.add("quarto-title-meta");
+
+  // Create the first inner div element
+  const firstInnerDiv = document.createElement("div");
+  firstInnerDiv.setAttribute("id", "qwebr-status-message-area");
+
+  // Create the second inner div element for "WebR Status" heading and contents
+  const secondInnerDiv = document.createElement("div");
+  secondInnerDiv.setAttribute("id", "qwebr-status-message-title");
+  secondInnerDiv.classList.add("quarto-title-meta-heading");
+  secondInnerDiv.innerText = "WebR Status";
+
+  // Create another inner div for contents
+  const secondInnerDivContents = document.createElement("div");
+  secondInnerDivContents.setAttribute("id", "qwebr-status-message-body");
+  secondInnerDivContents.classList.add("quarto-title-meta-contents");
+
+  // Describe the WebR state
+  qwebrStartupMessage.innerText = "🟡 Loading...";
+  qwebrStartupMessage.setAttribute("id", "qwebr-status-message-text");
+  // Add `aria-live` to auto-announce the startup status to screen readers
+  qwebrStartupMessage.setAttribute("aria-live", "assertive");
+
+  // Append the startup message to the contents
+  secondInnerDivContents.appendChild(qwebrStartupMessage);
+
+  // Add a status indicator for COOP and COEP Headers if needed
+  if (showHeaderMessage) {
+    const crossOriginMessage = document.createElement("p");
+    crossOriginMessage.innerText = `${crossOriginIsolated ? '🟢' : '🟡'} COOP & COEP Headers`;
+    crossOriginMessage.setAttribute("id", "qwebr-coop-coep-header");
+    secondInnerDivContents.appendChild(crossOriginMessage);
+  }
+
+  // Combine the inner divs and contents
+  firstInnerDiv.appendChild(secondInnerDiv);
+  firstInnerDiv.appendChild(secondInnerDivContents);
+  quartoTitleMeta.appendChild(firstInnerDiv);
+
+  // Place message on webpage
+  qwebrPlaceMessageContents(quartoTitleMeta); 
+}
+
+displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
+qwebrOffScreenCanvasSupportWarningMessage();
+</script>
+<script type="module">
+// Supported Evaluation Types for Context
+globalThis.EvalTypes = Object.freeze({
+  Interactive: 'interactive',
+  Setup: 'setup',
+  Output: 'output',
+});
+
+// Function that obtains the font size for a given element 
+globalThis.qwebrCurrentFontSizeOnElement = function(element, cssProperty = 'font-size') {
+
+  const currentFontSize = parseFloat(
+    window
+    .getComputedStyle(element)
+    .getPropertyValue(cssProperty)
+  );
+  
+  return currentFontSize;
+}
+
+// Function to determine font scaling
+globalThis.qwebrScaledFontSize = function(div, qwebrOptions) {
+  // Determine if we should compute font-size using RevealJS's `--r-main-font-size` 
+  // or if we can directly use the document's `font-size`.
+  const cssProperty = document.body.classList.contains('reveal') ? 
+    "--r-main-font-size" : "font-size";
+  
+  // Get the current font size on the div element
+  const elementFontSize = qwebrCurrentFontSizeOnElement(div, cssProperty);
+
+  // Determine the scaled font size value
+  const scaledFontSize = ((qwebrOptions['editor-font-scale'] ?? 1) * elementFontSize) ?? 17.5;
+
+  return scaledFontSize;
+}
+
+
+// Function that dispatches the creation request
+globalThis.qwebrCreateHTMLElement = function (
+  cellData
+) {
+
+  // Extract key components
+  const evalType = cellData.options.context;
+  const qwebrCounter = cellData.id;
+
+  // We make an assumption that insertion points are defined by the Lua filter as:
+  // qwebr-insertion-location-{qwebrCounter} 
+  const elementLocator = document.getElementById(`qwebr-insertion-location-${qwebrCounter}`);
+
+  // Figure out the routine to use to insert the element.
+  let qwebrElement;
+  switch ( evalType ) {
+    case EvalTypes.Interactive:
+      qwebrElement = qwebrCreateInteractiveElement(qwebrCounter, cellData.options);
+      break;
+    case EvalTypes.Output: 
+      qwebrElement = qwebrCreateNonInteractiveOutputElement(qwebrCounter, cellData.options);
+      break;
+    case EvalTypes.Setup: 
+      qwebrElement = qwebrCreateNonInteractiveSetupElement(qwebrCounter, cellData.options);
+      break;
+    default: 
+      qwebrElement = document.createElement('div');
+      qwebrElement.textContent = 'Error creating `quarto-webr` element';
+  }
+
+  // Insert the dynamically generated object at the document location.
+  elementLocator.appendChild(qwebrElement);
+};
+
+// Function that setups the interactive element creation
+globalThis.qwebrCreateInteractiveElement = function (qwebrCounter, qwebrOptions) {
+
+  // Create main div element
+  var mainDiv = document.createElement('div');
+  mainDiv.id = 'qwebr-interactive-area-' + qwebrCounter;
+  mainDiv.className = `qwebr-interactive-area`;
+  if (qwebrOptions.classes) {
+    mainDiv.className += " " + qwebrOptions.classes
+  }
+
+  // Add a unique cell identifier that users can customize
+  if (qwebrOptions.label) {
+    mainDiv.setAttribute('data-id', qwebrOptions.label);
+  }
+
+  // Create toolbar div
+  var toolbarDiv = document.createElement('div');
+  toolbarDiv.className = 'qwebr-editor-toolbar';
+  toolbarDiv.id = 'qwebr-editor-toolbar-' + qwebrCounter;
+
+  // Create a div to hold the left buttons
+  var leftButtonsDiv = document.createElement('div');
+  leftButtonsDiv.className = 'qwebr-editor-toolbar-left-buttons';
+
+  // Create a div to hold the right buttons
+  var rightButtonsDiv = document.createElement('div');
+  rightButtonsDiv.className = 'qwebr-editor-toolbar-right-buttons';
+
+  // Create Run Code button
+  var runCodeButton = document.createElement('button');
+  runCodeButton.className = 'btn btn-default qwebr-button qwebr-button-run';
+  runCodeButton.disabled = true;
+  runCodeButton.type = 'button';
+  runCodeButton.id = 'qwebr-button-run-' + qwebrCounter;
+  runCodeButton.textContent = '🟡 Loading webR...';
+  runCodeButton.title = `Run code (Shift + Enter)`;
+
+  // Append buttons to the leftButtonsDiv
+  leftButtonsDiv.appendChild(runCodeButton);
+
+  // Create Reset button
+  var resetButton = document.createElement('button');
+  resetButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-reset';
+  resetButton.type = 'button';
+  resetButton.id = 'qwebr-button-reset-' + qwebrCounter;
+  resetButton.title = 'Start over';
+  resetButton.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i>';
+
+  // Create Copy button
+  var copyButton = document.createElement('button');
+  copyButton.className = 'btn btn-light btn-xs qwebr-button qwebr-button-copy';
+  copyButton.type = 'button';
+  copyButton.id = 'qwebr-button-copy-' + qwebrCounter;
+  copyButton.title = 'Copy code';
+  copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
+
+  // Append buttons to the rightButtonsDiv
+  rightButtonsDiv.appendChild(resetButton);
+  rightButtonsDiv.appendChild(copyButton);
+
+  // Create console area div
+  var consoleAreaDiv = document.createElement('div');
+  consoleAreaDiv.id = 'qwebr-console-area-' + qwebrCounter;
+  consoleAreaDiv.className = 'qwebr-console-area';
+
+  // Create editor div
+  var editorDiv = document.createElement('div');
+  editorDiv.id = 'qwebr-editor-' + qwebrCounter;
+  editorDiv.className = 'qwebr-editor';
+
+  // Create output code area div
+  var outputCodeAreaDiv = document.createElement('div');
+  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
+  outputCodeAreaDiv.className = 'qwebr-output-code-area';
+  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+  // Create pre element inside output code area
+  var preElement = document.createElement('pre');
+  preElement.style.visibility = 'hidden';
+  outputCodeAreaDiv.appendChild(preElement);
+
+  // Create output graph area div
+  var outputGraphAreaDiv = document.createElement('div');
+  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
+  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
+
+  // Append buttons to the toolbar
+  toolbarDiv.appendChild(leftButtonsDiv);
+  toolbarDiv.appendChild(rightButtonsDiv);
+
+  // Append all elements to the main div
+  mainDiv.appendChild(toolbarDiv);
+  consoleAreaDiv.appendChild(editorDiv);
+  consoleAreaDiv.appendChild(outputCodeAreaDiv);
+  mainDiv.appendChild(consoleAreaDiv);
+  mainDiv.appendChild(outputGraphAreaDiv);
+
+  return mainDiv;
+}
+
+// Function that adds output structure for non-interactive output
+globalThis.qwebrCreateNonInteractiveOutputElement = function(qwebrCounter, qwebrOptions) {
+  // Create main div element
+  var mainDiv = document.createElement('div');
+  mainDiv.id = 'qwebr-noninteractive-area-' + qwebrCounter;
+  mainDiv.className = `qwebr-noninteractive-area`;
+  if (qwebrOptions.classes) {
+    mainDiv.className += " " + qwebrOptions.classes
+  }
+  
+  // Add a unique cell identifier that users can customize
+  if (qwebrOptions.label) {
+    mainDiv.setAttribute('data-id', qwebrOptions.label);
+  }
+  
+  // Create a status container div
+  var statusContainer = createLoadingContainer(qwebrCounter);
+
+  // Create output code area div
+  var outputCodeAreaDiv = document.createElement('div');
+  outputCodeAreaDiv.id = 'qwebr-output-code-area-' + qwebrCounter;
+  outputCodeAreaDiv.className = 'qwebr-output-code-area';
+  outputCodeAreaDiv.setAttribute('aria-live', 'assertive');
+
+  // Create pre element inside output code area
+  var preElement = document.createElement('pre');
+  preElement.style.visibility = 'hidden';
+  outputCodeAreaDiv.appendChild(preElement);
+
+  // Create output graph area div
+  var outputGraphAreaDiv = document.createElement('div');
+  outputGraphAreaDiv.id = 'qwebr-output-graph-area-' + qwebrCounter;
+  outputGraphAreaDiv.className = 'qwebr-output-graph-area';
+
+  // Append all elements to the main div
+  mainDiv.appendChild(statusContainer);
+  mainDiv.appendChild(outputCodeAreaDiv);
+  mainDiv.appendChild(outputGraphAreaDiv);
+
+  return mainDiv;
+};
+
+// Function that adds a stub in the page to indicate a setup cell was used.
+globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter, qwebrOptions) {
+  // Create main div element
+  var mainDiv = document.createElement('div');
+  mainDiv.id = `qwebr-noninteractive-setup-area-${qwebrCounter}`;
+  mainDiv.className = `qwebr-noninteractive-setup-area`;
+  if (qwebrOptions.classes) {
+    mainDiv.className += " " + qwebrOptions.classes
+  }
+
+
+  // Add a unique cell identifier that users can customize
+  if (qwebrOptions.label) {
+    mainDiv.setAttribute('data-id', qwebrOptions.label);
+  }
+
+  // Create a status container div
+  var statusContainer = createLoadingContainer(qwebrCounter);
+
+  // Append status onto the main div
+  mainDiv.appendChild(statusContainer);
+
+  return mainDiv;
+}
+
+
+// Function to create loading container with specified ID
+globalThis.createLoadingContainer = function(qwebrCounter) {
+
+  // Create a status container
+  const container = document.createElement('div');
+  container.id = `qwebr-non-interactive-loading-container-${qwebrCounter}`;
+  container.className = 'qwebr-non-interactive-loading-container qwebr-cell-needs-evaluation';
+
+  // Create an R project logo to indicate its a code space
+  const rProjectIcon = document.createElement('i');
+  rProjectIcon.className = 'fa-brands fa-r-project fa-3x qwebr-r-project-logo';
+
+  // Setup a loading icon from font awesome
+  const spinnerIcon = document.createElement('i');
+  spinnerIcon.className = 'fa-solid fa-spinner fa-spin fa-1x qwebr-icon-status-spinner';
+
+  // Add a section for status text
+  const statusText = document.createElement('p');
+  statusText.id = `qwebr-status-text-${qwebrCounter}`;
+  statusText.className = `qwebr-status-text qwebr-cell-needs-evaluation`;
+  statusText.innerText = 'Loading webR...';
+
+  // Incorporate an inner container
+  const innerContainer = document.createElement('div');
+
+  // Append elements to the inner container
+  innerContainer.appendChild(spinnerIcon);
+  innerContainer.appendChild(statusText);
+
+  // Append elements to the main container
+  container.appendChild(rProjectIcon);
+  container.appendChild(innerContainer);
+
+  return container;
+}
+</script>
+<script type="module">
+// Function to install a single package
+async function qwebrInstallRPackage(packageName) {
+  await mainWebR.evalRVoid(`webr::install('${packageName}');`);
+}
+
+// Function to load a single package
+async function qwebrLoadRPackage(packageName) {
+  await mainWebR.evalRVoid(`require('${packageName}', quietly = TRUE)`);
+}
+
+// Generic function to process R packages
+async function qwebrProcessRPackagesWithStatus(packages, processType, displayStatusMessageUpdate = true) {
+  // Switch between contexts
+  const messagePrefix = processType === 'install' ? 'Installing' : 'Loading';
+
+  // Modify button state
+  qwebrSetInteractiveButtonState(`🟡 ${messagePrefix} package ...`, false);
+
+  // Iterate over packages
+  for (let i = 0; i < packages.length; i++) {
+    const activePackage = packages[i];
+    const formattedMessage = `${messagePrefix} package ${i + 1} out of ${packages.length}: ${activePackage}`;
+
+    // Display the update in header
+    if (displayStatusMessageUpdate) {
+      qwebrUpdateStatusHeader(formattedMessage);
+    }
+
+    // Display the update in non-active areas
+    qwebrUpdateStatusMessage(formattedMessage);
+
+    // Run package installation
+    if (processType === 'install') {
+      await qwebrInstallRPackage(activePackage);
+    } else {
+      await qwebrLoadRPackage(activePackage);
+    }
+  }
+
+  // Clean slate
+  if (processType === 'load') {
+    await mainWebR.flush();
+  }
+}
+
+// Start a timer
+const initializeWebRTimerStart = performance.now();
+
+// Encase with a dynamic import statement
+globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs").then(
+  async ({ WebR, ChannelType }) => {
+    // Populate WebR options with defaults or new values based on `webr` meta
+    globalThis.mainWebR = new WebR(qwebrCustomizedWebROptions);
+
+    // Initialization WebR
+    await mainWebR.init();
+
+    // Setup a shelter
+    globalThis.mainWebRCodeShelter = await new mainWebR.Shelter();
+
+    // Setup a pager to allow processing help documentation 
+    await mainWebR.evalRVoid('webr::pager_install()'); 
+
+    // Override the existing install.packages() to use webr::install()
+    await mainWebR.evalRVoid('webr::shim_install()'); 
+
+    // Specify the repositories to pull from
+    // Note: webR does not use the `repos` option, but instead uses `webr_pkg_repos`
+    // inside of `install()`. However, other R functions still pull from `repos`.
+    await mainWebR.evalRVoid(`
+      options(
+        webr_pkg_repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')}),
+        repos = c(${qwebrPackageRepoURLS.map(repoURL => `'${repoURL}'`).join(',')})
+      )
+    `);
+
+    // Check to see if any packages need to be installed
+    if (qwebrSetupRPackages) {
+      // Obtain only a unique list of packages
+      const uniqueRPackageList = Array.from(new Set(qwebrInstallRPackagesList));
+
+      // Install R packages one at a time (either silently or with a status update)
+      await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'install', qwebrShowStartupMessage);
+
+      if (qwebrAutoloadRPackages) {
+        // Load R packages one at a time (either silently or with a status update)
+        await qwebrProcessRPackagesWithStatus(uniqueRPackageList, 'load', qwebrShowStartupMessage);
+      }
+    }
+  }
+);
+
+// Stop timer
+const initializeWebRTimerEnd = performance.now();
+
+</script>
+<script type="module">
+// Function to verify a given JavaScript Object is empty
+globalThis.qwebrIsObjectEmpty = function (arr) {
+    return Object.keys(arr).length === 0;
+}
+
+// Global version of the Escape HTML function that converts HTML 
+// characters to their HTML entities.
+globalThis.qwebrEscapeHTMLCharacters = function(unsafe) {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
+// Passthrough results
+globalThis.qwebrIdentity = function(x) {
+    return x;
+};
+
+// Append a comment
+globalThis.qwebrPrefixComment = function(x, comment) {
+    return `${comment}${x}`;
+};
+
+// Function to parse the pager results
+globalThis.qwebrParseTypePager = async function (msg) { 
+
+    // Split out the event data
+    const { path, title, deleteFile } = msg.data; 
+
+    // Process the pager data by reading the information from disk
+    const paged_data = await mainWebR.FS.readFile(path).then((data) => {
+        // Obtain the file content
+        let content = new TextDecoder().decode(data);
+
+        // Remove excessive backspace characters until none remain
+        while(content.match(/.[\b]/)){
+        content = content.replace(/.[\b]/g, '');
+        }
+
+        // Returned cleaned data
+        return content;
+    });
+
+    // Unlink file if needed
+    if (deleteFile) { 
+        await mainWebR.FS.unlink(path); 
+    } 
+
+    // Return extracted data with spaces
+    return paged_data;
+} 
+
+// Function to run the code using webR and parse the output
+globalThis.qwebrComputeEngine = async function(
+    codeToRun, 
+    elements, 
+    options) {
+
+    // Call into the R compute engine that persists within the document scope.
+    // To be prepared for all scenarios, the following happens: 
+    // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
+    // 2. We use values inside of the options array to set the figure size.
+    // 3. We capture the output stream information (STDOUT and STERR)
+    // 4. We disable the current device's image creation.
+    // 5. Piece-wise parse the results into the different output areas
+
+    // Create a pager variable for help/file contents
+    let pager = [];
+
+    // Handle how output is processed
+    let showMarkup = options.results === "markup" && options.output !== "asis";
+    let processOutput;
+
+    if (showMarkup) {
+        processOutput = qwebrEscapeHTMLCharacters;
+    } else {
+        processOutput = qwebrIdentity;
+    }
+
+    // ---- 
+    // Convert from Inches to Pixels by using DPI (dots per inch)
+    // for bitmap devices (dpi * inches = pixels)
+    let fig_width = options["fig-width"] * options["dpi"]
+    let fig_height = options["fig-height"] * options["dpi"]
+
+    // Initialize webR
+    await mainWebR.init();
+
+    // Configure capture output
+    let captureOutputOptions = {
+        withAutoprint: true,
+        captureStreams: true,
+        captureConditions: false,
+        // env: webR.objs.emptyEnv, // maintain a global environment for webR v0.2.0
+    };
+    
+    // Determine if the browser supports OffScreen
+    if (qwebrOffScreenCanvasSupport()) {
+        // Mirror default options of webr::canvas()
+        // with changes to figure height and width.
+        captureOutputOptions.captureGraphics = {
+            width: fig_width,
+            height: fig_height,
+            bg: "white", // default: transparent
+            pointsize: 12,
+            capture: true
+        };
+    }  else {
+        // Disable generating graphics
+        captureOutputOptions.captureGraphics = false;
+    }
+
+    // Setup a webR canvas by making a namespace call into the {webr} package
+    // Evaluate the R code
+    // Remove the active canvas silently
+    const result = await mainWebRCodeShelter.captureR(
+        `${codeToRun}`,
+        captureOutputOptions
+    );
+
+    // -----
+
+    // Start attempting to parse the result data
+    processResultOutput:try {
+        
+        // Avoid running through output processing
+        if (options.results === "hide" || options.output === "false") { 
+            break processResultOutput; 
+        }
+
+        // Merge output streams of STDOUT and STDErr (messages and errors are combined.)
+        // Require both `warning` and `message` to be true to display `STDErr`. 
+        const out = result.output
+        .filter(
+            evt => evt.type === "stdout" || 
+            ( evt.type === "stderr" && (options.warning === "true" && options.message === "true")) 
+        )
+        .map((evt, index) => {
+            const className = `qwebr-output-code-${evt.type}`;
+            const outputResult = qwebrPrefixComment(processOutput(evt.data), options.comment);
+            return `<code id="${className}-editor-${elements.id}-result-${index + 1}" class="${className}">${outputResult}</code>`;
+        })
+        .join("\n");
+
+
+        // Clean the state
+        // We're now able to process pager events.
+        // As a result, we cannot maintain a true 1-to-1 output order 
+        // without individually feeding each line
+        const msgs = await mainWebR.flush();
+
+        // Use `map` to process the filtered "pager" events asynchronously
+        const pager = await Promise.all(
+            msgs.filter(msg => msg.type === 'pager').map(
+                async (msg) => {
+                    return await qwebrParseTypePager(msg);
+                }
+            )
+        );
+
+        // Nullify the output area of content
+        elements.outputCodeDiv.innerHTML = "";
+        elements.outputGraphDiv.innerHTML = "";
+
+        // Design an output object for messages
+        const pre = document.createElement("pre");
+        if (/\S/.test(out)) {
+            // Display results as HTML elements to retain output styling
+            const div = document.createElement("div");
+            div.innerHTML = out;
+
+            // Calculate a scaled font-size value
+            const scaledFontSize = qwebrScaledFontSize(
+                elements.outputCodeDiv, options);
+
+            // Override output code cell size
+            pre.style.fontSize = `${scaledFontSize}px`;
+            pre.appendChild(div);
+        } else {
+            // If nothing is present, hide the element.
+            pre.style.visibility = "hidden";
+        }
+
+        elements.outputCodeDiv.appendChild(pre);
+
+        // Determine if we have graphs to display
+        if (result.images.length > 0) {
+            // Create figure element
+            const figureElement = document.createElement('figure');
+
+            // Place each rendered graphic onto a canvas element
+            result.images.forEach((img) => {
+                // Construct canvas for object
+                const canvas = document.createElement("canvas");
+
+                // Set canvas size to image
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                // Apply output truncations
+                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
+                if (options["out-height"]) {
+                    canvas.style.height = options["out-height"];
+                }
+
+                // Apply styling
+                canvas.style.display = "block";
+                canvas.style.margin = "auto";
+
+                // Draw image onto Canvas
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+          
+                // Append canvas to figure output area
+                figureElement.appendChild(canvas);
+            });
+
+            if (options['fig-cap']) {
+                // Create figcaption element
+                const figcaptionElement = document.createElement('figcaption');
+                figcaptionElement.innerText = options['fig-cap'];
+                // Append figcaption to figure
+                figureElement.appendChild(figcaptionElement);    
+            }
+
+            elements.outputGraphDiv.appendChild(figureElement);
+        }
+
+        // Display the pager data
+        if (pager) {
+        // Use the `pre` element to preserve whitespace.
+        pager.forEach((paged_data, index) => {
+            let pre_pager = document.createElement("pre");
+            pre_pager.innerText = paged_data;
+            pre_pager.classList.add("qwebr-output-code-pager");
+            pre_pager.setAttribute("id", `qwebr-output-code-pager-editor-${elements.id}-result-${index + 1}`);
+            elements.outputCodeDiv.appendChild(pre_pager);
+        });
+        }
+    } finally {
+        // Clean up the remaining code
+        mainWebRCodeShelter.purge();
+    }
+}
+
+// Function to execute the code (accepts code as an argument)
+globalThis.qwebrExecuteCode = async function (
+    codeToRun,
+    id,
+    options = {}) {
+
+    // If options are not passed, we fall back on the bare minimum to handle the computation
+    if (qwebrIsObjectEmpty(options)) {
+        options = { 
+            "context": "interactive", 
+            "fig-width": 7, "fig-height": 5, 
+            "out-width": "700px", "out-height": "", 
+            "dpi": 72,
+            "results": "markup", 
+            "warning": "true", "message": "true",
+        };
+    }
+
+    // Next, we access the compute areas values
+    const elements = {
+        runButton: document.getElementById(`qwebr-button-run-${id}`),
+        outputCodeDiv: document.getElementById(`qwebr-output-code-area-${id}`),
+        outputGraphDiv: document.getElementById(`qwebr-output-graph-area-${id}`),
+        id: id,
+    }
+
+    // Disallowing execution of other code cells
+    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+        btn.disabled = true;
+    });
+
+    if (options.context == EvalTypes.Interactive) {
+        // Emphasize the active code cell
+        elements.runButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin qwebr-icon-status-spinner"></i> <span>Run Code</span>';
+    }
+
+    // Evaluate the code and parse the output into the document
+    await qwebrComputeEngine(codeToRun, elements, options);
+
+    // Switch to allowing execution of code
+    document.querySelectorAll(".qwebr-button-run").forEach((btn) => {
+        btn.disabled = false;
+    });
+
+    if (options.context == EvalTypes.Interactive) {
+        // Revert to the initial code cell state
+        elements.runButton.innerHTML = '<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>';
+    }
+}
+
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./s5_Inferencia.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Profundizando en la Estadística Inferencial</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./quipu2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Estadística para el Análisis Político 1</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sobre el curso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s1_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de programación con R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s2_manipulacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s3_descriptiva.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4_introInferencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Inferencia</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s5_Inferencia.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Profundizando en la Estadística Inferencial</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión"><span class="header-section-number">5.1</span> Objetivos de la sesión</a></li>
+  <li><a href="#recapitulando" id="toc-recapitulando" class="nav-link" data-scroll-target="#recapitulando"><span class="header-section-number">5.2</span> Recapitulando</a>
+  <ul class="collapse">
+  <li><a href="#población" id="toc-población" class="nav-link" data-scroll-target="#población"><span class="header-section-number">5.2.1</span> Población</a></li>
+  <li><a href="#muestra" id="toc-muestra" class="nav-link" data-scroll-target="#muestra"><span class="header-section-number">5.2.2</span> Muestra</a></li>
+  <li><a href="#estimación-puntual" id="toc-estimación-puntual" class="nav-link" data-scroll-target="#estimación-puntual"><span class="header-section-number">5.2.3</span> Estimación puntual</a></li>
+  <li><a href="#teorema-del-límite-central" id="toc-teorema-del-límite-central" class="nav-link" data-scroll-target="#teorema-del-límite-central"><span class="header-section-number">5.2.4</span> Teorema del límite central</a></li>
+  <li><a href="#estimación-por-intervalo" id="toc-estimación-por-intervalo" class="nav-link" data-scroll-target="#estimación-por-intervalo"><span class="header-section-number">5.2.5</span> Estimación por intervalo</a></li>
+  </ul></li>
+  <li><a href="#índice-aditivo" id="toc-índice-aditivo" class="nav-link" data-scroll-target="#índice-aditivo"><span class="header-section-number">5.3</span> Índice Aditivo</a></li>
+  <li><a href="#intervalos-de-confianza-para-grupos" id="toc-intervalos-de-confianza-para-grupos" class="nav-link" data-scroll-target="#intervalos-de-confianza-para-grupos"><span class="header-section-number">5.4</span> Intervalos de confianza para grupos</a></li>
+  <li><a href="#ejercicio-1-ic-de-la-media-de-un-índice-aditivo" id="toc-ejercicio-1-ic-de-la-media-de-un-índice-aditivo" class="nav-link" data-scroll-target="#ejercicio-1-ic-de-la-media-de-un-índice-aditivo"><span class="header-section-number">5.5</span> Ejercicio 1: IC de la media de un índice aditivo</a>
+  <ul class="collapse">
+  <li><a href="#pregunta-de-investigación" id="toc-pregunta-de-investigación" class="nav-link" data-scroll-target="#pregunta-de-investigación"><span class="header-section-number">5.5.1</span> Pregunta de investigación</a></li>
+  <li><a href="#creamos-el-índice-aditivo" id="toc-creamos-el-índice-aditivo" class="nav-link" data-scroll-target="#creamos-el-índice-aditivo"><span class="header-section-number">5.5.2</span> Creamos el índice aditivo</a></li>
+  <li><a href="#cálculo-del-intervalo-de-confianza-al-95" id="toc-cálculo-del-intervalo-de-confianza-al-95" class="nav-link" data-scroll-target="#cálculo-del-intervalo-de-confianza-al-95"><span class="header-section-number">5.5.3</span> Cálculo del intervalo de confianza al 95%</a></li>
+  <li><a href="#ic-para-una-media" id="toc-ic-para-una-media" class="nav-link" data-scroll-target="#ic-para-una-media"><span class="header-section-number">5.5.4</span> IC para una media</a></li>
+  <li><a href="#ic-para-una-media-según-grupos" id="toc-ic-para-una-media-según-grupos" class="nav-link" data-scroll-target="#ic-para-una-media-según-grupos"><span class="header-section-number">5.5.5</span> IC para una media según grupos</a></li>
+  <li><a href="#visualización" id="toc-visualización" class="nav-link" data-scroll-target="#visualización"><span class="header-section-number">5.5.6</span> Visualización</a></li>
+  </ul></li>
+  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2"><span class="header-section-number">5.6</span> Ejercicio 2</a></li>
+  <li><a href="#intervalo-de-confianza-de-una-proporción" id="toc-intervalo-de-confianza-de-una-proporción" class="nav-link" data-scroll-target="#intervalo-de-confianza-de-una-proporción"><span class="header-section-number">5.7</span> Intervalo de confianza de una proporción</a>
+  <ul class="collapse">
+  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición"><span class="header-section-number">5.7.1</span> Definición</a></li>
+  <li><a href="#fórmula" id="toc-fórmula" class="nav-link" data-scroll-target="#fórmula"><span class="header-section-number">5.7.2</span> Fórmula</a></li>
+  <li><a href="#ic-de-proporción-con-la-fórmula" id="toc-ic-de-proporción-con-la-fórmula" class="nav-link" data-scroll-target="#ic-de-proporción-con-la-fórmula"><span class="header-section-number">5.7.3</span> IC de proporción con la fórmula</a></li>
+  <li><a href="#ic-de-proporción-con-prop.test" id="toc-ic-de-proporción-con-prop.test" class="nav-link" data-scroll-target="#ic-de-proporción-con-prop.test"><span class="header-section-number">5.7.4</span> IC de proporción con <code>prop.test()</code></a></li>
+  <li><a href="#ic-de-proporción-según-grupos" id="toc-ic-de-proporción-según-grupos" class="nav-link" data-scroll-target="#ic-de-proporción-según-grupos"><span class="header-section-number">5.7.5</span> IC de proporción según grupos</a></li>
+  </ul></li>
+  <li><a href="#ejercicio-3" id="toc-ejercicio-3" class="nav-link" data-scroll-target="#ejercicio-3"><span class="header-section-number">5.8</span> Ejercicio 3</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
+<script type="module" id="qwebr-monaco-editor-init">
+
+  // Configure the Monaco Editor's loader
+  require.config({
+    paths: {
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
+    }
+  });
+</script>
+<script type="module">
+// Function to update Monaco Editors when body class changes
+function updateMonacoEditorsOnBodyClassChange() {
+    // Select the body element
+    const body = document.querySelector('body');
+
+    // Options for the observer (which mutations to observe)
+    const observerOptions = {
+        attributes: true,  // Observe changes to attributes
+        attributeFilter: ['class'] // Only observe changes to the 'class' attribute
+    };
+
+    // Callback function to execute when mutations are observed
+    const bodyClassChangeCallback = function(mutationsList, observer) {
+        for(let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                // Class attribute has changed
+                // Update all Monaco Editors on the page
+                updateMonacoEditorTheme();
+            }
+        }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(bodyClassChangeCallback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(body, observerOptions);
+}
+
+// Function to update all instances of Monaco Editors on the page
+function updateMonacoEditorTheme() {
+    // Determine what VS Theme to use
+    const vsThemeToUse = document.body.classList.contains("quarto-dark") ? 'vs-dark' : 'vs' ;
+
+    // Iterate through all initialized Monaco Editors
+    qwebrEditorInstances.forEach( function(editorInstance) { 
+        editorInstance.updateOptions({ theme: vsThemeToUse }); 
+    });
+}
+
+// Call the function to start observing changes to body class
+updateMonacoEditorsOnBodyClassChange();
+</script>
+<script type="module">
+// Global array to store Monaco Editor instances
+globalThis.qwebrEditorInstances = [];
+
+// Function that builds and registers a Monaco Editor instance    
+globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
+
+  const initialCode = cellData.code;
+  const qwebrCounter = cellData.id;
+  const qwebrOptions = cellData.options;
+
+  // Retrieve the previously created document elements
+  let runButton = document.getElementById(`qwebr-button-run-${qwebrCounter}`);
+  let resetButton = document.getElementById(`qwebr-button-reset-${qwebrCounter}`);
+  let copyButton = document.getElementById(`qwebr-button-copy-${qwebrCounter}`);
+  let editorDiv = document.getElementById(`qwebr-editor-${qwebrCounter}`);
+
+  // Load the Monaco Editor and create an instance
+  let editor;
+  require(['vs/editor/editor.main'], function () {
+    editor = monaco.editor.create(editorDiv, {
+      value: initialCode,
+      language: 'r',
+      theme: 'vs-light',
+      automaticLayout: true,           // Works wonderfully with RevealJS
+      scrollBeyondLastLine: false,
+      minimap: {
+        enabled: false
+      },
+      fontSize: qwebrScaledFontSize(editorDiv, qwebrOptions),         
+      renderLineHighlight: "none",      // Disable current line highlighting
+      hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+      readOnly: qwebrOptions['read-only'] ?? false,
+      quickSuggestions: qwebrOptions['editor-quick-suggestions'] ?? false
+    });
+
+    // Store the official counter ID to be used in keyboard shortcuts
+    editor.__qwebrCounter = qwebrCounter;
+
+    // Store the official div container ID
+    editor.__qwebrEditorId = `qwebr-editor-${qwebrCounter}`;
+
+    // Store the initial code value and options
+    editor.__qwebrinitialCode = initialCode;
+    editor.__qwebrOptions = qwebrOptions;
+
+    // Set at the model level the preferred end of line (EOL) character to LF.
+    // This prevent `\r\n` from being given to the webR engine if the user is on Windows.
+    // See details in: https://github.com/coatless/quarto-webr/issues/94
+    // Associated error text: 
+    // Error: <text>:1:7 unexpected input
+
+    // Retrieve the underlying model
+    const model = editor.getModel();
+    // Set EOL for the model
+    model.setEOL(monaco.editor.EndOfLineSequence.LF);
+
+    // Dynamically modify the height of the editor window if new lines are added.
+    let ignoreEvent = false;
+    const updateHeight = () => {
+      // Increment editor height by 2 to prevent vertical scroll bar from appearing
+      const contentHeight = editor.getContentHeight() + 2;
+
+      // Retrieve editor-max-height option
+      const maxEditorHeight = qwebrOptions['editor-max-height'];
+
+      // If editor-max-height is missing, allow infinite growth. Otherwise, threshold.
+      const editorHeight = !maxEditorHeight ?  contentHeight : Math.min(contentHeight, maxEditorHeight);
+
+      // We're avoiding a width change
+      //editorDiv.style.width = `${width}px`;
+      editorDiv.style.height = `${editorHeight}px`;
+      try {
+        ignoreEvent = true;
+
+        // The key to resizing is this call
+        editor.layout();
+      } finally {
+        ignoreEvent = false;
+      }
+    };
+
+    // Helper function to check if selected text is empty
+    function isEmptyCodeText(selectedCodeText) {
+      return (selectedCodeText === null || selectedCodeText === undefined || selectedCodeText === "");
+    }
+
+    // Registry of keyboard shortcuts that should be re-added to each editor window
+    // when focus changes.
+    const addWebRKeyboardShortCutCommands = () => {
+      // Add a keydown event listener for Shift+Enter to run all code in cell
+      editor.addCommand(monaco.KeyMod.Shift | monaco.KeyCode.Enter, () => {
+
+        // Retrieve all text inside the editor
+        qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
+      });
+
+      // Add a keydown event listener for CMD/Ctrl+Enter to run selected code
+      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, () => {
+
+        // Get the selected text from the editor
+        const selectedText = editor.getModel().getValueInRange(editor.getSelection());
+        // Check if no code is selected
+        if (isEmptyCodeText(selectedText)) {
+          // Obtain the current cursor position
+          let currentPosition = editor.getPosition();
+          // Retrieve the current line content
+          let currentLine = editor.getModel().getLineContent(currentPosition.lineNumber);
+
+          // Propose a new position to move the cursor to
+          let newPosition = new monaco.Position(currentPosition.lineNumber + 1, 1);
+
+          // Check if the new position is beyond the last line of the editor
+          if (newPosition.lineNumber > editor.getModel().getLineCount()) {
+            // Add a new line at the end of the editor
+            editor.executeEdits("addNewLine", [{
+            range: new monaco.Range(newPosition.lineNumber, 1, newPosition.lineNumber, 1),
+            text: "\n", 
+            forceMoveMarkers: true,
+            }]);
+          }
+          
+          // Run the entire line of code.
+          qwebrExecuteCode(currentLine, editor.__qwebrCounter, editor.__qwebrOptions);
+
+          // Move cursor to new position
+          editor.setPosition(newPosition);
+        } else {
+          // Code to run when Ctrl+Enter is pressed with selected code
+          qwebrExecuteCode(selectedText, editor.__qwebrCounter, editor.__qwebrOptions);
+        }
+      });
+    }
+
+    // Register an on focus event handler for when a code cell is selected to update
+    // what keyboard shortcut commands should work.
+    // This is a workaround to fix a regression that happened with multiple
+    // editor windows since Monaco 0.32.0 
+    // https://github.com/microsoft/monaco-editor/issues/2947
+    editor.onDidFocusEditorText(addWebRKeyboardShortCutCommands);
+
+    // Register an on change event for when new code is added to the editor window
+    editor.onDidContentSizeChange(updateHeight);
+
+    // Manually re-update height to account for the content we inserted into the call
+    updateHeight();
+
+    // Store the editor instance in the global dictionary
+    qwebrEditorInstances[editor.__qwebrCounter] = editor;
+
+  });
+
+  // Add a click event listener to the run button
+  runButton.onclick = function () {
+    qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, editor.__qwebrOptions);
+  };
+
+  // Add a click event listener to the reset button
+  copyButton.onclick = function () {
+    // Retrieve current code data
+    const data = editor.getValue();
+    
+    // Write code data onto the clipboard.
+    navigator.clipboard.writeText(data || "");
+  };
+  
+  // Add a click event listener to the copy button
+  resetButton.onclick = function () {
+    editor.setValue(editor.__qwebrinitialCode);
+  };
+  
+}
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Profundizando en la Estadística Inferencial</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objetivos-de-la-sesión" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="objetivos-de-la-sesión"><span class="header-section-number">5.1</span> Objetivos de la sesión</h2>
+<ul>
+<li><p>Se realizará un breve repaso conceptual.</p></li>
+<li><p>Para el final de la sesión, el alumno podrá aplicar las funciones para el cálculo del intervalo de confianza de una media y realizar su comparación en grupos. Así también, podrá realizar el intervalo de confianza de una proporción.</p></li>
+</ul>
+</section>
+<section id="recapitulando" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="recapitulando"><span class="header-section-number">5.2</span> Recapitulando</h2>
+<section id="población" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="población"><span class="header-section-number">5.2.1</span> Población</h3>
+<p>En este caso tenemos una población de 30 personas y preguntamos cuántas horas a la semana ven Netflix</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>netflix<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>conteo<span class="ot">&lt;-</span><span class="fu">table</span>(netflix)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>conteo</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>netflix
+1 2 3 4 5 
+9 4 3 6 8 </code></pre>
+</div>
+</div>
+<p>Lo visualizamos en un gráfico:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(conteo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s5_Inferencia_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ten en cuenta que la distribución poblacional no sigue una distribución normal.</p>
+</div>
+</div>
+<p>Con esto, sabemos que la media poblacional (parámetro) es 3.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(netflix)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Ahora pongamos a prueba los métodos de estimación que hemos visto.</p>
+</section>
+<section id="muestra" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="muestra"><span class="header-section-number">5.2.2</span> Muestra</h3>
+<p>Una parte esencial de la inferencia estadística es la obtención de una muestra representativa, ya que esta proporciona la base sobre la cual se pueden realizar estimaciones y conclusiones acerca de una población más amplia..</p>
+<p>Vamos a seleccionar una muestra de tamaño 5. Pero cuántas muestras distintas de tamaño 5 puedo generar de una población de 30?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">choose</span>(<span class="dv">30</span>, <span class="dv">5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 142506</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si es posible extraer 142,506 muestras distintas de tamaño 5 de una población de 30, imagina la cantidad de muestras diferentes de 1200 que se podrían seleccionar de una población de 33 millones como en el Perú.</p>
+</div>
+</div>
+</section>
+<section id="estimación-puntual" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="estimación-puntual"><span class="header-section-number">5.2.3</span> Estimación puntual</h3>
+<p>La estimación puntual es un procedimiento estadístico que utiliza los datos de una muestra para calcular un único valor, conocido como estimador puntual, que sirve como la mejor aproximación o estimación de un parámetro poblacional desconocido.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">sample</span>(netflix, <span class="dv">5</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(muestra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.8</code></pre>
+</div>
+</div>
+<p>De acuerdo, entendemos que en este caso la estimación puntual sugiere esa media como la mejor aproximación de la media poblacional. No obstante, hemos observado también que dicha estimación presenta cierta <strong>inestabilidad</strong>.</p>
+<p>Genera varias muestras con el siguiente código:</p>
+<div id="qwebr-insertion-location-1"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="teorema-del-límite-central" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="teorema-del-límite-central"><span class="header-section-number">5.2.4</span> Teorema del límite central</h3>
+<p>El teorema del límite central establece que si extraemos repetidamente numerosas muestras de una población y calculamos la media de cada una, la distribución de estas medias muestrales tenderá a aproximarse a una distribución normal.</p>
+<p>Esto en la práctica del día no lo podemos probar, pero con un ejemplo tan acotado sí.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas las muestras posibles de tamaño 5 de netflix</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>combinaciones <span class="ot">&lt;-</span> <span class="fu">combn</span>(netflix, <span class="dv">5</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(combinaciones)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]      5 142506</code></pre>
+</div>
+</div>
+<p>Calculamos todas las medias de las 142506 muestras:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas las medias muestrales posibles</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>medias <span class="ot">&lt;-</span> <span class="fu">apply</span>(combinaciones, <span class="dv">2</span>, mean)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Luego de extraer todas las medias las graficamos y verificamos que el principio se cumple.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizamos</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(medias)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s5_Inferencia_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Observa que la mayoría de las medias muestrales se agrupan en torno a la media verdadera, que sabemos que es 3. En este contexto, la media poblacional funciona como un centro de gravedad.</p>
+</div>
+</div>
+</section>
+<section id="estimación-por-intervalo" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="estimación-por-intervalo"><span class="header-section-number">5.2.5</span> Estimación por intervalo</h3>
+<p>Como una estimación puntual es inestable, y sabemos que podemos utilizar los principios del TLC y la distribución normal (que vimos la clase pasada) obtamos por calcular un intervalo de confianza.</p>
+<p>Ojo, la estimación la aplicamos sobre una ÚNICA MUESTRA.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>unica_muestra <span class="ot">&lt;-</span> <span class="fu">sample</span>(netflix, <span class="dv">5</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>nivel<span class="ot">&lt;-</span><span class="st">"95 %"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="fl">1.96</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>media<span class="ot">&lt;-</span><span class="fu">mean</span>(unica_muestra)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>desviacion<span class="ot">&lt;-</span><span class="fu">sd</span>(unica_muestra)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>error_estandar<span class="ot">&lt;-</span><span class="fl">1.96</span><span class="sc">*</span>(desviacion<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">5</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recuerda que el error estándar es la puntuación crítica (z) dependiendo del nivel de confianza que haya elegido multiplicado por la desviación estándar de la variable numérica de mi muestra sobre el tamaño de la muestra.</p>
+</div>
+</div>
+<p>Luego generamos los límites inferior y superior, utilizando la media muestral y el error estándar.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lim_inf<span class="ot">&lt;-</span>media<span class="sc">-</span>error_estandar</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>lim_sup<span class="ot">&lt;-</span>media<span class="sc">+</span>error_estandar</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"A un"</span>,nivel,<span class="st">"de confianza, la media poblacional se encontrará entre"</span>, lim_inf, <span class="st">" y "</span>, lim_sup))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "A un 95 % de confianza, la media poblacional se encontrará entre 1.05713342861032  y  3.34286657138968"</code></pre>
+</div>
+</div>
+<p>El principio nos dice que guiarnos por el intervalo es mucho más estable que guiarnos por un estimador puntual como la media muestral.</p>
+<p>Probemos, calculemos varios intervalos de confianza y grafiquemos en la pizarra. ¿Todos incluyen el parámetro poblacional (3)?</p>
+<div id="qwebr-insertion-location-2"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+</section>
+<section id="índice-aditivo" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="índice-aditivo"><span class="header-section-number">5.3</span> Índice Aditivo</h2>
+<p><img src="https://pro.arcgis.com/es/pro-app/latest/tool-reference/spatial-statistics/GUID-4F8022C6-1AD0-4F94-B5F7-9288EA37DAD8-web.png" class="img-fluid"></p>
+<p>Un índice aditivo es una técnica utilizada en la investigación social y otras áreas para combinar múltiples indicadores o variables en una única medida compuesta. La idea central detrás de un índice aditivo es sumar las puntuaciones o valores de diferentes ítems para obtener un puntaje total que represente una característica o concepto más amplio que no se puede medir directamente con un solo ítem.</p>
+<p>Supongamos que realizas una encuesta y pides a los encuestados que evalúen su satisfacción con los servicios públicos de agua, luz y desagüe utilizando una escala Likert de 1 (muy insatisfecho) a 5 (muy satisfecho). Ahora, deseas combinar estas tres variables en un índice aditivo que mida la satisfacción general con los servicios públicos.</p>
+<p><strong>Paso 1: Obten los datos</strong></p>
+<p>Por ejemplo, un encuestado ha contestado: Agua: 4 Luz: 5 Desagüe: 3</p>
+<p><strong>Paso 2: Creación del índice aditivo</strong></p>
+<p>Para crear el índice, simplemente sumarías las puntuaciones de estas tres variables:</p>
+<p>Índice de Satisfacción = Agua + Luz + Desagüe Índice de Satisfacción = 4 + 5 + 3 = 12</p>
+<p>El puntaje total para este encuestado en el índice de satisfacción con los servicios públicos sería 12. Dado que estás utilizando una escala Likert de 1 a 5 y tres servicios, el puntaje máximo posible para el índice sería 15 (si estuvieran muy satisfechos con los tres servicios) y el mínimo sería 3 (si estuvieran muy insatisfechos con los tres servicios).</p>
+<p><strong>Paso 3: Estandarización</strong></p>
+<p>Reescalar es el proceso de ajustar el rango de una variable para que se ajuste a una nueva escala. En el contexto de nuestro índice de satisfacción con los servicios públicos, reescalar los datos a una escala de 0 a 10 puede tener varias ventajas.</p>
+<ul>
+<li><p>Primero, una escala de 0 a 10 es intuitivamente comprensible para la mayoría de las personas, ya que es similar a las escalas que a menudo se utilizan en educación para calificar el desempeño.</p></li>
+<li><p>Segundo, al tener un rango definido, facilita la interpretación y comparación de los resultados. Por ejemplo, un valor de 8 en esta escala sugiere una alta satisfacción, mientras que un valor cercano a 0 indica insatisfacción.</p></li>
+<li><p>Finalmente, reescalar a una escala estándar como 0 a 10 puede facilitar la comparación con otros índices o estudios que utilicen la misma escala, permitiendo una evaluación más uniforme y coherente.</p></li>
+</ul>
+<p>Para ello, podemos utilizar el paquete <code>scales</code> y específicamente la función `rescale()``</p>
+<p><strong>Paso 4: Describir</strong></p>
+<p>Una vez reescalado, el índice se convierte en un resumen efectivo de las variables originales, consolidando la información en una única medida. Esta representación condensada facilita su uso en análisis posteriores. Por ejemplo, podemos obtener intervalos de confianza para el índice, proporcionando un rango de valores en el que es probable que se encuentre la verdadera media poblacional. Además, el índice reescalado puede ser utilizado en diversos modelos estadísticos, análisis de tendencias o incluso comparaciones entre diferentes grupos o períodos de tiempo, ofreciendo una herramienta versátil para la investigación y toma de decisiones.</p>
+</section>
+<section id="intervalos-de-confianza-para-grupos" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="intervalos-de-confianza-para-grupos"><span class="header-section-number">5.4</span> Intervalos de confianza para grupos</h2>
+<ul>
+<li><p>El intervalo de confianza de una media en grupos brinda un rango estimado para la verdadera media poblacional dentro de categorías específicas o subconjuntos de datos, siendo crucial en análisis sociopolíticos.</p></li>
+<li><p>En lugar de un solo intervalo para toda una población, se calcula un intervalo para cada grupo de interés político o social.</p></li>
+<li><p>Permite realizar comparaciones detalladas entre distintos grupos sociopolíticos o demográficos.</p></li>
+<li><p>Su utilidad en ciencia política y ciencias sociales incluye: Evaluación de la aprobación de líderes políticos entre diferentes grupos demográficos (por ejemplo, por edad, género o nivel educativo), análisis de tendencias electorales en diferentes regiones o entre distintos grupos socioeconómicos, estudio de la percepción pública sobre políticas específicas, como reformas educativas o de salud, entre diferentes sectores de la población, comparación de niveles de confianza en instituciones gubernamentales entre urbanos y rurales o entre diferentes grupos étnicos, entre otros.</p></li>
+<li><p>Es esencial para entender las dinámicas y divisiones dentro de una sociedad, identificando posibles brechas o áreas de consenso.</p></li>
+</ul>
+<p>En resumen, es una herramienta vital para académicos, analistas y tomadores de decisiones en ciencia política, permitiendo un análisis más profundo y matizado de las actitudes y percepciones públicas.</p>
+<p>Para nuestros fines, nos alejaremos un poco de la fórmula que vimos la clase pasada y lo haremos todo mucho más rápido con la utilización de la función <code>ciMean()</code>.</p>
+</section>
+<section id="ejercicio-1-ic-de-la-media-de-un-índice-aditivo" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="ejercicio-1-ic-de-la-media-de-un-índice-aditivo"><span class="header-section-number">5.5</span> Ejercicio 1: IC de la media de un índice aditivo</h2>
+<section id="pregunta-de-investigación" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="pregunta-de-investigación"><span class="header-section-number">5.5.1</span> Pregunta de investigación</h3>
+<p>En base a la data ENADES, calcule un índice aditivo de <strong>Percepción sobre la desigualdad en el acceso a servicios públicos</strong>.</p>
+<p>Para ello, vamos a utilizar estas cuatro variables:</p>
+<p><img src="images/ENADES_p11.png" class="img-fluid"></p>
+<p>Brinde el intervalo de confianza de la media de percepción sobre la desigualdad en el acceso a servicios públicos en la población al 95%</p>
+<p>Asimismo, genere una comparación de los intervalos de confianza para los sectores de “Lima Metropolitana” y “Perú sin Lima” (según variable zona3)</p>
+<p><strong>ABRIMOS LA DATA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.3.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kableExtra'
+
+The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">"https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="creamos-el-índice-aditivo" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="creamos-el-índice-aditivo"><span class="header-section-number">5.5.2</span> Creamos el índice aditivo</h3>
+<p><strong>Paso 1: Verificar que las variables corresponden al concepto</strong></p>
+<p>En este caso las tres se destinan a medir una percepción en relación a la desigualdad de la entrega de un servicio por parte del Estado.</p>
+<p><strong>Paso 2: Revisar el sentido de las categorías en el cuestionario/diccionario</strong></p>
+<p>Antes de sumar las variables individuales para crear un índice aditivo, es esencial verificar la estructura y la coherencia de las categorías en las escalas de las variables que se combinarán. Las categorías de cada escala deben alinearse de manera que el progreso a través de las categorías refleje una progresión lógica y uniforme en la variable subyacente.</p>
+<p>Por ejemplo, si estamos evaluando la satisfacción con ciertos servicios, las categorías de la escala deberían estructurarse de manera que un número más alto indique una mayor satisfacción, mientras que un número más bajo denota menos satisfacción. Esto asegura que el índice sea intuitivo: a medida que el valor del índice aumenta, también lo hace la intensidad o el grado de la característica que se está midiendo.</p>
+<p>Al garantizar que las categorías de la escala estén bien alineadas y sean intuitivas, nos aseguramos de que el índice aditivo resultante sea válido y refleje de manera precisa el constructo que intentamos medir.</p>
+<p>En este caso vemos que las variables tienen las siguientes escalas: (1) Muy desigual, (2) Poco desigual y (3) Nada desigual. Ciertamente, sería más intuitivo si el 3 indicaría “mucha desigualdad” y el 1 “poca desigualdad”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Percepción de desigualdad en el acceso a la educación</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(enades$p11.1)</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  1   2   3 
+912 503  80 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Percepción de desigualdad en el acceso a la salud</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(enades$p11.2)</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   1    2    3 
+1080  361   56 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Percepción de desigualdad en el acceso al trabajo</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(enades$p11.3)</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  1   2   3 
+885 544  56 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Percepción de desigualdad el acceso a la justicia</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(enades$p11.4)</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   1    2    3 
+1274  170   48 </code></pre>
+</div>
+</div>
+<p>En el mundo de la investigación y el análisis de datos, la exploración descriptiva inicial es una etapa crucial que no debe pasarse por alto. Esta exploración nos permite comprender la estructura, la distribución y las características generales de nuestros datos antes de realizar análisis más complejos. Una de las razones más importantes para llevar a cabo esta fase exploratoria es la detección de valores atípicos o inusuales, incluidos los valores codificados como “No sabe/No responde” (NS/NR), que a menudo se representan con códigos numéricos específicos como 999, 888, entre otros.</p>
+<p>Cuando no se detectan o se manejan adecuadamente, estos valores codificados como NS/NR pueden introducir errores significativos en nuestros análisis. Por ejemplo, si se incluyen en el cálculo de una media, estos valores altos (como 999) inflarán artificialmente la media, resultando en una representación imprecisa de la tendencia central de los datos. Además, estos valores pueden distorsionar otros cálculos y estadísticas descriptivas, como la mediana, la varianza, y el rango.</p>
+<p>En el contexto de ciencias sociales y ciencia política, donde las encuestas y los cuestionarios son herramientas comunes, los valores de NS/NR son habituales. Los encuestados pueden no querer, o no saber, cómo responder a ciertas preguntas. Es esencial identificar y manejar adecuadamente estos valores para garantizar que los resultados del análisis sean válidos y representativos de la población en estudio. Por lo tanto, una exploración descriptiva cuidadosa es el primer paso crucial para garantizar la integridad y precisión de cualquier análisis posterior.</p>
+<p>Como corroboramos que no hay problema de este tipo vamos a recodificar las variables para volverlas intuitivas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span>enades <span class="sc">|&gt;</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p11.1n=</span><span class="fu">case_when</span>(p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span><span class="dv">3</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.1</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.2n=</span><span class="fu">case_when</span>(p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.2</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.3n=</span><span class="fu">case_when</span>(p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.3</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>),</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">p11.4n=</span><span class="fu">case_when</span>(p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">1</span><span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">2</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>                          p11<span class="fl">.4</span><span class="sc">==</span><span class="dv">3</span><span class="sc">~</span><span class="dv">1</span>,</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>n)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  1   2   3 
+ 80 503 912 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.2</span>n)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   1    2    3 
+  56  361 1080 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.3</span>n)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  1   2   3 
+ 56 544 885 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(enades<span class="sc">$</span>p11<span class="fl">.4</span>n)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   1    2    3 
+  48  170 1274 </code></pre>
+</div>
+</div>
+<p><strong>Paso 3: Creación del índice aditivo (sumar)</strong></p>
+<p>Ahora sí podremos realizar el índice aditivo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span>enades <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_aditivo=</span>p11<span class="fl">.1</span>n<span class="sc">+</span>p11<span class="fl">.2</span>n<span class="sc">+</span>p11<span class="fl">.3</span>n<span class="sc">+</span>p11<span class="fl">.4</span>n) <span class="co">#Creamos una nueva variable que es la suma de las originarias recodificadas. </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indice_aditivo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   indice_aditivo     n
+            &lt;dbl&gt; &lt;int&gt;
+ 1              4     5
+ 2              5     3
+ 3              6    15
+ 4              7    35
+ 5              8    82
+ 6              9   145
+ 7             10   274
+ 8             11   337
+ 9             12   550
+10             NA    84</code></pre>
+</div>
+</div>
+<p>Como nuestras variables de insumo tenían como valores posibles 1-3, nuestro índice tendrá una escala posible de 4 (si la persona contestó a todo con 1) a 12 (si la persona contestó a todo con 3).</p>
+<p><strong>Paso 4: Estandarización</strong></p>
+<p>Sobre este índice ya creado, podemos cambiarle la escala para que no sea de 4-12 sino de 0-10.</p>
+<p>4A. Esto lo podemos realizar manualmente: 1) Identificamos el valor mínimo y máximo con summary(); 2) Restar a todos los valores el mínimo; 3) Al resultado, dividir por el máximo menos el mínimo; 4) Multiplicar por el número que será el nuevo máximo. Ejemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">indice_1_10=</span>(indice_aditivo<span class="dv">-4</span>)<span class="sc">/</span><span class="dv">8</span><span class="sc">*</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="co"># </span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indice_1_10)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   indice_1_10     n
+         &lt;dbl&gt; &lt;int&gt;
+ 1        0        5
+ 2        1.25     3
+ 3        2.5     15
+ 4        3.75    35
+ 5        5       82
+ 6        6.25   145
+ 7        7.5    274
+ 8        8.75   337
+ 9       10      550
+10       NA       84</code></pre>
+</div>
+</div>
+<p>4b. O también con una función (bastante más rápido)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>indice_aditivo_reescalado<span class="ot">&lt;-</span><span class="fu">rescale</span>(enades<span class="sc">$</span>indice_aditivo, <span class="at">to=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="co">#Aquí mencionas que quieresque la nueva escala sea de 0 al 10. </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vemos que el resultado es exactamente el mismo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(indice_aditivo_reescalado)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   indice_aditivo_reescalado     n
+                       &lt;dbl&gt; &lt;int&gt;
+ 1                      0        5
+ 2                      1.25     3
+ 3                      2.5     15
+ 4                      3.75    35
+ 5                      5       82
+ 6                      6.25   145
+ 7                      7.5    274
+ 8                      8.75   337
+ 9                     10      550
+10                     NA       84</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x=</span>indice_aditivo_reescalado)<span class="sc">+</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()<span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat=</span><span class="st">'count'</span>, <span class="fu">aes</span>(<span class="at">label=</span>..count..), <span class="at">vjust=</span><span class="sc">-</span><span class="fl">0.5</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(count)` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 84 rows containing non-finite values (`stat_count()`).
+Removed 84 rows containing non-finite values (`stat_count()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s5_Inferencia_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="cálculo-del-intervalo-de-confianza-al-95" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="cálculo-del-intervalo-de-confianza-al-95"><span class="header-section-number">5.5.3</span> Cálculo del intervalo de confianza al 95%</h3>
+<p><strong><em>Estimación puntual</em></strong></p>
+<p>El estimador puntual es una estadística descriptiva que se utiliza para estimar el valor desconocido de un parámetro poblacional a partir de una muestra. El estimador puntual proporciona una única estimación del valor del parámetro y se calcula a partir de los datos de la muestra.</p>
+<p>En este caso, la mejor estimación de la media población es simplemente la media muestral.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(enades<span class="sc">$</span>indice_aditivo_reescalado, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co">#Calculamos la media, obviando valores perdidos. </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.293568</code></pre>
+</div>
+</div>
+</section>
+<section id="ic-para-una-media" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="ic-para-una-media"><span class="header-section-number">5.5.4</span> IC para una media</h3>
+<p>Ahora, una vez identificado el estimador puntual, podemos cambiar nuestra estimación, ahora utilizando intervalos.</p>
+<p>La clase pasada lo hicimos con la fórmula, paso por paso. Ahora, utilizaremos una función:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(lsr) #Recuerda que esta función está en el paquete lsr</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ciMean</span>(enades<span class="sc">$</span>indice_aditivo_reescalado, <span class="at">na.rm =</span> T) <span class="co"># Calculamos el intervalo de confianza de p17, obviando valores perdidos. </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         2.5%    97.5%
+[1,] 8.197055 8.390082</code></pre>
+</div>
+</div>
+</section>
+<section id="ic-para-una-media-según-grupos" class="level3" data-number="5.5.5">
+<h3 data-number="5.5.5" class="anchored" data-anchor-id="ic-para-una-media-según-grupos"><span class="header-section-number">5.5.5</span> IC para una media según grupos</h3>
+<p>Una vez que ya tenemos nuestra variable numérica, lo que necesitamos para comparar es justamente un grupo de comparación. Ya hablando en programación del R, necesitamos un <strong>factor</strong>.</p>
+<p>Recuerda que el factor era una variable que visualmente son números, pero teóricamente sabemos que cada número es un nivel.</p>
+<p>Utilizaremos la variable zona3, la cual separa a los encuestados según su procedencia en: “Lima Metropolitana” y “Perú sin Lima”.</p>
+<p>Veamos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>zona3<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>zona3, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Lima Metropolitana"</span>, <span class="st">"Perú sin Lima"</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Con este comando hemos sobreescrito la variable zona3. Ahora lo que inicialmente era una variable numérica, ahora es un factor. </span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Corroboremos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>zona3) <span class="co">#Solicitamos la estructura de la variable zona3</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Factor w/ 2 levels "Lima Metropolitana",..: 1 1 2 2 2 2 2 2 2 2 ...</code></pre>
+</div>
+</div>
+<p>Solicitemos el intervalo de confianza de la variable creada para cada grupo identificado:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>indice_segun_zona<span class="ot">&lt;-</span>enades <span class="sc">%&gt;%</span> </span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(zona3) <span class="sc">%&gt;%</span> <span class="co">#Agrupamos por zona</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(indice_aditivo_reescalado, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Utilizamos summarise y pedimos la media,</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">ci_lower =</span> <span class="fu">ciMean</span>(indice_aditivo_reescalado, <span class="at">na.rm =</span> T)[<span class="dv">1</span>], <span class="co"># También el PRIMER ELEMENTO de la función ciMean</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">ci_upper =</span> <span class="fu">ciMean</span>(indice_aditivo_reescalado, <span class="at">na.rm =</span> T)[<span class="dv">2</span>]) <span class="co">#Y el SEGUNDO ELEMENTO de la función ciMean</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>indice_segun_zona</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  zona3               mean ci_lower ci_upper
+  &lt;fct&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 Lima Metropolitana  8.48     8.33     8.64
+2 Perú sin Lima       8.19     8.07     8.31</code></pre>
+</div>
+</div>
+<p>Según el cálculo, para Lima Metropolitana la media poblacional se encuentra entre 8.49 y 8.77, mientras que para Perú sin Lima se encuentra entre 8.25 y 8.47.</p>
+<p><strong>INTERPRETACIÓN</strong></p>
+<p>Al comparar dos intervalos de confianza entre grupos, lo más importante a tener en cuenta son:</p>
+<ul>
+<li>Superposición de Intervalos: Si los intervalos de confianza de dos grupos no se superponen, esto sugiere una diferencia estadísticamente significativa entre las medias de los grupos en la población.</li>
+</ul>
+<p>-Posición del Intervalo en la Escala: Aparte de la superposición, es esencial observar dónde se sitúan los intervalos en la escala. Si un grupo tiene un intervalo de confianza que se sitúa consistentemente más alto que el otro, puede indicar una tendencia o dirección en la diferencia entre los grupos.</p>
+<ul>
+<li>Nivel de Confianza Utilizado y amplitud el intervalo: Es importante recordar el nivel de confianza utilizado al construir los intervalos (por ejemplo, 95%). Un nivel de confianza más alto resultaría en intervalos más amplios, mientras que un nivel más bajo daría como resultado intervalos más estrechos.</li>
+</ul>
+<p>Aplicando a los resultados precisados:</p>
+<ul>
+<li><p>Superposición: No hay. Un intervalo va de 8.49 a 8.77 (Lima Metropolitana) y el otro de 8.25 y 8.47 (Perú sin Lima). Esto sugiere una diferencia estadísticamente significativa entre estos sectores.</p></li>
+<li><p>Posición del intervalo en la escala: Podemos decir que tenemos indicio de que en promedio la percepción de desigualdad en el acceso a servicios es más alta en Lima que en el resto del país.</p></li>
+<li><p>Nivel de confianza: Recordemos, cuando usamos ciMean() estamos utilizando un nivel de confianza del 95% por default.</p></li>
+</ul>
+<p>Por ejemplo, cuánto sería los intervalos de confianza al 99%?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">%&gt;%</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(zona3) <span class="sc">%&gt;%</span> </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(indice_aditivo_reescalado, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">ci_lower =</span> <span class="fu">ciMean</span>(indice_aditivo_reescalado, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">conf =</span> <span class="fl">0.99</span>)[<span class="dv">1</span>], </span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">ci_upper =</span> <span class="fu">ciMean</span>(indice_aditivo_reescalado, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">conf =</span> <span class="fl">0.99</span>)[<span class="dv">2</span>])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  zona3               mean ci_lower ci_upper
+  &lt;fct&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 Lima Metropolitana  8.48     8.28     8.69
+2 Perú sin Lima       8.19     8.03     8.35</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Qué puedes observar?</p>
+</blockquote>
+</section>
+<section id="visualización" class="level3" data-number="5.5.6">
+<h3 data-number="5.5.6" class="anchored" data-anchor-id="visualización"><span class="header-section-number">5.5.6</span> Visualización</h3>
+<p>Como dijimos, las barras de error en un gráfico de intervalos de confianza pueden ser útiles para comparar la precisión de las estimaciones entre diferentes grupos o condiciones.</p>
+<p>Podemos utilizar un comando básico como la función <code>plotmeans()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotmeans</span>(enades<span class="sc">$</span>indice_aditivo_reescalado<span class="sc">~</span>enades<span class="sc">$</span>zona3, <span class="at">p=</span><span class="fl">0.95</span>, </span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab=</span><span class="st">"Ámbito"</span>, <span class="at">ylab=</span><span class="st">"Índice de percepción de desigualdad en acceso a servicios"</span>, </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">main=</span><span class="st">"Gráfico de medias de Índice Aditivo"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s5_Inferencia_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sin embargo, te recomiendo utilizar <code>ggplot()</code>!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>indice_segun_zona <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>mean, <span class="at">x=</span>zona3)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>ci_lower, <span class="at">ymax=</span>ci_upper), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span><span class="fu">paste</span>(<span class="fu">round</span>(mean, <span class="dv">2</span>))), <span class="at">vjust=</span><span class="dv">0</span>, <span class="at">size=</span><span class="dv">5</span>)<span class="sc">+</span> <span class="co">#Colocamos el texto del valor de la media</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Procedencia"</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Percepción de la desigualdad"</span>) <span class="co"># Etiqueta del eje y</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s5_Inferencia_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>RECUERDA: Se superponen los intervalos?</p>
+</blockquote>
+<p>Si los intervalos de confianza se superponen significa que no hay una diferencia estadísticamente significativa entre las estimaciones correspondientes a cada intervalo. Es decir, la diferencia entre las estimaciones no es lo suficientemente grande como para ser considerada significativa desde un punto de vista estadístico.</p>
+<p><strong>IMPORTANTE!!</strong></p>
+<p><strong>Es importante tener en cuenta que la superposición de los intervalos de confianza no es una prueba concluyente de que no hay una diferencia significativa entre las estimaciones. Se debe realizar una prueba de hipótesis para determinar si la diferencia es estadísticamente significativa o no. Sin embargo, la superposición de los intervalos de confianza puede ser una indicación inicial de que la diferencia no es significativa y que no se debe buscar más evidencia.</strong></p>
+</section>
+</section>
+<section id="ejercicio-2" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="ejercicio-2"><span class="header-section-number">5.6</span> Ejercicio 2</h2>
+<p><strong>PREGUNTA</strong></p>
+<p>Utilizando la variable monto mínimo mensual que requiere su hogar para vivir (P08).</p>
+<p>Calcule:</p>
+<ul>
+<li><p>Brinde el estimador puntual de la media poblacional.</p></li>
+<li><p>Calcule el intervalo de confianza de la media poblacional.</p></li>
+<li><p>Calcule los intervalos de confianza de la media según si el individuo vive en el área urbana o rural (area2). En otras palabras, compare la media de la variable en esos dos grupos.</p></li>
+<li><p>Realice un gráfico de barras de error. Existe indicio de DIFERENCIA entre los dos grupos?</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>Tienes 15 minutos!</p>
+</blockquote>
+</section>
+<section id="intervalo-de-confianza-de-una-proporción" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="intervalo-de-confianza-de-una-proporción"><span class="header-section-number">5.7</span> Intervalo de confianza de una proporción</h2>
+<section id="definición" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="definición"><span class="header-section-number">5.7.1</span> Definición</h3>
+<p>En estadística, el intervalo de una proporción es un rango de valores posibles para la proporción de una característica en una población, que se estima a partir de una muestra aleatoria de la población. Al igual que con la media, el intervalo de una proporción se construye utilizando un nivel de confianza específico y se utiliza para determinar la precisión de la estimación de la proporción en la población.</p>
+<p>Por ejemplo, si se desea estimar la proporción de personas en una población que votará por un candidato específico, se puede seleccionar una muestra aleatoria de la población y estimar la proporción de personas que votarán por ese candidato en la muestra. A partir de esta estimación, se puede construir un intervalo de confianza que contendrá el valor real de la proporción en la población con un cierto nivel de confianza.</p>
+<p>El ancho del intervalo depende del tamaño de la muestra y del nivel de confianza especificado. A medida que el tamaño de la muestra aumenta, el intervalo se estrecha y se vuelve más preciso. Del mismo modo, a medida que se aumenta el nivel de confianza, el intervalo se amplía y se vuelve menos preciso.</p>
+<p>El intervalo de una proporción es una herramienta útil en la inferencia estadística, ya que permite a los investigadores cuantificar la incertidumbre en una estimación de la proporción y determinar si una diferencia entre dos proporciones es estadísticamente significativa.</p>
+</section>
+<section id="fórmula" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="fórmula"><span class="header-section-number">5.7.2</span> Fórmula</h3>
+<blockquote class="blockquote">
+<p>Recuerda que en este caso, al igual que en la media, todo gira en torno a los principios de la curva normal, el número de desviaciones estándar/errores estándar a la izquierda y a la derecha, el teorema central del límite y la ley de los grandes números. Si alguno de estos conceptos no están claros, te recomiendo regresar a la sesión 4 y repasarlos!</p>
+</blockquote>
+<p>Para calcular el intervalo de confianza de una proporción variamos un poco la fórmula que ya conocemos hasta ahora.</p>
+<p>Primero hay que tener en cuenta que cuando calculamos la proporción, nos estamos refiriendo específicamente a la proporción de <strong>UNA CATEGORÍA</strong> de una variable <strong>CATEGÓRICA</strong>. Hago el énfasis en ello porque siempre se genera la confusión de “a qué le estoy calculando la proporción”.</p>
+<p>Dicho de otra manera, nosotros debemos poner el ojo en una categoría de una variable nominal/ordinal al principio de este cálculo.</p>
+<p><span class="math display">\[\text{Intervalo de confianza para una proporción: } \hat{p} \pm z \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(\hat{p}\)</span> = Proporción muestral de la categoría elegida</p>
+<p>z = Puntuación crítica dependiendo de nuestro nivel de confianza elegido</p>
+<p><span class="math inline">\(\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span> = Error estándar de una proporción</p>
+</section>
+<section id="ic-de-proporción-con-la-fórmula" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="ic-de-proporción-con-la-fórmula"><span class="header-section-number">5.7.3</span> IC de proporción con la fórmula</h3>
+<p>Primero ubiquemos una variable categórica. Utilicemos la p11.1:</p>
+<p>¿Qué tan desigual es el acceso de los peruanos a la EDUCACIÓN? 1. Muy desigual 2. Poco desigual 3. Nada desigual</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Configuramos nuestra variable como factor</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>p11<span class="fl">.1</span><span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>p11<span class="fl">.1</span>, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Muy desigual"</span>, <span class="st">"Poco desigual"</span>, <span class="st">"Nada desigual"</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La muestra se divide entre estas tres opciones. Ahora elegimos <strong>UNA CATEGORÍA</strong> de estas tres a la que vamos a calcular la proporción. En este caso vamos a elegir la proporción de individuos que afirmó que el acceso a la educación en el Perú es “Muy desigual”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculamos p</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  p11.1             n      p
+  &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
+1 Muy desigual    912 0.610 
+2 Poco desigual   503 0.336 
+3 Nada desigual    80 0.0535</code></pre>
+</div>
+</div>
+<p>Ahora sabemos que nuestro <span class="math inline">\(\hat{p}\)</span> = 0.59</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span><span class="fl">0.61003344</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El número total de casos es:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span> <span class="dv">912</span><span class="sc">+</span><span class="dv">503</span><span class="sc">+</span><span class="dv">80</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ahora definimos la puntuación crítica. Cuánto era para 95% de confianza?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="fl">1.96</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ahora el error estándar <span class="math inline">\(\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>error_estandar<span class="ot">&lt;-</span> <span class="fu">sqrt</span>((p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p))<span class="sc">/</span>n)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nuestro límite inferior es la proporción muestral menos z*error estándar:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>limite_inferior<span class="ot">&lt;-</span> p<span class="sc">-</span>z<span class="sc">*</span>error_estandar</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>limite_inferior</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.585309</code></pre>
+</div>
+</div>
+<p>Y el límite superior es la proporción muestral más z*error estándar:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>limite_superior<span class="ot">&lt;-</span> p<span class="sc">+</span>z<span class="sc">*</span>error_estandar</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>limite_superior</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6347579</code></pre>
+</div>
+</div>
+<p>Lo podemos colocar todo en un data frame</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>resultados<span class="ot">&lt;-</span><span class="fu">data.frame</span>(p, error_estandar, limite_inferior, limite_superior)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>resultados <span class="sc">|&gt;</span> </span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">error_estandar</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">limite_inferior</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">limite_superior</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.6100334</td>
+<td style="text-align: right;">0.0126145</td>
+<td style="text-align: right;">0.585309</td>
+<td style="text-align: right;">0.6347579</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="ic-de-proporción-con-prop.test" class="level3" data-number="5.7.4">
+<h3 data-number="5.7.4" class="anchored" data-anchor-id="ic-de-proporción-con-prop.test"><span class="header-section-number">5.7.4</span> IC de proporción con <code>prop.test()</code></h3>
+<p>Ahora bien, también podemos utilizar la función <code>prop.test()</code>:</p>
+<p>Recordemos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  p11.1             n      p
+  &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
+1 Muy desigual    912 0.610 
+2 Poco desigual   503 0.336 
+3 Nada desigual    80 0.0535</code></pre>
+</div>
+</div>
+<p>Colocamos la <strong>frecuencia</strong> de la categoría elegida y el tamaño total de la muestra.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="dv">912</span>, <span class="dv">1495</span>)<span class="sc">$</span>conf.int</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5847202 0.6347751
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Por qué colocamos frecuencia? Porque así está configurada esta función.</p>
+</blockquote>
+</section>
+<section id="ic-de-proporción-según-grupos" class="level3" data-number="5.7.5">
+<h3 data-number="5.7.5" class="anchored" data-anchor-id="ic-de-proporción-según-grupos"><span class="header-section-number">5.7.5</span> IC de proporción según grupos</h3>
+<p>Ahora comparemos la proporción elegida (aquellos que creen que el acceso de los peruanos a la EDUCACIÓN es MUY DESIGUAL) entre el sector rural y urbano (area2).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span> <span class="fu">factor</span>(enades<span class="sc">$</span>area2, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Urbano"</span>, <span class="st">"Rural"</span>)) <span class="co">#Colocamos sus etiquetas</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Primero, nos tenemos que preguntar cuál es la frecuencia en cada grupo</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(p11<span class="fl">.1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p=</span>n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+# Groups:   area2 [2]
+  area2  p11.1             n      p
+  &lt;fct&gt;  &lt;fct&gt;         &lt;int&gt;  &lt;dbl&gt;
+1 Urbano Muy desigual    769 0.618 
+2 Urbano Poco desigual   409 0.329 
+3 Urbano Nada desigual    67 0.0538
+4 Rural  Muy desigual    143 0.572 
+5 Rural  Poco desigual    94 0.376 
+6 Rural  Nada desigual    13 0.052 </code></pre>
+</div>
+</div>
+<p>Ahora calculamos la función teniendo en cuenta que:</p>
+<ul>
+<li>En el primer grupo hay 769 casos de éxito de un total de 1273.</li>
+</ul>
+<p>Lo ingresamos a la función:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">769</span><span class="sc">+</span><span class="dv">409</span><span class="sc">+</span><span class="dv">67</span>))<span class="sc">$</span>conf.int</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5899485 0.6446582
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+<ul>
+<li>En el segundo grupo hay 143 casos de éxito de un total de 257.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">143</span><span class="sc">+</span><span class="dv">94</span><span class="sc">+</span><span class="dv">13</span>))<span class="sc">$</span>conf.int</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5080285 0.6337218
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+<p>Lo podemos ordenar en un data.frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>resultados_prop<span class="ot">&lt;-</span>  <span class="fu">data.frame</span>(<span class="at">Grupo =</span><span class="fu">c</span>(<span class="st">"Urbano"</span>, <span class="st">"Rural"</span>), </span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">P =</span><span class="fu">c</span>(<span class="fl">0.61767068</span>, <span class="fl">0.57200000</span>   ), </span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Lim_inf=</span><span class="fu">c</span>(<span class="fl">0.5899485</span>, <span class="fl">0.5080285</span>), </span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">Lim_sup=</span> <span class="fu">c</span>(<span class="fl">0.6446582</span>,<span class="fl">0.6337218</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>resultados_prop</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Grupo         P   Lim_inf   Lim_sup
+1 Urbano 0.6176707 0.5899485 0.6446582
+2  Rural 0.5720000 0.5080285 0.6337218</code></pre>
+</div>
+</div>
+<p>Lo visualizamos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>resultados_prop <span class="sc">|&gt;</span> <span class="co">#Data</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span>       <span class="co">#Iniciamos el ggplot. A partir de ahora son +! ya no |&gt;!</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">y=</span>p, <span class="at">x=</span>Grupo)<span class="sc">+</span>  <span class="co">#Los grupos en el eje X y la media en el eje Y</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>Lim_inf, <span class="at">ymax=</span>Lim_sup), <span class="at">width=</span><span class="fl">0.2</span>)<span class="sc">+</span> <span class="co">#Graficamos la barra de error</span></span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Procedencia"</span>) <span class="sc">+</span> <span class="co">#Etiqueta del eje X</span></span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"P la cobertura en educación es Muy Desigual"</span>) <span class="co"># Etiqueta del eje y</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s5_Inferencia_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Otra alternativa es pedirlos al mismo tiempo en la función <code>prop.test()</code>. En este caso lo que nos muestra, es el <strong>intervalo de la diferencia</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">769</span>, <span class="dv">143</span>), <span class="at">n=</span><span class="fu">c</span>(<span class="dv">1273</span>, <span class="dv">257</span>))<span class="sc">$</span>conf.int</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.02108879  0.11641800
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+<p>En este caso, se sigue la siguiente interpretación:</p>
+<p>Si el intervalo de confianza no contiene el valor cero, esto sugiere que las proporciones de los dos grupos son significativamente diferentes y que la hipótesis nula de que las proporciones son iguales debe ser rechazada. Por otro lado, si el intervalo de confianza contiene el valor cero, no podemos rechazar la hipótesis nula y no podemos concluir que las proporciones son significativamente diferentes.</p>
+</section>
+</section>
+<section id="ejercicio-3" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="ejercicio-3"><span class="header-section-number">5.8</span> Ejercicio 3</h2>
+<p><strong>PREGUNTA</strong></p>
+<p>Utilizando la variable “ideología2” (1: Izquierda, 2:Centro, 3:Derecha):</p>
+<p>Realice lo siguiente:</p>
+<ul>
+<li><p>Brinde el estimador puntual de la proporción de población de Izquierda en el Perú.</p></li>
+<li><p>Calcule el intervalo de confianza de la proporción poblacional de Izquierda en el Perú.</p></li>
+<li><p>Calcule por separado, utilizando prop.test(), la proporción de población de izquierda en el área urbano y rural (area2).</p></li>
+<li><p>Mediante la función prop.test(), compare los dos grupos y evalúe el intervalo de confianza de la diferencia en los p poblacionales.</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./s4_introInferencia.html" class="pagination-link  aria-label=" &lt;span="" a="" la="" inferencia&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Inferencia</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<script type="module">
+// Handle cell initialization initialization
+qwebrCellDetails.map(
+  (entry) => {
+    // Handle the creation of the element
+    qwebrCreateHTMLElement(entry);
+    // In the event of interactive, initialize the monaco editor
+    if (entry.options.context == EvalTypes.Interactive) {
+      qwebrCreateMonacoEditorInstance(entry);
+    }
+  }
+);
+
+// Identify non-interactive cells (in order)
+const filteredEntries = qwebrCellDetails.filter(entry => {
+  const contextOption = entry.options && entry.options.context;
+  return ['output', 'setup'].includes(contextOption) || (contextOption == "interactive" && entry.options && entry.options.autorun === 'true');
+});
+
+// Condition non-interactive cells to only be run after webR finishes its initialization.
+qwebrInstance.then(
+  async () => {
+    const nHiddenCells = filteredEntries.length;
+    var currentHiddenCell = 0;
+
+
+    // Modify button state
+    qwebrSetInteractiveButtonState(`🟡 Running hidden code cells ...`, false);
+
+    // Begin processing non-interactive sections
+    // Due to the iteration policy, we must use a for() loop.
+    // Otherwise, we would need to switch to using reduce with an empty
+    // starting promise
+    for (const entry of filteredEntries) {
+
+      // Determine cell being examined
+      currentHiddenCell = currentHiddenCell + 1;
+      const formattedMessage = `Evaluating hidden cell ${currentHiddenCell} out of ${nHiddenCells}`;
+
+      // Update the document status header
+      if (qwebrShowStartupMessage) {
+        qwebrUpdateStatusHeader(formattedMessage);
+      }
+
+      // Display the update in non-active areas
+      qwebrUpdateStatusMessage(formattedMessage);
+
+      // Extract details on the active cell
+      const evalType = entry.options.context;
+      const cellCode = entry.code;
+      const qwebrCounter = entry.id;
+
+      if (['output', 'setup'].includes(evalType)) {
+        // Disable further global status updates
+        const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
+        activeContainer.classList.remove('qwebr-cell-needs-evaluation');
+        activeContainer.classList.add('qwebr-cell-evaluated');
+
+        // Update status on the code cell
+        const activeStatus = document.getElementById(`qwebr-status-text-${qwebrCounter}`);
+        activeStatus.innerText = " Evaluating hidden code cell...";
+        activeStatus.classList.remove('qwebr-cell-needs-evaluation');
+        activeStatus.classList.add('qwebr-cell-evaluated');
+      }
+
+      switch (evalType) {
+        case 'interactive':
+          // TODO: Make this more standardized.
+          // At the moment, we're overriding the interactive status update by pretending its
+          // output-like. 
+          const tempOptions = entry.options;
+          tempOptions["context"] = "output"
+          // Run the code in a non-interactive state that is geared to displaying output
+          await qwebrExecuteCode(`${cellCode}`, qwebrCounter, tempOptions);
+          break;
+        case 'output':
+          // Run the code in a non-interactive state that is geared to displaying output
+          await qwebrExecuteCode(`${cellCode}`, qwebrCounter, entry.options);
+          break;
+        case 'setup':
+          const activeDiv = document.getElementById(`qwebr-noninteractive-setup-area-${qwebrCounter}`);
+          // Run the code in a non-interactive state with all output thrown away
+          await mainWebR.evalRVoid(`${cellCode}`);
+          break;
+        default: 
+          break; 
+      }
+
+      if (['output', 'setup'].includes(evalType)) {
+        // Disable further global status updates
+        const activeContainer = document.getElementById(`qwebr-non-interactive-loading-container-${qwebrCounter}`);
+        // Disable visibility
+        activeContainer.style.visibility = 'hidden';
+        activeContainer.style.display = 'none';
+      }
+    }
+  }
+).then(
+  () => {
+    // Release document status as ready
+
+    if (qwebrShowStartupMessage) {
+      qwebrStartupMessage.innerText = "🟢 Ready!"
+    }
+  
+    qwebrSetInteractiveButtonState(
+      `<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>`, 
+      true
+    );  
+  }
+);
+</script>
+
+
+
+
+</body></html>
