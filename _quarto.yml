@@ -18,6 +18,7 @@ book:
     - s3_descriptiva.qmd
     - s4_introInferencia.qmd
     - s5_Inferencia.qmd
+    - s6_t_test.qmd
 
 bibliography: references.bib
 

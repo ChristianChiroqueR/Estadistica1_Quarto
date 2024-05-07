@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.542">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Estadística para el Análisis Político 1 - 6&nbsp; Comparando dos medias con pruebas de hipótesis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./s5_Inferencia.html" rel="prev">
+<link href="./quipu.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./s6_t_test.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comparando dos medias con pruebas de hipótesis</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./quipu2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Estadística para el Análisis Político 1</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sobre el curso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s1_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de programación con R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s2_manipulacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Manipulación de tablas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s3_descriptiva.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estadística descriptiva</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4_introInferencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Inferencia</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s5_Inferencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Profundizando en la Estadística Inferencial</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s6_t_test.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comparando dos medias con pruebas de hipótesis</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#objetivos-de-la-sesión" id="toc-objetivos-de-la-sesión" class="nav-link active" data-scroll-target="#objetivos-de-la-sesión"><span class="header-section-number">6.1</span> Objetivos de la sesión</a></li>
+  <li><a href="#presentación" id="toc-presentación" class="nav-link" data-scroll-target="#presentación"><span class="header-section-number">6.2</span> Presentación</a></li>
+  <li><a href="#qué-son-las-pruebas-de-hipótesis" id="toc-qué-son-las-pruebas-de-hipótesis" class="nav-link" data-scroll-target="#qué-son-las-pruebas-de-hipótesis"><span class="header-section-number">6.3</span> ¿Qué son las pruebas de hipótesis?</a>
+  <ul class="collapse">
+  <li><a href="#hipótesis" id="toc-hipótesis" class="nav-link" data-scroll-target="#hipótesis"><span class="header-section-number">6.3.1</span> Hipótesis</a></li>
+  <li><a href="#estadísticos-de-prueba" id="toc-estadísticos-de-prueba" class="nav-link" data-scroll-target="#estadísticos-de-prueba"><span class="header-section-number">6.3.2</span> Estadísticos de prueba</a></li>
+  <li><a href="#valor-p-de-la-prueba" id="toc-valor-p-de-la-prueba" class="nav-link" data-scroll-target="#valor-p-de-la-prueba"><span class="header-section-number">6.3.3</span> Valor p de la prueba</a></li>
+  <li><a href="#informar-los-resultados" id="toc-informar-los-resultados" class="nav-link" data-scroll-target="#informar-los-resultados"><span class="header-section-number">6.3.4</span> Informar los resultados</a></li>
+  </ul></li>
+  <li><a href="#prueba-t-de-student" id="toc-prueba-t-de-student" class="nav-link" data-scroll-target="#prueba-t-de-student"><span class="header-section-number">6.4</span> Prueba T de Student</a></li>
+  <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio 1</a>
+  <ul class="collapse">
+  <li><a href="#pregunta-de-investigación" id="toc-pregunta-de-investigación" class="nav-link" data-scroll-target="#pregunta-de-investigación"><span class="header-section-number">6.4.1</span> Pregunta de investigación</a></li>
+  <li><a href="#paso-1-análisis-exploratorio-de-datos" id="toc-paso-1-análisis-exploratorio-de-datos" class="nav-link" data-scroll-target="#paso-1-análisis-exploratorio-de-datos">Paso 1: Análisis exploratorio de datos</a></li>
+  <li><a href="#paso-2-realizar-la-prueba-de-hipótesis" id="toc-paso-2-realizar-la-prueba-de-hipótesis" class="nav-link" data-scroll-target="#paso-2-realizar-la-prueba-de-hipótesis">Paso 2: Realizar la prueba de hipótesis</a></li>
+  <li><a href="#paso-3-informar-los-resultados" id="toc-paso-3-informar-los-resultados" class="nav-link" data-scroll-target="#paso-3-informar-los-resultados">Paso 3: Informar los resultados</a></li>
+  </ul></li>
+  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2">Ejercicio 2</a></li>
+  <li><a href="#ejercicio-3" id="toc-ejercicio-3" class="nav-link" data-scroll-target="#ejercicio-3">Ejercicio 3</a>
+  <ul class="collapse">
+  <li><a href="#base-de-datos" id="toc-base-de-datos" class="nav-link" data-scroll-target="#base-de-datos"><span class="header-section-number">6.4.2</span> Base de datos</a></li>
+  <li><a href="#pregunta-de-investigación-1" id="toc-pregunta-de-investigación-1" class="nav-link" data-scroll-target="#pregunta-de-investigación-1"><span class="header-section-number">6.4.3</span> Pregunta de investigación</a></li>
+  </ul></li>
+  <li><a href="#recuerda" id="toc-recuerda" class="nav-link" data-scroll-target="#recuerda"><span class="header-section-number">6.5</span> Recuerda!</a>
+  <ul class="collapse">
+  <li><a href="#valores-faltantes-en-las-encuestas" id="toc-valores-faltantes-en-las-encuestas" class="nav-link" data-scroll-target="#valores-faltantes-en-las-encuestas"><span class="header-section-number">6.5.1</span> Valores faltantes en las encuestas</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comparando dos medias con pruebas de hipótesis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objetivos-de-la-sesión" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="objetivos-de-la-sesión"><span class="header-section-number">6.1</span> Objetivos de la sesión</h2>
+<ul>
+<li>Al finalizar esta sesión, el alumno deberá comprender los fundamentos teóricos de las pruebas de hipótesis dentro del marco de la estadística inferencial, enfocándose particularmente en el entendimiento y la aplicación de la prueba T para medias y para proporciones.</li>
+</ul>
+</section>
+<section id="presentación" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="presentación"><span class="header-section-number">6.2</span> Presentación</h2>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQnzflCzcwCJBOAMpnKf6oc-_DbdtaH4JMAslYrXGnwBfPM-IBgB-DxUnI8w0dOkA/embed?start=false&amp;loop=false&amp;delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</section>
+<section id="qué-son-las-pruebas-de-hipótesis" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="qué-son-las-pruebas-de-hipótesis"><span class="header-section-number">6.3</span> ¿Qué son las pruebas de hipótesis?</h2>
+<p>Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población.</p>
+<p>Este enfoque proporciona una forma sistemática y rigurosa para tomar decisiones informadas y hacer inferencias sobre la población en función de la evidencia empírica.</p>
+<section id="hipótesis" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="hipótesis"><span class="header-section-number">6.3.1</span> Hipótesis</h3>
+<p>Las hipótesis son suposiciones que hacemos sobre un parámetro de una población y que queremos verificar a través de datos muestrales. Principalmente se manejan dos tipos de hipótesis:</p>
+<p><strong>Hipótesis Nula (H0)</strong>: Asume que no hay diferencia significativa o efecto en los datos. Por ejemplo, podría afirmar que la media de una población es igual en dos grupos.</p>
+<p><strong>Hipótesis Alternativa (H1 o Ha)</strong>: Es la que se considera si los datos sugieren que la hipótesis nula puede ser falsa. Propone una diferencia o efecto significativo. Por ejemplo, podría afirmar que la media es diferente en dos grupos.</p>
+<p>El objetivo de una prueba de hipótesis es determinar si los datos muestrales proporcionan suficiente evidencia para rechazar la hipótesis nula a favor de la hipótesis alternativa.</p>
+</section>
+<section id="estadísticos-de-prueba" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="estadísticos-de-prueba"><span class="header-section-number">6.3.2</span> Estadísticos de prueba</h3>
+<p>Es como una fórmula o herramienta matemática que usamos para comparar nuestros datos con lo que esperamos bajo la hipótesis nula. Nos da un número que nos indica cuánto difieren nuestros datos de esa expectativa.</p>
+<p>Los estadísticos de prueba en las pruebas de hipótesis utilizan diferentes tipos de insumos según el tipo de prueba y lo que se esté evaluando. Algunos de los insumos más comunes incluyen la media de la muestra, que es crucial en pruebas como el t-test, donde se comparan las medias de uno o más grupos.</p>
+<p>La varianza y la desviación estándar de la muestra también son importantes, especialmente en pruebas como el F-test de ANOVA, que analiza las diferencias de varianzas entre grupos para determinar si las medias son significativamente diferentes. Otro insumo relevante es el tamaño de la muestra, que influye en la precisión del estadístico de prueba y en la capacidad de detectar diferencias o efectos reales.</p>
+</section>
+<section id="valor-p-de-la-prueba" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="valor-p-de-la-prueba"><span class="header-section-number">6.3.3</span> Valor p de la prueba</h3>
+<p>Una vez que tenemos el resultado del test, calculamos el p-value. Este valor nos dice qué tan probable es obtener un resultado como el que obtuvimos (o más extremo) si la hipótesis nula fuera cierta. Un p-value pequeño sugiere que nuestros datos son raros bajo la hipótesis nula.</p>
+</section>
+<section id="informar-los-resultados" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="informar-los-resultados"><span class="header-section-number">6.3.4</span> Informar los resultados</h3>
+<p>Tenemos los siguientes escenarios</p>
+<p><img src="images/rechazar_norechazar.jpg" class="img-fluid"></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Resultado</th>
+<th>Decisión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p-value &lt;\alpha\)</span></td>
+<td>Rechazamos la hipótesis nula.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p-value &gt;=\alpha\)</span></td>
+<td>No rechazamos la hipótesis nula.</td>
+</tr>
+</tbody>
+</table>
+<p>Considerar lo siguiente:</p>
+<ul>
+<li><p>La convención tradicional es considerar un resultado como estadísticamente significativo si el p-valor es menor que 0.05 (es decir, p&lt;0.05). Es esencial recordar que el umbral de 0.05 es una convención y, dependiendo del contexto o la disciplina, se pueden usar otros valores de α.</p></li>
+<li><p>Cuando el p-valor es menor que 0.05 (o cualquier otro nivel de significancia que hayas establecido), es correcto decir que “rechazamos la hipótesis nula”. Sin embargo, es importante ser cauteloso con la terminología que usamos después de eso. No es correcto decir que “aceptamos la hipótesis alternativa”. La razón es que las pruebas de hipótesis no están diseñadas para probar directamente la hipótesis alternativa, sino para evaluar la evidencia contra la hipótesis nula. En su lugar, es más adecuado y preciso decir que “tenemos suficiente evidencia para respaldar la hipótesis alternativa”, que los datos “son consistentes con la hipótesis alternativa” o que encontramos pruebas “estadísticamente significativas”.</p></li>
+</ul>
+</section>
+</section>
+<section id="prueba-t-de-student" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="prueba-t-de-student"><span class="header-section-number">6.4</span> Prueba T de Student</h2>
+<p>La prueba t, o test t de Student, es un tipo de análisis estadístico utilizado para determinar si hay diferencias significativas entre las medias de dos grupos.</p>
+<p>El test t de Student se basa en la suposición de que las muestras provienen de una distribución normal, y calcula las diferencias en términos de la media y la variabilidad de las muestras.</p>
+<p>El resultado del test t indica si las diferencias observadas son lo suficientemente grandes como para considerarlas estadísticamente significativas, ayudando así a decidir si se debe rechazar la hipótesis nula de que no hay diferencia entre los grupos comparados.</p>
+</section>
+<section id="ejercicio-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h2>
+<section id="pregunta-de-investigación" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="pregunta-de-investigación"><span class="header-section-number">6.4.1</span> Pregunta de investigación</h3>
+<p>Para iniciar, debemos tener claro nuestra pregunta que deseamos responder.</p>
+<p>Utilizando ENADES, deseamos responder a la siguiente interrogante: ¿El monto mínimo <strong>promedio</strong> necesario para que un hogar pueda subsistir (p08) será diferente entre el área urbana y rural (area2) a nivel poblacional?</p>
+</section>
+<section id="paso-1-análisis-exploratorio-de-datos" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="paso-1-análisis-exploratorio-de-datos">Paso 1: Análisis exploratorio de datos</h3>
+<p>No está en el flujograma, pero siempre debes seguir algunos pasos previos.</p>
+<p>Desde lo más general a lo más específico, nosotros debemos:</p>
+<p>Abrir la base de datos. Vamos a seguir usando ENADES. Puedes ver el cuestionario <a href="https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf">aqui</a>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>enades<span class="ot">&lt;-</span><span class="fu">read_spss</span>(<span class="st">"https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR</strong></p>
+<p>En este caso deseo comparar la variable monto mínimo mensual que requiere su hogar para vivir (p08).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>p08<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(enades<span class="sc">$</span>p08)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>p08)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:1530] 20000 16000 15000 15000 10000 10000 10000 10000 10000 10000 ...</code></pre>
+</div>
+</div>
+<p>Así también en los grupos establecidos por la variable ámbito (urbano/rural)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>enades<span class="sc">$</span>area2<span class="ot">&lt;-</span><span class="fu">factor</span>(enades<span class="sc">$</span>area2, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Urbano"</span>, <span class="st">"Rural"</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(enades<span class="sc">$</span>area2)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Factor w/ 2 levels "Urbano","Rural": 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<p><strong>EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES</strong></p>
+<p>Si bien nos interesa calcular la media poblacional, primero tenemos que tener en cuenta cuál es la media en nuestra muestra.</p>
+<p>Ahora hacemos un primer sondeo de cuál es la media muestral:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `mean(p08, na.rm = T)`
+                   &lt;dbl&gt;
+1                  2334.</code></pre>
+</div>
+</div>
+<p>Asimismo, cuál es la media muestral en cada uno de los grupos seleccionados que deseamos comparar:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>enades <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(area2) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(p08, <span class="at">na.rm=</span>T))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  area2  `mean(p08, na.rm = T)`
+  &lt;fct&gt;                   &lt;dbl&gt;
+1 Urbano                  2490.
+2 Rural                   1497.</code></pre>
+</div>
+</div>
+<p>Esto nos ayuda a corroborar que tenemos toda la información necesitaria lista para llevar a cabo una prueba de hipótesis.</p>
+</section>
+<section id="paso-2-realizar-la-prueba-de-hipótesis" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="paso-2-realizar-la-prueba-de-hipótesis">Paso 2: Realizar la prueba de hipótesis</h3>
+<section id="hipótesis-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="hipótesis-1">Hipótesis</h4>
+<p>Lo primero que debemos plantear son las hipótesis nula y alternativa.</p>
+<p>Recuerda que cada prueba tiene su hipótesis nula, por lo que hay que memorizar algunas de estas. En el caso de la Prueba T, las hipótesis son las siguientes:</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hipótesis</th>
+<th>Descripción</th>
+<th>Notación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hipótesis nula</td>
+<td>Las medias poblacionales son iguales</td>
+<td><span class="math inline">\(H_0: \mu_1 = \mu_2\)</span></td>
+</tr>
+<tr class="even">
+<td>Hipótesis alterna</td>
+<td>Las medias poblacionales son diferentes</td>
+<td>$H_1: _1 _2 $</td>
+</tr>
+</tbody>
+</table>
+<p>Estas son las hipótesis que vamos a validar con nuestra prueba.</p>
+<p>Asimismo, debemos recordar que estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.</p>
+<p><span class="math display">\[\alpha = 0.05\]</span></p>
+</section>
+<section id="calcular-p-valor" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="calcular-p-valor">Calcular p-valor</h4>
+<p>Ahora utilizemos la función <code>t.test()</code> para realizar el cálculo del Estadístico T y el cálculo del p-valor.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(p08 <span class="sc">~</span> area2, <span class="co">#Ese símbolo ~ (en Windows) es ALT + 126</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> enades)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  p08 by area2
+t = 10.992, df = 466.14, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group Urbano and group Rural is not equal to 0
+95 percent confidence interval:
+  815.0508 1169.9052
+sample estimates:
+mean in group Urbano  mean in group Rural 
+            2489.569             1497.091 </code></pre>
+</div>
+</div>
+<p>El <strong>estadístico de prueba</strong> en este caso es el Estadítico T, el cual es 10.992.</p>
+<p>Ahora bien, lo que hace la prueba es comparar este valor observable del Estadístico T con un valor teórico, de acuerdo a la distribución T. Dicha comparación lo que arroja es una probabilidad de obtener ese valor observado, en caso la hipótesis nula (medias iguales) es verdadera</p>
+<p>En este caso, nuestro p-value es &lt; 2.2e-16. El cual es un número muy pequeño.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El número 2.2e-16 es una forma abreviada de escribir un número muy pequeño en notación científica. En este caso, equivale a 0.00000000000000022 o 2.2 multiplicado por 10 elevado a la potencia -16. Es común utilizar esta notación en estadística y otras áreas de la ciencia para representar números muy grandes o muy pequeños de manera más concisa.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="paso-3-informar-los-resultados" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="paso-3-informar-los-resultados">Paso 3: Informar los resultados</h3>
+<p>Tenemos los siguientes escenarios</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Resultado</th>
+<th>Decisión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p-value &lt;\alpha\)</span></td>
+<td>Rechazamos la hipótesis nula.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p-value &gt;=\alpha\)</span></td>
+<td>No rechazamos la hipótesis nula.</td>
+</tr>
+</tbody>
+</table>
+<p>En nuestro caso nuestro habíamos escogido un <span class="math inline">\(\alpha = 0.05\)</span> por lo que al obtener un p-valor de 2.2e-16 (0.00000000000000022) rechazamos la hipótesis nula de que nuestras medias poblacionales son iguales.</p>
+<p>En otras palabras, un p-valor de 0.00000000000000022 significa que hay una probabilidad muy baja de obtener los resultados <strong>observados en la muestra</strong> si la hipótesis nula es verdadera.</p>
+<p>En este punto tienes que recordar que estamos trabajando con probabilidades, no existen <strong>certezas absolutas</strong>, por lo tanto, nuestra interpretación final debe considerar ello.</p>
+<blockquote class="blockquote">
+<div class="blockquote">
+<p>Luego de realizar la <em>Prueba T para diferencia de medias</em>, dado que se obtuvo un p-valor (<em>2.2e-16</em>) que es menor que nuestro nivel de significancia establecido de 0.05, hay evidencia suficiente para rechazar la hipótesis nula. Por lo tanto, concluimos que existen diferencias estadísticamentes significativas en el monto mínimo promedio necesario para que un hogar pueda subsistir entre el área urbana y rural.</p>
+</div>
+</blockquote>
+</section>
+</section>
+<section id="ejercicio-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-2">Ejercicio 2</h2>
+<p><img src="images/ideologia.jpg" class="img-fluid"></p>
+<p>Utilizando ENADES, deseamos saber si existe diferencia en el la posición ideológica que tiene el ciudadano dependiendo si este vive en el sector rural y urbano. Considera la variable p19 (ideología).</p>
+<p>Realice una comparación de medias en ambos grupos utilizando la prueba de hipótesis más pertinente. Muestre sus resultados e interprete.</p>
+</section>
+<section id="ejercicio-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-3">Ejercicio 3</h2>
+<section id="base-de-datos" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="base-de-datos"><span class="header-section-number">6.4.2</span> Base de datos</h3>
+<p>El Proyecto de Opinión Pública de América Latina (LAPOP) es un proyecto de investigación multinacional especializando en el desarrollo, implementación y análisis de encuestas de opinión pública.</p>
+<p><img src="images/LAPOP.jpg" class="img-fluid"></p>
+<p>La encuesta mide los valores y comportamientos democráticos en el continente americano usando muestras probabilísticas nacionales de la población adulta en edad de votar.</p>
+<p>Puede visualizar el cuestionario de la encuesta 2018 <a href="http://datasets.americasbarometer.org/database/files/ABPer18-v12.0.7.1-Spa-190214_W.pdf">aqui</a></p>
+<p>Puedes descargar la data <a href="http://datasets.americasbarometer.org/database/files/Peru%20LAPOP%20AmericasBarometer%202019%20v1.0_W.dta">aqui</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lapop<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">"https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pregunta-de-investigación-1" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="pregunta-de-investigación-1"><span class="header-section-number">6.4.3</span> Pregunta de investigación</h3>
+<p><img src="images/manifestacion.jpg" class="img-fluid"></p>
+<p>El presente estudio tiene como objetivo investigar si existe diferencia entre el nivel de aprobación del sistema político y la asistencia a manifestaciones.</p>
+<p>Las manifestaciones públicas son eventos que reflejan la participación activa de la población en la expresión de demandas, opiniones o protestas sobre temas sociales, políticos o económicos.</p>
+<p>Un investigador plantea la hipótesis de que existe no existe una diferencia significativa entre los niveles de aprobación del sistema político entre la población que va a manifestar y la que no.</p>
+<p>Valide la hipótesis con la prueba más pertinente.</p>
+<p>Utilice las variables para realizar un índice aditivo de aprobación del sistema político (debe tener una escala de 0-100):</p>
+<p><img src="images/confianza_sistema_politico.png" class="img-fluid"></p>
+<p>Y la siguiente para determinar si una persona fue o no a una manifestación.</p>
+<p><img src="images/lapop_prot3.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="recuerda" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="recuerda"><span class="header-section-number">6.5</span> Recuerda!</h2>
+<section id="valores-faltantes-en-las-encuestas" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="valores-faltantes-en-las-encuestas"><span class="header-section-number">6.5.1</span> Valores faltantes en las encuestas</h3>
+<p><img src="images/ENADES_ideologia.png" class="img-fluid"></p>
+<p>En las encuestas, los valores perdidos son aquellos que faltan en las respuestas proporcionadas por los encuestados. Esto puede suceder porque el encuestado decidió no responder a la pregunta, porque no entendió la pregunta o porque la pregunta simplemente no se aplicaba a él o ella.</p>
+<p>Para manejar los valores perdidos, a menudo se utiliza la técnica de imputación, que implica reemplazar los valores faltantes por algún valor estimado. En algunos casos, se puede asignar un valor específico, como 99 o 999, para indicar que el encuestado no sabe o no responde a la pregunta. Este enfoque se utiliza comúnmente en encuestas de opinión pública y otras encuestas que involucran preguntas sensibles.</p>
+<p>Sin embargo, es importante tener en cuenta que asignar un valor específico a los valores perdidos puede afectar los resultados de la encuesta y la validez de los análisis estadísticos posteriores. Por lo tanto, es importante evaluar cuidadosamente las estrategias de manejo de valores perdidos y elegir la opción más adecuada para el conjunto de datos y el análisis específicos.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = true;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./s5_Inferencia.html" class="pagination-link  aria-label=" &lt;span="" en="" la="" estadística="" inferencial&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Profundizando en la Estadística Inferencial</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
