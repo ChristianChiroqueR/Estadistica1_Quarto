@@ -74,7 +74,7 @@ El resultado del test t indica si las diferencias observadas son lo suficienteme
 
 ## Ejercicio 1 {.unnumbered}
 
-### Pregunta de investigación
+### Pregunta de investigación {.unnumbered}
 
 Para iniciar, debemos tener claro nuestra pregunta que deseamos responder. 
 
@@ -215,7 +215,7 @@ Realice una comparación de medias en ambos grupos utilizando la prueba de hipó
 
 ## Ejercicio 3 {.unnumbered}
 
-### Base de datos
+### Base de datos {.unnumbered}
 
 El Proyecto de Opinión Pública de América Latina (LAPOP) es un proyecto de investigación multinacional especializando en el desarrollo, implementación y análisis de encuestas de opinión pública.
 
@@ -231,7 +231,7 @@ Puedes descargar la data [aqui](http://datasets.americasbarometer.org/database/f
 lapop<-read_dta("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta")
 ```
 
-### Pregunta de investigación
+### Pregunta de investigación {.unnumbered}
 
 ![](images/manifestacion.jpg)
 
