@@ -2,28 +2,19 @@
 
 ## Objetivos de la sesión
 
--   Al finalizar esta sesión, el alumno deberá comprender .
-
-## Presentación
-
-```{=html}
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQnzflCzcwCJBOAMpnKf6oc-_DbdtaH4JMAslYrXGnwBfPM-IBgB-DxUnI8w0dOkA/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-```
-
+-   Al finalizar esta sesión, el alumno deberá comprenderá cómo identificar la asociación entre dos factores a nivel descriptivo y corroborar dicho estado con la prueba de hipótesis. .
 
 ## Identificar la asociación entre dos factores
 
 ### ¿Qué es asociación?
 
-Cuando decimos que dos factores están asociados, nos referimos a que hay una relación estadística significativa entre ellos. En otras palabras, el comportamiento o la distribución de una variable categórica depende de la otra variable categórica. 
+Cuando decimos que dos factores están asociados, nos referimos a que hay una relación estadística significativa entre ellos. En otras palabras, el comportamiento o la distribución de una variable categórica depende de la otra variable categórica.
 
 Imaginemos que estamos estudiando dos factores: ámbito (rural y urbano) y satisfacción con la democracia (sí y no). **¿La satisfacción con la democracia estará asociada al ámbito donde proviene la persona encuestada?**
 
-- Independencia: Si estos dos factores fueran independientes, la proporción de personas satisfechas con la democracia sería la misma tanto en áreas rurales como urbanas. La distribución observada de la satisfacción con la democracia no varía según el ámbito.
+-   Independencia: Si estos dos factores fueran independientes, la proporción de personas satisfechas con la democracia sería la misma tanto en áreas rurales como urbanas. La distribución observada de la satisfacción con la democracia no varía según el ámbito.
 
-
-- Asociación: Si estos dos factores están asociados, la proporción de personas satisfechas con la democracia podría diferir entre áreas rurales y urbanas. Por ejemplo, podría haber una mayor proporción de personas satisfechas en áreas urbanas comparado con áreas rurales, o viceversa.
-
+-   Asociación: Si estos dos factores están asociados, la proporción de personas satisfechas con la democracia podría diferir entre áreas rurales y urbanas. Por ejemplo, podría haber una mayor proporción de personas satisfechas en áreas urbanas comparado con áreas rurales, o viceversa.
 
 ```{r}
 # Crear vectores de tipo factor
@@ -35,7 +26,6 @@ datos <- data.frame(ambito, satisfecho)
 datos
 ```
 
-
 Aquí podemos analizar previamente cómo se distribuye la satisfacción con la democracia a nivel general:
 
 ```{r}
@@ -45,17 +35,15 @@ datos |>
   mutate(p=n/sum(n)*100)
 ```
 
-
-
-### Tabla de contingencia 
+### Tabla de contingencia
 
 Una tabla de contingencia, también conocida como **tabla de frecuencia cruzada**, es una forma de organizar y resumir datos en el contexto de un estudio o investigación. Se utiliza para analizar la relación entre dos o más variables categóricas y mostrar **cómo se distribuyen las observaciones en cada combinación de categorías**.
 
 En una tabla de contingencia, las variables de interés se representan en filas y columnas, y se registran las frecuencias o recuentos de las observaciones que caen en cada combinación de categorías. Esto permite visualizar de manera clara y estructurada cómo se relacionan las variables y si existe alguna asociación o dependencia entre ellas.
 
-Las tablas de contingencia son especialmente útiles cuando se quiere examinar la relación entre variables categóricas, como género y preferencia política, ubicación geográfica y nivel educativo, o, como en este caso, el ámbito y si asiste a manifestaciones o no. 
+Las tablas de contingencia son especialmente útiles cuando se quiere examinar la relación entre variables categóricas, como género y preferencia política, ubicación geográfica y nivel educativo, o, como en este caso, el ámbito y si asiste a manifestaciones o no.
 
-Para ello, podemos utilizar una librería denominada `gtsummary`. Esta nos muestra una tabla de contingencia donde podemos observar las frecuencias y también los porcentajes. 
+Para ello, podemos utilizar una librería denominada `gtsummary`. Esta nos muestra una tabla de contingencia donde podemos observar las frecuencias y también los porcentajes.
 
 Abrimos y configuramos la tabla para que esté en español y con puntos como separador decimal.
 
@@ -67,8 +55,7 @@ theme_gtsummary_language(
 )
 ```
 
-Luego solicitamos una tabla de las dos variables que deseamos comparar. 
-
+Luego solicitamos una tabla de las dos variables que deseamos comparar.
 
 ```{r}
 datos |> 
@@ -78,27 +65,23 @@ datos |>
 
 Para leer la tabla podemos seguir los siguientes pasos generales:
 
-1. Leer fila por fila y de derecha a izquierda, y se interpretan los porcentajes. 
+1.  Leer fila por fila y de derecha a izquierda, y se interpretan los porcentajes.
 
-2. Comenzamos por la primera fila de respuestas y analizamos si varían los porcentajes entre las categorías de la variable de grupo (la que está en columnas). 
+2.  Comenzamos por la primera fila de respuestas y analizamos si varían los porcentajes entre las categorías de la variable de grupo (la que está en columnas).
 
-2. Más diferencia de porcentajes en cada fila (entre las categorías de la variable en columnas), más fuerte es la relación entre las variables.
+3.  Más diferencia de porcentajes en cada fila (entre las categorías de la variable en columnas), más fuerte es la relación entre las variables.
 
-3. Si no hay diferencias de respuestas, es decir, si los porcentajes en una misma fila son muy similares es que no hay relación entre las variables
-
+4.  Si no hay diferencias de respuestas, es decir, si los porcentajes en una misma fila son muy similares es que no hay relación entre las variables
 
 ::: callout-important
-**De los dos factores, ¿cuál es el grupo de comparación?**
-El investigador normalmente desea investigar la distribución de una variable categórica particular (FILAS) en una variable de grupo (COLUMNAS). En nuestro caso, la primera sería "satisfecho" y la de grupo "ámbito".
+**De los dos factores, ¿cuál es el grupo de comparación?** El investigador normalmente desea investigar la distribución de una variable categórica particular (FILAS) en una variable de grupo (COLUMNAS). En nuestro caso, la primera sería "satisfecho" y la de grupo "ámbito".
 :::
-
 
 ### Visualizar la asociación
 
-Es necesario hacer un gráfico para ver la asociación entre dos factores porque los gráficos proporcionan una visualización clara y rápida de las relaciones y patrones en los datos que pueden no ser evidentes en una tabla de contingencia. 
+Es necesario hacer un gráfico para ver la asociación entre dos factores porque los gráficos proporcionan una visualización clara y rápida de las relaciones y patrones en los datos que pueden no ser evidentes en una tabla de contingencia.
 
 Un gráfico de barras acumuladas, por ejemplo, permite observar fácilmente cómo se distribuyen las categorías de una variable en relación con otra, facilitando la comparación visual de proporciones y destacando posibles asociaciones o diferencias significativas entre los grupos.
-
 
 ```{r}
 ggplot(datos, aes(x = ambito, fill = satisfecho)) +
@@ -107,9 +90,7 @@ ggplot(datos, aes(x = ambito, fill = satisfecho)) +
 
 La opción position = "fill" dentro de geom_bar() en ggplot2 se utiliza para crear un gráfico de barras apiladas donde cada barra representa proporciones acumuladas de las diferentes categorías dentro de una variable. Esta opción hace que cada barra tenga una altura total de 1 (o 100%), y las secciones dentro de la barra se escalen proporcionalmente a su contribución total. Esto permite comparar las distribuciones relativas de las categorías dentro de cada grupo de barras, independientemente del tamaño absoluto de los grupos.
 
-
 Si deseas, puedes personalizar aún más el gráfico:
-
 
 ```{r}
 ggplot(datos, aes(x = ambito, fill = satisfecho)) +
@@ -126,13 +107,13 @@ ggplot(datos, aes(x = ambito, fill = satisfecho)) +
 
 ## Prueba de hipótesis: Chi cuadrado
 
-La prueba chi-cuadrado (χ²) es una prueba estadística utilizada para determinar si existe una asociación entre dos variables categóricas en una población. 
+La prueba chi-cuadrado (χ²) es una prueba estadística utilizada para determinar si existe una asociación entre dos variables categóricas en una población.
 
 Recuerda:
 
-ASOCIACIÓN  | 
-------------- | 
-Indica si la distribución de frecuencias de una variable está relacionada de alguna manera con la distribución de frecuencias de la otra variable.  | 
+| ASOCIACIÓN                                                                                                                                         |
+|------------------------------------------------------------------------|
+| Indica si la distribución de frecuencias de una variable está relacionada de alguna manera con la distribución de frecuencias de la otra variable. |
 
 El objetivo de la prueba chi-cuadrado (χ²) es evaluar si las diferencias observadas en la distribución de frecuencias entre las categorías de las variables son significativas o podrían haber ocurrido por azar.
 
@@ -140,14 +121,12 @@ La prueba chi-cuadrado se basa en comparar las frecuencias observadas en una tab
 
 Es una prueba ampliamente utilizada y de fácil interpretación, lo que la convierte en una herramienta valiosa en el análisis de datos categóricos.
 
+Debemos plantear las hipótesis nula y alternativa.
 
-Debemos plantear las hipótesis nula y alternativa. 
-
-Hipótesis  | Descripción 
-------------- | ------------- 
-Hipótesis nula  | No existe asociación 
-Hipótesis alterna  | Sí existe asociación.  
- 
+| Hipótesis         | Descripción           |
+|-------------------|-----------------------|
+| Hipótesis nula    | No existe asociación  |
+| Hipótesis alterna | Sí existe asociación. |
 
 Para calcular la prueba de hipótesis utilizamos la función `chisq.test`:
 
@@ -159,19 +138,16 @@ prueba
 
 En este caso calculamos que el estadístico de prueba. Recuerda que como vimos en el T.test, lo que hacemos es comparar un indicador (estadístico de prueba) calculado con la variabilidad de nuestra muestra con un valor teórico.
 
-
 Tenemos los siguientes escenarios
 
-Resultado  | Decisión
-------------- | -------------
-$p-value <=\alpha$  | Rechazamos la hipótesis nula.
-$p-value >\alpha$  | No rechazamos la hipótesis nula.
-
+| Resultado          | Decisión                         |
+|--------------------|----------------------------------|
+| $p-value <=\alpha$ | Rechazamos la hipótesis nula.    |
+| $p-value >\alpha$  | No rechazamos la hipótesis nula. |
 
 Habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 0.4795 no podemos rechazar la hipótesis nula de que no existe asociación en las variables elegidas.
 
-Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no es estadísticamente significativa. 
-
+Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no es estadísticamente significativa.
 
 ### Verificación de supuestos
 
@@ -179,7 +155,7 @@ Para analizar asociación se requiere que el número de observaciones **esperada
 
 Para fines de este curso, al menos cada celda de la TC de frecuencias esperadas debe ser de 5.
 
-Ten en cuenta que si estas condiciones no se cumplen, entonces la prueba podría no funcionar adecuadamente y los resultados de la prueba podrían no ser válidos. Si es que encuentran que no se cumple este supuesto: 
+Ten en cuenta que si estas condiciones no se cumplen, entonces la prueba podría no funcionar adecuadamente y los resultados de la prueba podrían no ser válidos. Si es que encuentran que no se cumple este supuesto:
 
 Repórtalo!
 
@@ -206,7 +182,6 @@ library(haven)
 lapop<-read_dta("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta")
 ```
 
-
 ### Pregunta de investigación {.unnumbered}
 
 ![](images/manifestacion.jpg)
@@ -215,13 +190,11 @@ El presente estudio tiene como objetivo investigar la posible asociación entre 
 
 Las brechas entre los contextos urbanos y rurales podría influir en la participación y la motivación de las personas para asistir a manifestaciones. Se plantea la hipótesis de que existe una asociación entre el ámbito de residencia y la asistencia a manifestaciones.
 
-
 ### Identificamos y configuramos las variables {.unnumbered}
 
-a) Identifique la variable prot3 "En los últimos 12 meses ha participado en una manifestación o protesta pública" y configure adecuadamente.
+a)  Identifique la variable prot3 "En los últimos 12 meses ha participado en una manifestación o protesta pública" y configure adecuadamente.
 
 ![](images/lapop_prot3.png)
-
 
 ```{r}
 table(lapop$prot3)
@@ -234,14 +207,13 @@ lapop$prot3<-factor(lapop$prot3, # Nombre de la variable a convertir
 table(lapop$prot3)
 ```
 
-b) Configure adecuadamente la variable TAMANO a fin de que existan dos grupos (cree una copia que se llame "AMBITO"):
+b)  Configure adecuadamente la variable TAMANO a fin de que existan dos grupos (cree una copia que se llame "AMBITO"):
 
 ![](images/lapop_zona.png)
 
-- 1: Zona urbana (Capital Nacional/Ciudad Grande/Ciudad mediana/ Ciudad pequeña)
+-   1: Zona urbana (Capital Nacional/Ciudad Grande/Ciudad mediana/ Ciudad pequeña)
 
-
-- 2: Zona rural (Área rural)
+-   2: Zona rural (Área rural)
 
 ```{r}
 lapop<-lapop |> 
@@ -263,7 +235,7 @@ lapop$ambito<-factor(lapop$ambito, # Nombre de la variable a convertir
 table(lapop$ambito)
 ```
 
-**Comparación clave** 
+**Comparación clave**
 
 Recuerdas nuestra pregunta de investigación?
 
@@ -277,7 +249,6 @@ prop.table(table(lapop$prot3))
 
 A nivel de toda la muestra vemos que el 14.3% asistió a una manifestación y el 85.7% no. Estos porcentajes se replicaran también en el ámbito rural y en el ámbito urbano?
 
-
 También lo podemos ver con una gtsummary.
 
 ```{r}
@@ -286,17 +257,15 @@ lapop |>
   tbl_summary()
 ```
 
-
 ### Paso 1: Análisis exploratorio de datos {.unnumbered}
 
-Ahora solicitamos una tabla cruzada o de contigencia donde nuestros grupos de comparación es el ámbito. 
+Ahora solicitamos una tabla cruzada o de contigencia donde nuestros grupos de comparación es el ámbito.
 
 ```{r}
 lapop |> 
   select(prot3, ambito) |> 
   tbl_summary(by=ambito)
 ```
-
 
 Lo visualizamos en un gráfico:
 
@@ -321,8 +290,6 @@ ggplot(lapop, aes(x = ambito, fill = prot3)) +
   theme_minimal()
 ```
 
-
-
 ### Paso 2: Realizar la prueba de hipótesis {.unnumbered}
 
 #### Hipótesis {.unnumbered}
@@ -331,10 +298,10 @@ Lo primero que debemos plantear son las hipótesis nula y alternativa.
 
 Recuerda que cada prueba tiene su hipótesis nula, por lo que hay que memorizar algunas de estas. En el caso de la Prueba Chi cuadrado, las hipótesis son las siguientes:
 
-Hipótesis  | Descripción 
-------------- | ------------- 
-Hipótesis nula  | No existe asociación 
-Hipótesis alterna  | Sí existe asociación.  
+| Hipótesis         | Descripción           |
+|-------------------|-----------------------|
+| Hipótesis nula    | No existe asociación  |
+| Hipótesis alterna | Sí existe asociación. |
 
 Estas son las hipótesis que vamos a validar con nuestra prueba.
 
@@ -351,8 +318,8 @@ tabla_simple<-table(lapop$prot3, lapop$ambito)
 prueba <- chisq.test(tabla_simple) # Colocamos la tabla con las frecuencias simples
 prueba
 ```
-Obtenemos un p-valor de 0.1264
 
+Obtenemos un p-valor de 0.1264
 
 #### Verificación de supuesto {.unnumbered}
 
@@ -373,22 +340,18 @@ Tenemos los siguientes escenarios
 
 Habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 0.1264 no podemos rechazar la hipótesis nula de que no existe asociación en las variables elegidas.
 
-Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no es estadísticamente significativa. 
+Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no es estadísticamente significativa.
 
 > ::: blockquote
 > Luego de realizar una **prueba chi cuadrado**, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que no podemos rechazar la hipótesis nula de que existe asociación entre la asistencia a manifestaciones y la procedencia de la persona. Por ello, concluimos que no existen asociación estadísticamente significativas en los grupos poblacionales indicados.
 > :::
 
-
 ## Ejercicio 2 {.unnumbered}
-
 
 Ahora realiza la comparación de la misma variable prot3 (En los últimos 12 meses ha participado en una manifestación o protesta pública) pero considerando como grupo la posición ideológica de la persona
 
-Para ello, utiliza la variable l1. 
+Para ello, utiliza la variable l1.
 
 ![](images/lapop_ideologia.png)
 
-Recodifique a fin de que los valores 1-4 sea "Izquierda", 5-6 "Centro" y 7-10 "Derecha". Siga cada uno de los pasos indicados y concluya si ambas variables están asociadas o no en la población. 
-
-
+Recodifique a fin de que los valores 1-4 sea "Izquierda", 5-6 "Centro" y 7-10 "Derecha". Siga cada uno de los pasos indicados y concluya si ambas variables están asociadas o no en la población.

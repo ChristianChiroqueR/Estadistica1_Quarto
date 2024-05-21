@@ -2,21 +2,18 @@
 
 ## Objetivos de la sesión
 
--   Al finalizar esta sesión, el alumno deberá comprender los fundamentos teóricos de las pruebas de hipótesis dentro del marco de la estadística inferencial, enfocándose particularmente en el entendimiento y la aplicación de la prueba T para medias y para proporciones. 
-
+-   Al finalizar esta sesión, el alumno deberá comprender los fundamentos teóricos de las pruebas de hipótesis dentro del marco de la estadística inferencial, enfocándose particularmente en el entendimiento y la aplicación de la prueba T para medias y para proporciones.
 
 ## Presentación
 
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQnzflCzcwCJBOAMpnKf6oc-_DbdtaH4JMAslYrXGnwBfPM-IBgB-DxUnI8w0dOkA/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-
 ## ¿Qué son las pruebas de hipótesis?
 
-Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población. 
+Una prueba de hipótesis es un método para determinar si una afirmación sobre una población es verdadera o falsa, basándose en la información obtenida de una muestra aleatoria de la población.
 
 Este enfoque proporciona una forma sistemática y rigurosa para tomar decisiones informadas y hacer inferencias sobre la población en función de la evidencia empírica.
-
 
 ### Hipótesis
 
@@ -24,20 +21,17 @@ Las hipótesis son suposiciones que hacemos sobre un parámetro de una població
 
 **Hipótesis Nula (H0)**: Asume que no hay diferencia significativa o efecto en los datos. Por ejemplo, podría afirmar que la media de una población es igual en dos grupos.
 
-
 **Hipótesis Alternativa (H1 o Ha)**: Es la que se considera si los datos sugieren que la hipótesis nula puede ser falsa. Propone una diferencia o efecto significativo. Por ejemplo, podría afirmar que la media es diferente en dos grupos.
 
 El objetivo de una prueba de hipótesis es determinar si los datos muestrales proporcionan suficiente evidencia para rechazar la hipótesis nula a favor de la hipótesis alternativa.
-
 
 ### Estadísticos de prueba
 
 Es como una fórmula o herramienta matemática que usamos para comparar nuestros datos con lo que esperamos bajo la hipótesis nula. Nos da un número que nos indica cuánto difieren nuestros datos de esa expectativa.
 
-Los estadísticos de prueba en las pruebas de hipótesis utilizan diferentes tipos de insumos según el tipo de prueba y lo que se esté evaluando. Algunos de los insumos más comunes incluyen la media de la muestra, que es crucial en pruebas como el t-test, donde se comparan las medias de uno o más grupos. 
+Los estadísticos de prueba en las pruebas de hipótesis utilizan diferentes tipos de insumos según el tipo de prueba y lo que se esté evaluando. Algunos de los insumos más comunes incluyen la media de la muestra, que es crucial en pruebas como el t-test, donde se comparan las medias de uno o más grupos.
 
 La varianza y la desviación estándar de la muestra también son importantes, especialmente en pruebas como el F-test de ANOVA, que analiza las diferencias de varianzas entre grupos para determinar si las medias son significativamente diferentes. Otro insumo relevante es el tamaño de la muestra, que influye en la precisión del estadístico de prueba y en la capacidad de detectar diferencias o efectos reales.
-
 
 ### Valor p de la prueba
 
@@ -49,45 +43,40 @@ Tenemos los siguientes escenarios
 
 ![](images/rechazar_norechazar.jpg)
 
-Resultado  | Decisión
-------------- | -------------
-$p-value <\alpha$  | Rechazamos la hipótesis nula.
-$p-value >=\alpha$  | No rechazamos la hipótesis nula.
+| Resultado          | Decisión                         |
+|--------------------|----------------------------------|
+| $p-value <\alpha$  | Rechazamos la hipótesis nula.    |
+| $p-value >=\alpha$ | No rechazamos la hipótesis nula. |
 
+Considerar lo siguiente:
 
-Considerar lo siguiente: 
+-   La convención tradicional es considerar un resultado como estadísticamente significativo si el p-valor es menor que 0.05 (es decir, p\<0.05). Es esencial recordar que el umbral de 0.05 es una convención y, dependiendo del contexto o la disciplina, se pueden usar otros valores de α.
 
-- La convención tradicional es considerar un resultado como estadísticamente significativo si el p-valor es menor que 0.05 (es decir, p<0.05). Es esencial recordar que el umbral de 0.05 es una convención y, dependiendo del contexto o la disciplina, se pueden usar otros valores de α. 
-
-- Cuando el p-valor es menor que 0.05 (o cualquier otro nivel de significancia que hayas establecido), es correcto decir que "rechazamos la hipótesis nula". Sin embargo, es importante ser cauteloso con la terminología que usamos después de eso. No es correcto decir que "aceptamos la hipótesis alternativa". La razón es que las pruebas de hipótesis no están diseñadas para probar directamente la hipótesis alternativa, sino para evaluar la evidencia contra la hipótesis nula. En su lugar, es más adecuado y preciso decir que "tenemos suficiente evidencia para respaldar la hipótesis alternativa", que los datos "son consistentes con la hipótesis alternativa" o que encontramos pruebas "estadísticamente significativas".
-
+-   Cuando el p-valor es menor que 0.05 (o cualquier otro nivel de significancia que hayas establecido), es correcto decir que "rechazamos la hipótesis nula". Sin embargo, es importante ser cauteloso con la terminología que usamos después de eso. No es correcto decir que "aceptamos la hipótesis alternativa". La razón es que las pruebas de hipótesis no están diseñadas para probar directamente la hipótesis alternativa, sino para evaluar la evidencia contra la hipótesis nula. En su lugar, es más adecuado y preciso decir que "tenemos suficiente evidencia para respaldar la hipótesis alternativa", que los datos "son consistentes con la hipótesis alternativa" o que encontramos pruebas "estadísticamente significativas".
 
 ## Prueba T de Student
 
-La prueba t, o test t de Student, es un tipo de análisis estadístico utilizado para determinar si hay diferencias significativas entre las medias de dos grupos. 
+La prueba t, o test t de Student, es un tipo de análisis estadístico utilizado para determinar si hay diferencias significativas entre las medias de dos grupos.
 
-El test t de Student se basa en la suposición de que las muestras provienen de una distribución normal, y calcula las diferencias en términos de la media y la variabilidad de las muestras. 
+El test t de Student se basa en la suposición de que las muestras provienen de una distribución normal, y calcula las diferencias en términos de la media y la variabilidad de las muestras.
 
 El resultado del test t indica si las diferencias observadas son lo suficientemente grandes como para considerarlas estadísticamente significativas, ayudando así a decidir si se debe rechazar la hipótesis nula de que no hay diferencia entre los grupos comparados.
-
-
 
 ## Ejercicio 1 {.unnumbered}
 
 ### Pregunta de investigación {.unnumbered}
 
-Para iniciar, debemos tener claro nuestra pregunta que deseamos responder. 
+Para iniciar, debemos tener claro nuestra pregunta que deseamos responder.
 
 Utilizando ENADES, deseamos responder a la siguiente interrogante: ¿El monto mínimo **promedio** necesario para que un hogar pueda subsistir (p08) será diferente entre el área urbana y rural (area2) a nivel poblacional?
 
-
 ### Paso 1: Análisis exploratorio de datos {.unnumbered}
 
-No está en el flujograma, pero siempre debes seguir algunos pasos previos. 
+No está en el flujograma, pero siempre debes seguir algunos pasos previos.
 
 Desde lo más general a lo más específico, nosotros debemos:
 
-Abrir la base de datos. Vamos a seguir usando ENADES. Puedes ver el cuestionario  [aqui](https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf): 
+Abrir la base de datos. Vamos a seguir usando ENADES. Puedes ver el cuestionario [aqui](https://iep.org.pe/wp-content/uploads/2022/08/Cuestionario-Oxfam-IEP.-ENADES-2022-final.pdf):
 
 ```{r}
 library(haven)
@@ -96,8 +85,7 @@ library(lsr)
 enades<-read_spss("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/ENADES_2022.sav")
 ```
 
-**CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR** 
-
+**CONFIGURACIÓN ADECUADA DE LAS VARIABLES A UTILIZAR**
 
 En este caso deseo comparar la variable monto mínimo mensual que requiere su hogar para vivir (p08).
 
@@ -106,7 +94,7 @@ enades$p08<-as.numeric(enades$p08)
 str(enades$p08)
 ```
 
-Así también en los grupos establecidos por la variable ámbito (urbano/rural)  
+Así también en los grupos establecidos por la variable ámbito (urbano/rural)
 
 ```{r}
 enades$area2<-factor(enades$area2, 
@@ -115,11 +103,9 @@ enades$area2<-factor(enades$area2,
 str(enades$area2)
 ```
 
+**EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES**
 
-**EXPLORACIÓN DE LOS ESTADÍSTICOS MUESTRALES** 
-
-
-Si bien nos interesa calcular la media poblacional, primero tenemos que tener en cuenta cuál es la media en nuestra muestra. 
+Si bien nos interesa calcular la media poblacional, primero tenemos que tener en cuenta cuál es la media en nuestra muestra.
 
 Ahora hacemos un primer sondeo de cuál es la media muestral:
 
@@ -127,7 +113,6 @@ Ahora hacemos un primer sondeo de cuál es la media muestral:
 enades |> 
   summarise(mean(p08, na.rm=T))
 ```
-
 
 Asimismo, cuál es la media muestral en cada uno de los grupos seleccionados que deseamos comparar:
 
@@ -137,33 +122,30 @@ enades |>
   summarise(mean(p08, na.rm=T))
 ```
 
-Esto nos ayuda a corroborar que tenemos toda la información necesitaria lista para llevar a cabo una prueba de hipótesis. 
-
+Esto nos ayuda a corroborar que tenemos toda la información necesitaria lista para llevar a cabo una prueba de hipótesis.
 
 ### Paso 2: Realizar la prueba de hipótesis {.unnumbered}
 
 #### Hipótesis {.unnumbered}
 
-Lo primero que debemos plantear son las hipótesis nula y alternativa. 
+Lo primero que debemos plantear son las hipótesis nula y alternativa.
 
 Recuerda que cada prueba tiene su hipótesis nula, por lo que hay que memorizar algunas de estas. En el caso de la Prueba T, las hipótesis son las siguientes:
 
-Hipótesis  | Descripción | Notación
-------------- | ------------- | -------------
-Hipótesis nula  | Las medias poblacionales son iguales | $H_0: \mu_1 = \mu_2$
-Hipótesis alterna  | Las medias poblacionales son diferentes | $H_1: \mu_1 \neq \mu_2 $
+| Hipótesis         | Descripción                             | Notación                     |
+|-------------------|-----------------------------------------|------------------------------|
+| Hipótesis nula    | Las medias poblacionales son iguales    | $H_0: \mu_1 = \mu_2$         |
+| Hipótesis alterna | Las medias poblacionales son diferentes | \$H_1: \mu\_1 \neq \mu\_2 \$ |
 
-Estas son las hipótesis que vamos a validar con nuestra prueba. 
-
+Estas son las hipótesis que vamos a validar con nuestra prueba.
 
 Asimismo, debemos recordar que estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.
 
 $$\alpha = 0.05$$
 
+#### Calcular p-valor {.unnumbered}
 
-#### Calcular p-valor {.unnumbered} 
-
-Ahora utilizemos la función `t.test()` para realizar el cálculo del Estadístico T y el cálculo del p-valor. 
+Ahora utilizemos la función `t.test()` para realizar el cálculo del Estadístico T y el cálculo del p-valor.
 
 ```{r}
 t.test(p08 ~ area2, #Ese símbolo ~ (en Windows) es ALT + 126
@@ -174,44 +156,38 @@ El **estadístico de prueba** en este caso es el Estadítico T, el cual es 10.99
 
 Ahora bien, lo que hace la prueba es comparar este valor observable del Estadístico T con un valor teórico, de acuerdo a la distribución T. Dicha comparación lo que arroja es una probabilidad de obtener ese valor observado, en caso la hipótesis nula (medias iguales) es verdadera
 
-En este caso, nuestro p-value es < 2.2e-16. El cual es un número muy pequeño.
-
+En este caso, nuestro p-value es \< 2.2e-16. El cual es un número muy pequeño.
 
 ::: callout-important
 El número 2.2e-16 es una forma abreviada de escribir un número muy pequeño en notación científica. En este caso, equivale a 0.00000000000000022 o 2.2 multiplicado por 10 elevado a la potencia -16. Es común utilizar esta notación en estadística y otras áreas de la ciencia para representar números muy grandes o muy pequeños de manera más concisa.
 :::
 
-
 ### Paso 3: Informar los resultados {.unnumbered}
 
 Tenemos los siguientes escenarios
 
-Resultado  | Decisión
-------------- | -------------
-$p-value <\alpha$  | Rechazamos la hipótesis nula.
-$p-value >=\alpha$  | No rechazamos la hipótesis nula.
+| Resultado          | Decisión                         |
+|--------------------|----------------------------------|
+| $p-value <\alpha$  | Rechazamos la hipótesis nula.    |
+| $p-value >=\alpha$ | No rechazamos la hipótesis nula. |
 
 En nuestro caso nuestro habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 2.2e-16 (0.00000000000000022) rechazamos la hipótesis nula de que nuestras medias poblacionales son iguales.
 
-En otras palabras, un p-valor de 0.00000000000000022 significa que hay una probabilidad muy baja de obtener los resultados **observados en la muestra** si la hipótesis nula es verdadera. 
+En otras palabras, un p-valor de 0.00000000000000022 significa que hay una probabilidad muy baja de obtener los resultados **observados en la muestra** si la hipótesis nula es verdadera.
 
 En este punto tienes que recordar que estamos trabajando con probabilidades, no existen **certezas absolutas**, por lo tanto, nuestra interpretación final debe considerar ello.
 
-
-> ::: {.blockquote}
-> Luego de realizar la *Prueba T para diferencia de medias*, dado que se obtuvo un p-valor (*2.2e-16*) que es menor que nuestro nivel de significancia establecido de 0.05, hay evidencia suficiente para rechazar la hipótesis nula. 
-Por lo tanto, concluimos que existen diferencias estadísticamentes significativas en el monto mínimo promedio necesario para que un hogar pueda subsistir entre el área urbana y rural.
+> ::: blockquote
+> Luego de realizar la *Prueba T para diferencia de medias*, dado que se obtuvo un p-valor (*2.2e-16*) que es menor que nuestro nivel de significancia establecido de 0.05, hay evidencia suficiente para rechazar la hipótesis nula. Por lo tanto, concluimos que existen diferencias estadísticamentes significativas en el monto mínimo promedio necesario para que un hogar pueda subsistir entre el área urbana y rural.
 > :::
-
 
 ## Ejercicio 2 {.unnumbered}
 
 ![](images/ideologia.jpg)
 
-Utilizando ENADES, deseamos saber si existe diferencia en el la posición ideológica que tiene el ciudadano dependiendo si este vive en el sector rural y urbano. Considera la variable p19 (ideología). 
+Utilizando ENADES, deseamos saber si existe diferencia en el la posición ideológica que tiene el ciudadano dependiendo si este vive en el sector rural y urbano. Considera la variable p19 (ideología).
 
-Realice una comparación de medias en ambos grupos utilizando la prueba de hipótesis más pertinente. Muestre sus resultados e interprete. 
-
+Realice una comparación de medias en ambos grupos utilizando la prueba de hipótesis más pertinente. Muestre sus resultados e interprete.
 
 ## Ejercicio 3 {.unnumbered}
 
@@ -235,13 +211,13 @@ lapop<-read_dta("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/D
 
 ![](images/manifestacion.jpg)
 
-El presente estudio tiene como objetivo investigar si existe diferencia entre el nivel de aprobación del sistema político y la asistencia a manifestaciones. 
+El presente estudio tiene como objetivo investigar si existe diferencia entre el nivel de aprobación del sistema político y la asistencia a manifestaciones.
 
 Las manifestaciones públicas son eventos que reflejan la participación activa de la población en la expresión de demandas, opiniones o protestas sobre temas sociales, políticos o económicos.
 
-Un investigador plantea la hipótesis de que existe no existe una diferencia significativa entre los niveles de aprobación del sistema político entre la población que va a manifestar y la que no. 
+Un investigador plantea la hipótesis de que existe no existe una diferencia significativa entre los niveles de aprobación del sistema político entre la población que va a manifestar y la que no.
 
-Valide la hipótesis con la prueba más pertinente. 
+Valide la hipótesis con la prueba más pertinente.
 
 Utilice las variables para realizar un índice aditivo de aprobación del sistema político (debe tener una escala de 0-100):
 
@@ -251,7 +227,7 @@ Y la siguiente para determinar si una persona fue o no a una manifestación.
 
 ![](images/lapop_prot3.png)
 
-## Recuerda! 
+## Recuerda!
 
 ### Valores faltantes en las encuestas
 
@@ -262,4 +238,3 @@ En las encuestas, los valores perdidos son aquellos que faltan en las respuestas
 Para manejar los valores perdidos, a menudo se utiliza la técnica de imputación, que implica reemplazar los valores faltantes por algún valor estimado. En algunos casos, se puede asignar un valor específico, como 99 o 999, para indicar que el encuestado no sabe o no responde a la pregunta. Este enfoque se utiliza comúnmente en encuestas de opinión pública y otras encuestas que involucran preguntas sensibles.
 
 Sin embargo, es importante tener en cuenta que asignar un valor específico a los valores perdidos puede afectar los resultados de la encuesta y la validez de los análisis estadísticos posteriores. Por lo tanto, es importante evaluar cuidadosamente las estrategias de manejo de valores perdidos y elegir la opción más adecuada para el conjunto de datos y el análisis específicos.
-

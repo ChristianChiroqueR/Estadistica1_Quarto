@@ -6,7 +6,6 @@
 
 -   Para el final de la sesión, el alumno podrá aplicar las funciones para el cálculo del intervalo de confianza de una media y realizar su comparación en grupos.
 
-
 ## Recapitulando
 
 ### Población

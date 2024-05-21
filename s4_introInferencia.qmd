@@ -9,7 +9,6 @@
 ```{=html}
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQ5vM6wgUpkdYc3mioRYph0DnII9NuUwEBW62dsKK8MqxNsZB_NSO38aS3pXRQsuA/embed?start=false&loop=false&delayms=600000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ```
-
 ## Problema
 
 En esta sección, abordaremos un problema que nos permitirá explorar y comprender más a fondo los principios de la estadística inferencial. Te pido que te enfoques en mantener la esencia de esta idea a lo largo del análisis, más allá del código específico que utilizaremos.

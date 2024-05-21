@@ -220,6 +220,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comparando dos medias con pruebas de hipótesis</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s7_chi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Asociación de dos factores</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -314,26 +320,26 @@ Importante
 <pre><code># A tibble: 20 × 1
    ingresos
       &lt;dbl&gt;
- 1    1590.
- 2    1370.
- 3    1538.
- 4    1923.
- 5    1469.
- 6    1850.
- 7    1503.
- 8    1708.
- 9    1412.
-10    1316.
-11    1302.
-12    1533.
-13    1327.
-14    1531.
-15    1686.
-16    1794.
-17    1410.
-18    1360.
-19    1421.
-20    1412.</code></pre>
+ 1    1256.
+ 2    1531.
+ 3    1479.
+ 4    1480.
+ 5    1457.
+ 6    1479.
+ 7    1720.
+ 8    1206.
+ 9    1470.
+10    1494.
+11    1588.
+12    1474.
+13    1923.
+14    1751.
+15    1908.
+16    1735.
+17    1722.
+18    1545.
+19    1574.
+20    1372.</code></pre>
 </div>
 </div>
 <p>Tenemos la población y tenemos la muestra. ¿Qué sigue?</p>
@@ -345,7 +351,7 @@ Importante
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(muestra1<span class="sc">$</span>ingresos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1522.605</code></pre>
+<pre><code>[1] 1558.204</code></pre>
 </div>
 </div>
 <p>A partir de los datos recopilados, hemos calculado que la media de ingresos de nuestra muestra. Esto nos permite inferir que la media de ingresos de la población total podría aproximarse a este valor.</p>
@@ -372,14 +378,14 @@ Importante
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>muestra2<span class="ot">&lt;-</span>poblacion <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">20</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(muestra2<span class="sc">$</span>ingresos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1603.754</code></pre>
+<pre><code>[1] 1562.708</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>muestra2<span class="ot">&lt;-</span>poblacion <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">20</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(muestra2<span class="sc">$</span>ingresos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1490.111</code></pre>
+<pre><code>[1] 1534.779</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -498,7 +504,7 @@ Importante
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>media<span class="ot">&lt;-</span><span class="fu">mean</span>(muestra1<span class="sc">$</span>ingresos)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>media</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1522.605</code></pre>
+<pre><code>[1] 1558.204</code></pre>
 </div>
 </div>
 <p>Luego, calculamos el error estándar que es igual a la desviación estándar de la muestra sobre la raiz cuadrada del tamaño de la muestra (en nuestro caso 20).</p>
@@ -506,7 +512,7 @@ Importante
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>error_estandar <span class="ot">&lt;-</span> <span class="fu">sd</span>(muestra1<span class="sc">$</span>ingresos)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">20</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>error_estandar</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 40.91661</code></pre>
+<pre><code>[1] 42.17904</code></pre>
 </div>
 </div>
 <p>Entonces calculamos el intervalo utilizando la media, el valor crítico elegido (en este caso a 95%) y el error estándar.</p>
@@ -515,11 +521,11 @@ Importante
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>limite_superior<span class="ot">&lt;-</span> media<span class="sc">+</span>(<span class="fl">1.96</span><span class="sc">*</span>error_estandar)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>limite_inferior</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1442.409</code></pre>
+<pre><code>[1] 1475.533</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>limite_superior</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1602.802</code></pre>
+<pre><code>[1] 1640.875</code></pre>
 </div>
 </div>
 <p>Un intervalo de confianza del 95% de 1461.839 a 1652.366 para la media deingresos indica que, si repetimos el experimento muchas veces, en el 95% de los casos, la media real de la población estará dentro de este rango.</p>
