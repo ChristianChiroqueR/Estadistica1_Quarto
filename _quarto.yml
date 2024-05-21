@@ -19,6 +19,7 @@ book:
     - s4_introInferencia.qmd
     - s5_Inferencia.qmd
     - s6_t_test.qmd
+    - s7_chi.qmd
 
 bibliography: references.bib
 
