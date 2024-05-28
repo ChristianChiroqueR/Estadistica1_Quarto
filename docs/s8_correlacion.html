@@ -309,7 +309,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"output":"true","comment":"","autorun":"false","context":"interactive","results":"markup","out-height":"","label":"unnamed-chunk-1","message":"true","out-width":"700px","fig-width":7,"warning":"true","editor-quick-suggestions":"false","read-only":"false","dpi":72,"editor-max-height":"","classes":"","fig-height":5,"fig-cap":"","editor-font-scale":1},"code":"# Sólo con fines de ejemplo.\npeq = function(x) x^3+2*x^2+5\nx = seq(-0.99, 1, by = .01)\ny = peq(x) + runif(200)\ndata_ejemplo = data.frame(x = x, y = y)\nhead(data_ejemplo,5)","id":1},{"options":{"output":"true","comment":"","autorun":"false","context":"interactive","results":"markup","out-height":"","label":"unnamed-chunk-2","message":"true","out-width":"700px","fig-width":7,"warning":"true","editor-quick-suggestions":"false","read-only":"false","dpi":72,"editor-max-height":"","classes":"","fig-height":5,"fig-cap":"","editor-font-scale":1},"code":"# Escribe aquí el código y ejecuta","id":2},{"options":{"output":"true","comment":"","autorun":"false","context":"interactive","results":"markup","out-height":"","label":"unnamed-chunk-3","message":"true","out-width":"700px","fig-width":7,"warning":"true","editor-quick-suggestions":"false","read-only":"false","dpi":72,"editor-max-height":"","classes":"","fig-height":5,"fig-cap":"","editor-font-scale":1},"code":"webr::install(\"ggplot2\")\nlibrary(ggplot2)","id":3},{"options":{"output":"true","comment":"","autorun":"false","context":"interactive","results":"markup","out-height":"","label":"unnamed-chunk-4","message":"true","out-width":"700px","fig-width":7,"warning":"true","editor-quick-suggestions":"false","read-only":"false","dpi":72,"editor-max-height":"","classes":"","fig-height":5,"fig-cap":"","editor-font-scale":1},"code":"# Escribe aquí el código para generar un gráfico de dispersión.","id":4}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"# Sólo con fines de ejemplo.\npeq = function(x) x^3+2*x^2+5\nx = seq(-0.99, 1, by = .01)\ny = peq(x) + runif(200)\ndata_ejemplo = data.frame(x = x, y = y)\nhead(data_ejemplo,5)","options":{"label":"unnamed-chunk-1","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}},{"id":2,"code":"# Escribe aquí el código y ejecuta","options":{"label":"unnamed-chunk-2","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}},{"id":3,"code":"webr::install(\"ggplot2\")\nlibrary(ggplot2)","options":{"label":"unnamed-chunk-3","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}},{"id":4,"code":"# Escribe aquí el código para generar un gráfico de dispersión.","options":{"label":"unnamed-chunk-4","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}},{"id":5,"code":"webr::install(\"gapminder\")\nlibrary(gapminder)\ndata_1<-gapminder","options":{"label":"unnamed-chunk-5","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}},{"id":6,"code":"# Escribe aquí el código.","options":{"label":"unnamed-chunk-6","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}},{"id":7,"code":"# Escribe aquí el código.","options":{"label":"unnamed-chunk-7","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}},{"id":8,"code":"# Escribe aquí el código.","options":{"label":"unnamed-chunk-8","message":"true","out-width":"700px","context":"interactive","classes":"","comment":"","warning":"true","output":"true","dpi":72,"editor-max-height":"","autorun":"false","fig-cap":"","read-only":"false","editor-font-scale":1,"editor-quick-suggestions":"false","fig-width":7,"fig-height":5,"out-height":"","results":"markup"}}];
 
 </script>
 <script type="module">
@@ -1298,6 +1298,9 @@ window.Quarto = {
   <li><a href="#tamaño-de-la-muestra" id="toc-tamaño-de-la-muestra" class="nav-link" data-scroll-target="#tamaño-de-la-muestra"><span class="header-section-number">8.3.4</span> Tamaño de la muestra</a></li>
   </ul></li>
   <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio 1</a></li>
+  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2">Ejercicio 2</a></li>
+  <li><a href="#plus-matriz-de-correlación-y-gráfico" id="toc-plus-matriz-de-correlación-y-gráfico" class="nav-link" data-scroll-target="#plus-matriz-de-correlación-y-gráfico"><span class="header-section-number">8.4</span> Plus: matriz de correlación y gráfico</a></li>
+  <li><a href="#ejercicio-3" id="toc-ejercicio-3" class="nav-link" data-scroll-target="#ejercicio-3">Ejercicio 3</a></li>
   </ul>
 </nav>
     </div>
@@ -1632,8 +1635,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p><img src="images/pearson.jpg" class="img-fluid"></p>
 <p>El coeficiente de Pearson se llama así en honor a Karl Pearson, un estadístico británico que desarrolló este coeficiente de correlación en el siglo XIX. Karl Pearson fue una figura prominente en el campo de la estadística y realizó numerosas contribuciones a la teoría y aplicación de métodos estadísticos.</p>
 <p>Para ello, se utiliza la siguiente fórmula:</p>
-<p>[ r = ]</p>
-<p><img src="images/correlaciones.png" class="img-fluid"></p>
+<p><span class="math display">\[
+r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}}
+\]</span></p>
+<p><img src="images/correlaciones.jpg" class="img-fluid"></p>
 <p>El coeficiente puede tomar los valores en el rango de -1 a 1. Con este podemos identificar dos caracterìsticas de la relación:</p>
 <ul>
 <li><p><strong>FUERZA</strong>: Mientras el valor del coeficiente se aleje más del 0 (sea más grande como valor absoluto) ello indicará una mayor correlación entre las dos variables numéricas.</p></li>
@@ -1725,11 +1730,11 @@ sample estimates:
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(p-value &lt;=\alpha\)</span></td>
+<td><span class="math inline">\(p-value &lt;\alpha\)</span></td>
 <td>Rechazamos la hipótesis nula.</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(p-value &gt;\alpha\)</span></td>
+<td><span class="math inline">\(p-value &gt;=\alpha\)</span></td>
 <td>No rechazamos la hipótesis nula.</td>
 </tr>
 </tbody>
@@ -1765,10 +1770,21 @@ Advertencia
 <p>Sin embargo, sería incorrecto concluir que el consumo de helado causa los casos de ahogamiento en piscinas. En realidad, ambos fenómenos están influenciados por un factor común, que es la temporada de verano. El aumento en el consumo de helado y el uso de piscinas se debe a las altas temperaturas y el clima cálido propios del verano, y no a una relación causal directa entre ambas variables.</p>
 <p>Este ejemplo ilustra cómo dos variables pueden estar correlacionadas sin que exista una relación causal entre ellas. Para establecer una relación causal, es necesario realizar estudios más rigurosos que consideren otros factores y utilicen diseños de investigación adecuados, como experimentos controlados o análisis de series temporales.</p>
 <p>Te invito a que visites esta página web con un conjunto de correlaciones espurias interesantes:</p>
+<p><img src="images/espuria.jpg" class="img-fluid"></p>
 <p>https://www.tylervigen.com/spurious-correlations</p>
-<blockquote class="blockquote">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Las correlaciones espurias pueden surgir cuando dos variables están relacionadas indirectamente a través de un tercer factor común, lo que crea la ilusión de una asociación directa entre ellas. Estas asociaciones pueden ser engañosas si no se consideran cuidadosamente los factores confusores o variables de control en el análisis.</p>
-</blockquote>
+</div>
+</div>
 </section>
 <section id="importancia-de-la-visualización" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="importancia-de-la-visualización"><span class="header-section-number">8.3.2</span> Importancia de la visualización</h3>
@@ -1779,6 +1795,7 @@ Advertencia
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Discutan sus conclusiones.</p>
+<p>Problema! Te olvidaste de visualizar la relación de las variables en un diagrama de dispersión previamente:</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="qwebr-insertion-location-4"></div>
@@ -1819,6 +1836,27 @@ Advertencia
 </section>
 <section id="ejercicio-1" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h2>
+<p>Para la data <code>gapminder</code> realice un análisis de correlación para las variables esperanza de vida (lifeExp), población (pop), PBI per cápita (gdpPercap).</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ol type="1">
+<li>Explore gráficamente la relación entre las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap.</li>
+</ol>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ol start="2" type="1">
+<li>Determine el coeficiente de correlación entre todas las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap. En dónde existe la mayor fuerza (asociación) y cuál es su sentido?</li>
+</ol>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ol start="3" type="1">
+<li>En cuáles de estas parejas existe correlación <strong>significativa</strong></li>
+</ol>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="ejercicio-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-2">Ejercicio 2</h2>
 <p><img src="images/educacion.png" class="img-fluid"></p>
 <p>En un estudio que busca profundizar en los factores relacionados con el porcentaje de inscripción escolar neta por país, se ha construido una base de datos con un conjunto de variables sociodemográficas a nivel mundial. Los investigadores tienen como objetivo explorar las relaciones entre estas variables, con la intención de que posteriormente el equipo de data science pueda elaborar modelos de <strong>machine learning</strong> (como los de regresión lineal).</p>
 <div class="cell">
@@ -1844,6 +1882,74 @@ Advertencia
 <li><p>Nuestro interés es determinar si la matricula se relaciona con las otras variables identificadas. Explore gráficamente la relación entre matrícula y cada una de las otras variables.</p></li>
 <li><p>Determine el coeficiente de correlación entre todas las parejas analizadas en el punto anterior. En dónde existe la mayor correlación y cuál es su dirección?</p></li>
 <li><p>En cuáles de estas parejas existe correlación estadísticamente <strong>significativa</strong></p></li>
+</ol>
+</section>
+<section id="plus-matriz-de-correlación-y-gráfico" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="plus-matriz-de-correlación-y-gráfico"><span class="header-section-number">8.4</span> Plus: matriz de correlación y gráfico</h2>
+<p>En la práctica obtener correlaciones por cada pareja puede ser un poco tedioso, dado que normalmente debemos realizar varios cruces. Una forma rápida de resolver este problema es utilizando matrices.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data_2<span class="ot">&lt;-</span>gapminder</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Se seleccionan sólo las variables numéricas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>numericas<span class="ot">&lt;-</span>data_2 <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(lifeExp, pop, gdpPercap)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculamos la matriz de coeficientes de correlación de cada cruce, así como su p-valor.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">corr.test</span>(numericas, <span class="at">use =</span> <span class="st">"complete"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:psych::corr.test(x = numericas, use = "complete")
+Correlation matrix 
+          lifeExp   pop gdpPercap
+lifeExp      1.00  0.06      0.58
+pop          0.06  1.00     -0.03
+gdpPercap    0.58 -0.03      1.00
+Sample Size 
+[1] 1704
+Probability values (Entries above the diagonal are adjusted for multiple tests.) 
+          lifeExp  pop gdpPercap
+lifeExp      0.00 0.01      0.00
+pop          0.01 0.00      0.29
+gdpPercap    0.00 0.29      0.00
+
+ To see confidence intervals of the correlations, print with the short=FALSE option</code></pre>
+</div>
+</div>
+<p>Luego podemos visualizarlo más rápido en un gráfico.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>corrplot 0.92 loaded</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(numericas), <span class="at">method=</span><span class="st">"number"</span>, <span class="at">type=</span><span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s8_correlacion_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O también:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(numericas), <span class="at">method=</span><span class="st">"ellipse"</span>, <span class="at">type=</span><span class="st">"lower"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="s8_correlacion_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ejercicio-3">Ejercicio 3</h2>
+<p>Con la data matrícula (del Ejercicio 2) realice lo siguiente:</p>
+<ol type="1">
+<li><p>Calcula la matriz de correlaciones.</p></li>
+<li><p>Genere un gráfico haciendo uso de la matriz de correlaciones</p></li>
 </ol>
 
 

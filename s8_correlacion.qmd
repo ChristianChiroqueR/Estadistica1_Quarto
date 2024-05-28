@@ -68,11 +68,11 @@ El coeficiente de Pearson se llama así en honor a Karl Pearson, un estadístico
 
 Para ello, se utiliza la siguiente fórmula:
 
-\[
+$$
 r = \frac{{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}}{{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}}
-\]
+$$
 
-![](images/correlaciones.png)
+![](images/correlaciones.jpg)
 
 
 El coeficiente puede tomar los valores en el rango de -1 a 1. Con este podemos identificar dos caracterìsticas de la relación:
@@ -144,8 +144,8 @@ Tenemos los siguientes escenarios
 
 Resultado  | Decisión
 ------------- | -------------
-$p-value <=\alpha$  | Rechazamos la hipótesis nula.
-$p-value >\alpha$  | No rechazamos la hipótesis nula.
+$p-value <\alpha$  | Rechazamos la hipótesis nula.
+$p-value >=\alpha$  | No rechazamos la hipótesis nula.
 
 
 Habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 0.00644 rechazamos la hipótesis nula de que no existe correlación lineal en las variables elegidas.
@@ -178,9 +178,13 @@ Este ejemplo ilustra cómo dos variables pueden estar correlacionadas sin que ex
 
 Te invito a que visites esta página web con un conjunto de correlaciones espurias interesantes:
 
+![](images/espuria.jpg)
+
 https://www.tylervigen.com/spurious-correlations
 
-> Las correlaciones espurias pueden surgir cuando dos variables están relacionadas indirectamente a través de un tercer factor común, lo que crea la ilusión de una asociación directa entre ellas. Estas asociaciones pueden ser engañosas si no se consideran cuidadosamente los factores confusores o variables de control en el análisis.
+::: callout-note
+Las correlaciones espurias pueden surgir cuando dos variables están relacionadas indirectamente a través de un tercer factor común, lo que crea la ilusión de una asociación directa entre ellas. Estas asociaciones pueden ser engañosas si no se consideran cuidadosamente los factores confusores o variables de control en el análisis.
+:::
 
 
 ### Importancia de la visualización
@@ -203,6 +207,8 @@ Ahora, utilizando `data_ejemplo` calcula el coeficiente de correlación entre la
 ```
 
 Discutan sus conclusiones.
+
+Problema! Te olvidaste de visualizar la relación de las variables en un diagrama de dispersión previamente: 
 
 ```{webr-r}
 webr::install("ggplot2")
@@ -248,6 +254,35 @@ El tamaño de la muestra puede afectar la interpretación de la correlación. La
 
 ## Ejercicio 1 {.unnumbered}
 
+Para la data `gapminder` realice un análisis de correlación para las variables esperanza de vida (lifeExp), población (pop), PBI per cápita (gdpPercap). 
+
+```{webr-r}
+webr::install("gapminder")
+library(gapminder)
+data_1<-gapminder
+```
+
+1. Explore gráficamente la relación entre las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap.
+
+```{webr-r}
+# Escribe aquí el código.
+```
+
+2. Determine el coeficiente de correlación entre todas las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap. En dónde existe la mayor fuerza (asociación) y cuál es su sentido?
+
+```{webr-r}
+# Escribe aquí el código.
+```
+
+3. En cuáles de estas parejas existe correlación **significativa**
+
+```{webr-r}
+# Escribe aquí el código.
+```
+
+
+## Ejercicio 2 {.unnumbered}
+
 ![](images/educacion.png)
 
 En un estudio que busca profundizar en los factores relacionados con el porcentaje de inscripción escolar neta por país, se ha construido una base de datos con un conjunto de variables sociodemográficas a nivel mundial. Los investigadores tienen como objetivo explorar las relaciones entre estas variables, con la intención de que posteriormente el equipo de data science pueda elaborar modelos de **machine learning** (como los de regresión lineal).
@@ -290,5 +325,49 @@ Responda:
 
 
 
+## Plus: matriz de correlación y gráfico
+
+En la práctica obtener correlaciones por cada pareja puede ser un poco tedioso, dado que normalmente debemos realizar varios cruces. Una forma rápida de resolver este problema es utilizando matrices. 
+
+```{r}
+library(gapminder)
+data_2<-gapminder
+```
+
+Se seleccionan sólo las variables numéricas.
+
+```{r}
+numericas<-data_2 |> 
+  select(lifeExp, pop, gdpPercap)
+```
+
+Calculamos la matriz de coeficientes de correlación de cada cruce, así como su p-valor. 
+
+```{r}
+psych::corr.test(numericas, use = "complete")
+```
+
+Luego podemos visualizarlo más rápido en un gráfico. 
 
 
+```{r}
+library(corrplot)
+corrplot(cor(numericas), method="number", type="lower")
+```
+
+
+O también:
+
+```{r}
+corrplot(cor(numericas), method="ellipse", type="lower")
+```
+
+
+
+## Ejercicio 3 {.unnumbered}
+
+Con la data matrícula (del Ejercicio 2) realice lo siguiente:
+
+1. Calcula la matriz de correlaciones. 
+
+2. Genere un gráfico haciendo uso de la matriz de correlaciones
