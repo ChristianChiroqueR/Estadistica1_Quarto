@@ -20,6 +20,7 @@ book:
     - s5_Inferencia.qmd
     - s6_t_test.qmd
     - s7_chi.qmd
+    - s8_correlacion.qmd
 
 bibliography: references.bib
 

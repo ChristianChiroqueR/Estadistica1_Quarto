@@ -11,7 +11,6 @@ En esta página podrás encontrar toda la información referida al curso tal com
 ```{=html}
 <iframe src="files/silabo.pdf" width="700" height="500" style="border: none;"></iframe>
 ```
-
 ## Sobre IA generativa
 
 Permitimos y promovemos activamente el uso de inteligencia artificial generativa, como ChatGPT, Gemini, y otras plataformas similares, como soporte para la creación y sofisticación del código en R.
@@ -36,7 +35,6 @@ La última versión de Rstudio Desktop (versión RStudio 2023.12.1+402) puede se
 
 <https://posit.co/download/rstudio-desktop/>
 
-
 ## Sobre el trabajo grupal
 
 ### Indicaciones
@@ -44,10 +42,9 @@ La última versión de Rstudio Desktop (versión RStudio 2023.12.1+402) puede se
 ```{=html}
 <iframe src="files/trabajo_grupal.pdf" width="700" height="500" style="border: none;"></iframe>
 ```
-
 ### Lugares ricos en datos
 
-Aquí te dejo algunas recomendaciones sobre lugares ricos en datos donde podrás encontrar datasets de insumo para construir tu base de datos. 
+Aquí te dejo algunas recomendaciones sobre lugares ricos en datos donde podrás encontrar datasets de insumo para construir tu base de datos.
 
 ```{=html}
 <iframe src="files/lugares_ricos_en_datos.pdf" width="700" height="500" style="border: none;"></iframe>
