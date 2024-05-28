@@ -10,18 +10,17 @@
 
 El plano cartesiano es un sistema de coordenadas que se utiliza para representar y visualizar puntos en un espacio bidimensional.
 
-Está compuesto por dos ejes perpendiculares, el eje horizontal o eje de las abscisas (X) y el eje vertical o eje de las ordenadas (Y). 
+Está compuesto por dos ejes perpendiculares, el eje horizontal o eje de las abscisas (X) y el eje vertical o eje de las ordenadas (Y).
 
-Estos ejes se cruzan en un punto llamado origen, que se representa con las coordenadas (0,0). Cada punto en el plano cartesiano se representa mediante un par ordenado (x, y), donde "x" indica la posición horizontal del punto a lo largo del eje X y "y" indica la posición vertical del punto a lo largo del eje Y. 
+Estos ejes se cruzan en un punto llamado origen, que se representa con las coordenadas (0,0). Cada punto en el plano cartesiano se representa mediante un par ordenado (x, y), donde "x" indica la posición horizontal del punto a lo largo del eje X y "y" indica la posición vertical del punto a lo largo del eje Y.
 
 El plano cartesiano proporciona un marco de referencia visual que facilita la representación gráfica de datos, funciones matemáticas, relaciones y patrones geométricos, permitiendo el análisis y la interpretación de información en el contexto bidimensional.
 
 ![](images/cartesiano.jpg)
 
-
 ### Visualizando la fuerza y dirección de una relación lineal
 
-Vamos a visualizar la relación lineal que existe entre dos variables numéricas: **democracy y corruption**. 
+Vamos a visualizar la relación lineal que existe entre dos variables numéricas: **democracy y corruption**.
 
 Para ello, creamos la siguiente data:
 
@@ -47,16 +46,15 @@ data |>
        y="Índice de percepción de la Corrupción")
 ```
 
-De manera preliminar, podemos preguntarnos sobre la fuerza de la relación lineal. 
+De manera preliminar, podemos preguntarnos sobre la fuerza de la relación lineal.
 
-- ¿Los puntos que vemos en el plano forman una línea? Mientras la línea sea más clara, diremos que la relación **lineal** será alta En cambio si vemos una línea difícilmente, o simplemente no se nota, podríamos decir que la relación **lineal** es baja. 
+-   ¿Los puntos que vemos en el plano forman una línea? Mientras la línea sea más clara, diremos que la relación **lineal** será alta En cambio si vemos una línea difícilmente, o simplemente no se nota, podríamos decir que la relación **lineal** es baja.
 
 Ahora bien, no todas la relaciones tienen el mismo sentido. En algunos casos, una variable aumenta cuando la otra aumenta, en otros, una variable aumenta cuando otra disminuye (o viceversa). Entonces:
 
-- ¿Una variable aumenta mientras la otra aumenta? Estamos frente a una relación positiva o directa. 
+-   ¿Una variable aumenta mientras la otra aumenta? Estamos frente a una relación positiva o directa.
 
-- ¿Una variable aumenta mientras la otra disminuye? Estamos frente a una relación negativa o indirecta. 
-
+-   ¿Una variable aumenta mientras la otra disminuye? Estamos frente a una relación negativa o indirecta.
 
 ### Coeficiente de correlación de Pearson
 
@@ -74,38 +72,34 @@ $$
 
 ![](images/correlaciones.jpg)
 
-
 El coeficiente puede tomar los valores en el rango de -1 a 1. Con este podemos identificar dos caracterìsticas de la relación:
 
-- **FUERZA**: Mientras el valor del coeficiente se aleje más del 0 (sea más grande como valor absoluto) ello indicará una mayor correlación entre las dos variables numéricas.
+-   **FUERZA**: Mientras el valor del coeficiente se aleje más del 0 (sea más grande como valor absoluto) ello indicará una mayor correlación entre las dos variables numéricas.
 
-- **DIRECCIÓN**: Cuando el coeficiente tiene signo positivo, ello indicará que la relación tiene sentido directo, es decir, mientras una variable aumenta, la otra aumenta. Si el signo es negativo, mientras una variable aumenta la otra disminuye. 
-
+-   **DIRECCIÓN**: Cuando el coeficiente tiene signo positivo, ello indicará que la relación tiene sentido directo, es decir, mientras una variable aumenta, la otra aumenta. Si el signo es negativo, mientras una variable aumenta la otra disminuye.
 
 EJEMPLOS:
 
-- Cuando el coeficiente de correlación es 1, existe una correlación positiva perfecta, lo que significa que a medida que una variable aumenta, la otra variable también lo hace de manera proporcional. 
+-   Cuando el coeficiente de correlación es 1, existe una correlación positiva perfecta, lo que significa que a medida que una variable aumenta, la otra variable también lo hace de manera proporcional.
 
-- Cuando el coeficiente de correlación es -1, hay una correlación negativa perfecta, lo que implica que a medida que una variable aumenta, la otra variable disminuye de manera proporcional.
+-   Cuando el coeficiente de correlación es -1, hay una correlación negativa perfecta, lo que implica que a medida que una variable aumenta, la otra variable disminuye de manera proporcional.
 
-- Si el coeficiente de correlación es cercano a 0, indica una correlación débil o inexistente entre las variables, lo que significa que no hay una relación lineal clara entre ellas.
+-   Si el coeficiente de correlación es cercano a 0, indica una correlación débil o inexistente entre las variables, lo que significa que no hay una relación lineal clara entre ellas.
 
-Ahora bien, normalmente no es común obtener -1, 1 o 0, sino diversos valores. Para ello, nos puede servir la escala de Cohen, la cual  proporciona una escala para identificar un valor numérico con una magnitud de la correlaciòn. No obstante, esta es referencial, será común encontrar otras escalas dependiendo del campo de estudio. 
-
+Ahora bien, normalmente no es común obtener -1, 1 o 0, sino diversos valores. Para ello, nos puede servir la escala de Cohen, la cual proporciona una escala para identificar un valor numérico con una magnitud de la correlaciòn. No obstante, esta es referencial, será común encontrar otras escalas dependiendo del campo de estudio.
 
 ![](images/cohen.jpg)
-
 
 Es decir, para nuestro caso, aplicaríamos lo siguiente:
 
 ![](images/correlacion_cohen.jpg)
-
 
 Entonces, para nuestro ejemplo podemos identificamos la siguiente correlación entre democracy y corruption en los países analizados:
 
 ```{r}
 cor(data$democracy, data$corruption)
 ```
+
 **¿Cómo deberíamos interpretarlo?**
 
 ![](images/pooh.jpg)
@@ -113,7 +107,6 @@ cor(data$democracy, data$corruption)
 ::: callout-tip
 Siempre identifica el valor absoluto del coeficiente. Eso te ayudará a interpretarlo mucho más rápido.
 :::
-
 
 ### Prueba de hipótesis
 
@@ -123,13 +116,12 @@ En términos más específicos, la prueba de hipótesis en la correlación se ba
 
 Al realizar la prueba de hipótesis, se calcula un valor de prueba (generalmente t o z) y se compara con un valor crítico basado en el nivel de significancia elegido. Con esa comparación, se concluye que hay evidencia suficiente para afirmar que existe una correlación significativa entre las variables.
 
-Debemos plantear las hipótesis nula y alternativa. 
+Debemos plantear las hipótesis nula y alternativa.
 
-Hipótesis  | Descripción 
-------------- | ------------- 
-Hipótesis nula  | No existe correlación lineal 
-Hipótesis alterna  | Sí existe correlación lineal  
-
+| Hipótesis         | Descripción                  |
+|-------------------|------------------------------|
+| Hipótesis nula    | No existe correlación lineal |
+| Hipótesis alterna | Sí existe correlación lineal |
 
 Estamos trabajando a un 95% de confianza, por lo que nuestro nivel de significancia será 0.05.
 
@@ -140,33 +132,29 @@ Para calcular la prueba de hipótesis utilizamos la función `cor.test` y vemos 
 ```{r}
 cor.test(data$democracy, data$corruption)
 ```
+
 Tenemos los siguientes escenarios
 
-Resultado  | Decisión
-------------- | -------------
-$p-value <\alpha$  | Rechazamos la hipótesis nula.
-$p-value >=\alpha$  | No rechazamos la hipótesis nula.
-
+| Resultado          | Decisión                         |
+|--------------------|----------------------------------|
+| $p-value <\alpha$  | Rechazamos la hipótesis nula.    |
+| $p-value >=\alpha$ | No rechazamos la hipótesis nula. |
 
 Habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 0.00644 rechazamos la hipótesis nula de que no existe correlación lineal en las variables elegidas.
-
 
 > ::: blockquote
 > Luego de realizar una prueba de correlación, a un 95% de confianza, obtuvimos un p-valor de 0.00644, por lo que rechazamos la hipótesis nula de que existe correlaicón entre el nivel de percepción de la corrupción y el índice de democracia. Por ello, concluimos que sí una correlación estadísticamente significativa en las variables indicadas.
 > :::
 
-
 ::: callout-warning
 ¡Cuidado! Un error muy común es confundir el p-valor obtenido con el coeficiente de correlación. Recuerda que el coeficiente me sirve para cuantificar fuerza y dirección, mientras que el p-valor me sirve para ver si es significativa estadísticamente (en la población).
 :::
-
 
 ## Consideraciones importantes
 
 ### Correlación no implica causalidad
 
 ![](images/correlation_vs_causation2.jpg)
-
 
 El principio de "correlación no implica causalidad" es un concepto fundamental en estadística y metodología de investigación que establece que el hecho de que dos variables estén correlacionadas entre sí no significa necesariamente que exista una relación causal directa entre ellas. En otras palabras, solo porque dos variables muestren una asociación estadística, no se puede concluir automáticamente que una variable cause los cambios en la otra.
 
@@ -186,7 +174,6 @@ https://www.tylervigen.com/spurious-correlations
 Las correlaciones espurias pueden surgir cuando dos variables están relacionadas indirectamente a través de un tercer factor común, lo que crea la ilusión de una asociación directa entre ellas. Estas asociaciones pueden ser engañosas si no se consideran cuidadosamente los factores confusores o variables de control en el análisis.
 :::
 
-
 ### Importancia de la visualización
 
 Vamos a crear la siguiente data_ejemplo:
@@ -200,7 +187,7 @@ data_ejemplo = data.frame(x = x, y = y)
 head(data_ejemplo,5)
 ```
 
-Ahora, utilizando `data_ejemplo` calcula el coeficiente de correlación entre la variable `x` e `y` y el p-valor de la prueba de hipótesis. 
+Ahora, utilizando `data_ejemplo` calcula el coeficiente de correlación entre la variable `x` e `y` y el p-valor de la prueba de hipótesis.
 
 ```{webr-r}
 # Escribe aquí el código y ejecuta
@@ -208,7 +195,7 @@ Ahora, utilizando `data_ejemplo` calcula el coeficiente de correlación entre la
 
 Discutan sus conclusiones.
 
-Problema! Te olvidaste de visualizar la relación de las variables en un diagrama de dispersión previamente: 
+Problema! Te olvidaste de visualizar la relación de las variables en un diagrama de dispersión previamente:
 
 ```{webr-r}
 webr::install("ggplot2")
@@ -225,9 +212,9 @@ Mientras que una prueba de correlación lineal, como el coeficiente de correlaci
 ¡Cuidado! Si aplicamos un cor.test sin analizar previamente las variables podríamos llegar a conclusiones equivocadas.
 :::
 
-El coeficiente de correlación de Pearson es una medida estadística que evalúa la relación lineal entre dos variables. Sin embargo, puede haber situaciones en las que exista una relación no lineal entre las variables, pero el coeficiente de Pearson aún pueda ser significativo y mostrar una correlación fuerte. 
+El coeficiente de correlación de Pearson es una medida estadística que evalúa la relación lineal entre dos variables. Sin embargo, puede haber situaciones en las que exista una relación no lineal entre las variables, pero el coeficiente de Pearson aún pueda ser significativo y mostrar una correlación fuerte.
 
-Un escenario es el ejemplo mostrado en el que existe una relación monótona.  Una relación monótona es aquella en la que las variables aumentan o disminuyen juntas, pero no necesariamente de manera lineal. En estos casos, el coeficiente de Pearson aún puede mostrar una correlación fuerte porque refleja la tendencia general de las variables, a pesar de que la relación subyacente no sea lineal.
+![](images/distintas_correlaciones.jpg)
 
 
 ### Valores extremos
@@ -240,21 +227,19 @@ El coeficiente de correlación de Pearson, que se calcula mediante cor.test en R
 
 Cuando se presentan valores extremos, existen algunas consideraciones a tener en cuenta:
 
-- Influencia en la magnitud de la correlación: Un valor extremo atípico puede tener un impacto desproporcionado en la correlación, especialmente si está alejado de la tendencia general de los datos. Dependiendo de la dirección y magnitud del valor atípico, puede aumentar o disminuir la correlación observada. Por lo tanto, es importante tener en cuenta que una correlación fuerte obtenida a partir de un cor.test puede ser influenciada por valores extremos.
+-   Influencia en la magnitud de la correlación: Un valor extremo atípico puede tener un impacto desproporcionado en la correlación, especialmente si está alejado de la tendencia general de los datos. Dependiendo de la dirección y magnitud del valor atípico, puede aumentar o disminuir la correlación observada. Por lo tanto, es importante tener en cuenta que una correlación fuerte obtenida a partir de un cor.test puede ser influenciada por valores extremos.
 
-- Influencia en la significancia estadística: Los valores extremos pueden aumentar la varianza y la covarianza en los datos, lo que a su vez puede afectar la significancia estadística del coeficiente de correlación. En presencia de valores atípicos, el p-valor asociado al cor.test puede cambiar y volverse más o menos significativo, dependiendo del efecto de los valores extremos en la correlación.
+-   Influencia en la significancia estadística: Los valores extremos pueden aumentar la varianza y la covarianza en los datos, lo que a su vez puede afectar la significancia estadística del coeficiente de correlación. En presencia de valores atípicos, el p-valor asociado al cor.test puede cambiar y volverse más o menos significativo, dependiendo del efecto de los valores extremos en la correlación.
 
 Por lo tanto, es importante identificar y evaluar la influencia de los valores extremos en el análisis de correlación y considerarlos al interpretar los resultados. Si los valores extremos son atípicos y no representativos de la población o el fenómeno en estudio, se pueden considerar métodos alternativos de análisis, como el uso de técnicas robustas o el análisis de subgrupos sin los valores extremos.
-
 
 ### Tamaño de la muestra
 
 El tamaño de la muestra puede afectar la interpretación de la correlación. Las correlaciones pueden ser más confiables y representativas cuando se basan en muestras grandes en lugar de muestras pequeñas. Es importante considerar la confiabilidad estadística de la correlación al interpretar los resultados.
 
-
 ## Ejercicio 1 {.unnumbered}
 
-Para la data `gapminder` realice un análisis de correlación para las variables esperanza de vida (lifeExp), población (pop), PBI per cápita (gdpPercap). 
+Para la data `gapminder` realice un análisis de correlación para las variables esperanza de vida (lifeExp), población (pop), PBI per cápita (gdpPercap).
 
 ```{webr-r}
 webr::install("gapminder")
@@ -262,24 +247,23 @@ library(gapminder)
 data_1<-gapminder
 ```
 
-1. Explore gráficamente la relación entre las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap.
+1.  Explore gráficamente la relación entre las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap.
 
 ```{webr-r}
 # Escribe aquí el código.
 ```
 
-2. Determine el coeficiente de correlación entre todas las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap. En dónde existe la mayor fuerza (asociación) y cuál es su sentido?
+2.  Determine el coeficiente de correlación entre todas las parejas posibles: lifeExp-Pop, lifeExp-gdpPercap y Pop-gdpPercap. En dónde existe la mayor fuerza (asociación) y cuál es su sentido?
 
 ```{webr-r}
 # Escribe aquí el código.
 ```
 
-3. En cuáles de estas parejas existe correlación **significativa**
+3.  En cuáles de estas parejas existe correlación **significativa**
 
 ```{webr-r}
 # Escribe aquí el código.
 ```
-
 
 ## Ejercicio 2 {.unnumbered}
 
@@ -296,38 +280,35 @@ colnames(matricula)<-c("pais","matricula","pbiPC","pobreza","urbano","gastoeduca
 
 Contamos con las siguientes variables:
 
-- pais: Nombre del país
+-   pais: Nombre del país
 
-- matricula: Porcentaje de inscripción escolar neta por país
+-   matricula: Porcentaje de inscripción escolar neta por país
 
-- pbiPC: PBI per cápita por país
+-   pbiPC: PBI per cápita por país
 
-- pobreza: Porcentaje de la población que se encuentra por debajo de la línea de pobreza por país
+-   pobreza: Porcentaje de la población que se encuentra por debajo de la línea de pobreza por país
 
-- urbano: Porcentaje de la población urbana por país
+-   urbano: Porcentaje de la población urbana por país
 
-- gastoeducacion: Porcentaje de inversión del Estado en Educación por país
+-   gastoeducacion: Porcentaje de inversión del Estado en Educación por país
 
-- ratio_prof: Proporción de estudiantes con relación al número de maestros por país
+-   ratio_prof: Proporción de estudiantes con relación al número de maestros por país
 
-- alcohol: Porcentaje de jóvenes entre 15-19 años que son consumidores de alcohol por país
+-   alcohol: Porcentaje de jóvenes entre 15-19 años que son consumidores de alcohol por país
 
-- natalidad_ado: Tasa de natalidad adolescente (por 1000 mujeres de 15 a 19 años) pos país
-
+-   natalidad_ado: Tasa de natalidad adolescente (por 1000 mujeres de 15 a 19 años) pos país
 
 Responda:
 
-1. Nuestro interés es determinar si la matricula se relaciona con las otras variables identificadas. Explore gráficamente la relación entre matrícula y cada una de las otras variables.
+1.  Nuestro interés es determinar si la matricula se relaciona con las otras variables identificadas. Explore gráficamente la relación entre matrícula y cada una de las otras variables.
 
-2. Determine el coeficiente de correlación entre todas las parejas analizadas en el punto anterior. En dónde existe la mayor correlación y cuál es su dirección?
+2.  Determine el coeficiente de correlación entre todas las parejas analizadas en el punto anterior. En dónde existe la mayor correlación y cuál es su dirección?
 
-3. En cuáles de estas parejas existe correlación estadísticamente **significativa**
-
-
+3.  En cuáles de estas parejas existe correlación estadísticamente **significativa**
 
 ## Plus: matriz de correlación y gráfico
 
-En la práctica obtener correlaciones por cada pareja puede ser un poco tedioso, dado que normalmente debemos realizar varios cruces. Una forma rápida de resolver este problema es utilizando matrices. 
+En la práctica obtener correlaciones por cada pareja puede ser un poco tedioso, dado que normalmente debemos realizar varios cruces. Una forma rápida de resolver este problema es utilizando matrices.
 
 ```{r}
 library(gapminder)
@@ -341,20 +322,18 @@ numericas<-data_2 |>
   select(lifeExp, pop, gdpPercap)
 ```
 
-Calculamos la matriz de coeficientes de correlación de cada cruce, así como su p-valor. 
+Calculamos la matriz de coeficientes de correlación de cada cruce, así como su p-valor.
 
 ```{r}
 psych::corr.test(numericas, use = "complete")
 ```
 
-Luego podemos visualizarlo más rápido en un gráfico. 
-
+Luego podemos visualizarlo más rápido en un gráfico.
 
 ```{r}
 library(corrplot)
 corrplot(cor(numericas), method="number", type="lower")
 ```
-
 
 O también:
 
@@ -362,12 +341,10 @@ O también:
 corrplot(cor(numericas), method="ellipse", type="lower")
 ```
 
-
-
 ## Ejercicio 3 {.unnumbered}
 
 Con la data matrícula (del Ejercicio 2) realice lo siguiente:
 
-1. Calcula la matriz de correlaciones. 
+1.  Calcula la matriz de correlaciones.
 
-2. Genere un gráfico haciendo uso de la matriz de correlaciones
+2.  Genere un gráfico haciendo uso de la matriz de correlaciones

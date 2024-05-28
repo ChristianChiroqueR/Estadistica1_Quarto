@@ -312,7 +312,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"netflix<-c(1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5)\nmuestra <- sample(netflix, 5)\nmedia_muestra <- mean(muestra)\nprint(paste(\"Media de la muestra:\", media_muestra))","options":{"comment":"","fig-cap":"","classes":"","fig-height":5,"dpi":72,"output":"true","message":"true","warning":"true","results":"markup","label":"unnamed-chunk-1","autorun":"false","out-height":"","editor-max-height":"","fig-width":7,"out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":1,"read-only":"false","context":"interactive"}},{"id":2,"code":"netflix<-c(1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5)\nunica_muestra <- sample(netflix, 5)\nnivel<-\"95%\"\nz<-1.96\nmedia<-mean(unica_muestra)\ndesviacion<-sd(unica_muestra)\n\nerror_estandar<-1.96*(desviacion/sqrt(5))\n\nlim_inf<-media-error_estandar\nlim_sup<-media+error_estandar\n\nprint(paste(\"A un\",nivel,\"de confianza, la media poblacional se encontrará entre\", lim_inf, \" y \", lim_sup))","options":{"comment":"","fig-cap":"","classes":"","fig-height":5,"dpi":72,"output":"true","message":"true","warning":"true","results":"markup","label":"unnamed-chunk-2","autorun":"false","out-height":"","editor-max-height":"","fig-width":7,"out-width":"700px","editor-quick-suggestions":"false","editor-font-scale":1,"read-only":"false","context":"interactive"}}];
+globalThis.qwebrCellDetails = [{"code":"netflix<-c(1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5)\nmuestra <- sample(netflix, 5)\nmedia_muestra <- mean(muestra)\nprint(paste(\"Media de la muestra:\", media_muestra))","options":{"fig-cap":"","results":"markup","out-width":"700px","context":"interactive","comment":"","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-1","dpi":72,"message":"true","fig-width":7,"output":"true","out-height":"","fig-height":5,"autorun":"false","editor-font-scale":1,"editor-max-height":"","read-only":"false","classes":""},"id":1},{"code":"netflix<-c(1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,5)\nunica_muestra <- sample(netflix, 5)\nnivel<-\"95%\"\nz<-1.96\nmedia<-mean(unica_muestra)\ndesviacion<-sd(unica_muestra)\n\nerror_estandar<-1.96*(desviacion/sqrt(5))\n\nlim_inf<-media-error_estandar\nlim_sup<-media+error_estandar\n\nprint(paste(\"A un\",nivel,\"de confianza, la media poblacional se encontrará entre\", lim_inf, \" y \", lim_sup))","options":{"fig-cap":"","results":"markup","out-width":"700px","context":"interactive","comment":"","warning":"true","editor-quick-suggestions":"false","label":"unnamed-chunk-2","dpi":72,"message":"true","fig-width":7,"output":"true","out-height":"","fig-height":5,"autorun":"false","editor-font-scale":1,"editor-max-height":"","read-only":"false","classes":""},"id":2}];
 
 </script>
 <script type="module">
@@ -1269,6 +1269,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Asociación de dos factores</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s8_correlacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Correlaciones</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -1647,7 +1653,7 @@ Importante
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">sample</span>(netflix, <span class="dv">5</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(muestra)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.4</code></pre>
+<pre><code>[1] 3</code></pre>
 </div>
 </div>
 <p>De acuerdo, entendemos que en este caso la estimación puntual sugiere esa media como la mejor aproximación de la media poblacional. No obstante, hemos observado también que dicha estimación presenta cierta <strong>inestabilidad</strong>.</p>
@@ -1729,7 +1735,7 @@ Importante
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>lim_sup<span class="ot">&lt;-</span>media<span class="sc">+</span>error_estandar</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"A un"</span>,nivel,<span class="st">"de confianza, la media poblacional se encontrará entre"</span>, lim_inf, <span class="st">" y "</span>, lim_sup))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "A un 95 % de confianza, la media poblacional se encontrará entre 1.40363032757731  y  4.99636967242269"</code></pre>
+<pre><code>[1] "A un 95 % de confianza, la media poblacional se encontrará entre 2.48179052828669  y  5.51820947171331"</code></pre>
 </div>
 </div>
 <p>El principio nos dice que guiarnos por el intervalo es mucho más estable que guiarnos por un estimador puntual como la media muestral.</p>
