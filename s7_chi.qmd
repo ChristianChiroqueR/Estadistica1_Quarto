@@ -343,7 +343,7 @@ Habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 0.1264
 Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no es estadísticamente significativa.
 
 > ::: blockquote
-> Luego de realizar una **prueba chi cuadrado**, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que no podemos rechazar la hipótesis nula de que existe asociación entre la asistencia a manifestaciones y la procedencia de la persona. Por ello, concluimos que no existen asociación estadísticamente significativas en los grupos poblacionales indicados.
+> Luego de realizar una **prueba chi cuadrado**, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que **no podemos rechazar** la hipótesis nula (H0: No existe asociación). Por ello, concluimos que no existen asociación estadísticamente significativas entre la asistencia a manifestaciones y la procedencia de la persona a nivel poblacional.
 > :::
 
 ## Ejercicio 2 {.unnumbered}

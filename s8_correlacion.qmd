@@ -100,12 +100,25 @@ Entonces, para nuestro ejemplo podemos identificamos la siguiente correlación e
 cor(data$democracy, data$corruption)
 ```
 
-**¿Cómo deberíamos interpretarlo?**
+¿Cómo deberíamos interpretarlo?
+
+::: callout-tip
+Siempre identifica el valor absoluto del coeficiente. Eso te ayudará a interpretarlo mucho más rápido.
+:::
+
+### ¡Adivina la correlación!
+
+"Guess the Correlation" es un juego en línea que desafía a los jugadores a estimar el coeficiente de correlación entre dos variables representadas en un diagrama de dispersión. Los jugadores deben observar la dispersión de los puntos en el gráfico y seleccionar el valor de correlación que creen que mejor describe la relación entre las variables.
+
+Es importante porque ayuda a mejorar la intuición para identificar visualmente la correlación, lo que es fundamental para entender cómo las variables se relacionan entre sí. 
+
+![](images/adivina.jpg)
+[Haz click aquí para jugar!](https://www.guessthecorrelation.com/)
 
 ![](images/pooh.jpg)
 
 ::: callout-tip
-Siempre identifica el valor absoluto del coeficiente. Eso te ayudará a interpretarlo mucho más rápido.
+Recuerda que el coeficiente va de -1 a 1. ¡La fuerza de la correlación la vemos con el número y la dirección con el signo!
 :::
 
 ### Prueba de hipótesis
@@ -143,7 +156,7 @@ Tenemos los siguientes escenarios
 Habíamos escogido un $\alpha = 0.05$ por lo que al obtener un p-valor de 0.00644 rechazamos la hipótesis nula de que no existe correlación lineal en las variables elegidas.
 
 > ::: blockquote
-> Luego de realizar una prueba de correlación, a un 95% de confianza, obtuvimos un p-valor de 0.00644, por lo que rechazamos la hipótesis nula de que existe correlaicón entre el nivel de percepción de la corrupción y el índice de democracia. Por ello, concluimos que sí una correlación estadísticamente significativa en las variables indicadas.
+> Luego de realizar una prueba de correlación, a un 95% de confianza, obtuvimos un p-valor de 0.00644, por lo que **rechazamos la hipótesis nula** (no existe correlación). Por ello, concluimos que sí existe una correlación estadísticamente significativa  entre el nivel de percepción de la corrupción y el índice de democracia a nivel poblacional.
 > :::
 
 ::: callout-warning
@@ -215,7 +228,6 @@ Mientras que una prueba de correlación lineal, como el coeficiente de correlaci
 El coeficiente de correlación de Pearson es una medida estadística que evalúa la relación lineal entre dos variables. Sin embargo, puede haber situaciones en las que exista una relación no lineal entre las variables, pero el coeficiente de Pearson aún pueda ser significativo y mostrar una correlación fuerte.
 
 ![](images/distintas_correlaciones.jpg)
-
 
 ### Valores extremos
 

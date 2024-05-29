@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./s8_correlacion.html" rel="next">
 <link href="./s6_t_test.html" rel="prev">
 <link href="./quipu.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -225,6 +226,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Asociación de dos factores</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s8_correlacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Correlaciones</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -364,23 +371,23 @@ window.Quarto = {
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ambito, satisfecho) <span class="sc">|&gt;</span> </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="egcwsfykbt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#egcwsfykbt table {
+<div id="bocntyalhf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bocntyalhf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#egcwsfykbt thead, #egcwsfykbt tbody, #egcwsfykbt tfoot, #egcwsfykbt tr, #egcwsfykbt td, #egcwsfykbt th {
+#bocntyalhf thead, #bocntyalhf tbody, #bocntyalhf tfoot, #bocntyalhf tr, #bocntyalhf td, #bocntyalhf th {
   border-style: none;
 }
 
-#egcwsfykbt p {
+#bocntyalhf p {
   margin: 0;
   padding: 0;
 }
 
-#egcwsfykbt .gt_table {
+#bocntyalhf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -406,12 +413,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_caption {
+#bocntyalhf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#egcwsfykbt .gt_title {
+#bocntyalhf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -423,7 +430,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#egcwsfykbt .gt_subtitle {
+#bocntyalhf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -435,7 +442,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#egcwsfykbt .gt_heading {
+#bocntyalhf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -447,13 +454,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_bottom_border {
+#bocntyalhf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_col_headings {
+#bocntyalhf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -468,7 +475,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_col_heading {
+#bocntyalhf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -488,7 +495,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#egcwsfykbt .gt_column_spanner_outer {
+#bocntyalhf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -500,15 +507,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#egcwsfykbt .gt_column_spanner_outer:first-child {
+#bocntyalhf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#egcwsfykbt .gt_column_spanner_outer:last-child {
+#bocntyalhf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#egcwsfykbt .gt_column_spanner {
+#bocntyalhf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -520,11 +527,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#egcwsfykbt .gt_spanner_row {
+#bocntyalhf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#egcwsfykbt .gt_group_heading {
+#bocntyalhf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -550,7 +557,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#egcwsfykbt .gt_empty_group_heading {
+#bocntyalhf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -565,15 +572,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#egcwsfykbt .gt_from_md > :first-child {
+#bocntyalhf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#egcwsfykbt .gt_from_md > :last-child {
+#bocntyalhf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#egcwsfykbt .gt_row {
+#bocntyalhf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -592,7 +599,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#egcwsfykbt .gt_stub {
+#bocntyalhf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -605,7 +612,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#egcwsfykbt .gt_stub_row_group {
+#bocntyalhf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -619,15 +626,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#egcwsfykbt .gt_row_group_first td {
+#bocntyalhf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#egcwsfykbt .gt_row_group_first th {
+#bocntyalhf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#egcwsfykbt .gt_summary_row {
+#bocntyalhf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -637,16 +644,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#egcwsfykbt .gt_first_summary_row {
+#bocntyalhf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_first_summary_row.thick {
+#bocntyalhf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#egcwsfykbt .gt_last_summary_row {
+#bocntyalhf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -656,7 +663,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_grand_summary_row {
+#bocntyalhf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -666,7 +673,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#egcwsfykbt .gt_first_grand_summary_row {
+#bocntyalhf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -676,7 +683,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_last_grand_summary_row_top {
+#bocntyalhf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -686,11 +693,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_striped {
+#bocntyalhf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#egcwsfykbt .gt_table_body {
+#bocntyalhf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -699,7 +706,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_footnotes {
+#bocntyalhf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -713,7 +720,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_footnote {
+#bocntyalhf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -722,7 +729,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#egcwsfykbt .gt_sourcenotes {
+#bocntyalhf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -736,7 +743,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#egcwsfykbt .gt_sourcenote {
+#bocntyalhf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -744,63 +751,63 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#egcwsfykbt .gt_left {
+#bocntyalhf .gt_left {
   text-align: left;
 }
 
-#egcwsfykbt .gt_center {
+#bocntyalhf .gt_center {
   text-align: center;
 }
 
-#egcwsfykbt .gt_right {
+#bocntyalhf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#egcwsfykbt .gt_font_normal {
+#bocntyalhf .gt_font_normal {
   font-weight: normal;
 }
 
-#egcwsfykbt .gt_font_bold {
+#bocntyalhf .gt_font_bold {
   font-weight: bold;
 }
 
-#egcwsfykbt .gt_font_italic {
+#bocntyalhf .gt_font_italic {
   font-style: italic;
 }
 
-#egcwsfykbt .gt_super {
+#bocntyalhf .gt_super {
   font-size: 65%;
 }
 
-#egcwsfykbt .gt_footnote_marks {
+#bocntyalhf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#egcwsfykbt .gt_asterisk {
+#bocntyalhf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#egcwsfykbt .gt_indent_1 {
+#bocntyalhf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#egcwsfykbt .gt_indent_2 {
+#bocntyalhf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#egcwsfykbt .gt_indent_3 {
+#bocntyalhf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#egcwsfykbt .gt_indent_4 {
+#bocntyalhf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#egcwsfykbt .gt_indent_5 {
+#bocntyalhf .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1105,23 +1112,23 @@ Sí participó No participó
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(prot3) <span class="sc">|&gt;</span> </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="hxqvnessqr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hxqvnessqr table {
+<div id="tbguayhdeq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tbguayhdeq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hxqvnessqr thead, #hxqvnessqr tbody, #hxqvnessqr tfoot, #hxqvnessqr tr, #hxqvnessqr td, #hxqvnessqr th {
+#tbguayhdeq thead, #tbguayhdeq tbody, #tbguayhdeq tfoot, #tbguayhdeq tr, #tbguayhdeq td, #tbguayhdeq th {
   border-style: none;
 }
 
-#hxqvnessqr p {
+#tbguayhdeq p {
   margin: 0;
   padding: 0;
 }
 
-#hxqvnessqr .gt_table {
+#tbguayhdeq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1147,12 +1154,12 @@ Sí participó No participó
   border-left-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_caption {
+#tbguayhdeq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hxqvnessqr .gt_title {
+#tbguayhdeq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1164,7 +1171,7 @@ Sí participó No participó
   border-bottom-width: 0;
 }
 
-#hxqvnessqr .gt_subtitle {
+#tbguayhdeq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1176,7 +1183,7 @@ Sí participó No participó
   border-top-width: 0;
 }
 
-#hxqvnessqr .gt_heading {
+#tbguayhdeq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1188,13 +1195,13 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_bottom_border {
+#tbguayhdeq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_col_headings {
+#tbguayhdeq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1209,7 +1216,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_col_heading {
+#tbguayhdeq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1229,7 +1236,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#hxqvnessqr .gt_column_spanner_outer {
+#tbguayhdeq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1241,15 +1248,15 @@ Sí participó No participó
   padding-right: 4px;
 }
 
-#hxqvnessqr .gt_column_spanner_outer:first-child {
+#tbguayhdeq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hxqvnessqr .gt_column_spanner_outer:last-child {
+#tbguayhdeq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hxqvnessqr .gt_column_spanner {
+#tbguayhdeq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1261,11 +1268,11 @@ Sí participó No participó
   width: 100%;
 }
 
-#hxqvnessqr .gt_spanner_row {
+#tbguayhdeq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hxqvnessqr .gt_group_heading {
+#tbguayhdeq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1291,7 +1298,7 @@ Sí participó No participó
   text-align: left;
 }
 
-#hxqvnessqr .gt_empty_group_heading {
+#tbguayhdeq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1306,15 +1313,15 @@ Sí participó No participó
   vertical-align: middle;
 }
 
-#hxqvnessqr .gt_from_md > :first-child {
+#tbguayhdeq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hxqvnessqr .gt_from_md > :last-child {
+#tbguayhdeq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hxqvnessqr .gt_row {
+#tbguayhdeq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1333,7 +1340,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#hxqvnessqr .gt_stub {
+#tbguayhdeq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1346,7 +1353,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#hxqvnessqr .gt_stub_row_group {
+#tbguayhdeq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1360,15 +1367,15 @@ Sí participó No participó
   vertical-align: top;
 }
 
-#hxqvnessqr .gt_row_group_first td {
+#tbguayhdeq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hxqvnessqr .gt_row_group_first th {
+#tbguayhdeq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hxqvnessqr .gt_summary_row {
+#tbguayhdeq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1378,16 +1385,16 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#hxqvnessqr .gt_first_summary_row {
+#tbguayhdeq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_first_summary_row.thick {
+#tbguayhdeq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hxqvnessqr .gt_last_summary_row {
+#tbguayhdeq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1397,7 +1404,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_grand_summary_row {
+#tbguayhdeq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1407,7 +1414,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#hxqvnessqr .gt_first_grand_summary_row {
+#tbguayhdeq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1417,7 +1424,7 @@ Sí participó No participó
   border-top-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_last_grand_summary_row_top {
+#tbguayhdeq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1427,11 +1434,11 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_striped {
+#tbguayhdeq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hxqvnessqr .gt_table_body {
+#tbguayhdeq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1440,7 +1447,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_footnotes {
+#tbguayhdeq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1454,7 +1461,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_footnote {
+#tbguayhdeq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1463,7 +1470,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#hxqvnessqr .gt_sourcenotes {
+#tbguayhdeq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1477,7 +1484,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#hxqvnessqr .gt_sourcenote {
+#tbguayhdeq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1485,63 +1492,63 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#hxqvnessqr .gt_left {
+#tbguayhdeq .gt_left {
   text-align: left;
 }
 
-#hxqvnessqr .gt_center {
+#tbguayhdeq .gt_center {
   text-align: center;
 }
 
-#hxqvnessqr .gt_right {
+#tbguayhdeq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hxqvnessqr .gt_font_normal {
+#tbguayhdeq .gt_font_normal {
   font-weight: normal;
 }
 
-#hxqvnessqr .gt_font_bold {
+#tbguayhdeq .gt_font_bold {
   font-weight: bold;
 }
 
-#hxqvnessqr .gt_font_italic {
+#tbguayhdeq .gt_font_italic {
   font-style: italic;
 }
 
-#hxqvnessqr .gt_super {
+#tbguayhdeq .gt_super {
   font-size: 65%;
 }
 
-#hxqvnessqr .gt_footnote_marks {
+#tbguayhdeq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hxqvnessqr .gt_asterisk {
+#tbguayhdeq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hxqvnessqr .gt_indent_1 {
+#tbguayhdeq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hxqvnessqr .gt_indent_2 {
+#tbguayhdeq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hxqvnessqr .gt_indent_3 {
+#tbguayhdeq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hxqvnessqr .gt_indent_4 {
+#tbguayhdeq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hxqvnessqr .gt_indent_5 {
+#tbguayhdeq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1595,23 +1602,23 @@ Sí participó No participó
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(prot3, ambito) <span class="sc">|&gt;</span> </span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="cnbkmzdegw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cnbkmzdegw table {
+<div id="sxbhlbgoge" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sxbhlbgoge table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cnbkmzdegw thead, #cnbkmzdegw tbody, #cnbkmzdegw tfoot, #cnbkmzdegw tr, #cnbkmzdegw td, #cnbkmzdegw th {
+#sxbhlbgoge thead, #sxbhlbgoge tbody, #sxbhlbgoge tfoot, #sxbhlbgoge tr, #sxbhlbgoge td, #sxbhlbgoge th {
   border-style: none;
 }
 
-#cnbkmzdegw p {
+#sxbhlbgoge p {
   margin: 0;
   padding: 0;
 }
 
-#cnbkmzdegw .gt_table {
+#sxbhlbgoge .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1637,12 +1644,12 @@ Sí participó No participó
   border-left-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_caption {
+#sxbhlbgoge .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cnbkmzdegw .gt_title {
+#sxbhlbgoge .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1654,7 +1661,7 @@ Sí participó No participó
   border-bottom-width: 0;
 }
 
-#cnbkmzdegw .gt_subtitle {
+#sxbhlbgoge .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1666,7 +1673,7 @@ Sí participó No participó
   border-top-width: 0;
 }
 
-#cnbkmzdegw .gt_heading {
+#sxbhlbgoge .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1678,13 +1685,13 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_bottom_border {
+#sxbhlbgoge .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_col_headings {
+#sxbhlbgoge .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1699,7 +1706,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_col_heading {
+#sxbhlbgoge .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1719,7 +1726,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#cnbkmzdegw .gt_column_spanner_outer {
+#sxbhlbgoge .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1731,15 +1738,15 @@ Sí participó No participó
   padding-right: 4px;
 }
 
-#cnbkmzdegw .gt_column_spanner_outer:first-child {
+#sxbhlbgoge .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cnbkmzdegw .gt_column_spanner_outer:last-child {
+#sxbhlbgoge .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cnbkmzdegw .gt_column_spanner {
+#sxbhlbgoge .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1751,11 +1758,11 @@ Sí participó No participó
   width: 100%;
 }
 
-#cnbkmzdegw .gt_spanner_row {
+#sxbhlbgoge .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cnbkmzdegw .gt_group_heading {
+#sxbhlbgoge .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1781,7 +1788,7 @@ Sí participó No participó
   text-align: left;
 }
 
-#cnbkmzdegw .gt_empty_group_heading {
+#sxbhlbgoge .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1796,15 +1803,15 @@ Sí participó No participó
   vertical-align: middle;
 }
 
-#cnbkmzdegw .gt_from_md > :first-child {
+#sxbhlbgoge .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cnbkmzdegw .gt_from_md > :last-child {
+#sxbhlbgoge .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cnbkmzdegw .gt_row {
+#sxbhlbgoge .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1823,7 +1830,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#cnbkmzdegw .gt_stub {
+#sxbhlbgoge .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1836,7 +1843,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#cnbkmzdegw .gt_stub_row_group {
+#sxbhlbgoge .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1850,15 +1857,15 @@ Sí participó No participó
   vertical-align: top;
 }
 
-#cnbkmzdegw .gt_row_group_first td {
+#sxbhlbgoge .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cnbkmzdegw .gt_row_group_first th {
+#sxbhlbgoge .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cnbkmzdegw .gt_summary_row {
+#sxbhlbgoge .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1868,16 +1875,16 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#cnbkmzdegw .gt_first_summary_row {
+#sxbhlbgoge .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_first_summary_row.thick {
+#sxbhlbgoge .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cnbkmzdegw .gt_last_summary_row {
+#sxbhlbgoge .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1887,7 +1894,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_grand_summary_row {
+#sxbhlbgoge .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1897,7 +1904,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#cnbkmzdegw .gt_first_grand_summary_row {
+#sxbhlbgoge .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1907,7 +1914,7 @@ Sí participó No participó
   border-top-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_last_grand_summary_row_top {
+#sxbhlbgoge .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1917,11 +1924,11 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_striped {
+#sxbhlbgoge .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cnbkmzdegw .gt_table_body {
+#sxbhlbgoge .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1930,7 +1937,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_footnotes {
+#sxbhlbgoge .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1944,7 +1951,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_footnote {
+#sxbhlbgoge .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1953,7 +1960,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#cnbkmzdegw .gt_sourcenotes {
+#sxbhlbgoge .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1967,7 +1974,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#cnbkmzdegw .gt_sourcenote {
+#sxbhlbgoge .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1975,63 +1982,63 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#cnbkmzdegw .gt_left {
+#sxbhlbgoge .gt_left {
   text-align: left;
 }
 
-#cnbkmzdegw .gt_center {
+#sxbhlbgoge .gt_center {
   text-align: center;
 }
 
-#cnbkmzdegw .gt_right {
+#sxbhlbgoge .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cnbkmzdegw .gt_font_normal {
+#sxbhlbgoge .gt_font_normal {
   font-weight: normal;
 }
 
-#cnbkmzdegw .gt_font_bold {
+#sxbhlbgoge .gt_font_bold {
   font-weight: bold;
 }
 
-#cnbkmzdegw .gt_font_italic {
+#sxbhlbgoge .gt_font_italic {
   font-style: italic;
 }
 
-#cnbkmzdegw .gt_super {
+#sxbhlbgoge .gt_super {
   font-size: 65%;
 }
 
-#cnbkmzdegw .gt_footnote_marks {
+#sxbhlbgoge .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cnbkmzdegw .gt_asterisk {
+#sxbhlbgoge .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cnbkmzdegw .gt_indent_1 {
+#sxbhlbgoge .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cnbkmzdegw .gt_indent_2 {
+#sxbhlbgoge .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cnbkmzdegw .gt_indent_3 {
+#sxbhlbgoge .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cnbkmzdegw .gt_indent_4 {
+#sxbhlbgoge .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cnbkmzdegw .gt_indent_5 {
+#sxbhlbgoge .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2201,7 +2208,7 @@ X-squared = 2.3357, df = 1, p-value = 0.1264</code></pre>
 <p>Vemos que a pesar de que visualizamos una diferencia en nuestra muestra, esta no es estadísticamente significativa.</p>
 <blockquote class="blockquote">
 <div class="blockquote">
-<p>Luego de realizar una <strong>prueba chi cuadrado</strong>, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que no podemos rechazar la hipótesis nula de que existe asociación entre la asistencia a manifestaciones y la procedencia de la persona. Por ello, concluimos que no existen asociación estadísticamente significativas en los grupos poblacionales indicados.</p>
+<p>Luego de realizar una <strong>prueba chi cuadrado</strong>, a un 95% de confianza, obtuvimos un p-valor de 0.1264, por lo que <strong>no podemos rechazar</strong> la hipótesis nula (H0: No existe asociación). Por ello, concluimos que no existen asociación estadísticamente significativas entre la asistencia a manifestaciones y la procedencia de la persona a nivel poblacional.</p>
 </div>
 </blockquote>
 </section>
@@ -2750,6 +2757,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./s8_correlacion.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Correlaciones</span>">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Correlaciones</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
