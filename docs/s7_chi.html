@@ -232,6 +232,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Correlaciones</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s9_regresion_simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -356,38 +362,41 @@ window.Quarto = {
 <p>Para ello, podemos utilizar una librería denominada <code>gtsummary</code>. Esta nos muestra una tabla de contingencia donde podemos observar las frecuencias y también los porcentajes.</p>
 <p>Abrimos y configuramos la tabla para que esté en español y con puntos como separador decimal.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_gtsummary_language</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">language =</span> <span class="st">"es"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">decimal.mark =</span> <span class="st">"."</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#BlackLivesMatter</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_gtsummary_language</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">language =</span> <span class="st">"es"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">decimal.mark =</span> <span class="st">"."</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Setting theme `language: es`</code></pre>
 </div>
 </div>
 <p>Luego solicitamos una tabla de las dos variables que deseamos comparar.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ambito, satisfecho) <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>datos <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ambito, satisfecho) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="bocntyalhf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bocntyalhf table {
+<div id="mmphpjbrki" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mmphpjbrki table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bocntyalhf thead, #bocntyalhf tbody, #bocntyalhf tfoot, #bocntyalhf tr, #bocntyalhf td, #bocntyalhf th {
+#mmphpjbrki thead, #mmphpjbrki tbody, #mmphpjbrki tfoot, #mmphpjbrki tr, #mmphpjbrki td, #mmphpjbrki th {
   border-style: none;
 }
 
-#bocntyalhf p {
+#mmphpjbrki p {
   margin: 0;
   padding: 0;
 }
 
-#bocntyalhf .gt_table {
+#mmphpjbrki .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -413,12 +422,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_caption {
+#mmphpjbrki .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bocntyalhf .gt_title {
+#mmphpjbrki .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -430,7 +439,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#bocntyalhf .gt_subtitle {
+#mmphpjbrki .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -442,7 +451,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#bocntyalhf .gt_heading {
+#mmphpjbrki .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -454,13 +463,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_bottom_border {
+#mmphpjbrki .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_col_headings {
+#mmphpjbrki .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -475,7 +484,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_col_heading {
+#mmphpjbrki .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -495,7 +504,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#bocntyalhf .gt_column_spanner_outer {
+#mmphpjbrki .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -507,15 +516,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#bocntyalhf .gt_column_spanner_outer:first-child {
+#mmphpjbrki .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bocntyalhf .gt_column_spanner_outer:last-child {
+#mmphpjbrki .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bocntyalhf .gt_column_spanner {
+#mmphpjbrki .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -527,11 +536,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#bocntyalhf .gt_spanner_row {
+#mmphpjbrki .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bocntyalhf .gt_group_heading {
+#mmphpjbrki .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -557,7 +566,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#bocntyalhf .gt_empty_group_heading {
+#mmphpjbrki .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -572,15 +581,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#bocntyalhf .gt_from_md > :first-child {
+#mmphpjbrki .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bocntyalhf .gt_from_md > :last-child {
+#mmphpjbrki .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bocntyalhf .gt_row {
+#mmphpjbrki .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -599,7 +608,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#bocntyalhf .gt_stub {
+#mmphpjbrki .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -612,7 +621,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bocntyalhf .gt_stub_row_group {
+#mmphpjbrki .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -626,15 +635,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#bocntyalhf .gt_row_group_first td {
+#mmphpjbrki .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bocntyalhf .gt_row_group_first th {
+#mmphpjbrki .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bocntyalhf .gt_summary_row {
+#mmphpjbrki .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -644,16 +653,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bocntyalhf .gt_first_summary_row {
+#mmphpjbrki .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_first_summary_row.thick {
+#mmphpjbrki .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bocntyalhf .gt_last_summary_row {
+#mmphpjbrki .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -663,7 +672,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_grand_summary_row {
+#mmphpjbrki .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -673,7 +682,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bocntyalhf .gt_first_grand_summary_row {
+#mmphpjbrki .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -683,7 +692,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_last_grand_summary_row_top {
+#mmphpjbrki .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -693,11 +702,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_striped {
+#mmphpjbrki .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bocntyalhf .gt_table_body {
+#mmphpjbrki .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -706,7 +715,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_footnotes {
+#mmphpjbrki .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -720,7 +729,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_footnote {
+#mmphpjbrki .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -729,7 +738,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bocntyalhf .gt_sourcenotes {
+#mmphpjbrki .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -743,7 +752,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#bocntyalhf .gt_sourcenote {
+#mmphpjbrki .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -751,63 +760,63 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#bocntyalhf .gt_left {
+#mmphpjbrki .gt_left {
   text-align: left;
 }
 
-#bocntyalhf .gt_center {
+#mmphpjbrki .gt_center {
   text-align: center;
 }
 
-#bocntyalhf .gt_right {
+#mmphpjbrki .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bocntyalhf .gt_font_normal {
+#mmphpjbrki .gt_font_normal {
   font-weight: normal;
 }
 
-#bocntyalhf .gt_font_bold {
+#mmphpjbrki .gt_font_bold {
   font-weight: bold;
 }
 
-#bocntyalhf .gt_font_italic {
+#mmphpjbrki .gt_font_italic {
   font-style: italic;
 }
 
-#bocntyalhf .gt_super {
+#mmphpjbrki .gt_super {
   font-size: 65%;
 }
 
-#bocntyalhf .gt_footnote_marks {
+#mmphpjbrki .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bocntyalhf .gt_asterisk {
+#mmphpjbrki .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bocntyalhf .gt_indent_1 {
+#mmphpjbrki .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bocntyalhf .gt_indent_2 {
+#mmphpjbrki .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bocntyalhf .gt_indent_3 {
+#mmphpjbrki .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bocntyalhf .gt_indent_4 {
+#mmphpjbrki .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bocntyalhf .gt_indent_5 {
+#mmphpjbrki .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -880,8 +889,8 @@ Importante
 <p>Es necesario hacer un gráfico para ver la asociación entre dos factores porque los gráficos proporcionan una visualización clara y rápida de las relaciones y patrones en los datos que pueden no ser evidentes en una tabla de contingencia.</p>
 <p>Un gráfico de barras acumuladas, por ejemplo, permite observar fácilmente cómo se distribuyen las categorías de una variable en relación con otra, facilitando la comparación visual de proporciones y destacando posibles asociaciones o diferencias significativas entre los grupos.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> satisfecho)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> satisfecho)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -893,16 +902,16 @@ Importante
 <p>La opción position = “fill” dentro de geom_bar() en ggplot2 se utiliza para crear un gráfico de barras apiladas donde cada barra representa proporciones acumuladas de las diferentes categorías dentro de una variable. Esta opción hace que cada barra tenga una altura total de 1 (o 100%), y las secciones dentro de la barra se escalen proporcionalmente a su contribución total. Esto permite comparar las distribuciones relativas de las categorías dentro de cada grupo de barras, independientemente del tamaño absoluto de los grupos.</p>
 <p>Si deseas, puedes personalizar aún más el gráfico:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> satisfecho)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(..count..<span class="sc">/</span><span class="fu">tapply</span>(..count.., ..x.., sum)[..x..], <span class="at">accuracy =</span> <span class="dv">1</span>)),</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gráfico de Barras Acumuladas por Ámbito y Satisfacción con la Democracia"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ámbito"</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proporción"</span>) <span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"sí"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"no"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> <span class="co">#opcional</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> satisfecho)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(..count..<span class="sc">/</span><span class="fu">tapply</span>(..count.., ..x.., sum)[..x..], <span class="at">accuracy =</span> <span class="dv">1</span>)),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gráfico de Barras Acumuladas por Ámbito y Satisfacción con la Democracia"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ámbito"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proporción"</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"sí"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"no"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> <span class="co">#opcional</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
 ℹ Please use `after_stat(count)` instead.</code></pre>
@@ -960,12 +969,12 @@ Importante
 </table>
 <p>Para calcular la prueba de hipótesis utilizamos la función <code>chisq.test</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(datos<span class="sc">$</span>satisfecho, datos<span class="sc">$</span>ambito)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_simple) <span class="co"># Colocamos la tabla con las frecuencias simples</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(datos<span class="sc">$</span>satisfecho, datos<span class="sc">$</span>ambito)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_simple) <span class="co"># Colocamos la tabla con las frecuencias simples</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in chisq.test(tabla_simple): Chi-squared approximation may be incorrect</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>prueba</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>prueba</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test with Yates' continuity correction
@@ -1004,7 +1013,7 @@ X-squared = 0.5, df = 1, p-value = 0.4795</code></pre>
 <p>Repórtalo!</p>
 <p>En nuestro caso, debido al tamaño de la muestra, no pasamos este requisito.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tabla_simple)<span class="sc">$</span>expected</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tabla_simple)<span class="sc">$</span>expected</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in chisq.test(tabla_simple): Chi-squared approximation may be incorrect</code></pre>
 </div>
@@ -1025,8 +1034,8 @@ X-squared = 0.5, df = 1, p-value = 0.4795</code></pre>
 <p>Puede visualizar el cuestionario de la encuesta 2018 <a href="http://datasets.americasbarometer.org/database/files/ABPer18-v12.0.7.1-Spa-190214_W.pdf">aqui</a></p>
 <p>Puedes descargar la data <a href="http://datasets.americasbarometer.org/database/files/Peru%20LAPOP%20AmericasBarometer%202019%20v1.0_W.dta">aqui</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lapop<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">"https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>lapop<span class="ot">&lt;-</span><span class="fu">read_dta</span>(<span class="st">"https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_Peru/PERU_LAPOP__2018.dta"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="pregunta-de-investigación" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="pregunta-de-investigación">Pregunta de investigación</h3>
@@ -1041,7 +1050,7 @@ X-squared = 0.5, df = 1, p-value = 0.4795</code></pre>
 </ol>
 <p><img src="images/lapop_prot3.png" class="img-fluid"></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
    1    2 
@@ -1049,10 +1058,10 @@ X-squared = 0.5, df = 1, p-value = 0.4795</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>lapop<span class="sc">$</span>prot3<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>prot3, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Sí participó"</span>, <span class="st">"No participó"</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>lapop<span class="sc">$</span>prot3<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>prot3, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Sí participó"</span>, <span class="st">"No participó"</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>prot3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Sí participó No participó 
@@ -1068,14 +1077,14 @@ Sí participó No participó
 <li><p>2: Zona rural (Área rural)</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>lapop<span class="ot">&lt;-</span>lapop <span class="sc">|&gt;</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ambito=</span><span class="fu">case_when</span>(tamano<span class="sc">&lt;</span><span class="dv">5</span><span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                          tamano<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="dv">2</span>,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>lapop<span class="ot">&lt;-</span>lapop <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ambito=</span><span class="fu">case_when</span>(tamano<span class="sc">&lt;</span><span class="dv">5</span><span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                          tamano<span class="sc">==</span><span class="dv">5</span><span class="sc">~</span><span class="dv">2</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">TRUE</span><span class="sc">~</span><span class="cn">NA_real_</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Convertimos a factor y asignamos niveles:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
    1    2 
@@ -1083,10 +1092,10 @@ Sí participó No participó
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>lapop<span class="sc">$</span>ambito<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>ambito, <span class="co"># Nombre de la variable a convertir</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Urbano"</span>, <span class="st">"Rural"</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>lapop<span class="sc">$</span>ambito<span class="ot">&lt;-</span><span class="fu">factor</span>(lapop<span class="sc">$</span>ambito, <span class="co"># Nombre de la variable a convertir</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">levels=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="co"># Definimos los niveles (esta variable sólo tenía 2 niveles)</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Urbano"</span>, <span class="st">"Rural"</span>)) <span class="co">#Colocamos sus etiquetas</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(lapop<span class="sc">$</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Urbano  Rural 
@@ -1098,7 +1107,7 @@ Urbano  Rural
 <p>Queremos saber si existe una asociación entre el ámbito de residencia y la asistencia a manifestaciones.</p>
 <p>Dicho de otra forma:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(lapop<span class="sc">$</span>prot3))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(lapop<span class="sc">$</span>prot3))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Sí participó No participó 
@@ -1108,27 +1117,27 @@ Sí participó No participó
 <p>A nivel de toda la muestra vemos que el 14.3% asistió a una manifestación y el 85.7% no. Estos porcentajes se replicaran también en el ámbito rural y en el ámbito urbano?</p>
 <p>También lo podemos ver con una gtsummary.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>lapop <span class="sc">|&gt;</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(prot3) <span class="sc">|&gt;</span> </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lapop <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(prot3) <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="tbguayhdeq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tbguayhdeq table {
+<div id="nicjfluuog" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nicjfluuog table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tbguayhdeq thead, #tbguayhdeq tbody, #tbguayhdeq tfoot, #tbguayhdeq tr, #tbguayhdeq td, #tbguayhdeq th {
+#nicjfluuog thead, #nicjfluuog tbody, #nicjfluuog tfoot, #nicjfluuog tr, #nicjfluuog td, #nicjfluuog th {
   border-style: none;
 }
 
-#tbguayhdeq p {
+#nicjfluuog p {
   margin: 0;
   padding: 0;
 }
 
-#tbguayhdeq .gt_table {
+#nicjfluuog .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1154,12 +1163,12 @@ Sí participó No participó
   border-left-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_caption {
+#nicjfluuog .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tbguayhdeq .gt_title {
+#nicjfluuog .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1171,7 +1180,7 @@ Sí participó No participó
   border-bottom-width: 0;
 }
 
-#tbguayhdeq .gt_subtitle {
+#nicjfluuog .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1183,7 +1192,7 @@ Sí participó No participó
   border-top-width: 0;
 }
 
-#tbguayhdeq .gt_heading {
+#nicjfluuog .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1195,13 +1204,13 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_bottom_border {
+#nicjfluuog .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_col_headings {
+#nicjfluuog .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1216,7 +1225,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_col_heading {
+#nicjfluuog .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1236,7 +1245,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#tbguayhdeq .gt_column_spanner_outer {
+#nicjfluuog .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1248,15 +1257,15 @@ Sí participó No participó
   padding-right: 4px;
 }
 
-#tbguayhdeq .gt_column_spanner_outer:first-child {
+#nicjfluuog .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tbguayhdeq .gt_column_spanner_outer:last-child {
+#nicjfluuog .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tbguayhdeq .gt_column_spanner {
+#nicjfluuog .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1268,11 +1277,11 @@ Sí participó No participó
   width: 100%;
 }
 
-#tbguayhdeq .gt_spanner_row {
+#nicjfluuog .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tbguayhdeq .gt_group_heading {
+#nicjfluuog .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1298,7 +1307,7 @@ Sí participó No participó
   text-align: left;
 }
 
-#tbguayhdeq .gt_empty_group_heading {
+#nicjfluuog .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1313,15 +1322,15 @@ Sí participó No participó
   vertical-align: middle;
 }
 
-#tbguayhdeq .gt_from_md > :first-child {
+#nicjfluuog .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tbguayhdeq .gt_from_md > :last-child {
+#nicjfluuog .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tbguayhdeq .gt_row {
+#nicjfluuog .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1340,7 +1349,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#tbguayhdeq .gt_stub {
+#nicjfluuog .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1353,7 +1362,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#tbguayhdeq .gt_stub_row_group {
+#nicjfluuog .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1367,15 +1376,15 @@ Sí participó No participó
   vertical-align: top;
 }
 
-#tbguayhdeq .gt_row_group_first td {
+#nicjfluuog .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tbguayhdeq .gt_row_group_first th {
+#nicjfluuog .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tbguayhdeq .gt_summary_row {
+#nicjfluuog .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1385,16 +1394,16 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#tbguayhdeq .gt_first_summary_row {
+#nicjfluuog .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_first_summary_row.thick {
+#nicjfluuog .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tbguayhdeq .gt_last_summary_row {
+#nicjfluuog .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1404,7 +1413,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_grand_summary_row {
+#nicjfluuog .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1414,7 +1423,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#tbguayhdeq .gt_first_grand_summary_row {
+#nicjfluuog .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1424,7 +1433,7 @@ Sí participó No participó
   border-top-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_last_grand_summary_row_top {
+#nicjfluuog .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1434,11 +1443,11 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_striped {
+#nicjfluuog .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tbguayhdeq .gt_table_body {
+#nicjfluuog .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1447,7 +1456,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_footnotes {
+#nicjfluuog .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1461,7 +1470,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_footnote {
+#nicjfluuog .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1470,7 +1479,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#tbguayhdeq .gt_sourcenotes {
+#nicjfluuog .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1484,7 +1493,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#tbguayhdeq .gt_sourcenote {
+#nicjfluuog .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1492,63 +1501,63 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#tbguayhdeq .gt_left {
+#nicjfluuog .gt_left {
   text-align: left;
 }
 
-#tbguayhdeq .gt_center {
+#nicjfluuog .gt_center {
   text-align: center;
 }
 
-#tbguayhdeq .gt_right {
+#nicjfluuog .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tbguayhdeq .gt_font_normal {
+#nicjfluuog .gt_font_normal {
   font-weight: normal;
 }
 
-#tbguayhdeq .gt_font_bold {
+#nicjfluuog .gt_font_bold {
   font-weight: bold;
 }
 
-#tbguayhdeq .gt_font_italic {
+#nicjfluuog .gt_font_italic {
   font-style: italic;
 }
 
-#tbguayhdeq .gt_super {
+#nicjfluuog .gt_super {
   font-size: 65%;
 }
 
-#tbguayhdeq .gt_footnote_marks {
+#nicjfluuog .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tbguayhdeq .gt_asterisk {
+#nicjfluuog .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tbguayhdeq .gt_indent_1 {
+#nicjfluuog .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tbguayhdeq .gt_indent_2 {
+#nicjfluuog .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tbguayhdeq .gt_indent_3 {
+#nicjfluuog .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tbguayhdeq .gt_indent_4 {
+#nicjfluuog .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tbguayhdeq .gt_indent_5 {
+#nicjfluuog .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1598,27 +1607,27 @@ Sí participó No participó
 <h3 class="unnumbered anchored" data-anchor-id="paso-1-análisis-exploratorio-de-datos">Paso 1: Análisis exploratorio de datos</h3>
 <p>Ahora solicitamos una tabla cruzada o de contigencia donde nuestros grupos de comparación es el ámbito.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>lapop <span class="sc">|&gt;</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(prot3, ambito) <span class="sc">|&gt;</span> </span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>lapop <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(prot3, ambito) <span class="sc">|&gt;</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>ambito)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="sxbhlbgoge" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#sxbhlbgoge table {
+<div id="uxuosuggxh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uxuosuggxh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#sxbhlbgoge thead, #sxbhlbgoge tbody, #sxbhlbgoge tfoot, #sxbhlbgoge tr, #sxbhlbgoge td, #sxbhlbgoge th {
+#uxuosuggxh thead, #uxuosuggxh tbody, #uxuosuggxh tfoot, #uxuosuggxh tr, #uxuosuggxh td, #uxuosuggxh th {
   border-style: none;
 }
 
-#sxbhlbgoge p {
+#uxuosuggxh p {
   margin: 0;
   padding: 0;
 }
 
-#sxbhlbgoge .gt_table {
+#uxuosuggxh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1644,12 +1653,12 @@ Sí participó No participó
   border-left-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_caption {
+#uxuosuggxh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#sxbhlbgoge .gt_title {
+#uxuosuggxh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1661,7 +1670,7 @@ Sí participó No participó
   border-bottom-width: 0;
 }
 
-#sxbhlbgoge .gt_subtitle {
+#uxuosuggxh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1673,7 +1682,7 @@ Sí participó No participó
   border-top-width: 0;
 }
 
-#sxbhlbgoge .gt_heading {
+#uxuosuggxh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1685,13 +1694,13 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_bottom_border {
+#uxuosuggxh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_col_headings {
+#uxuosuggxh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1706,7 +1715,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_col_heading {
+#uxuosuggxh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1726,7 +1735,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#sxbhlbgoge .gt_column_spanner_outer {
+#uxuosuggxh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1738,15 +1747,15 @@ Sí participó No participó
   padding-right: 4px;
 }
 
-#sxbhlbgoge .gt_column_spanner_outer:first-child {
+#uxuosuggxh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#sxbhlbgoge .gt_column_spanner_outer:last-child {
+#uxuosuggxh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#sxbhlbgoge .gt_column_spanner {
+#uxuosuggxh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1758,11 +1767,11 @@ Sí participó No participó
   width: 100%;
 }
 
-#sxbhlbgoge .gt_spanner_row {
+#uxuosuggxh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#sxbhlbgoge .gt_group_heading {
+#uxuosuggxh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1788,7 +1797,7 @@ Sí participó No participó
   text-align: left;
 }
 
-#sxbhlbgoge .gt_empty_group_heading {
+#uxuosuggxh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1803,15 +1812,15 @@ Sí participó No participó
   vertical-align: middle;
 }
 
-#sxbhlbgoge .gt_from_md > :first-child {
+#uxuosuggxh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#sxbhlbgoge .gt_from_md > :last-child {
+#uxuosuggxh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#sxbhlbgoge .gt_row {
+#uxuosuggxh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1830,7 +1839,7 @@ Sí participó No participó
   overflow-x: hidden;
 }
 
-#sxbhlbgoge .gt_stub {
+#uxuosuggxh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1843,7 +1852,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#sxbhlbgoge .gt_stub_row_group {
+#uxuosuggxh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1857,15 +1866,15 @@ Sí participó No participó
   vertical-align: top;
 }
 
-#sxbhlbgoge .gt_row_group_first td {
+#uxuosuggxh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#sxbhlbgoge .gt_row_group_first th {
+#uxuosuggxh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#sxbhlbgoge .gt_summary_row {
+#uxuosuggxh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1875,16 +1884,16 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#sxbhlbgoge .gt_first_summary_row {
+#uxuosuggxh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_first_summary_row.thick {
+#uxuosuggxh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#sxbhlbgoge .gt_last_summary_row {
+#uxuosuggxh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1894,7 +1903,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_grand_summary_row {
+#uxuosuggxh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1904,7 +1913,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#sxbhlbgoge .gt_first_grand_summary_row {
+#uxuosuggxh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1914,7 +1923,7 @@ Sí participó No participó
   border-top-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_last_grand_summary_row_top {
+#uxuosuggxh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1924,11 +1933,11 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_striped {
+#uxuosuggxh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#sxbhlbgoge .gt_table_body {
+#uxuosuggxh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1937,7 +1946,7 @@ Sí participó No participó
   border-bottom-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_footnotes {
+#uxuosuggxh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1951,7 +1960,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_footnote {
+#uxuosuggxh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1960,7 +1969,7 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#sxbhlbgoge .gt_sourcenotes {
+#uxuosuggxh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1974,7 +1983,7 @@ Sí participó No participó
   border-right-color: #D3D3D3;
 }
 
-#sxbhlbgoge .gt_sourcenote {
+#uxuosuggxh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1982,63 +1991,63 @@ Sí participó No participó
   padding-right: 5px;
 }
 
-#sxbhlbgoge .gt_left {
+#uxuosuggxh .gt_left {
   text-align: left;
 }
 
-#sxbhlbgoge .gt_center {
+#uxuosuggxh .gt_center {
   text-align: center;
 }
 
-#sxbhlbgoge .gt_right {
+#uxuosuggxh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#sxbhlbgoge .gt_font_normal {
+#uxuosuggxh .gt_font_normal {
   font-weight: normal;
 }
 
-#sxbhlbgoge .gt_font_bold {
+#uxuosuggxh .gt_font_bold {
   font-weight: bold;
 }
 
-#sxbhlbgoge .gt_font_italic {
+#uxuosuggxh .gt_font_italic {
   font-style: italic;
 }
 
-#sxbhlbgoge .gt_super {
+#uxuosuggxh .gt_super {
   font-size: 65%;
 }
 
-#sxbhlbgoge .gt_footnote_marks {
+#uxuosuggxh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#sxbhlbgoge .gt_asterisk {
+#uxuosuggxh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#sxbhlbgoge .gt_indent_1 {
+#uxuosuggxh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#sxbhlbgoge .gt_indent_2 {
+#uxuosuggxh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#sxbhlbgoge .gt_indent_3 {
+#uxuosuggxh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#sxbhlbgoge .gt_indent_4 {
+#uxuosuggxh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#sxbhlbgoge .gt_indent_5 {
+#uxuosuggxh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -2092,9 +2101,9 @@ Sí participó No participó
 </div>
 <p>Lo visualizamos en un gráfico:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lapop <span class="sc">|&gt;</span> </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> prot3) <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>lapop <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> prot3) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2105,16 +2114,16 @@ Sí participó No participó
 </div>
 <p>O también:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lapop, <span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> prot3)) <span class="sc">+</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(..count..<span class="sc">/</span><span class="fu">tapply</span>(..count.., ..x.., sum)[..x..], <span class="at">accuracy =</span> <span class="dv">1</span>)),</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gráfico de Barras Acumuladas por Ámbito y Protesta"</span>,</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ámbito"</span>,</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proporción"</span>) <span class="sc">+</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Sí participó"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"No participó"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> <span class="co">#opcional</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lapop, <span class="fu">aes</span>(<span class="at">x =</span> ambito, <span class="at">fill =</span> prot3)) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(..count..<span class="sc">/</span><span class="fu">tapply</span>(..count.., ..x.., sum)[..x..], <span class="at">accuracy =</span> <span class="dv">1</span>)),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">stat =</span> <span class="st">"count"</span>,</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_fill</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gráfico de Barras Acumuladas por Ámbito y Protesta"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ámbito"</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proporción"</span>) <span class="sc">+</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Sí participó"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"No participó"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> <span class="co">#opcional</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2156,9 +2165,9 @@ Sí participó No participó
 <h4 class="unnumbered anchored" data-anchor-id="calcular-p-valor">Calcular p-valor</h4>
 <p>Para calcular la prueba de hipótesis utilizamos la función <code>chisq.test</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(lapop<span class="sc">$</span>prot3, lapop<span class="sc">$</span>ambito)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_simple) <span class="co"># Colocamos la tabla con las frecuencias simples</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>prueba</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>tabla_simple<span class="ot">&lt;-</span><span class="fu">table</span>(lapop<span class="sc">$</span>prot3, lapop<span class="sc">$</span>ambito)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabla_simple) <span class="co"># Colocamos la tabla con las frecuencias simples</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>prueba</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test with Yates' continuity correction
@@ -2173,7 +2182,7 @@ X-squared = 2.3357, df = 1, p-value = 0.1264</code></pre>
 <h4 class="unnumbered anchored" data-anchor-id="verificación-de-supuesto">Verificación de supuesto</h4>
 <p>En nuestro caso, verificamos este supuesto?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tabla_simple)<span class="sc">$</span>expected</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tabla_simple)<span class="sc">$</span>expected</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              
                  Urbano     Rural

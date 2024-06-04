@@ -21,6 +21,7 @@ book:
     - s6_t_test.qmd
     - s7_chi.qmd
     - s8_correlacion.qmd
+    - s9_regresion_simple.qmd
 
 bibliography: references.bib
 

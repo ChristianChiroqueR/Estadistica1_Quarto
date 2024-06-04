@@ -112,7 +112,7 @@ La prueba chi-cuadrado (χ²) es una prueba estadística utilizada para determin
 Recuerda:
 
 | ASOCIACIÓN                                                                                                                                         |
-|------------------------------------------------------------------------|
+|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Indica si la distribución de frecuencias de una variable está relacionada de alguna manera con la distribución de frecuencias de la otra variable. |
 
 El objetivo de la prueba chi-cuadrado (χ²) es evaluar si las diferencias observadas en la distribución de frecuencias entre las categorías de las variables son significativas o podrían haber ocurrido por azar.
