@@ -22,6 +22,7 @@ book:
     - s7_chi.qmd
     - s8_correlacion.qmd
     - s9_regresion_simple.qmd
+    - s10_regresion_multiple.qmd
 
 bibliography: references.bib
 

@@ -4,7 +4,6 @@
 
 Introducir a los estudiantes en el concepto y la aplicación de la regresión lineal, utilizada para modelar y analizar la relación entre una variable dependiente y una variable independiente. Se abordarán los siguientes temas: concepto de regresión lineal, construcción de modelo de regresión lineal e interpretación de los resultados.
 
-
 ## Conceptos básicos
 
 La regresión lineal simple es una técnica estadística que busca modelar la relación entre dos variables: una variable dependiente y una variable independiente.
@@ -73,12 +72,11 @@ $$
 
 ### Ejemplos
 
-Probemos con algunos ejemplos adicionales. Determinemos la ecuación de estas rectas. 
+Probemos con algunos ejemplos adicionales. Determinemos la ecuación de estas rectas.
 
 **Ejemplo 1:**
 
 ![](images/recta1.jpg)
-
 
 **Ejemplo 2:**
 
@@ -88,23 +86,15 @@ Probemos con algunos ejemplos adicionales. Determinemos la ecuación de estas re
 
 ![](images/recta3.jpg)
 
-
 Por último, genera las rectas cuya ecuación es:
 
-
-**Ejemplo 4: $y= -1 + x$**
-
+**Ejemplo 4:** $y= -1 + x$
 
 ![](images/recta4.jpg)
 
-**Ejemplo 5: $y= 2 + (0*x)$**
-
+**Ejemplo 5:** $y= 2 + (0*x)$
 
 ![](images/recta4.jpg)
-
-
-
-
 
 ## Regresión lineal simple
 
@@ -123,7 +113,6 @@ library(rio)
 matricula<-import("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/DATA_internacional/matricula.xlsx")
 colnames(matricula)<-c("pais","matricula","pbiPC","pobreza","urbano","gastoeducacion","ratio_prof","alcohol","natalidad_ado")
 ```
-
 
 ### Correlación lineal para una regresión lineal
 
@@ -148,7 +137,6 @@ cor.test(matricula$matricula, matricula$pobreza)
 
 ![](images/correlacion_cohen.jpg)
 
-
 ### Hallar la ecuación para dibujar la mejor línea
 
 Como vimos anteriormente, para dibujar la línea debemos contar, este caso, con los dos elementos clave: intercepto y pendiente de x.
@@ -164,7 +152,6 @@ $$
 ::: callout-note
 Regresión: Técnica que permite modelar y analizar la relación lineal entre dos variables, proporcionando una forma de estimar y predecir valores de la variable dependiente en función de la variable independiente.
 :::
-
 
 ### Generar la regresión
 
@@ -187,13 +174,11 @@ Ciertamente, tenemos mucha información en este resultado. Para analizarlo, vamo
 El signo del coeficiente $\beta_1$ indica la relación que tiene la variable dependiente con la variable independiente. En este caso vemos que la relación es indirecta (mientras menos pobreza, la matrícula es mayor).
 :::
 
-
 ### ¿Mi modelo es válido?: ANOVA
 
-Ahora probamos su validez con la técnica ANOVA. 
+Ahora probamos su validez con la técnica ANOVA.
 
 ![](images/modelo1_anova.png)
-
 
 El ANOVA proporciona información sobre la calidad general del modelo, indicando si el modelo en su conjunto es útil para predecir o explicar la variable dependiente. Tenemos las siguientes hipótesis a poner a prueba:
 
@@ -203,7 +188,6 @@ El ANOVA proporciona información sobre la calidad general del modelo, indicando
 | Hipótesis alterna | El modelo de regresión es válido    |
 
 En este caso, al obtener un p-valor menor al alpha (0.05) podemos rechazar la hipótesis nula, concluyendo que **nuestro modelo sí es válido**.
-
 
 ### ¿Cuánto explica mi modelo?: R2
 
@@ -231,8 +215,6 @@ Hemos obtenido un R2 de 0.526 por lo que concluimos:
 
 -   Siguiendo nuestro intervalo, diremos que el modelo tiene un **ALTO** nivel explicativo.
 
-
-
 ### ¿Mi variable x permite explicar y?: P-valor de coeficientes
 
 La significancia estadística de los coeficientes en un modelo de regresión se refiere a la pregunta de si los coeficientes estimados son estadísticamente diferentes de cero o no. En otras palabras, se evalúa si hay evidencia suficiente en los datos para afirmar que la relación entre la variable independiente y la variable dependiente es real y no se debe simplemente al azar.
@@ -250,11 +232,9 @@ Para determinar la significancia estadística, se utiliza un valor de p, que ind
 
 En este caso, para la variable Pobreza, al obtener un p-valor menor al alpha (0.05) podemos rechazar la hipótesis nula, concluyendo que efectivamente SÍ aporta al modelo para explicar el nivel de matrícula escolar en el mundo.
 
-
 ::: callout-warning
 En este caso siempre vemos el p-valor de la variable independiente. No del intercepto!
 :::
-
 
 ### Dibujamos la recta
 
@@ -279,44 +259,39 @@ matricula |>
 
 https://cran.r-project.org/web/packages/ggpmisc/readme/README.html
 
-
 En este caso vemos que las distancias de lo observado a lo calculado por el modelo es el **error aleatorio**.
 
 Formalmente debemos decir que ε es el término de error que representa la variación no explicada por el modelo. En otras palabras, el ε es la acumulación de las distancias de los puntos a la línea recta construida. A nivel de ecuación, el error se redacta de la siguiente manera.
 
-
 ![](images/ecuation.png)
-
 
 ## Ejercicio 1 {.unnumbered}
 
 Ahora realiza genere modelo de regresión lineal simple para predecir matrícula con la variable PBIpc.
 
-- Corrobore la correlación lineal entre ambas variables. 
+-   Corrobore la correlación lineal entre ambas variables.
 
-- Genere el modelo, utilizando `lm()`. Indique la ecuación del modelo y qué relación tendría la dependiente con la independiente.
+-   Genere el modelo, utilizando `lm()`. Indique la ecuación del modelo y qué relación tendría la dependiente con la independiente.
 
-- ¿El modelo es válido?
+-   ¿El modelo es válido?
 
-- ¿Cuánto explica?
+-   ¿Cuánto explica?
 
-- ¿La variable x aporta el modelo?
-
+-   ¿La variable x aporta el modelo?
 
 ## Ejercicio 2 {.unnumbered}
 
-Haciendo uso de la base elecciones_2011 se desea explorar los factores determinantes del porcentje de respaldo electoral al candidato Ollanta Humala. Genere un modelo de regresión lineal utilizando la variable "pobreza" como variable independiente. 
+Haciendo uso de la base elecciones_2011 se desea explorar los factores determinantes del porcentje de respaldo electoral al candidato Ollanta Humala. Genere un modelo de regresión lineal utilizando la variable "pobreza" como variable independiente.
 
-- Corrobore la correlación lineal entre ambas variables. 
+-   Corrobore la correlación lineal entre ambas variables.
 
-- Genere el modelo, utilizando `lm()`. Indique la ecuación del modelo y qué relación tendría la dependiente con la independiente.
+-   Genere el modelo, utilizando `lm()`. Indique la ecuación del modelo y qué relación tendría la dependiente con la independiente.
 
-- ¿El modelo es válido?
+-   ¿El modelo es válido?
 
-- ¿Cuánto explica?
+-   ¿Cuánto explica?
 
-- ¿La variable x aporta el modelo?
-
+-   ¿La variable x aporta el modelo?
 
 ## Video de soporte {.unnumbered}
 
