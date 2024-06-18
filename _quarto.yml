@@ -23,6 +23,8 @@ book:
     - s8_correlacion.qmd
     - s9_regresion_simple.qmd
     - s10_regresion_multiple.qmd
+    - s11_regresion_multiple2.qmd
+    - s12_repaso.qmd
 
 bibliography: references.bib
 
