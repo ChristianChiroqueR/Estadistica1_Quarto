@@ -131,7 +131,7 @@ Ejemplos:
 RESUMEN: Las variables dummy desempeñan un papel fundamental en los modelos de regresión al permitir la inclusión de variables categóricas en un marco analítico basado en regresión lineal. Proporcionan una representación numérica de características cualitativas, permiten la comparación relativa de categorías, controlan variables omitidas y facilitan el análisis de interacciones y efectos modificadores. Su uso adecuado y su interpretación correcta son esenciales para comprender cómo las características categóricas influyen en los fenómenos estudiados en las ciencias sociales.
 :::
 
-### Ejercicio 2 {.unnumbered}
+## Ejercicio 2 {.unnumbered}
 
 ```{r message=FALSE, warning=FALSE}
 data<-import("https://github.com/ChristianChiroqueR/banco_de_datos/raw/main/trabajadores.sav")

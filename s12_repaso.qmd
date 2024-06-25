@@ -1,5 +1,7 @@
 # Repaso
 
+![](images/ML.jpg)
+
 ## Situación {.unnumbered}
 
 Eres parte de un equipo de investigación que se ha enfocado en el estudio del lavado de activos, un fenómeno complejo y multifacético que afecta a la economía global.
